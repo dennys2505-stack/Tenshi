@@ -17,7 +17,7 @@ const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 const ytDlpWrap = new YTDlpWrap();
 
 const TARGET_CHANNEL_ID = process.env.DISCORD_CHANNEL_ID;
-const NETLIFY_WEBHOOK_URL = process.env.NETLIFY_WEBHOOK_URL; // Ex: https://ton-site.netlify.app/.netlify/functions/lineups
+const NETLIFY_WEBHOOK_URL = process.env.NETLIFY_WEBHOOK_URL; // Ex: https://ton-site.netlify.app/api/lineups
 
 client.once('ready', () => {
   console.log(`✅ Bot Discord connecté : ${client.user.tag}`);
@@ -59,6 +59,56 @@ client.on('messageCreate', async (message) => {
         "agent": "Nom de l'agent (ex: Sova, Viper, Omen...)",
         "map": "Nom de la map (ex: Ascent, Bind, Haven, Lotus...)",
         "side": "Attaque ou Défense",
+        "site": "A, B ou C (le site concerné)",
+        "title": "Titre court de la line up (ex: Post-plant B depuis Windows)",
         "startSpot": "Description précise d'où le joueur se place",
         "endSpot": "Zone d'arrivée sur la map",
-        "description": "
+        "description": "Explication courte de ce qu'il faut viser et de la posture (accroupi, saut...)"
+      }
+    `;
+
+    const result = await ai.models.generateContent({
+      model: 'gemini-2.5-flash',
+      contents: [{ role: 'user', parts: [videoPart, { text: prompt }] }]
+    });
+
+    const raw = (result.text || '').replace(/```json|```/g, '').trim();
+    const data = JSON.parse(raw);
+
+    // 4. Envoi vers le site (API protégée par le mot de passe admin)
+    const lineup = {
+      id: 'l' + Date.now(),
+      map: data.map,
+      agent: data.agent,
+      side: data.side || 'Attaque',
+      site: data.site || '',
+      title: data.title || `${data.startSpot} → ${data.endSpot}`,
+      video: videoUrl,
+      credit: 'Bot Discord',
+      description: [data.startSpot, data.endSpot, data.description].filter(Boolean).join(' — '),
+      images: [],
+      minimap: ''
+    };
+
+    const res = await fetch(NETLIFY_WEBHOOK_URL, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+        'x-admin': process.env.ADMIN_PASSWORD || ''
+      },
+      body: JSON.stringify(lineup)
+    });
+    if (!res.ok) throw new Error(`Site: réponse ${res.status}`);
+
+    await message.reactions.removeAll().catch(() => {});
+    await message.react('✅');
+  } catch (err) {
+    console.error('Erreur traitement lineup :', err);
+    await message.reactions.removeAll().catch(() => {});
+    await message.react('❌');
+  } finally {
+    fs.rm(outputFilePath, { force: true }, () => {});
+  }
+});
+
+client.login(process.env.DISCORD_TOKEN);
