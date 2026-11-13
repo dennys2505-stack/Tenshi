@@ -14,7 +14,15 @@ const client = new Client({
 });
 
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
-const ytDlpWrap = new YTDlpWrap();
+// Compatibilité ESM : yt-dlp-wrap exporte la classe dans .default
+const YTDlpClass = YTDlpWrap.default ?? YTDlpWrap;
+const YTDLP_PATH = path.resolve('./yt-dlp');
+if (!fs.existsSync(YTDLP_PATH)) {
+  console.log('Téléchargement du binaire yt-dlp...');
+  await YTDlpClass.downloadFromGithub(YTDLP_PATH);
+  fs.chmodSync(YTDLP_PATH, 0o755);
+}
+const ytDlpWrap = new YTDlpClass(YTDLP_PATH);
 
 const TARGET_CHANNEL_ID = process.env.DISCORD_CHANNEL_ID;
 const NETLIFY_WEBHOOK_URL = process.env.NETLIFY_WEBHOOK_URL; // Ex: https://ton-site.netlify.app/api/lineups
