@@ -30,6 +30,7 @@ jobs:
           set -e
           mkdir -p /tmp/pub
           if [ -d out ]; then cp -r out/. /tmp/pub/; else echo "aucune sortie" > /tmp/pub/run.log; fi
+          rm -rf out
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git fetch origin bot-logs || true
