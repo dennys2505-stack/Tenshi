@@ -153,7 +153,12 @@ const boot = {
         '<label>Crédit</label><input type="text" id="credit" value="' + esc(d.credit) + '">' +
         '<label><input type="checkbox" id="reveal"' + (d.reveal ? ' checked' : '') + '> Reveal (Fade : affiche l\'icône à l\'arrivée)</label>' +
         '<label>Photos</label><div class="ims" id="ims">' + (d.images || []).map(function (im, k) {
-          return '<div><img src="' + esc(im.src) + '" alt=""><input type="text" data-k="' + k + '" class="cap" value="' + esc(im.cap) + '" placeholder="Légende"><button class="b d" data-del="' + k + '" style="margin-top:6px;width:100%">Retirer</button></div>';
+          return '<div><img src="' + esc(im.src) + '" alt=""><input type="text" data-k="' + k + '" class="cap" value="' + esc(im.cap) + '" placeholder="Légende">' +
+            '<div class="row" style="margin-top:6px;gap:6px;flex-wrap:nowrap">' +
+            '<button class="b" data-mv="' + k + ',-1" aria-label="Avant"' + (k === 0 ? ' disabled' : '') + ' style="flex:1">◀</button>' +
+            '<button class="b" data-mv="' + k + ',1" aria-label="Après"' + (k === d.images.length - 1 ? ' disabled' : '') + ' style="flex:1">▶</button></div>' +
+            (k > 0 ? '<button class="b" data-first="' + k + '" style="margin-top:6px;width:100%">Mettre en premier</button>' : '<div style="margin-top:6px;text-align:center;font-size:.85em;opacity:.7">Photo principale</div>') +
+            '<button class="b d" data-del="' + k + '" style="margin-top:6px;width:100%">Retirer</button></div>';
         }).join('') + '</div>' +
         '<div class="row"><label class="b" style="margin:0;color:inherit">+ Ajouter des photos<input type="file" id="file" accept="image/*" multiple hidden></label></div>' +
         (mi && mi.minimap ? '<label>Mini map : choisir puis toucher la carte</label><div class="row">' +
@@ -191,6 +196,8 @@ const boot = {
       document.getElementById('map').onchange = function () { read(); viewEdit(); };
       document.getElementById('back').onclick = function () { setMsg(null); viewList(); };
       Array.prototype.forEach.call(document.querySelectorAll('[data-del]'), function (b) { b.onclick = function () { read(); d.images.splice(+b.getAttribute('data-del'), 1); viewEdit(); }; });
+      Array.prototype.forEach.call(document.querySelectorAll('[data-mv]'), function (b) { b.onclick = function () { read(); var p = b.getAttribute('data-mv').split(','), k = +p[0], j = k + (+p[1]); if (j < 0 || j >= d.images.length) return; var t = d.images[k]; d.images[k] = d.images[j]; d.images[j] = t; setMsg('Ordre changé. Pense à enregistrer.'); viewEdit(); }; });
+      Array.prototype.forEach.call(document.querySelectorAll('[data-first]'), function (b) { b.onclick = function () { read(); var k = +b.getAttribute('data-first'); d.images.unshift(d.images.splice(k, 1)[0]); setMsg('Ordre changé. Pense à enregistrer.'); viewEdit(); }; });
       document.getElementById('file').onchange = async function (e) {
         read(); var files = Array.prototype.slice.call(e.target.files); if (!files.length) return;
         setMsg('Envoi des photos…'); viewEdit();
