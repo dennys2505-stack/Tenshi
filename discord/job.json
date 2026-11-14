@@ -1,1 +1,1 @@
-{ "task": "probe", "perHost": 2 }
+{ "task": "frames", "limit": 20 }
