@@ -1,1 +1,1 @@
-{ "task": "import", "maps": ["Sunset"], "limit": 0, "dry": true }
+{ "task": "import", "limit": 10 }
