@@ -1,0 +1,241 @@
+---
+import Base from '../../layouts/Base.astro';
+import { lineups, maps, agents } from '../../lib/data.js';
+const boot = {
+  items: lineups.map((l) => ({ id: l.id, num: l.num ?? 0, map: l.map, agent: l.agent, title: l.title })),
+  maps: maps.map((m) => ({ name: m.name, minimap: m.minimap, dim: m.dim })),
+  agents: agents.map((a) => a.name),
+};
+---
+<Base title="Admin" description="Administration">
+  <meta name="robots" content="noindex,nofollow" slot="head" />
+  <script type="application/json" id="boot" set:html={JSON.stringify(boot)} />
+  <div id="app"><p class="empty">Chargement…</p></div>
+  <style is:global>
+    .adm h1{margin-bottom:8px}
+    .adm .row{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0}
+    .adm label{display:block;font-size:.85rem;color:var(--mu);margin:12px 0 4px}
+    .adm input[type=text],.adm input[type=search],.adm input[type=password],.adm select,.adm textarea{width:100%;font:inherit;color:inherit;background:var(--pn);border:1px solid var(--ln);border-radius:8px;padding:10px 12px;min-height:44px}
+    .adm textarea{min-height:90px}
+    .adm .b{border:1px solid var(--ln);background:var(--pn);border-radius:8px;padding:10px 16px;min-height:44px}
+    .adm .b.p{background:var(--ac);border-color:var(--ac);color:#14171c;font-weight:600}
+    .adm .b.d{color:#d33;border-color:#d33}
+    .adm .b[aria-pressed=true]{outline:2px solid var(--ac)}
+    .adm .it{display:flex;gap:10px;align-items:center;width:100%;text-align:left;background:var(--pn);border:1px solid var(--ln);border-radius:8px;padding:10px 12px;margin-bottom:8px;min-height:48px}
+    .adm .it .n{font-weight:700;color:var(--ac);min-width:2.2em}
+    .adm .it small{color:var(--mu)}
+    .adm .msg{padding:10px 12px;border-radius:8px;margin:10px 0;background:var(--pn);border:1px solid var(--ln)}
+    .adm .msg.err{border-color:#d33;color:#d33}
+    .adm .ims{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+    .adm .ims>div{background:var(--pn);border:1px solid var(--ln);border-radius:8px;padding:8px}
+    .adm .ims img{max-height:180px;object-fit:contain}
+    .adm .mmw{position:relative;max-width:520px;touch-action:manipulation}
+    .adm .mmw img{cursor:crosshair}
+    .adm .dot{position:absolute;width:18px;height:18px;margin:-9px 0 0 -9px;border-radius:50%;border:3px solid #111;pointer-events:none}
+    .adm ol{padding-left:1.2em;color:var(--mu)} .adm ol li{margin:6px 0}
+  </style>
+  <script is:inline>
+  (function () {
+    var REPO = 'dennys2505-stack/Tenshi', BR = 'main', DIR = 'site/src/data/lineups', IMG = 'site/public/img/lineups';
+    var boot = JSON.parse(document.getElementById('boot').textContent);
+    var items = boot.items.slice();
+    var tok = ''; try { tok = localStorage.getItem('tenshi_gh') || ''; } catch (e) {}
+    var app = document.getElementById('app');
+    var cur = null, mode = 'from', msg = null, busy = false;
+
+    var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
+    var slug = function (s) { return String(s).normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); };
+    var b64 = function (s) { return btoa(unescape(encodeURIComponent(s))); };
+    var unb64 = function (s) { return decodeURIComponent(escape(atob(s.replace(/\n/g, '')))); };
+
+    async function gh(path, opt) {
+      opt = opt || {};
+      var r = await fetch('https://api.github.com/repos/' + REPO + path, {
+        method: opt.method || 'GET',
+        headers: { Authorization: 'Bearer ' + tok, Accept: 'application/vnd.github+json', 'Content-Type': 'application/json' },
+        body: opt.body ? JSON.stringify(opt.body) : undefined,
+      });
+      var j = null; try { j = await r.json(); } catch (e) {}
+      if (!r.ok) throw new Error((j && j.message) || ('HTTP ' + r.status));
+      return j;
+    }
+
+    // Mode admin : les numéros sont visibles sur tout le site (sur cet appareil).
+    try { localStorage.setItem('tenshi_num', '1'); document.documentElement.classList.add('show-num'); } catch (e) {}
+
+    function setMsg(t, err) { msg = t ? { t: t, err: !!err } : null; }
+    function msgHtml() { return msg ? '<div class="msg' + (msg.err ? ' err' : '') + '">' + esc(msg.t) + '</div>' : ''; }
+
+    function viewLogin() {
+      app.innerHTML = '<div class="adm"><h1>Admin</h1>' + msgHtml() +
+        '<p class="lead">Pour modifier le site depuis cette page, il faut une clé GitHub (à faire une seule fois par appareil).</p>' +
+        '<ol><li>Sur GitHub : photo de profil → <b>Settings</b> → <b>Developer settings</b> → <b>Personal access tokens</b> → <b>Fine-grained tokens</b> → <b>Generate new token</b>.</li>' +
+        '<li><b>Repository access</b> : « Only select repositories » → <b>Tenshi</b>.</li>' +
+        '<li><b>Permissions</b> → Repository permissions → <b>Contents : Read and write</b>.</li>' +
+        '<li>Générer, copier la clé, la coller ci-dessous.</li></ol>' +
+        '<label for="t">Clé GitHub</label><input id="t" type="password" autocomplete="off" placeholder="github_pat_…">' +
+        '<div class="row"><button class="b p" id="ok">Se connecter</button></div>' +
+        '<p class="empty">La clé reste uniquement dans ton navigateur ; elle n\'est jamais publiée.</p></div>';
+      document.getElementById('ok').onclick = async function () {
+        var v = document.getElementById('t').value.trim(); if (!v) return;
+        tok = v;
+        try {
+          var r = await gh('');
+          if (!r.permissions || !r.permissions.push) throw new Error('Cette clé n\'a pas le droit d\'écrire (Contents : Read and write).');
+          try { localStorage.setItem('tenshi_gh', tok); } catch (e) {}
+          setMsg(null); viewList();
+        } catch (e) { tok = ''; setMsg('Connexion impossible : ' + e.message, true); viewLogin(); }
+      };
+    }
+
+    function viewList(q) {
+      q = (q || '').toLowerCase();
+      var list = items.filter(function (i) { return !q || (i.num + ' ' + i.map + ' ' + i.agent + ' ' + i.title).toLowerCase().indexOf(q) >= 0; })
+        .sort(function (a, b) { return a.num - b.num; });
+      app.innerHTML = '<div class="adm"><h1>Admin</h1>' + msgHtml() +
+        '<div class="row"><button class="b p" id="new">+ Nouvelle line up</button><button class="b" id="out">Se déconnecter</button></div>' +
+        '<input type="search" id="q" placeholder="Chercher (numéro, map, agent, titre)" value="' + esc(q) + '">' +
+        '<p class="lead" style="margin-top:12px">' + items.length + ' line ups. Les numéros sont visibles sur tout le site tant que tu es en mode admin.</p>' +
+        list.map(function (i) {
+          return '<button class="it" data-id="' + esc(i.id) + '"><span class="n">#' + (i.num || '–') + '</span><span>' + esc(i.title) + '<br><small>' + esc(i.map) + ' · ' + esc(i.agent) + '</small></span></button>';
+        }).join('') + '</div>';
+      document.getElementById('q').oninput = function (e) { var v = e.target.value; viewList(v); var el = document.getElementById('q'); el.focus(); el.setSelectionRange(v.length, v.length); };
+      document.getElementById('new').onclick = function () { openEditor(null); };
+      document.getElementById('out').onclick = function () { try { localStorage.removeItem('tenshi_gh'); } catch (e) {} tok = ''; viewLogin(); };
+      Array.prototype.forEach.call(app.querySelectorAll('.it'), function (b) { b.onclick = function () { openEditor(b.getAttribute('data-id')); }; });
+    }
+
+    async function openEditor(id) {
+      setMsg(null);
+      if (!id) {
+        var mx = items.reduce(function (m, i) { return Math.max(m, i.num || 0); }, 0);
+        cur = { sha: null, isNew: true, d: { id: '', num: mx + 1, map: boot.maps[0].name, agent: boot.agents[0], side: 'Attaque', site: '', title: '', notes: [], reveal: false, images: [], from: null, to: null, video: '', credit: '' } };
+        return viewEdit();
+      }
+      app.innerHTML = '<p class="empty">Chargement…</p>';
+      try {
+        var f = await gh('/contents/' + DIR + '/' + id + '.json?ref=' + BR);
+        cur = { sha: f.sha, isNew: false, d: JSON.parse(unb64(f.content)) };
+        viewEdit();
+      } catch (e) { setMsg('Lecture impossible : ' + e.message, true); viewList(); }
+    }
+
+    function mapInfo(n) { return boot.maps.filter(function (m) { return m.name === n; })[0]; }
+
+    function viewEdit() {
+      var d = cur.d, mi = mapInfo(d.map), W = (mi && mi.dim) ? mi.dim : [640, 640];
+      var opts = function (arr, v) { return arr.map(function (x) { return '<option' + (x === v ? ' selected' : '') + '>' + esc(x) + '</option>'; }).join(''); };
+      var mapNames = boot.maps.map(function (m) { return m.name; });
+      if (mapNames.indexOf(d.map) < 0) mapNames.push(d.map);
+      var agNames = boot.agents.slice(); if (agNames.indexOf(d.agent) < 0) agNames.push(d.agent);
+      app.innerHTML = '<div class="adm"><div class="row"><button class="b" id="back">← Liste</button></div>' +
+        '<h1>' + (cur.isNew ? 'Nouvelle line up' : '#' + (d.num || '–') + ' · ' + esc(d.title)) + '</h1>' + msgHtml() +
+        '<label>Titre</label><input type="text" id="title" value="' + esc(d.title) + '">' +
+        '<div class="row"><div style="flex:1;min-width:140px"><label>Map</label><select id="map">' + opts(mapNames, d.map) + '</select></div>' +
+        '<div style="flex:1;min-width:140px"><label>Agent</label><select id="agent">' + opts(agNames, d.agent) + '</select></div></div>' +
+        '<div class="row"><div style="flex:1;min-width:140px"><label>Côté</label><select id="side">' + opts(['Attaque', 'Défense', 'Post plant', 'Retake'], d.side) + '</select></div>' +
+        '<div style="flex:1;min-width:140px"><label>Site (A, B, C ou vide)</label><input type="text" id="site" value="' + esc(d.site) + '"></div></div>' +
+        '<label>Indications (une par ligne : posture, touche, etc.)</label><textarea id="notes">' + esc((d.notes || []).join('\n')) + '</textarea>' +
+        '<label>Lien vidéo</label><input type="text" id="video" value="' + esc(d.video) + '">' +
+        '<label>Crédit</label><input type="text" id="credit" value="' + esc(d.credit) + '">' +
+        '<label><input type="checkbox" id="reveal"' + (d.reveal ? ' checked' : '') + '> Reveal (Fade : affiche l\'icône à l\'arrivée)</label>' +
+        '<label>Photos</label><div class="ims" id="ims">' + (d.images || []).map(function (im, k) {
+          return '<div><img src="' + esc(im.src) + '" alt=""><input type="text" data-k="' + k + '" class="cap" value="' + esc(im.cap) + '" placeholder="Légende"><button class="b d" data-del="' + k + '" style="margin-top:6px;width:100%">Retirer</button></div>';
+        }).join('') + '</div>' +
+        '<div class="row"><label class="b" style="margin:0;color:inherit">+ Ajouter des photos<input type="file" id="file" accept="image/*" multiple hidden></label></div>' +
+        (mi && mi.minimap ? '<label>Mini map : choisir puis toucher la carte</label><div class="row">' +
+          '<button class="b" id="mfrom" aria-pressed="' + (mode === 'from') + '">⚪ Départ</button>' +
+          '<button class="b" id="mto" aria-pressed="' + (mode === 'to') + '">🎯 Arrivée</button>' +
+          '<button class="b" id="mclr">Effacer</button></div>' +
+          '<div class="mmw" id="mmw"><img src="' + esc(mi.minimap) + '" alt="Mini map"><span class="dot" id="df" style="background:#fff"></span><span class="dot" id="dt" style="background:#f0a93f"></span></div>' : '') +
+        '<div class="row"><button class="b p" id="save">Enregistrer</button>' + (cur.isNew ? '' : '<button class="b d" id="del">Supprimer</button>') + '</div></div>';
+
+      function place() {
+        var df = document.getElementById('df'), dt = document.getElementById('dt'); if (!df) return;
+        [[df, d.from], [dt, d.to]].forEach(function (p) { if (p[1]) { p[0].style.display = 'block'; p[0].style.left = (p[1][0] * 100) + '%'; p[0].style.top = (p[1][1] * 100) + '%'; } else p[0].style.display = 'none'; });
+      }
+      place();
+      var mm = document.getElementById('mmw');
+      if (mm) {
+        mm.onclick = function (e) {
+          var r = mm.getBoundingClientRect();
+          var pt = [Math.round((e.clientX - r.left) / r.width * 1000) / 1000, Math.round((e.clientY - r.top) / r.height * 1000) / 1000];
+          if (mode === 'from') d.from = pt; else d.to = pt; place();
+        };
+        document.getElementById('mfrom').onclick = function () { mode = 'from'; read(); viewEdit(); };
+        document.getElementById('mto').onclick = function () { mode = 'to'; read(); viewEdit(); };
+        document.getElementById('mclr').onclick = function () { if (mode === 'from') d.from = null; else d.to = null; place(); };
+      }
+      function read() {
+        d.title = document.getElementById('title').value.trim();
+        d.map = document.getElementById('map').value; d.agent = document.getElementById('agent').value;
+        d.side = document.getElementById('side').value; d.site = document.getElementById('site').value.trim();
+        d.notes = document.getElementById('notes').value.split('\n').map(function (s) { return s.trim(); }).filter(Boolean);
+        d.video = document.getElementById('video').value.trim(); d.credit = document.getElementById('credit').value.trim();
+        d.reveal = document.getElementById('reveal').checked;
+        Array.prototype.forEach.call(document.querySelectorAll('.cap'), function (c) { d.images[+c.getAttribute('data-k')].cap = c.value; });
+      }
+      document.getElementById('map').onchange = function () { read(); viewEdit(); };
+      document.getElementById('back').onclick = function () { setMsg(null); viewList(); };
+      Array.prototype.forEach.call(document.querySelectorAll('[data-del]'), function (b) { b.onclick = function () { read(); d.images.splice(+b.getAttribute('data-del'), 1); viewEdit(); }; });
+      document.getElementById('file').onchange = async function (e) {
+        read(); var files = Array.prototype.slice.call(e.target.files); if (!files.length) return;
+        setMsg('Envoi des photos…'); viewEdit();
+        try {
+          for (var f of files) {
+            var blob = await shrink(f), name = Array.prototype.map.call(crypto.getRandomValues(new Uint8Array(6)), function (x) { return ('0' + x.toString(16)).slice(-2); }).join('') + '.jpg';
+            await gh('/contents/' + IMG + '/' + name, { method: 'PUT', body: { message: 'Admin : ajout photo', content: await toB64(blob), branch: BR } });
+            d.images.push({ src: '/img/lineups/' + name, cap: 'Repère de visée' });
+          }
+          setMsg('Photos ajoutées. Pense à enregistrer.');
+        } catch (er) { setMsg('Envoi impossible : ' + er.message, true); }
+        viewEdit();
+      };
+      document.getElementById('save').onclick = async function () {
+        if (busy) return; read();
+        if (!d.title) { setMsg('Le titre est obligatoire.', true); return viewEdit(); }
+        busy = true; setMsg('Enregistrement…'); 
+        try {
+          var out = Object.assign({}, d);
+          if (cur.isNew) out.id = slug(d.map + '-' + d.agent + '-' + d.title);
+          if (!out.from) delete out.from; if (!out.to) delete out.to;
+          var body = { message: 'Admin : ' + (cur.isNew ? 'ajout' : 'modification') + ' #' + out.num + ' ' + out.title, content: b64(JSON.stringify(out, null, 2) + '\n'), branch: BR };
+          if (cur.sha) body.sha = cur.sha;
+          var r = await gh('/contents/' + DIR + '/' + out.id + '.json', { method: 'PUT', body: body });
+          cur.sha = r.content.sha; cur.isNew = false; cur.d = out;
+          var ix = items.map(function (i) { return i.id; }).indexOf(out.id);
+          var row = { id: out.id, num: out.num, map: out.map, agent: out.agent, title: out.title };
+          if (ix >= 0) items[ix] = row; else items.push(row);
+          setMsg('Enregistré ✔ Le site se met à jour dans 1 à 2 minutes.');
+        } catch (er) { setMsg('Échec : ' + er.message, true); }
+        busy = false; viewEdit();
+      };
+      var del = document.getElementById('del');
+      if (del) del.onclick = async function () {
+        if (!confirm('Supprimer cette line up ?')) return;
+        try {
+          await gh('/contents/' + DIR + '/' + d.id + '.json', { method: 'DELETE', body: { message: 'Admin : suppression #' + d.num + ' ' + d.title, sha: cur.sha, branch: BR } });
+          items = items.filter(function (i) { return i.id !== d.id; });
+          setMsg('Supprimée. Le site se met à jour dans 1 à 2 minutes.'); viewList();
+        } catch (er) { setMsg('Échec : ' + er.message, true); viewEdit(); }
+      };
+    }
+
+    function shrink(file) {
+      return new Promise(function (res, rej) {
+        var img = new Image(), u = URL.createObjectURL(file);
+        img.onload = function () {
+          var s = Math.min(1, 1100 / Math.max(img.width, img.height)), c = document.createElement('canvas');
+          c.width = Math.round(img.width * s); c.height = Math.round(img.height * s);
+          c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+          c.toBlob(function (b) { URL.revokeObjectURL(u); b ? res(b) : rej(new Error('image illisible')); }, 'image/jpeg', 0.85);
+        };
+        img.onerror = function () { rej(new Error('image illisible')); }; img.src = u;
+      });
+    }
+    function toB64(blob) { return new Promise(function (res) { var r = new FileReader(); r.onload = function () { res(String(r.result).split(',')[1]); }; r.readAsDataURL(blob); }); }
+
+    if (tok) viewList(); else viewLogin();
+  })();
+  </script>
+</Base>
