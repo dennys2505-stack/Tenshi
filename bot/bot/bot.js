@@ -28,12 +28,23 @@ const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 // Compatibilité ESM : yt-dlp-wrap exporte la classe dans .default
 const YTDlpClass = YTDlpWrap.default ?? YTDlpWrap;
 const YTDLP_PATH = path.resolve('./yt-dlp');
-if (!fs.existsSync(YTDLP_PATH)) {
-  console.log('Téléchargement du binaire yt-dlp...');
-  await YTDlpClass.downloadFromGithub(YTDLP_PATH);
-  fs.chmodSync(YTDLP_PATH, 0o755);
-}
 const ytDlpWrap = new YTDlpClass(YTDLP_PATH);
+
+// Téléchargement de yt-dlp en arrière-plan (ne bloque pas la connexion à Discord)
+let ytDlpReady = (async () => {
+  try {
+    if (!fs.existsSync(YTDLP_PATH)) {
+      console.log('Téléchargement du binaire yt-dlp...');
+      await YTDlpClass.downloadFromGithub(YTDLP_PATH);
+      fs.chmodSync(YTDLP_PATH, 0o755);
+    }
+    console.log('yt-dlp prêt.');
+  } catch (e) {
+    console.error('Échec du téléchargement de yt-dlp :', e);
+    throw e;
+  }
+})();
+ytDlpReady.catch(() => {});
 
 const TARGET_CHANNEL_ID = process.env.DISCORD_CHANNEL_ID;
 // Adresse de l'API du site. Si la variable Render est vide ou pointe vers l'ancienne
@@ -48,6 +59,7 @@ client.once('ready', () => {
 
 client.on('messageCreate', async (message) => {
   if (message.author.bot || !message.guild) return;
+  if (/https?:\/\//.test(message.content)) console.log(`Lien reçu dans #${message.channel.name} (catégorie : ${message.channel.parent?.name ?? 'aucune'})`);
 
   // Organisation du serveur : catégorie = map, salon = agent (ex: abyss > sova)
   const MAPS = ['Abyss', 'Ascent', 'Bind', 'Breeze', 'Corrode', 'Fracture', 'Haven', 'Icebox', 'Lotus', 'Pearl', 'Split', 'Summit', 'Sunset'];
@@ -71,6 +83,7 @@ client.on('messageCreate', async (message) => {
   try {
     // 1. Téléchargement de la vidéo via yt-dlp
     console.log(`Téléchargement de la vidéo : ${videoUrl}`);
+    await ytDlpReady;
     await ytDlpWrap.exec([videoUrl, '-o', outputFilePath]);
 
     // 2. Lecture du fichier pour l'envoyer à Gemini
@@ -144,4 +157,6 @@ client.on('messageCreate', async (message) => {
   }
 });
 
-client.login(process.env.DISCORD_TOKEN);
+client.on('error', (e) => console.error('Erreur client Discord :', e));
+console.log('Connexion à Discord...');
+client.login(process.env.DISCORD_TOKEN).catch((e) => console.error('ÉCHEC de connexion Discord (token ou intents) :', e.message));
