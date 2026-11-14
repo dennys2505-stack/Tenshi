@@ -39,11 +39,14 @@ export const agentInfo = (name) => agents.find((a) => a.name === name) ?? { name
 export const mapBySlug = (s) => maps.find((m) => m.slug === s);
 export const mapByName = (n) => maps.find((m) => m.name === n);
 
+// Une line up peut servir à plusieurs agents : champ « also » (ex. ["Brimstone", "Viper"]).
+export const agentsOf = (l) => uniq([l.agent, ...(l.also ?? [])]);
+
 export const lineupsFor = (mapName, agentName) =>
-  lineups.filter((l) => l.map === mapName && (!agentName || l.agent === agentName));
+  lineups.filter((l) => l.map === mapName && (!agentName || agentsOf(l).includes(agentName)));
 
 export const agentsForMap = (mapName) =>
-  uniq(lineupsFor(mapName).map((l) => l.agent)).map(agentInfo);
+  uniq(lineupsFor(mapName).flatMap(agentsOf)).map(agentInfo);
 
 export const count = (n) => (n === 0 ? 'Bientôt' : n === 1 ? '1 line up' : `${n} line ups`);
 

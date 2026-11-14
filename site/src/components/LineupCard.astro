@@ -8,7 +8,7 @@ const Heading = detail ? 'h1' : 'h2';
 <article class="card" id={l.id} data-side={l.side} data-site={l.site}>
   {l.num && <a class="num" href={`/admin/?edit=${l.id}`} title="Modifier (admin)">#{l.num} ✎</a>}
   <Heading>{detail ? l.title : <a href={lineupUrl(l)}>{l.title}</a>}</Heading>
-  <p class="meta-line">{l.side}{l.site ? `, site ${l.site}` : ''}</p>
+  <p class="meta-line">{l.side}{l.site ? `, site ${l.site}` : ''}{(l.also ?? []).length > 0 && ` · marche aussi pour ${[l.agent, ...l.also].join(', ')}`}</p>
   {(l.notes ?? []).length > 0 && (
     <p>{l.notes.map((n) => <span class="tag">{n}</span>)}</p>
   )}

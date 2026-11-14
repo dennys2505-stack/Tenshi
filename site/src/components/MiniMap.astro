@@ -2,10 +2,11 @@
 // Mini map avec le point de départ (point blanc) et l'arrivée (cible, ou icône de reveal pour Fade).
 const { lineup: l, map: m } = Astro.props;
 const isRev = l.reveal && l.agent === 'Fade';
-const withOverlay = Boolean(m?.minimap && l.from);
+const withOverlay = Boolean(m?.minimap && (l.from || l.to));
 const [W, H] = m?.dim ?? [640, 640];
-const x = withOverlay ? l.from[0] * W : 0;
-const y = withOverlay ? l.from[1] * H : 0;
+const hasFrom = withOverlay && Boolean(l.from);
+const x = hasFrom ? l.from[0] * W : 0;
+const y = hasFrom ? l.from[1] * H : 0;
 const hasTo = withOverlay && Boolean(l.to);
 const X = hasTo ? l.to[0] * W : 0;
 const Y = hasTo ? l.to[1] * H : 0;
@@ -32,7 +33,7 @@ const caption = isRev
             <circle cx={X} cy={Y} r={s * 0.9} fill="#fff" stroke="#111" stroke-width={s * 0.5} />
           </>
         )}
-        <circle cx={x} cy={y} r={r} fill="#fff" stroke="#111" stroke-width={s} />
+        {hasFrom && <circle cx={x} cy={y} r={r} fill="#fff" stroke="#111" stroke-width={s} />}
       </svg>
     </div>
     <figcaption>{caption}</figcaption>

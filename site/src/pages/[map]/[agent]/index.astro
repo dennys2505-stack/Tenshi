@@ -1,10 +1,10 @@
 ---
 import Base from '../../../layouts/Base.astro';
 import LineupCard from '../../../components/LineupCard.astro';
-import { lineups, maps, mapByName, agentInfo, lineupsFor, slug, count, mapUrl } from '../../../lib/data.js';
+import { lineups, maps, mapByName, agentInfo, lineupsFor, slug, count, mapUrl, agentsOf } from '../../../lib/data.js';
 export function getStaticPaths() {
   const pairs = new Map();
-  for (const l of lineups) pairs.set(`${l.map}|${l.agent}`, [l.map, l.agent]);
+  for (const l of lineups) for (const a of agentsOf(l)) pairs.set(`${l.map}|${a}`, [l.map, a]);
   return [...pairs.values()].map(([map, agent]) => ({
     params: { map: slug(map), agent: slug(agent) },
     props: { mapName: map, agentName: agent },

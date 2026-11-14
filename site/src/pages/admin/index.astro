@@ -150,6 +150,7 @@ const boot = {
         '<div class="row"><div style="flex:1;min-width:140px"><label>Côté</label><select id="side">' + opts(['Attaque', 'Défense', 'À classer'], d.side) + '</select></div>' +
         '<div style="flex:1;min-width:140px"><label>Site (A, B, C ou vide)</label><input type="text" id="site" value="' + esc(d.site) + '"></div></div>' +
         '<label>Indications (une par ligne : posture, touche, etc.)</label><textarea id="notes">' + esc((d.notes || []).join('\n')) + '</textarea>' +
+        '<label>Marche aussi pour (autres agents, séparés par des virgules)</label><input type="text" id="also" value="' + esc((d.also || []).join(', ')) + '">' +
         '<label>Lien vidéo</label><input type="text" id="video" value="' + esc(d.video) + '">' +
         '<label>Crédit</label><input type="text" id="credit" value="' + esc(d.credit) + '">' +
         '<label><input type="checkbox" id="reveal"' + (d.reveal ? ' checked' : '') + '> Reveal (Fade : affiche l\'icône à l\'arrivée)</label>' +
@@ -192,6 +193,7 @@ const boot = {
         d.notes = document.getElementById('notes').value.split('\n').map(function (s) { return s.trim(); }).filter(Boolean);
         d.video = document.getElementById('video').value.trim(); d.credit = document.getElementById('credit').value.trim();
         d.reveal = document.getElementById('reveal').checked;
+        var al = document.getElementById('also').value.split(',').map(function (s) { return s.trim(); }).filter(Boolean); if (al.length) d.also = al; else delete d.also;
         Array.prototype.forEach.call(document.querySelectorAll('.cap'), function (c) { d.images[+c.getAttribute('data-k')].cap = c.value; });
       }
       document.getElementById('map').onchange = function () { read(); viewEdit(); };
