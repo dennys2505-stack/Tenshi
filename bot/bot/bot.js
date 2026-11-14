@@ -53,9 +53,14 @@ const SITE_API = 'https://jazzy-salmiakki-7d27e4.netlify.app/api/lineups';
 const envUrl = (process.env.NETLIFY_WEBHOOK_URL || '').trim();
 const NETLIFY_WEBHOOK_URL = envUrl.includes('/api/lineups') ? envUrl : SITE_API;
 
-client.once('ready', () => {
+let annonce = false;
+const onReady = () => {
+  if (annonce) return;
+  annonce = true;
   console.log(`✅ Bot Discord connecté : ${client.user.tag}`);
-});
+};
+client.once('clientReady', onReady);
+client.once('ready', onReady);
 
 client.on('messageCreate', async (message) => {
   if (message.author.bot || !message.guild) return;
@@ -159,4 +164,4 @@ client.on('messageCreate', async (message) => {
 
 client.on('error', (e) => console.error('Erreur client Discord :', e));
 console.log('Connexion à Discord...');
-client.login(process.env.DISCORD_TOKEN).catch((e) => console.error('ÉCHEC de connexion Discord (token ou intents) :', e.message));
+client.login(process.env.DISCORD_TOKEN).then(() => console.log('Token accepté par Discord.')).catch((e) => console.error('ÉCHEC de connexion Discord (token ou intents) :', e.message));
