@@ -47,7 +47,17 @@ client.once('ready', () => {
 });
 
 client.on('messageCreate', async (message) => {
-  if (message.author.bot || message.channel.id !== TARGET_CHANNEL_ID) return;
+  if (message.author.bot || !message.guild) return;
+
+  // Organisation du serveur : catégorie = map, salon = agent (ex: abyss > sova)
+  const MAPS = ['Abyss', 'Ascent', 'Bind', 'Breeze', 'Corrode', 'Fracture', 'Haven', 'Icebox', 'Lotus', 'Pearl', 'Split', 'Summit', 'Sunset'];
+  const ALIAS = { kj: 'Killjoy', kayo: 'KAY/O', 'kay-o': 'KAY/O', kay_o: 'KAY/O' };
+  const cap = (t) => (t ? t.charAt(0).toUpperCase() + t.slice(1).toLowerCase() : '');
+  const mapHint = MAPS.find((m) => m.toLowerCase() === (message.channel.parent?.name || '').trim().toLowerCase());
+  const chanName = (message.channel.name || '').trim().toLowerCase();
+  const agentHint = mapHint ? ALIAS[chanName] || cap(chanName) : '';
+  // Si DISCORD_CHANNEL_ID est renseigné ET que le salon n'est pas dans une catégorie map, on garde l'ancien mode.
+  if (!mapHint && message.channel.id !== TARGET_CHANNEL_ID) return;
 
   // Détecte un lien Instagram, TikTok, X ou autre dans le message
   const urlMatch = message.content.match(/https?:\/\/[^\s]+/);
@@ -101,8 +111,8 @@ client.on('messageCreate', async (message) => {
     // 4. Envoi vers le site (API protégée par le mot de passe admin)
     const lineup = {
       id: 'l' + Date.now(),
-      map: data.map,
-      agent: data.agent,
+      map: mapHint || data.map,
+      agent: agentHint || data.agent,
       side: data.side || 'Attaque',
       site: data.site || '',
       title: data.title || `${data.startSpot} → ${data.endSpot}`,
