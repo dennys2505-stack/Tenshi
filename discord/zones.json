@@ -1,5 +1,5 @@
 {
- "_info": "Zones des mini maps du site (fractions 0-1, même repère que from/to). Bind : image de l'utilisateur tournée de 180°.",
+ "_info": "Zones des mini maps du site (fractions 0-1, même repère que from/to). Bind : image de l'utilisateur tournée de 180°. Haven/Lotus/Abyss : cartes de l'utilisateur recalées automatiquement (Haven et Abyss tournées d'un quart).",
  "zones": {
   "Bind": {
    "Attacker Side Spawn": [
@@ -192,6 +192,324 @@
     0.535,
     0.898
    ]
+  },
+  "Haven": {
+   "Defender Side Spawn": [
+    0.096,
+    0.418
+   ],
+   "A Stairs": [
+    0.23,
+    0.248
+   ],
+   "A Connector": [
+    0.299,
+    0.287
+   ],
+   "A Heaven": [
+    0.305,
+    0.156
+   ],
+   "A Site": [
+    0.364,
+    0.165
+   ],
+   "C Site": [
+    0.359,
+    0.856
+   ],
+   "C Link": [
+    0.365,
+    0.662
+   ],
+   "C Plat": [
+    0.395,
+    0.925
+   ],
+   "C Logs": [
+    0.395,
+    0.749
+   ],
+   "B Site": [
+    0.392,
+    0.517
+   ],
+   "A Link": [
+    0.395,
+    0.358
+   ],
+   "B Back": [
+    0.295,
+    0.519
+   ],
+   "C Window": [
+    0.418,
+    0.659
+   ],
+   "C Connector": [
+    0.471,
+    0.733
+   ],
+   "C Garage": [
+    0.496,
+    0.652
+   ],
+   "B Doors": [
+    0.497,
+    0.529
+   ],
+   "A Short": [
+    0.48,
+    0.306
+   ],
+   "A Ramp": [
+    0.5,
+    0.136
+   ],
+   "C Long": [
+    0.564,
+    0.865
+   ],
+   "C Cubby": [
+    0.605,
+    0.817
+   ],
+   "Mid Doors": [
+    0.582,
+    0.651
+   ],
+   "Mid": [
+    0.622,
+    0.563
+   ],
+   "A Lobby": [
+    0.616,
+    0.402
+   ],
+   "A Long": [
+    0.572,
+    0.22
+   ],
+   "Mid Window": [
+    0.679,
+    0.512
+   ],
+   "A Garden": [
+    0.755,
+    0.421
+   ],
+   "Attacker Side Spawn": [
+    0.914,
+    0.55
+   ]
+  },
+  "Lotus": {
+   "Defender Side Spawn": [
+    0.61,
+    0.168
+   ],
+   "A Top": [
+    0.801,
+    0.232
+   ],
+   "A Drop": [
+    0.908,
+    0.232
+   ],
+   "C Gravel": [
+    0.372,
+    0.262
+   ],
+   "A Site": [
+    0.866,
+    0.311
+   ],
+   "A Stairs": [
+    0.746,
+    0.336
+   ],
+   "A Hut": [
+    0.857,
+    0.341
+   ],
+   "B Upper": [
+    0.59,
+    0.373
+   ],
+   "C Link": [
+    0.342,
+    0.376
+   ],
+   "C Hall": [
+    0.192,
+    0.34
+   ],
+   "C Site": [
+    0.144,
+    0.412
+   ],
+   "B Site": [
+    0.462,
+    0.433
+   ],
+   "C Waterfall": [
+    0.274,
+    0.458
+   ],
+   "A Link": [
+    0.618,
+    0.478
+   ],
+   "A Main": [
+    0.729,
+    0.488
+   ],
+   "A Tree": [
+    0.871,
+    0.466
+   ],
+   "A Door": [
+    0.843,
+    0.518
+   ],
+   "C Bend": [
+    0.102,
+    0.54
+   ],
+   "C Main": [
+    0.237,
+    0.542
+   ],
+   "B Main": [
+    0.431,
+    0.56
+   ],
+   "C Door": [
+    0.338,
+    0.573
+   ],
+   "A Root": [
+    0.727,
+    0.585
+   ],
+   "A Rubble": [
+    0.826,
+    0.603
+   ],
+   "C Mound": [
+    0.279,
+    0.621
+   ],
+   "B Pillars": [
+    0.497,
+    0.672
+   ],
+   "A Lobby": [
+    0.671,
+    0.732
+   ],
+   "C Lobby": [
+    0.325,
+    0.763
+   ],
+   "Attacker Side Spawn": [
+    0.524,
+    0.827
+   ]
+  },
+  "Abyss": {
+   "Defender Side Spawn": [
+    0.145,
+    0.465
+   ],
+   "A Secret": [
+    0.176,
+    0.196
+   ],
+   "A Security": [
+    0.267,
+    0.121
+   ],
+   "B Tower": [
+    0.28,
+    0.806
+   ],
+   "B Link": [
+    0.31,
+    0.661
+   ],
+   "Mid Top": [
+    0.297,
+    0.441
+   ],
+   "A Link": [
+    0.304,
+    0.275
+   ],
+   "B Site": [
+    0.395,
+    0.922
+   ],
+   "A Site": [
+    0.424,
+    0.095
+   ],
+   "Mid Library": [
+    0.435,
+    0.545
+   ],
+   "A Vent": [
+    0.467,
+    0.363
+   ],
+   "A Bridge": [
+    0.467,
+    0.056
+   ],
+   "A Tower": [
+    0.491,
+    0.252
+   ],
+   "B Danger": [
+    0.556,
+    0.952
+   ],
+   "Mid Catwalk": [
+    0.556,
+    0.439
+   ],
+   "B Main": [
+    0.622,
+    0.755
+   ],
+   "A Main": [
+    0.633,
+    0.107
+   ],
+   "Mid Bend": [
+    0.65,
+    0.636
+   ],
+   "Mid Bottom": [
+    0.648,
+    0.51
+   ],
+   "B Nest": [
+    0.68,
+    0.913
+   ],
+   "B Lobby": [
+    0.832,
+    0.798
+   ],
+   "A Lobby": [
+    0.809,
+    0.226
+   ],
+   "Attacker Side Spawn": [
+    0.872,
+    0.439
+   ]
   }
  },
  "aliases": {
@@ -231,6 +549,45 @@
    "courtyard": "Mid Courtyard",
    "tiles": "Mid Tiles",
    "tp": null
+  },
+  "Haven": {
+   "stairs": "A Stairs",
+   "heaven": "A Heaven",
+   "plat": "C Plat",
+   "logs": "C Logs",
+   "back": "B Back",
+   "garage": "C Garage",
+   "short": "A Short",
+   "ramp": "A Ramp",
+   "cubby": "C Cubby",
+   "garden": "A Garden",
+   "back b": "B Back"
+  },
+  "Lotus": {
+   "drop": "A Drop",
+   "gravel": "C Gravel",
+   "stairs": "A Stairs",
+   "hut": "A Hut",
+   "upper": "B Upper",
+   "hall": "C Hall",
+   "waterfall": "C Waterfall",
+   "tree": "A Tree",
+   "bend": "C Bend",
+   "root": "A Root",
+   "rubble": "A Rubble",
+   "mound": "C Mound",
+   "pillars": "B Pillars"
+  },
+  "Abyss": {
+   "secret": "A Secret",
+   "security": "A Security",
+   "library": "Mid Library",
+   "vent": "A Vent",
+   "bridge": "A Bridge",
+   "danger": "B Danger",
+   "catwalk": "Mid Catwalk",
+   "bend": "Mid Bend",
+   "nest": "B Nest"
   }
  }
 }
