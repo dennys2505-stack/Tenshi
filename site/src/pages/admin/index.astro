@@ -133,7 +133,7 @@ const boot = {
         '<label>Titre</label><input type="text" id="title" value="' + esc(d.title) + '">' +
         '<div class="row"><div style="flex:1;min-width:140px"><label>Map</label><select id="map">' + opts(mapNames, d.map) + '</select></div>' +
         '<div style="flex:1;min-width:140px"><label>Agent</label><select id="agent">' + opts(agNames, d.agent) + '</select></div></div>' +
-        '<div class="row"><div style="flex:1;min-width:140px"><label>Côté</label><select id="side">' + opts(['Attaque', 'Défense', 'Post plant', 'Retake'], d.side) + '</select></div>' +
+        '<div class="row"><div style="flex:1;min-width:140px"><label>Côté</label><select id="side">' + opts(['Attaque', 'Défense', 'À classer'], d.side) + '</select></div>' +
         '<div style="flex:1;min-width:140px"><label>Site (A, B, C ou vide)</label><input type="text" id="site" value="' + esc(d.site) + '"></div></div>' +
         '<label>Indications (une par ligne : posture, touche, etc.)</label><textarea id="notes">' + esc((d.notes || []).join('\n')) + '</textarea>' +
         '<label>Lien vidéo</label><input type="text" id="video" value="' + esc(d.video) + '">' +

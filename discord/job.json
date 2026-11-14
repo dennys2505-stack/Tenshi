@@ -1,1 +1,1 @@
-{ "task": "scan" }
+{ "task": "import", "maps": ["Bind"], "limit": 10 }
