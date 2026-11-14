@@ -1,4 +1,4 @@
-# Tâche « scan » — 2026-11-14T19:52:30.213Z
+# Tâche « scan » — 2026-11-14T19:53:06.142Z
 
 **Échec** : voir run.log
 
