@@ -6,13 +6,12 @@
   "side": "Attaque",
   "site": "A",
   "title": "Reveal Attaque A",
-  "notes": [],
+  "notes": [
+    "Charge pleine",
+    "1 rebond"
+  ],
   "reveal": false,
   "images": [
-    {
-      "src": "/img/lineups/6f7bb45049ef.jpg",
-      "cap": "Image de la vidéo"
-    },
     {
       "src": "/img/lineups/7201dcac1493.jpg",
       "cap": "Image de la vidéo"
