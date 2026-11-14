@@ -1,5 +1,6 @@
 {
   "id": "bind-fade-defense-depuis-devant-la-lampe",
+  "num": 8,
   "map": "Bind",
   "agent": "Fade",
   "side": "Défense",

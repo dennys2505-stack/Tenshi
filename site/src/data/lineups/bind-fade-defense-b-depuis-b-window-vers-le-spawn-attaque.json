@@ -1,5 +1,6 @@
 {
   "id": "bind-fade-defense-b-depuis-b-window-vers-le-spawn-attaque",
+  "num": 7,
   "map": "Bind",
   "agent": "Fade",
   "side": "Défense",

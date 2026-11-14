@@ -1,5 +1,6 @@
 {
   "id": "bind-brimstone-a-defaut-depuis-la-barriere-du-spawn",
+  "num": 4,
   "map": "Bind",
   "agent": "Brimstone",
   "side": "Attaque",
