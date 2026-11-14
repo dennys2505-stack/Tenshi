@@ -8,7 +8,24 @@
   "title": "Set up défense B",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/63ffa46cd1b9.jpg",
+      "cap": "Image de la vidéo"
+    },
+    {
+      "src": "/img/lineups/a767785d3fa5.jpg",
+      "cap": "Image de la vidéo"
+    },
+    {
+      "src": "/img/lineups/72ae5fa92ea8.jpg",
+      "cap": "Image de la vidéo"
+    },
+    {
+      "src": "/img/lineups/348a34f6ab74.jpg",
+      "cap": "Image de la vidéo"
+    }
+  ],
   "video": "https://www.instagram.com/reel/DXMTKqNxq_5/?igsh=dnUycmptMXV3M3E=",
   "credit": "",
   "auto": true,

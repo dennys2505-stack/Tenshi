@@ -8,7 +8,24 @@
   "title": "Set up A et B",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/c2d59214de96.jpg",
+      "cap": "Image de la vidéo"
+    },
+    {
+      "src": "/img/lineups/5133f32c28e9.jpg",
+      "cap": "Image de la vidéo"
+    },
+    {
+      "src": "/img/lineups/50bbb8af0d9e.jpg",
+      "cap": "Image de la vidéo"
+    },
+    {
+      "src": "/img/lineups/991f45a5120d.jpg",
+      "cap": "Image de la vidéo"
+    }
+  ],
   "video": "https://www.instagram.com/reel/DSXb_BPjIrR/?igsh=c2VocXF2cW1maTB4",
   "credit": "",
   "auto": true,

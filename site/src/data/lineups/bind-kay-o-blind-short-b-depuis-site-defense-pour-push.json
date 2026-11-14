@@ -8,7 +8,24 @@
   "title": "Blind short B depuis site ( défense pour push)",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/a027fea69a86.jpg",
+      "cap": "Image de la vidéo"
+    },
+    {
+      "src": "/img/lineups/4e67bce49c7b.jpg",
+      "cap": "Image de la vidéo"
+    },
+    {
+      "src": "/img/lineups/26634a5da671.jpg",
+      "cap": "Image de la vidéo"
+    },
+    {
+      "src": "/img/lineups/a0f607f89ee4.jpg",
+      "cap": "Image de la vidéo"
+    }
+  ],
   "video": "https://www.instagram.com/reel/DXCBwa2iJ9L/?igsh=cnEycGhiZzloajd0",
   "credit": "",
   "auto": true,

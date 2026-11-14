@@ -8,7 +8,24 @@
   "title": "Anti rush A depuis lamp",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/068f382ad8f1.jpg",
+      "cap": "Image de la vidéo"
+    },
+    {
+      "src": "/img/lineups/4215f0f59c36.jpg",
+      "cap": "Image de la vidéo"
+    },
+    {
+      "src": "/img/lineups/a3357d212014.jpg",
+      "cap": "Image de la vidéo"
+    },
+    {
+      "src": "/img/lineups/26621ee774f0.jpg",
+      "cap": "Image de la vidéo"
+    }
+  ],
   "video": "https://www.instagram.com/reel/DTQ2in-kUvK/?igsh=MXR6eXJ3ZWRqbHNlMw==",
   "credit": "",
   "auto": true,
