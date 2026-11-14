@@ -1,3 +1,5 @@
-Forme du token : défini=true, longueur=32, morceaux=1 (attendu : 3), nettoyé=false, ressemble à une clé hexa de 64 caractères=false
-Test du token : HTTP 401
-ERREUR : token refusé
+Forme du token : défini=true, longueur=72, morceaux=3 (attendu : 3), nettoyé=false, ressemble à une clé hexa de 64 caractères=false
+Test du token : HTTP 200
+Serveurs où le bot est présent : 1
+Salons texte : 156, catégories : 15, forums : 0
+Totaux : 387 messages dans 156 salons ; lien seul 267, lien+image 105, vides 0
