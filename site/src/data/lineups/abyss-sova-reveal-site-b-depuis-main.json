@@ -1,0 +1,26 @@
+{
+  "id": "abyss-sova-reveal-site-b-depuis-main",
+  "num": 40,
+  "map": "Abyss",
+  "agent": "Sova",
+  "side": "À classer",
+  "site": "B",
+  "title": "Reveal site B depuis main",
+  "notes": [],
+  "reveal": false,
+  "images": [],
+  "from": [
+    0.622,
+    0.755
+  ],
+  "to": [
+    0.395,
+    0.922
+  ],
+  "video": "https://www.instagram.com/reel/DRrS3ThitUz/?igsh=N2JmajIxamlxZmhv",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1482513071581692088"
+  }
+}

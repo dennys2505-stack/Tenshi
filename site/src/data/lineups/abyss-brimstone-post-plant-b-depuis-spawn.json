@@ -1,0 +1,31 @@
+{
+  "id": "abyss-brimstone-post-plant-b-depuis-spawn",
+  "num": 34,
+  "map": "Abyss",
+  "agent": "Brimstone",
+  "side": "Attaque",
+  "site": "B",
+  "title": "Post plant B depuis spawn",
+  "notes": [],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/9516b8524378.jpg",
+      "cap": "Aperçu de la vidéo"
+    }
+  ],
+  "from": [
+    0.872,
+    0.439
+  ],
+  "to": [
+    0.395,
+    0.922
+  ],
+  "video": "https://x.com/ProLineups/status/2105323826858877004",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1554950232335188098"
+  }
+}

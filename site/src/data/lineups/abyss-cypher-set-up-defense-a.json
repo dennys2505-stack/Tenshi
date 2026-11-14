@@ -1,0 +1,23 @@
+{
+  "id": "abyss-cypher-set-up-defense-a",
+  "num": 36,
+  "map": "Abyss",
+  "agent": "Cypher",
+  "side": "Défense",
+  "site": "A",
+  "title": "Set up défense A",
+  "notes": [],
+  "reveal": false,
+  "images": [],
+  "from": null,
+  "to": [
+    0.424,
+    0.095
+  ],
+  "video": "https://www.instagram.com/reel/DTaQB5xCLEZ/?igsh=MWd3d25wMWZ4OXhjZw==",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1482796368165863525"
+  }
+}

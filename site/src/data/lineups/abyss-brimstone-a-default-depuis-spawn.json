@@ -1,0 +1,26 @@
+{
+  "id": "abyss-brimstone-a-default-depuis-spawn",
+  "num": 33,
+  "map": "Abyss",
+  "agent": "Brimstone",
+  "side": "Attaque",
+  "site": "A",
+  "title": "A default depuis spawn",
+  "notes": [],
+  "reveal": false,
+  "images": [],
+  "from": [
+    0.872,
+    0.439
+  ],
+  "to": [
+    0.424,
+    0.095
+  ],
+  "video": "https://www.instagram.com/reel/DcN7KsEinO2/?stkn=MWtsZHdnZnpmaG9vZg==",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1553724790341111921"
+  }
+}

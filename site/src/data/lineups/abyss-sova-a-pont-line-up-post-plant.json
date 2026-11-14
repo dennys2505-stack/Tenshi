@@ -1,0 +1,23 @@
+{
+  "id": "abyss-sova-a-pont-line-up-post-plant",
+  "num": 39,
+  "map": "Abyss",
+  "agent": "Sova",
+  "side": "Attaque",
+  "site": "A",
+  "title": "A pont line up post plant",
+  "notes": [],
+  "reveal": false,
+  "images": [],
+  "from": null,
+  "to": [
+    0.424,
+    0.095
+  ],
+  "video": "https://www.instagram.com/reel/DS7HiByDYBu/?igsh=MXhyNDdzbHgyamNsbg==",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1482509436445523979"
+  }
+}

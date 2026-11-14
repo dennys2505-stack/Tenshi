@@ -1,0 +1,32 @@
+{
+  "id": "abyss-brimstone-post-plant-b-default-depuis-under-windows",
+  "num": 35,
+  "map": "Abyss",
+  "agent": "Brimstone",
+  "side": "Attaque",
+  "site": "B",
+  "title": "Post plant B default depuis under windows",
+  "notes": [],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/f7d051309a8f.jpg",
+      "cap": "Repère de visée"
+    },
+    {
+      "src": "/img/lineups/566ad292b6c5.jpg",
+      "cap": "Repère de visée"
+    }
+  ],
+  "from": null,
+  "to": [
+    0.395,
+    0.922
+  ],
+  "video": "https://www.instagram.com/reel/DfW35_Qhtmg/?cplk=czV3bGxqbjFmdGZx",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1568186233396658298"
+  }
+}

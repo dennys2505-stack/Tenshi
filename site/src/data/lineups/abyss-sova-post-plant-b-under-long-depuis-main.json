@@ -1,0 +1,26 @@
+{
+  "id": "abyss-sova-post-plant-b-under-long-depuis-main",
+  "num": 41,
+  "map": "Abyss",
+  "agent": "Sova",
+  "side": "Attaque",
+  "site": "B",
+  "title": "Post plant B (under long) depuis main",
+  "notes": [],
+  "reveal": false,
+  "images": [],
+  "from": [
+    0.622,
+    0.755
+  ],
+  "to": [
+    0.395,
+    0.922
+  ],
+  "video": "https://www.instagram.com/reel/DVawvD3DcU9/?igsh=NDJoZnc2bTB5bWRo",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1483898863872905347"
+  }
+}
