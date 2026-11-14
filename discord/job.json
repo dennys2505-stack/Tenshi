@@ -1,1 +1,1 @@
-{ "task": "frames", "limit": 20 }
+{ "task": "import", "maps": ["Sunset"], "limit": 3 }

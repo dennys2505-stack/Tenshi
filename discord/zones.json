@@ -1,0 +1,236 @@
+{
+ "_info": "Zones des mini maps du site (fractions 0-1, même repère que from/to). Bind : image de l'utilisateur tournée de 180°.",
+ "zones": {
+  "Bind": {
+   "Attacker Side Spawn": [
+    0.596,
+    0.882
+   ],
+   "Attacker Side Cave": [
+    0.615,
+    0.723
+   ],
+   "A Exit": [
+    0.871,
+    0.61
+   ],
+   "A Lobby": [
+    0.763,
+    0.595
+   ],
+   "A Short": [
+    0.717,
+    0.515
+   ],
+   "A Cubby": [
+    0.6,
+    0.466
+   ],
+   "A Bath": [
+    0.852,
+    0.488
+   ],
+   "A Teleporter": [
+    0.603,
+    0.397
+   ],
+   "A Site": [
+    0.726,
+    0.324
+   ],
+   "A Lamps": [
+    0.632,
+    0.317
+   ],
+   "A Tower": [
+    0.731,
+    0.201
+   ],
+   "A Link": [
+    0.524,
+    0.582
+   ],
+   "B Link": [
+    0.429,
+    0.582
+   ],
+   "B Lobby": [
+    0.259,
+    0.611
+   ],
+   "B Short": [
+    0.403,
+    0.499
+   ],
+   "B Long": [
+    0.183,
+    0.605
+   ],
+   "B Exit": [
+    0.48,
+    0.431
+   ],
+   "B Window": [
+    0.335,
+    0.429
+   ],
+   "B Garden": [
+    0.256,
+    0.418
+   ],
+   "B Teleporter": [
+    0.161,
+    0.426
+   ],
+   "B Site": [
+    0.292,
+    0.281
+   ],
+   "B Elbow": [
+    0.176,
+    0.305
+   ],
+   "B Hall": [
+    0.295,
+    0.194
+   ],
+   "Defender Side Spawn": [
+    0.524,
+    0.085
+   ],
+   "A Long Bath": [
+    0.866,
+    0.563
+   ],
+   "A Barrier": [
+    0.754,
+    0.653
+   ],
+   "B Barrier": [
+    0.27,
+    0.67
+   ],
+   "A Main": [
+    0.712,
+    0.568
+   ],
+   "A TP": [
+    0.603,
+    0.397
+   ],
+   "B TP": [
+    0.415,
+    0.424
+   ]
+  },
+  "Sunset": {
+   "Defender Side Spawn": [
+    0.518,
+    0.012
+   ],
+   "A Alley": [
+    0.695,
+    0.164
+   ],
+   "A Link": [
+    0.649,
+    0.272
+   ],
+   "Mid Top": [
+    0.472,
+    0.298
+   ],
+   "B Boba": [
+    0.156,
+    0.272
+   ],
+   "B Site": [
+    0.13,
+    0.424
+   ],
+   "B Market": [
+    0.29,
+    0.493
+   ],
+   "Mid Courtyard": [
+    0.523,
+    0.455
+   ],
+   "Mid Tiles": [
+    0.604,
+    0.518
+   ],
+   "A Site": [
+    0.814,
+    0.386
+   ],
+   "A Elbow": [
+    0.915,
+    0.412
+   ],
+   "A Main": [
+    0.743,
+    0.493
+   ],
+   "A Lobby": [
+    0.746,
+    0.612
+   ],
+   "B Main": [
+    0.168,
+    0.612
+   ],
+   "Mid Bottom": [
+    0.447,
+    0.612
+   ],
+   "B Lobby": [
+    0.371,
+    0.738
+   ],
+   "Attacker Side Spawn": [
+    0.535,
+    0.898
+   ]
+  }
+ },
+ "aliases": {
+  "Bind": {
+   "shower": "A Bath",
+   "showers": "A Bath",
+   "douche": "A Bath",
+   "bath": "A Bath",
+   "long bath": "A Long Bath",
+   "hookah": "B Garden",
+   "garden": "B Garden",
+   "lampe": "A Lamps",
+   "lamp": "A Lamps",
+   "lamps": "A Lamps",
+   "tour": "A Tower",
+   "tower": "A Tower",
+   "truck": "A Site",
+   "u hall": "A Cubby",
+   "cubby": "A Cubby",
+   "window": "B Window",
+   "fenetre": "B Window",
+   "elbow": "B Elbow",
+   "hall": "B Hall",
+   "cave": "Attacker Side Cave",
+   "exit": "?Exit",
+   "tp": "?TP",
+   "teleporteur": "?TP",
+   "teleporter": "?TP",
+   "windows": "B Window"
+  },
+  "Sunset": {
+   "boba": "B Boba",
+   "market": "B Market",
+   "marche": "B Market",
+   "alley": "A Alley",
+   "elbow": "A Elbow",
+   "courtyard": "Mid Courtyard",
+   "tiles": "Mid Tiles",
+   "tp": null
+  }
+ }
+}

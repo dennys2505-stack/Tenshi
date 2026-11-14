@@ -5,6 +5,7 @@ import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
 import { discord, sleep } from '../lib/discord.mjs';
+import { place } from '../lib/zones.mjs';
 
 const ROOT = new URL('../../site/', import.meta.url).pathname;
 const LU_DIR = path.join(ROOT, 'src/data/lineups');
@@ -124,10 +125,11 @@ export default async function importTask({ log, rep, job }) {
           let id = slug(`${map}-${agent}-${title}`) || `${slug(map)}-${slug(agent)}-${m.id}`;
           if (ids.has(id)) id += '-' + m.id.slice(-5);
           ids.add(id);
-          const lu = { id, num: ++num, map, agent, side, site, title, notes, reveal: false, images, video, credit: '', auto: true, source: { message: m.id } };
+          const pts = place(map, side, site, title);
+          const lu = { id, num: ++num, map, agent, side, site, title, notes, reveal: false, images, from: pts.from || null, to: pts.to || null, video, credit: '', auto: true, source: { message: m.id } };
           if (!dry) fs.writeFileSync(path.join(LU_DIR, id + '.json'), JSON.stringify(lu, null, 2) + '\n');
           seenMsg.add(m.id); if (video) seenVideo.add(normUrl(video));
-          created.push({ ...lu, imgCount: images.length || imgUrls.length });
+          created.push({ ...lu, imgCount: images.length || imgUrls.length, zones: `${pts.fromZone || '?'} → ${pts.toZone || '?'}` });
         }
       }
     }
@@ -135,9 +137,9 @@ export default async function importTask({ log, rep, job }) {
 
   log(`Import : ${created.length} line ups ${dry ? 'simulées' : 'créées'}`);
   rep(`### ${created.length} line ups ${dry ? 'simulées' : 'créées'}\n`);
-  rep('| n° | map | agent | côté | site | titre | photos | vidéo |');
-  rep('|---|---|---|---|---|---|---|---|');
-  for (const l of created) rep(`| ${l.num} | ${l.map} | ${l.agent} | ${l.side} | ${l.site || '–'} | ${l.title.replace(/\|/g, '/')} | ${l.imgCount} | ${l.video ? new URL(l.video).host.replace('www.', '') : '–'} |`);
+  rep('| n° | map | agent | côté | site | titre | points | photos | vidéo |');
+  rep('|---|---|---|---|---|---|---|---|---|');
+  for (const l of created) rep(`| ${l.num} | ${l.map} | ${l.agent} | ${l.side} | ${l.site || '–'} | ${l.title.replace(/\|/g, '/')} | ${l.zones} | ${l.imgCount} | ${l.video ? new URL(l.video).host.replace('www.', '') : '–'} |`);
   rep(`\nIgnorés : ${skipped.dejaLa} déjà présents (même message, même lien ou même image), ${skipped.vide} messages sans lien ni image.`);
   if (skipped.speciaux.length) rep(`\nSalons spéciaux laissés de côté pour l'instant : ${skipped.speciaux.join(', ')}.`);
   if (inconnus.size) rep(`\nSalons dont le nom n'est pas un agent connu (créés quand même) : ${[...inconnus].join(' ; ')}.`);
