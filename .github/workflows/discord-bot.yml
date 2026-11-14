@@ -47,6 +47,7 @@ jobs:
           rm -rf out
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git clean -fdxq
           git fetch origin bot-logs || true
           if git show-ref --verify --quiet refs/remotes/origin/bot-logs; then
             git checkout -q -B bot-logs origin/bot-logs
@@ -54,6 +55,7 @@ jobs:
             git checkout -q --orphan bot-logs
             git rm -rf -q . || true
           fi
+          find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
           cp -r /tmp/pub/. .
           git add -A
           git commit -q -m "Compte-rendu du bot (run ${GITHUB_RUN_ID}) [skip ci]" || echo "rien à publier"
