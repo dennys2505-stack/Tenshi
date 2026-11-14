@@ -25,7 +25,11 @@ if (!fs.existsSync(YTDLP_PATH)) {
 const ytDlpWrap = new YTDlpClass(YTDLP_PATH);
 
 const TARGET_CHANNEL_ID = process.env.DISCORD_CHANNEL_ID;
-const NETLIFY_WEBHOOK_URL = process.env.NETLIFY_WEBHOOK_URL; // Ex: https://ton-site.netlify.app/api/lineups
+// Adresse de l'API du site. Si la variable Render est vide ou pointe vers l'ancienne
+// fonction (/.netlify/functions/...), on utilise l'adresse du site par défaut.
+const SITE_API = 'https://jazzy-salmiakki-7d27e4.netlify.app/api/lineups';
+const envUrl = (process.env.NETLIFY_WEBHOOK_URL || '').trim();
+const NETLIFY_WEBHOOK_URL = envUrl.includes('/api/lineups') ? envUrl : SITE_API;
 
 client.once('ready', () => {
   console.log(`✅ Bot Discord connecté : ${client.user.tag}`);
