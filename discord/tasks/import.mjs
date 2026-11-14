@@ -18,6 +18,15 @@ const normUrl = (u) => { try { const x = new URL(u); return (x.host.replace(/^ww
 const SPECIAL = new Set(['general', 'proposition', 'multiagent', 'wallbang', 'gekkokayo']);
 const AGENT_ALIASES = { kj: 'Killjoy', kayo: 'KAY/O', pheonix: 'Phoenix', miks: 'Miks', weyley: 'Waylay' };
 
+// Empreinte visuelle 16x16 : sert à repérer une image déjà présente sur le site même recadrée (écart typique 12–22 sur 256 ; images différentes ≈ 90).
+async function dhash(sharp, input) {
+  const b = await sharp(input).rotate().resize(17, 16, { fit: 'fill' }).greyscale().raw().toBuffer();
+  const bits = [];
+  for (let y = 0; y < 16; y++) for (let x = 0; x < 16; x++) bits.push(b[y * 17 + x] > b[y * 17 + x + 1] ? 1 : 0);
+  return bits;
+}
+const ham = (a, b) => a.reduce((s, v, i) => s + (v !== b[i]), 0);
+
 export default async function importTask({ log, rep, job }) {
   const onlyMaps = (job.maps || []).map(norm);
   const limit = job.limit ?? Infinity;
@@ -40,6 +49,11 @@ export default async function importTask({ log, rep, job }) {
   const ids = new Set(existing.map((l) => l.id));
   let num = existing.reduce((m, l) => Math.max(m, l.num || 0), 0);
 
+  const known = [];
+  for (const f of fs.readdirSync(IMG_DIR).filter((f) => /\.(jpe?g|png)$/i.test(f))) {
+    try { known.push(await dhash(sharp, path.join(IMG_DIR, f))); } catch {}
+  }
+  log(`Images déjà sur le site : ${known.length}`);
   const guilds = (await discord('/users/@me/guilds')).data;
   const created = [], skipped = { dejaLa: 0, vide: 0, speciaux: [], horsFiltre: 0 }, inconnus = new Set();
   rep(`## Import ${dry ? '(simulation) ' : ''}— cartes : ${onlyMaps.length ? job.maps.join(', ') : 'toutes'}, limite : ${Number.isFinite(limit) ? limit : 'aucune'}\n`);
@@ -86,17 +100,25 @@ export default async function importTask({ log, rep, job }) {
           const side = /\bd[ée]fense\b|\bdef\b/i.test(all_text) ? 'Défense' : /post ?plant|attaque|\batk\b/i.test(all_text) ? 'Attaque' : 'À classer';
           const site = (all_text.match(/\b(?:site\s*)?([ABC])\b/) || [])[1] || '';
 
-          const images = [];
+          const images = [], pending = [];
+          let dupImage = false;
           if (!dry) {
             for (const u of imgUrls.slice(0, 6)) {
               try {
                 const r = await fetch(u);
                 if (!r.ok) throw new Error('HTTP ' + r.status);
                 const buf = Buffer.from(await r.arrayBuffer());
-                const name = crypto.createHash('sha1').update(new URL(u).pathname).digest('hex').slice(0, 12) + '.jpg';
-                await sharp(buf).rotate().resize({ width: 1100, height: 1100, fit: 'inside', withoutEnlargement: true }).jpeg({ quality: 85 }).toFile(path.join(IMG_DIR, name));
-                images.push({ src: `/img/lineups/${name}`, cap: m.attachments?.length ? 'Repère de visée' : 'Aperçu de la vidéo' });
+                const hh = await dhash(sharp, buf);
+                if (known.some((k) => ham(k, hh) <= 40)) { dupImage = true; break; }
+                pending.push({ buf, hh, u });
               } catch (e) { log(`image ignorée (${c.name}) : ${e.message}`); }
+            }
+            if (dupImage) { skipped.dejaLa++; continue; }
+            for (const { buf, hh, u } of pending) {
+              const name = crypto.createHash('sha1').update(new URL(u).pathname).digest('hex').slice(0, 12) + '.jpg';
+              await sharp(buf).rotate().resize({ width: 1100, height: 1100, fit: 'inside', withoutEnlargement: true }).jpeg({ quality: 85 }).toFile(path.join(IMG_DIR, name));
+              known.push(hh);
+              images.push({ src: `/img/lineups/${name}`, cap: m.attachments?.length ? 'Repère de visée' : 'Aperçu de la vidéo' });
             }
           }
           let id = slug(`${map}-${agent}-${title}`) || `${slug(map)}-${slug(agent)}-${m.id}`;
@@ -116,7 +138,7 @@ export default async function importTask({ log, rep, job }) {
   rep('| n° | map | agent | côté | site | titre | photos | vidéo |');
   rep('|---|---|---|---|---|---|---|---|');
   for (const l of created) rep(`| ${l.num} | ${l.map} | ${l.agent} | ${l.side} | ${l.site || '–'} | ${l.title.replace(/\|/g, '/')} | ${l.imgCount} | ${l.video ? new URL(l.video).host.replace('www.', '') : '–'} |`);
-  rep(`\nIgnorés : ${skipped.dejaLa} déjà présents (même message ou même lien), ${skipped.vide} messages sans lien ni image.`);
+  rep(`\nIgnorés : ${skipped.dejaLa} déjà présents (même message, même lien ou même image), ${skipped.vide} messages sans lien ni image.`);
   if (skipped.speciaux.length) rep(`\nSalons spéciaux laissés de côté pour l'instant : ${skipped.speciaux.join(', ')}.`);
   if (inconnus.size) rep(`\nSalons dont le nom n'est pas un agent connu (créés quand même) : ${[...inconnus].join(' ; ')}.`);
 }

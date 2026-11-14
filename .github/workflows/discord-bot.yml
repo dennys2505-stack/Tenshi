@@ -21,6 +21,8 @@ jobs:
           node-version: 22
       - name: Installer les dépendances du bot
         run: npm install --prefix discord --no-audit --no-fund --loglevel=error
+      - name: Installer yt-dlp (téléchargement de vidéos)
+        run: pip install -q -U yt-dlp
       - name: Exécuter la tâche (discord/job.json)
         env:
           DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}

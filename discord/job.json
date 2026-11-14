@@ -1,1 +1,1 @@
-{ "task": "import", "maps": ["Bind"], "limit": 10 }
+{ "task": "probe", "perHost": 2 }
