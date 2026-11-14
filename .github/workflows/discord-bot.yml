@@ -1,0 +1,45 @@
+name: Bot Discord
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'discord/**'
+      - '.github/workflows/discord-bot.yml'
+permissions:
+  contents: write
+concurrency:
+  group: discord-bot
+  cancel-in-progress: false
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Exécuter la tâche (discord/job.json)
+        env:
+          DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: node discord/main.mjs
+      - name: Publier le compte-rendu (branche bot-logs, sans secret)
+        if: always()
+        run: |
+          set -e
+          mkdir -p /tmp/pub
+          if [ -d out ]; then cp -r out/. /tmp/pub/; else echo "aucune sortie" > /tmp/pub/run.log; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin bot-logs || true
+          if git show-ref --verify --quiet refs/remotes/origin/bot-logs; then
+            git checkout -q -B bot-logs origin/bot-logs
+          else
+            git checkout -q --orphan bot-logs
+            git rm -rf -q . || true
+          fi
+          cp -r /tmp/pub/. .
+          git add -A
+          git commit -q -m "Compte-rendu du bot (run ${GITHUB_RUN_ID}) [skip ci]" || echo "rien à publier"
+          git push origin HEAD:bot-logs
