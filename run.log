@@ -1,2 +1,3 @@
+Forme du token : défini=true, longueur=32, morceaux=1 (attendu : 3), nettoyé=false, ressemble à une clé hexa de 64 caractères=false
 Test du token : HTTP 401
 ERREUR : token refusé
