@@ -1,0 +1,30 @@
+{
+  "id": "bind-fade-defense-b-depuis-b-window-vers-le-spawn-attaque",
+  "map": "Bind",
+  "agent": "Fade",
+  "side": "Défense",
+  "site": "B",
+  "title": "Défense B depuis B Window vers le spawn attaque",
+  "notes": [],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/2bb8b0d957f6.jpg",
+      "cap": "Repère de visée 1"
+    },
+    {
+      "src": "/img/lineups/ec615b6d20c1.jpg",
+      "cap": "Repère de visée 2"
+    }
+  ],
+  "from": [
+    0.33,
+    0.418
+  ],
+  "to": [
+    0.301,
+    0.531
+  ],
+  "video": "https://www.instagram.com/reel/DXRbEWrsLkK/",
+  "credit": ""
+}

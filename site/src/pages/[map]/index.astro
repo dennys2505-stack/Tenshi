@@ -1,0 +1,36 @@
+---
+import Base from '../../layouts/Base.astro';
+import { maps, agentsForMap, lineupsFor, count, agentUrl } from '../../lib/data.js';
+export function getStaticPaths() {
+  return maps.map((m) => ({ params: { map: m.slug }, props: { map: m } }));
+}
+const { map } = Astro.props;
+const agents = agentsForMap(map.name);
+const total = lineupsFor(map.name).length;
+---
+<Base
+  title={`Line ups ${map.name}`}
+  description={total ? `${count(total)} sur ${map.name} (Valorant), classées par agent.` : `Les line ups ${map.name} arrivent bientôt.`}
+  image={map.bg}
+  crumbs={[{ label: map.name }]}
+>
+  <div class="top"><h1>{map.name}</h1></div>
+  <h2>Choisis ton agent</h2>
+  <div class="grid maps" style="margin-top:12px">
+    {agents.map((a) => {
+      const n = lineupsFor(map.name, a.name).length;
+      return a.bg ? (
+        <a class="tile mapbg agbg" href={agentUrl(map.name, a.name)} aria-label={`${a.name}, ${count(n)}`} style={`background-image:url('${a.bg}')`}>
+          <b class="agn">{a.name}</b>
+          <span>{count(n)}</span>
+        </a>
+      ) : (
+        <a class="tile" href={agentUrl(map.name, a.name)}>
+          <b>{a.name}</b>
+          <span>{count(n)}</span>
+        </a>
+      );
+    })}
+  </div>
+  {agents.length === 0 && <p class="empty">Pas encore de line up pour cette map.</p>}
+</Base>

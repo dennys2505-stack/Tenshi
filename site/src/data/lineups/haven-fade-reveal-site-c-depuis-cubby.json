@@ -1,0 +1,33 @@
+{
+  "id": "haven-fade-reveal-site-c-depuis-cubby",
+  "map": "Haven",
+  "agent": "Fade",
+  "side": "Attaque",
+  "site": "C",
+  "title": "Reveal site C depuis Cubby",
+  "notes": [
+    "Saut",
+    "Peut retomber dans le décor"
+  ],
+  "reveal": true,
+  "images": [
+    {
+      "src": "/img/lineups/4ad123f19465.jpg",
+      "cap": "Repère de visée (saut)"
+    },
+    {
+      "src": "/img/lineups/92b3d1ae2b6d.jpg",
+      "cap": "Résultat : reveal sur le site C"
+    }
+  ],
+  "from": [
+    0.6234,
+    0.851
+  ],
+  "to": [
+    0.5195,
+    0.8562
+  ],
+  "video": "",
+  "credit": "By Mati"
+}

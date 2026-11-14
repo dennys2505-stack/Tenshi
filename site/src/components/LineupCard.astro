@@ -1,0 +1,25 @@
+---
+import MiniMap from './MiniMap.astro';
+import { lineupUrl, mapByName } from '../lib/data.js';
+const { lineup: l, detail = false } = Astro.props;
+const m = mapByName(l.map);
+const Heading = detail ? 'h1' : 'h2';
+---
+<article class="card" id={l.id} data-side={l.side} data-site={l.site}>
+  <Heading>{detail ? l.title : <a href={lineupUrl(l)}>{l.title}</a>}</Heading>
+  <p class="meta-line">{l.side}{l.site ? `, site ${l.site}` : ''}</p>
+  {(l.notes ?? []).length > 0 && (
+    <p>{l.notes.map((n) => <span class="tag">{n}</span>)}</p>
+  )}
+  <div class="shots">
+    {(l.images ?? []).map((i) => (
+      <figure>
+        <img class="p" src={i.src} alt={`${l.agent} sur ${l.map} – ${i.cap}`} loading="lazy" />
+        <figcaption>{i.cap}</figcaption>
+      </figure>
+    ))}
+    <MiniMap lineup={l} map={m} />
+  </div>
+  {l.video && <a class="btn" href={l.video} target="_blank" rel="noopener noreferrer">Voir la vidéo</a>}
+  {l.credit && <p class="credit">{l.credit}</p>}
+</article>

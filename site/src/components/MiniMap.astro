@@ -1,0 +1,46 @@
+---
+// Mini map avec le point de départ (point blanc) et l'arrivée (cible, ou icône de reveal pour Fade).
+const { lineup: l, map: m } = Astro.props;
+const isRev = l.reveal && l.agent === 'Fade';
+const withOverlay = Boolean(m?.minimap && l.from);
+const [W, H] = m?.dim ?? [640, 640];
+const x = withOverlay ? l.from[0] * W : 0;
+const y = withOverlay ? l.from[1] * H : 0;
+const hasTo = withOverlay && Boolean(l.to);
+const X = hasTo ? l.to[0] * W : 0;
+const Y = hasTo ? l.to[1] * H : 0;
+const r = W * 0.011, s = W * 0.004, t = W * 0.02;
+const caption = isRev
+  ? 'Mini map : point = départ, icône = zone de retombée de la reveal'
+  : 'Mini map : point = départ, cible = arrivée';
+---
+{withOverlay && (
+  <figure>
+    <div class="mm">
+      <img src={m.minimap} alt={`Mini map ${l.map}`} loading="lazy" />
+      <svg viewBox={`0 0 ${W} ${H}`} aria-hidden="true">
+        {hasTo && isRev && (
+          <image href="/img/icons/reveal.png" x={X - t * 1.4} y={Y - t * 1.4} width={t * 2.8} height={t * 2.8}
+            style="filter:drop-shadow(0 0 2px #000) drop-shadow(0 0 1px #000)" />
+        )}
+        {hasTo && !isRev && (
+          <>
+            <circle cx={X} cy={Y} r={t} fill="none" stroke="#111" stroke-width={s * 2.6} />
+            <circle cx={X} cy={Y} r={t} fill="none" stroke="#fff" stroke-width={s * 1.2} />
+            <circle cx={X} cy={Y} r={t * 0.45} fill="none" stroke="#111" stroke-width={s * 2.6} />
+            <circle cx={X} cy={Y} r={t * 0.45} fill="none" stroke="#fff" stroke-width={s * 1.2} />
+            <circle cx={X} cy={Y} r={s * 0.9} fill="#fff" stroke="#111" stroke-width={s * 0.5} />
+          </>
+        )}
+        <circle cx={x} cy={y} r={r} fill="#fff" stroke="#111" stroke-width={s} />
+      </svg>
+    </div>
+    <figcaption>{caption}</figcaption>
+  </figure>
+)}
+{!withOverlay && l.minimap && (
+  <figure>
+    <img src={l.minimap} alt="Mini map" loading="lazy" />
+    <figcaption>{caption}</figcaption>
+  </figure>
+)}

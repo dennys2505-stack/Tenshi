@@ -1,0 +1,33 @@
+{
+  "id": "haven-fade-reveal-site-a-depuis-long",
+  "map": "Haven",
+  "agent": "Fade",
+  "side": "Attaque",
+  "site": "A",
+  "title": "Reveal site A depuis Long",
+  "notes": [
+    "Saut",
+    "Peut retomber dans le décor"
+  ],
+  "reveal": true,
+  "images": [
+    {
+      "src": "/img/lineups/1876be76eba1.jpg",
+      "cap": "Repère de visée (saut)"
+    },
+    {
+      "src": "/img/lineups/97022ef13a40.jpg",
+      "cap": "Résultat : reveal sur le site A"
+    }
+  ],
+  "from": [
+    0.6625,
+    0.2656
+  ],
+  "to": [
+    0.5037,
+    0.2135
+  ],
+  "video": "",
+  "credit": "By Mati"
+}

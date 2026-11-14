@@ -1,0 +1,50 @@
+---
+import '../styles/global.css';
+import { SITE_NAME, SITE_TAGLINE } from '../lib/data.js';
+const { title, description = SITE_TAGLINE, image, crumbs = [] } = Astro.props;
+const fullTitle = title ? `${title} | ${SITE_NAME}` : `${SITE_NAME} – ${SITE_TAGLINE}`;
+const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : undefined;
+const ogImage = image && Astro.site ? new URL(image, Astro.site).href : image;
+---
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    {canonical && <link rel="canonical" href={canonical} />}
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE_NAME} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+    <meta name="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="site-head">
+      <a class="brand" href="/">{SITE_NAME}</a>
+    </header>
+    <main>
+      {crumbs.length > 0 && (
+        <nav class="crumbs" aria-label="Fil d'Ariane">
+          <a href="/">Accueil</a>
+          {crumbs.map((c) => (
+            <>
+              <span aria-hidden="true">›</span>
+              {c.href ? <a href={c.href}>{c.label}</a> : <span>{c.label}</span>}
+            </>
+          ))}
+        </nav>
+      )}
+      <slot />
+    </main>
+    <footer class="site-foot">
+      {SITE_NAME} est un projet de fans. Il n'est pas affilié à Riot Games et ne reflète ni leurs avis ni ceux de personnes
+      travaillant pour Riot Games. VALORANT et Riot Games sont des marques de Riot Games, Inc.
+    </footer>
+  </body>
+</html>

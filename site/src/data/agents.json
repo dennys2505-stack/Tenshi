@@ -1,0 +1,57 @@
+[
+  {
+    "name": "Brimstone",
+    "slug": "brimstone",
+    "bg": "/img/agents/brimstone.jpg"
+  },
+  {
+    "name": "Fade",
+    "slug": "fade",
+    "bg": "/img/agents/fade.jpg"
+  },
+  {
+    "name": "Killjoy",
+    "slug": "killjoy",
+    "bg": "/img/agents/killjoy.jpg"
+  },
+  {
+    "name": "Gekko",
+    "slug": "gekko",
+    "bg": "/img/agents/gekko.jpg"
+  },
+  {
+    "name": "KAY/O",
+    "slug": "kay-o",
+    "bg": "/img/agents/kay-o.jpg"
+  },
+  {
+    "name": "Deadlock",
+    "slug": "deadlock",
+    "bg": "/img/agents/deadlock.jpg"
+  },
+  {
+    "name": "Vyse",
+    "slug": "vyse",
+    "bg": "/img/agents/vyse.jpg"
+  },
+  {
+    "name": "Cypher",
+    "slug": "cypher",
+    "bg": "/img/agents/cypher.jpg"
+  },
+  {
+    "name": "Sova",
+    "slug": "sova",
+    "bg": "/img/agents/sova.jpg"
+  },
+  {
+    "name": "Phoenix",
+    "slug": "phoenix",
+    "bg": "/img/agents/phoenix.jpg"
+  },
+  {
+    "name": "Viper",
+    "slug": "viper",
+    "bg": "/img/agents/viper.jpg"
+  }
+]

@@ -1,0 +1,28 @@
+{
+  "id": "bind-brimstone-a-block-vert-depuis-shower",
+  "map": "Bind",
+  "agent": "Brimstone",
+  "side": "Attaque",
+  "site": "A",
+  "title": "A block vert depuis Shower",
+  "notes": [
+    "Accroupi"
+  ],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/be0c7a343dda.jpg",
+      "cap": "Repère de visée (accroupi)"
+    }
+  ],
+  "from": [
+    0.852,
+    0.488
+  ],
+  "to": [
+    0.756,
+    0.339
+  ],
+  "video": "https://www.instagram.com/reel/DUXybBgjIKb/",
+  "credit": ""
+}

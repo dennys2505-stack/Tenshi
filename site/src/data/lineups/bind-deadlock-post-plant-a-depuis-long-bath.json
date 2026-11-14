@@ -1,0 +1,26 @@
+{
+  "id": "bind-deadlock-post-plant-a-depuis-long-bath",
+  "map": "Bind",
+  "agent": "Deadlock",
+  "side": "Attaque",
+  "site": "A",
+  "title": "Post-plant A depuis Long Bath",
+  "notes": [],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/fca8a714ba80.jpg",
+      "cap": "Repère de visée"
+    }
+  ],
+  "from": [
+    0.866,
+    0.563
+  ],
+  "to": [
+    0.756,
+    0.339
+  ],
+  "video": "https://www.instagram.com/reel/DUiGDOsjpzs/",
+  "credit": ""
+}

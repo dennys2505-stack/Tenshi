@@ -1,0 +1,28 @@
+{
+  "id": "bind-fade-reveal-a-depuis-short",
+  "map": "Bind",
+  "agent": "Fade",
+  "side": "Attaque",
+  "site": "A",
+  "title": "Reveal A depuis Short",
+  "notes": [
+    "Peut retomber dans le décor"
+  ],
+  "reveal": true,
+  "images": [
+    {
+      "src": "/img/lineups/5536abd87e9f.jpg",
+      "cap": "Repère de visée"
+    }
+  ],
+  "from": [
+    0.717,
+    0.515
+  ],
+  "to": [
+    0.72,
+    0.392
+  ],
+  "video": "https://www.instagram.com/reel/DWyT25UIcHf/",
+  "credit": ""
+}

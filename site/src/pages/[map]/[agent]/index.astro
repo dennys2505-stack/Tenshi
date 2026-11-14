@@ -1,0 +1,68 @@
+---
+import Base from '../../../layouts/Base.astro';
+import LineupCard from '../../../components/LineupCard.astro';
+import { lineups, maps, mapByName, agentInfo, lineupsFor, slug, count, mapUrl } from '../../../lib/data.js';
+export function getStaticPaths() {
+  const pairs = new Map();
+  for (const l of lineups) pairs.set(`${l.map}|${l.agent}`, [l.map, l.agent]);
+  return [...pairs.values()].map(([map, agent]) => ({
+    params: { map: slug(map), agent: slug(agent) },
+    props: { mapName: map, agentName: agent },
+  }));
+}
+const { mapName, agentName } = Astro.props;
+const list = lineupsFor(mapName, agentName);
+const uniq = (a) => [...new Set(a)];
+const sides = uniq(list.map((l) => l.side));
+const sites = uniq(list.map((l) => l.site).filter(Boolean));
+const map = mapByName(mapName);
+const agent = agentInfo(agentName);
+---
+<Base
+  title={`${agentName} sur ${mapName} – line ups`}
+  description={`${count(list.length)} pour ${agentName} sur ${mapName} (Valorant) : position de départ, visée et arrivée.`}
+  image={agent.bg ?? map?.bg}
+  crumbs={[{ label: mapName, href: mapUrl(mapName) }, { label: agentName }]}
+>
+  <div class="top"><h1>{agentName} · {mapName}</h1></div>
+  {sides.length > 1 && (
+    <div class="chips" role="group" aria-label="Côté" data-filter="side">
+      <button class="chip" data-v="Tous" aria-pressed="true">Tous</button>
+      {sides.map((s) => <button class="chip" data-v={s} aria-pressed="false">{s}</button>)}
+    </div>
+  )}
+  {sites.length > 1 && (
+    <div class="chips" role="group" aria-label="Site" data-filter="site">
+      <button class="chip" data-v="Tous" aria-pressed="true">Tous</button>
+      {sites.map((s) => <button class="chip" data-v={s} aria-pressed="false">{s}</button>)}
+    </div>
+  )}
+  <div id="list">
+    {list.map((l) => <LineupCard lineup={l} />)}
+  </div>
+  <p class="empty" id="none" hidden>Aucune line up avec ces filtres.</p>
+</Base>
+<script>
+  // Filtres côté / site (le contenu reste lisible sans JavaScript)
+  const state = { side: 'Tous', site: 'Tous' };
+  const cards = [...document.querySelectorAll('#list article')];
+  const none = document.getElementById('none');
+  function apply() {
+    let shown = 0;
+    for (const c of cards) {
+      const ok = (state.side === 'Tous' || c.dataset.side === state.side) && (state.site === 'Tous' || c.dataset.site === state.site);
+      c.hidden = !ok;
+      if (ok) shown++;
+    }
+    if (none) none.hidden = shown > 0;
+  }
+  document.querySelectorAll('[data-filter]').forEach((group) => {
+    group.addEventListener('click', (e) => {
+      const b = e.target.closest('button');
+      if (!b) return;
+      state[group.dataset.filter] = b.dataset.v;
+      group.querySelectorAll('button').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+      apply();
+    });
+  });
+</script>

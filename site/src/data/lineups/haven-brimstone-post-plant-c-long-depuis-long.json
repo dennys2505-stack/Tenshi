@@ -1,0 +1,30 @@
+{
+  "id": "haven-brimstone-post-plant-c-long-depuis-long",
+  "map": "Haven",
+  "agent": "Brimstone",
+  "side": "Attaque",
+  "site": "C",
+  "title": "Post-plant C (long) depuis Long",
+  "notes": [],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/5e0c8d4df657.jpg",
+      "cap": "Repère de visée"
+    },
+    {
+      "src": "/img/lineups/069c76ec98a2.jpg",
+      "cap": "Résultat : atterrissage sur le site C"
+    }
+  ],
+  "from": [
+    0.7393,
+    0.8348
+  ],
+  "to": [
+    0.4003,
+    0.9101
+  ],
+  "video": "",
+  "credit": ""
+}

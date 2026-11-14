@@ -1,0 +1,30 @@
+{
+  "id": "bind-fade-defense-depuis-devant-la-lampe",
+  "map": "Bind",
+  "agent": "Fade",
+  "side": "Défense",
+  "site": "A",
+  "title": "Défense depuis devant la lampe",
+  "notes": [],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/45242d5e9e96.jpg",
+      "cap": "Devant la lampe"
+    },
+    {
+      "src": "/img/lineups/412f3b7ec649.jpg",
+      "cap": "Lancer normal"
+    }
+  ],
+  "from": [
+    0.674,
+    0.302
+  ],
+  "to": [
+    0.724,
+    0.389
+  ],
+  "video": "https://www.instagram.com/reel/DXRbEWrsLkK/",
+  "credit": ""
+}

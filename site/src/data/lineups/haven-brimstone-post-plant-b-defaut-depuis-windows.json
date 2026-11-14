@@ -1,0 +1,30 @@
+{
+  "id": "haven-brimstone-post-plant-b-defaut-depuis-windows",
+  "map": "Haven",
+  "agent": "Brimstone",
+  "side": "Attaque",
+  "site": "B",
+  "title": "Post-plant B (défaut) depuis Windows",
+  "notes": [],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/653b6a303289.jpg",
+      "cap": "Repère de visée 1"
+    },
+    {
+      "src": "/img/lineups/2b8178b79fc4.jpg",
+      "cap": "Repère de visée 2"
+    }
+  ],
+  "from": [
+    0.681,
+    0.5531
+  ],
+  "to": [
+    0.4272,
+    0.5444
+  ],
+  "video": "https://www.instagram.com/reel/DWtuFE7iVD3/",
+  "credit": "Vidéo d’origine : KOLIxEDITS"
+}

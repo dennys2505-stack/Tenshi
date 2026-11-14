@@ -1,0 +1,26 @@
+{
+  "id": "bind-killjoy-post-plant-a-depuis-main-defaut-a",
+  "map": "Bind",
+  "agent": "Killjoy",
+  "side": "Attaque",
+  "site": "A",
+  "title": "Post-plant A depuis Main (défaut A)",
+  "notes": [],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/2dc9b8a6af9b.jpg",
+      "cap": "Repère de visée"
+    }
+  ],
+  "from": [
+    0.712,
+    0.568
+  ],
+  "to": [
+    0.695,
+    0.349
+  ],
+  "video": "https://www.instagram.com/reel/DS9sQQsCkK0/",
+  "credit": ""
+}

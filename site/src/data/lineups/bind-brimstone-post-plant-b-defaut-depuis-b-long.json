@@ -1,0 +1,30 @@
+{
+  "id": "bind-brimstone-post-plant-b-defaut-depuis-b-long",
+  "map": "Bind",
+  "agent": "Brimstone",
+  "side": "Attaque",
+  "site": "B",
+  "title": "Post-plant B (défaut) depuis B long",
+  "notes": [],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/239d7d9552aa.jpg",
+      "cap": "Repère de visée"
+    },
+    {
+      "src": "/img/lineups/5e154e787649.jpg",
+      "cap": "Position de lancer"
+    }
+  ],
+  "from": [
+    0.183,
+    0.605
+  ],
+  "to": [
+    0.27,
+    0.306
+  ],
+  "video": "https://www.instagram.com/reel/DVDvHcrDemv/",
+  "credit": ""
+}
