@@ -1,4 +1,4 @@
-# Tâche « import » — 2026-11-14T22:01:29.894Z
+# Tâche « import » — 2026-11-14T22:18:47.841Z
 
 ## Import (simulation) — cartes : Sunset, limite : 0
 
