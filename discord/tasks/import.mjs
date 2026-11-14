@@ -6,6 +6,7 @@ import path from 'path';
 import crypto from 'crypto';
 import { discord, sleep } from '../lib/discord.mjs';
 import { place } from '../lib/zones.mjs';
+import { execFileSync } from 'child_process';
 
 const ROOT = new URL('../../site/', import.meta.url).pathname;
 const LU_DIR = path.join(ROOT, 'src/data/lineups');
@@ -102,6 +103,7 @@ export default async function importTask({ log, rep, job }) {
           let site = (all_text.match(/\b(?:site\s*)?([ABC])\b/) || [])[1] || '';
 
           const images = [], pending = [];
+          let mmPts = null;
           let dupImage = false;
           if (!dry) {
             for (const u of imgUrls.slice(0, 6)) {
@@ -119,6 +121,14 @@ export default async function importTask({ log, rep, job }) {
               const name = crypto.createHash('sha1').update(new URL(u).pathname).digest('hex').slice(0, 12) + '.jpg';
               await sharp(buf).rotate().resize({ width: 1100, height: 1100, fit: 'inside', withoutEnlargement: true }).jpeg({ quality: 85 }).toFile(path.join(IMG_DIR, name));
               known.push(hh);
+              // Image = mini map annotée (point blanc = départ, croix = arrivée) ? On en tire les points, sans l'afficher en photo.
+              const mm = mapsData.find((x) => x.name === map)?.minimap;
+              if (mm) {
+                try {
+                  const r = JSON.parse(execFileSync('python3', [new URL('../tools/minimap_points.py', import.meta.url).pathname, path.join(IMG_DIR, name), path.join(ROOT, 'public', mm)], { encoding: 'utf8', timeout: 120000 }));
+                  if (r.minimap) { mmPts = r; log(`mini map reconnue (${map}, score ${r.score})`); continue; }
+                } catch (e) { log('analyse mini map impossible : ' + e.message.split('\n')[0]); }
+              }
               images.push({ src: `/img/lineups/${name}`, cap: m.attachments?.length ? 'Repère de visée' : 'Aperçu de la vidéo' });
             }
           }
@@ -129,6 +139,8 @@ export default async function importTask({ log, rep, job }) {
           // Pas de lettre de site dans le texte : on la déduit de la zone (« elbow » sur Sunset → A).
           const zl = [pts.toZone, pts.fromZone].map((z) => (z || '').match(/^([ABC]) /)?.[1]).find(Boolean);
           if (!site && zl) { site = zl; pts = place(map, side, site, title); }
+          if (mmPts?.from) { pts.from = mmPts.from; pts.fromZone = 'mini map Discord'; }
+          if (mmPts?.to) { pts.to = mmPts.to; pts.toZone = 'mini map Discord'; }
           const lu = { id, num: ++num, map, agent, side, site, title, notes, reveal: agent === 'Fade' && /reveal/i.test(all_text), images, from: pts.from || null, to: pts.to || null, video, credit: '', auto: true, source: { message: m.id } };
           if (!dry) fs.writeFileSync(path.join(LU_DIR, id + '.json'), JSON.stringify(lu, null, 2) + '\n');
           seenMsg.add(m.id); if (video) seenVideo.add(normUrl(video));

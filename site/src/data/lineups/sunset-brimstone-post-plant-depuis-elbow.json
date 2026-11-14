@@ -16,19 +16,15 @@
     {
       "src": "/img/lineups/2b018196210e.jpg",
       "cap": "Repère de visée"
-    },
-    {
-      "src": "/img/lineups/57f42dd25350.jpg",
-      "cap": "Repère de visée"
     }
   ],
   "from": [
-    0.915,
-    0.412
+    0.944,
+    0.42
   ],
   "to": [
-    0.814,
-    0.386
+    0.841,
+    0.43
   ],
   "video": "https://www.instagram.com/reel/DbOODd8y4jq/?igsh=OXlyd2t6Yjc0b3Q5",
   "credit": "",

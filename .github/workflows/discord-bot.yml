@@ -24,7 +24,7 @@ jobs:
       - name: Installer ffmpeg (images tirées des vidéos)
         run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
       - name: Installer yt-dlp (téléchargement de vidéos)
-        run: pip install -q -U yt-dlp
+        run: pip install -q -U yt-dlp numpy scipy pillow
       - name: Exécuter la tâche (discord/job.json)
         env:
           DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
