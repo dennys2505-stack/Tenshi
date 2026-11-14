@@ -86,7 +86,7 @@ const boot = {
       document.getElementById('okp').onclick = async function () {
         var v = document.getElementById('p').value; if (!v) return;
         pw = v;
-        try { await gh(''); try { localStorage.setItem('tenshi_pw', pw); } catch (e) {} setMsg(null); viewList(); }
+        try { await gh(''); try { localStorage.setItem('tenshi_pw', pw); } catch (e) {} setMsg(null); home(); }
         catch (e) { pw = ''; setMsg(e.message === 'non configuré' ? 'Le mot de passe n\'est pas encore configuré sur le site : utilise la clé GitHub ci-dessous.' : 'Connexion impossible : ' + e.message, true); viewLogin(); }
       };
       document.getElementById('ok').onclick = async function () {
@@ -96,7 +96,7 @@ const boot = {
           var r = await gh('');
           if (!r.permissions || !r.permissions.push) throw new Error('Cette clé n\'a pas le droit d\'écrire (Contents : Read and write).');
           try { localStorage.setItem('tenshi_gh', tok); } catch (e) {}
-          setMsg(null); viewList();
+          setMsg(null); home();
         } catch (e) { tok = ''; setMsg('Connexion impossible : ' + e.message, true); viewLogin(); }
       };
     }
@@ -255,7 +255,11 @@ const boot = {
     }
     function toB64(blob) { return new Promise(function (res) { var r = new FileReader(); r.onload = function () { res(String(r.result).split(',')[1]); }; r.readAsDataURL(blob); }); }
 
-    if (tok || pw) viewList(); else viewLogin();
+    function home() {
+      var e = null; try { e = new URLSearchParams(location.search).get('edit'); history.replaceState(null, '', location.pathname); } catch (x) {}
+      if (e && /^[a-z0-9-]+$/.test(e)) openEditor(e); else viewList();
+    }
+    if (tok || pw) home(); else viewLogin();
   })();
   </script>
 </Base>
