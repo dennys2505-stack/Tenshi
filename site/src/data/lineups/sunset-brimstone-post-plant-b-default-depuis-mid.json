@@ -1,0 +1,28 @@
+{
+  "id": "sunset-brimstone-post-plant-b-default-depuis-mid",
+  "num": 31,
+  "map": "Sunset",
+  "agent": "Brimstone",
+  "side": "Attaque",
+  "site": "B",
+  "title": "Post plant B default depuis mid",
+  "notes": [],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/e7125e492bf7.jpg",
+      "cap": "Repère de visée"
+    }
+  ],
+  "from": null,
+  "to": [
+    0.13,
+    0.424
+  ],
+  "video": "https://www.instagram.com/reel/DdGnNpqpqSa/?stkn=MWZiN3VsY2pxa2cyMA==",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1547907837567696968"
+  }
+}

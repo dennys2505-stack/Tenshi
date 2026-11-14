@@ -1,0 +1,36 @@
+{
+  "id": "sunset-brimstone-post-plant-depuis-elbow",
+  "num": 30,
+  "map": "Sunset",
+  "agent": "Brimstone",
+  "side": "Attaque",
+  "site": "",
+  "title": "Post plant depuis elbow",
+  "notes": [],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/bd398101a625.jpg",
+      "cap": "Repère de visée"
+    },
+    {
+      "src": "/img/lineups/2b018196210e.jpg",
+      "cap": "Repère de visée"
+    },
+    {
+      "src": "/img/lineups/57f42dd25350.jpg",
+      "cap": "Repère de visée"
+    }
+  ],
+  "from": [
+    0.915,
+    0.412
+  ],
+  "to": null,
+  "video": "https://www.instagram.com/reel/DbOODd8y4jq/?igsh=OXlyd2t6Yjc0b3Q5",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1530953494863810664"
+  }
+}

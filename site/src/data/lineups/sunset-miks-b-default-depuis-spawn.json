@@ -1,0 +1,39 @@
+{
+  "id": "sunset-miks-b-default-depuis-spawn",
+  "num": 29,
+  "map": "Sunset",
+  "agent": "Miks",
+  "side": "À classer",
+  "site": "B",
+  "title": "B default depuis spawn",
+  "notes": [],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/2a890a71b42b.jpg",
+      "cap": "Repère de visée"
+    },
+    {
+      "src": "/img/lineups/61bc4c5f2b31.jpg",
+      "cap": "Repère de visée"
+    },
+    {
+      "src": "/img/lineups/026cf3ef750f.jpg",
+      "cap": "Repère de visée"
+    }
+  ],
+  "from": [
+    0.535,
+    0.898
+  ],
+  "to": [
+    0.13,
+    0.424
+  ],
+  "video": "https://www.instagram.com/reel/Dau9i9WOo3f/?igsh=d3FwM3o0dnB1bA==",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1526250211586998443"
+  }
+}
