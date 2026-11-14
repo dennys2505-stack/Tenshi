@@ -3,8 +3,25 @@
 const API = process.env.DISCORD_API || 'https://discord.com/api/v10';
 export const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
+// Nettoie les erreurs de copier-coller courantes : espaces, retours à la ligne, guillemets, préfixes « Bot » / « DISCORD_TOKEN= ».
+export function cleanToken(raw = process.env.DISCORD_TOKEN || '') {
+  return raw.trim().replace(/^DISCORD_TOKEN\s*=\s*/i, '').replace(/^["']|["']$/g, '').replace(/^Bot\s+/i, '').trim();
+}
+
+// Décrit la forme du token sans jamais l'afficher.
+export function describeToken(raw = process.env.DISCORD_TOKEN || '') {
+  const t = cleanToken(raw);
+  return {
+    defini: raw.length > 0,
+    longueur: t.length,
+    morceaux: t.split('.').length, // un vrai token de bot en a 3
+    espacesOuGuillemetsRetires: t !== raw,
+    ressembleAUneCleHexa64: /^[0-9a-f]{64}$/i.test(t), // = « Client Secret » ou « Public Key », pas un token de bot
+  };
+}
+
 export async function discord(path, { method = 'GET', body, tries = 6 } = {}) {
-  const token = process.env.DISCORD_TOKEN || '';
+  const token = cleanToken();
   if (!token) throw new Error('DISCORD_TOKEN absent (secret GitHub non défini)');
   for (let i = 0; i < tries; i++) {
     const r = await fetch(API + path, {

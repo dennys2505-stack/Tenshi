@@ -1,14 +1,20 @@
 // Tâche « scan » : vérifie l'accès du bot à Discord et dresse la carte du serveur
 // (catégories, salons, nombre de messages, types de messages). Ne publie JAMAIS le contenu des messages.
-import { discord, sleep } from '../lib/discord.mjs';
+import { discord, sleep, describeToken } from '../lib/discord.mjs';
 
 const URL_RE = /https?:\/\/\S+/;
 
 export default async function scan({ log, rep }) {
+  const d = describeToken();
+  log(`Forme du token : défini=${d.defini}, longueur=${d.longueur}, morceaux=${d.morceaux} (attendu : 3), nettoyé=${d.espacesOuGuillemetsRetires}, ressemble à une clé hexa de 64 caractères=${d.ressembleAUneCleHexa64}`);
   const me = await discord('/users/@me');
   log(`Test du token : HTTP ${me.status}`);
   if (me.status !== 200) {
-    rep('## Résultat\n\nLe token est refusé ou invalide (HTTP ' + me.status + ').');
+    rep('## Résultat\n\nLe token est refusé ou invalide (HTTP ' + me.status + ').\n');
+    rep(`Forme du token enregistré : longueur ${d.longueur}, ${d.morceaux} morceau(x) séparés par des points (un vrai token de bot en a 3).`);
+    if (d.ressembleAUneCleHexa64) rep('\n⚠️ Cette valeur ressemble au **Client Secret** ou à la **Public Key**, pas au token du bot : il faut « Reset Token » dans l\'onglet **Bot**.');
+    else if (d.morceaux !== 3) rep('\n⚠️ Ce n\'est pas la forme d\'un token de bot : refaire « Reset Token » dans l\'onglet **Bot** et recopier la valeur en entier.');
+    else rep('\nLa forme est correcte mais Discord refuse ce token : il a probablement été réinitialisé depuis. Refaire « Reset Token » et mettre à jour le secret.');
     throw new Error('token refusé');
   }
   rep(`## Bot\n\nConnexion réussie : bot « ${me.data.username} ».\n`);
