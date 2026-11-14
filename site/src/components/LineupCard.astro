@@ -16,7 +16,7 @@ const Heading = detail ? 'h1' : 'h2';
     {(l.images ?? []).map((i) => (
       <figure>
         <img class="p" src={i.src} alt={`${l.agent} sur ${l.map} – ${i.cap}`} loading="lazy" />
-        <figcaption>{i.cap}</figcaption>
+        {i.cap && <figcaption>{i.cap}</figcaption>}
       </figure>
     ))}
     <MiniMap lineup={l} map={m} />

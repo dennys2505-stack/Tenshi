@@ -98,7 +98,7 @@ export default async function importTask({ log, rep, job }) {
           const title = (clean[0] || `${agent} – à compléter`).slice(0, 90);
           const notes = clean.slice(1, 6);
           const all_text = clean.join(' ');
-          const side = /\bd[ée]fense\b|\bdef\b/i.test(all_text) ? 'Défense' : /post ?plant|attaque|\batk\b|d[ée]faut|default|depuis (le |la )?spawn/i.test(all_text) ? 'Attaque' : 'À classer';
+          const side = /\bd[ée]fense\b|\bdef\b|anti ?rush|retake/i.test(all_text) ? 'Défense' : /post ?plant|attaque|\batk\b|d[ée]faut|default|depuis (le |la )?spawn/i.test(all_text) ? 'Attaque' : 'À classer';
           let site = (all_text.match(/\b(?:site\s*)?([ABC])\b/) || [])[1] || '';
 
           const images = [], pending = [];
@@ -129,7 +129,7 @@ export default async function importTask({ log, rep, job }) {
           // Pas de lettre de site dans le texte : on la déduit de la zone (« elbow » sur Sunset → A).
           const zl = [pts.toZone, pts.fromZone].map((z) => (z || '').match(/^([ABC]) /)?.[1]).find(Boolean);
           if (!site && zl) { site = zl; pts = place(map, side, site, title); }
-          const lu = { id, num: ++num, map, agent, side, site, title, notes, reveal: false, images, from: pts.from || null, to: pts.to || null, video, credit: '', auto: true, source: { message: m.id } };
+          const lu = { id, num: ++num, map, agent, side, site, title, notes, reveal: agent === 'Fade' && /reveal/i.test(all_text), images, from: pts.from || null, to: pts.to || null, video, credit: '', auto: true, source: { message: m.id } };
           if (!dry) fs.writeFileSync(path.join(LU_DIR, id + '.json'), JSON.stringify(lu, null, 2) + '\n');
           seenMsg.add(m.id); if (video) seenVideo.add(normUrl(video));
           created.push({ ...lu, imgCount: images.length || imgUrls.length, zones: `${pts.fromZone || '?'} → ${pts.toZone || '?'}` });
