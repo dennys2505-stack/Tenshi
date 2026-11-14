@@ -3,36 +3,28 @@
   "num": 40,
   "map": "Abyss",
   "agent": "Sova",
-  "side": "Attaque et défense",
+  "side": "Attaque",
   "site": "B",
   "title": "Reveal site B depuis main",
   "notes": [],
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/291c985d212e.jpg",
-      "cap": "Image de la vidéo"
-    },
-    {
-      "src": "/img/lineups/cb272191ea2a.jpg",
-      "cap": "Image de la vidéo"
+      "src": "/img/lineups/1b309f75efa5.jpg",
+      "cap": ""
     },
     {
       "src": "/img/lineups/af0a4aacfa07.jpg",
-      "cap": "Image de la vidéo"
-    },
-    {
-      "src": "/img/lineups/1b309f75efa5.jpg",
-      "cap": "Image de la vidéo"
+      "cap": ""
     }
   ],
   "from": [
-    0.622,
-    0.755
+    0.676,
+    0.715
   ],
   "to": [
-    0.395,
-    0.922
+    0.44,
+    0.85
   ],
   "video": "https://www.instagram.com/reel/DRrS3ThitUz/?igsh=N2JmajIxamlxZmhv",
   "credit": "",
