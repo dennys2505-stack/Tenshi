@@ -8,7 +8,24 @@
   "title": "Post plant B (under long) depuis main",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/ede7d73d9f39.jpg",
+      "cap": "Image de la vidéo"
+    },
+    {
+      "src": "/img/lineups/afc190aaa19b.jpg",
+      "cap": "Image de la vidéo"
+    },
+    {
+      "src": "/img/lineups/a22cb2beda11.jpg",
+      "cap": "Image de la vidéo"
+    },
+    {
+      "src": "/img/lineups/c3f0f5cb223d.jpg",
+      "cap": "Image de la vidéo"
+    }
+  ],
   "from": [
     0.622,
     0.755

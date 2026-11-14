@@ -8,7 +8,24 @@
   "title": "Post plant A depuis spawn",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/634f75e1dafa.jpg",
+      "cap": "Image de la vidéo"
+    },
+    {
+      "src": "/img/lineups/9604376f66d3.jpg",
+      "cap": "Image de la vidéo"
+    },
+    {
+      "src": "/img/lineups/288b23b1708a.jpg",
+      "cap": "Image de la vidéo"
+    },
+    {
+      "src": "/img/lineups/4a9fbf3653db.jpg",
+      "cap": "Image de la vidéo"
+    }
+  ],
   "from": [
     0.872,
     0.439

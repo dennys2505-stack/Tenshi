@@ -8,7 +8,24 @@
   "title": "A pont line up post plant",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/b06055131ffc.jpg",
+      "cap": "Image de la vidéo"
+    },
+    {
+      "src": "/img/lineups/f26a11a60912.jpg",
+      "cap": "Image de la vidéo"
+    },
+    {
+      "src": "/img/lineups/6ffe2a87ec82.jpg",
+      "cap": "Image de la vidéo"
+    },
+    {
+      "src": "/img/lineups/a984e195ea0c.jpg",
+      "cap": "Image de la vidéo"
+    }
+  ],
   "from": null,
   "to": [
     0.424,

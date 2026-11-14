@@ -8,7 +8,24 @@
   "title": "Post plant B ( default) depuis main",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/000277382f83.jpg",
+      "cap": "Image de la vidéo"
+    },
+    {
+      "src": "/img/lineups/c36747a06a0d.jpg",
+      "cap": "Image de la vidéo"
+    },
+    {
+      "src": "/img/lineups/12802bdb0322.jpg",
+      "cap": "Image de la vidéo"
+    },
+    {
+      "src": "/img/lineups/1baf5be1a9e0.jpg",
+      "cap": "Image de la vidéo"
+    }
+  ],
   "from": [
     0.622,
     0.755

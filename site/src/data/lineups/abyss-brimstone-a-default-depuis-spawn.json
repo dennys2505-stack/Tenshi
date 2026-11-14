@@ -8,7 +8,24 @@
   "title": "A default depuis spawn",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/68b29e2a7456.jpg",
+      "cap": "Image de la vidéo"
+    },
+    {
+      "src": "/img/lineups/1f3b0947e72a.jpg",
+      "cap": "Image de la vidéo"
+    },
+    {
+      "src": "/img/lineups/6b68bccd2f79.jpg",
+      "cap": "Image de la vidéo"
+    },
+    {
+      "src": "/img/lineups/69cbde299685.jpg",
+      "cap": "Image de la vidéo"
+    }
+  ],
   "from": [
     0.872,
     0.439
