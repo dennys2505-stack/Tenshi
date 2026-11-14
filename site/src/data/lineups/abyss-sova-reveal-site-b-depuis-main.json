@@ -6,7 +6,10 @@
   "side": "Attaque",
   "site": "B",
   "title": "Reveal site B depuis main",
-  "notes": [],
+  "notes": [
+    "Charge pleine",
+    "2 rebonds"
+  ],
   "reveal": false,
   "images": [
     {
@@ -14,17 +17,17 @@
       "cap": ""
     },
     {
-      "src": "/img/lineups/af0a4aacfa07.jpg",
-      "cap": ""
+      "src": "/img/lineups/abyss-40-coin.jpg",
+      "cap": "Bien se coller dans le coin"
     }
   ],
   "from": [
-    0.676,
-    0.715
+    0.666,
+    0.705
   ],
   "to": [
-    0.44,
-    0.85
+    0.47,
+    0.915
   ],
   "video": "https://www.instagram.com/reel/DRrS3ThitUz/?igsh=N2JmajIxamlxZmhv",
   "credit": "",

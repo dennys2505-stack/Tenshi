@@ -29,10 +29,27 @@ export default async function frames({ log, rep, job }) {
       for (const m of marks) {
         const name = crypto.createHash('sha1').update(l.id + m).digest('hex').slice(0, 12) + '.jpg';
         await run('ffmpeg', ['-y', '-v', 'error', '-ss', (dur * m).toFixed(2), '-i', out, '-frames:v', '1', '-vf', 'scale=720:-2', '-q:v', '4', path.join(IMG_DIR, name)]);
-        if (fs.existsSync(path.join(IMG_DIR, name))) imgs.push({ src: `/img/lineups/${name}`, cap: 'Image de la vidéo' });
+        if (fs.existsSync(path.join(IMG_DIR, name))) imgs.push({ src: `/img/lineups/${name}`, cap: '' });
+      }
+      // Sova : le nombre de rebonds est affiché à l'écran (« BOUNCES : 2 ») pendant la visée → indication ajoutée.
+      let extra = '';
+      if (l.agent === 'Sova') {
+        try {
+          await run('ffmpeg', ['-y', '-v', 'error', '-i', out, '-vf', "fps=2,crop=iw*0.6:ih*0.35:iw*0.2:ih*0.45,scale=iw*2:-2,format=gray,lutyuv=y='if(gt(val,165),0,255)'", path.join(tmp, 'o%03d.png')], { timeout: 120_000 });
+          let last = null;
+          for (const fr of fs.readdirSync(tmp).filter((x) => x.startsWith('o')).sort()) {
+            const t = (await run('tesseract', [path.join(tmp, fr), '-', '--psm', '11'], { timeout: 30_000 })).stdout;
+            const mm = t.match(/B[O0]UNCE[S5]?\s*[:;.]?\s*([0-2])/i);
+            if (mm) last = +mm[1];
+          }
+          if (last !== null) {
+            const note = last === 0 ? 'Sans rebond' : `${last} rebond${last > 1 ? 's' : ''}`;
+            l.notes = [...(l.notes ?? []).filter((n) => !/rebond/i.test(n)), note]; extra = ` · ${note}`;
+          }
+        } catch (e) { log('lecture des rebonds impossible : ' + String(e.message).split('\n')[0]); }
       }
       l.images = imgs; fs.writeFileSync(p, JSON.stringify(l, null, 2) + '\n');
-      done++; rep(`| ${l.num} | ${l.title.replace(/\|/g, '/')} | ✅ ${imgs.length} images (vidéo ${dur.toFixed(0)} s) |`);
+      done++; rep(`| ${l.num} | ${l.title.replace(/\|/g, '/')} | ✅ ${imgs.length} images (vidéo ${dur.toFixed(0)} s)${extra} |`);
     } catch (e) {
       fail++;
       const msg = (String(e.stderr || e.message).split('\n').find((x) => /ERROR/.test(x)) || String(e.message).split('\n')[0]).slice(0, 140).replace(/\|/g, '/');
