@@ -109,7 +109,7 @@ const boot = {
         '<div class="row"><a class="b p" href="/" style="text-decoration:none">← Voir le site (avec les numéros)</a></div>' +
         '<div class="row"><button class="b" id="new">+ Nouvelle line up</button><button class="b" id="out">Se déconnecter</button></div>' +
         '<input type="search" id="q" placeholder="Chercher (numéro, map, agent, titre)" value="' + esc(q) + '">' +
-        '<p class="lead" style="margin-top:12px">' + items.length + ' line ups. Ici, c'est l'atelier. Sur le site, touche le petit #numéro d'une line up pour la modifier.</p>' +
+        '<p class="lead" style="margin-top:12px">' + items.length + ' line ups. Ici, c\'est l\'atelier. Sur le site, touche le petit #numéro d\'une line up pour la modifier.</p>' +
         list.map(function (i) {
           return '<button class="it" data-id="' + esc(i.id) + '"><span class="n">#' + (i.num || '–') + '</span><span>' + esc(i.title) + '<br><small>' + esc(i.map) + ' · ' + esc(i.agent) + '</small></span></button>';
         }).join('') + '</div>';
