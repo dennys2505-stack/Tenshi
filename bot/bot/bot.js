@@ -163,5 +163,42 @@ client.on('messageCreate', async (message) => {
 });
 
 client.on('error', (e) => console.error('Erreur client Discord :', e));
+client.on('warn', (m) => console.warn('Avertissement Discord :', m));
+client.on('shardError', (e) => console.error('Erreur de connexion (shard) :', e.message));
+client.on('shardDisconnect', (ev, id) => console.error(`Shard ${id} déconnecté, code ${ev?.code}`));
+client.on('invalidated', () => console.error('Session Discord invalidée (token refusé).'));
+let nbDebug = 0;
+client.on('debug', (m) => {
+  if (/token/i.test(m) || nbDebug >= 40) return; // ne jamais afficher de secret
+  nbDebug++;
+  console.log('[discord]', m);
+});
+
+// --- Diagnostic du token (n'affiche jamais le token lui-même) ---
+const rawToken = process.env.DISCORD_TOKEN || '';
+const token = rawToken.trim().replace(/^DISCORD_TOKEN=/i, '').replace(/^["']|["']$/g, '').trim();
+console.log(
+  `Diagnostic token : défini=${rawToken.length > 0}, longueur=${token.length}, morceaux séparés par des points=${token.split('.').length} (un vrai token de bot en a 3), ` +
+  `espaces/guillemets/préfixe corrigés=${token !== rawToken}`
+);
+(async () => {
+  try {
+    const r = await fetch('https://discord.com/api/v10/users/@me', { headers: { Authorization: `Bot ${token}` } });
+    if (r.status === 200) {
+      const u = await r.json();
+      console.log(`Test du token : OK, le token appartient au bot « ${u.username} ».`);
+    } else if (r.status === 401) {
+      console.error('Test du token : REFUSÉ (401). Le token n\'est pas un token de bot valide : refais « Reset Token » dans Discord → Bot et recopie-le dans Render.');
+    } else {
+      console.error(`Test du token : réponse inattendue HTTP ${r.status}.`);
+    }
+  } catch (e) {
+    console.error('Test du token : impossible de joindre discord.com depuis Render :', e.message);
+  }
+})();
+setTimeout(() => {
+  if (!annonce) console.error('⚠️ Toujours pas connecté à Discord après 45 secondes (voir les lignes ci-dessus).');
+}, 45000);
+
 console.log('Connexion à Discord...');
-client.login(process.env.DISCORD_TOKEN).then(() => console.log('Token accepté par Discord.')).catch((e) => console.error('ÉCHEC de connexion Discord (token ou intents) :', e.message));
+client.login(token).then(() => console.log('Token accepté par Discord.')).catch((e) => console.error('ÉCHEC de connexion Discord (token ou intents) :', e.message));
