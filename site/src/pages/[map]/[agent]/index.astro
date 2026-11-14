@@ -13,7 +13,7 @@ export function getStaticPaths() {
 const { mapName, agentName } = Astro.props;
 const list = lineupsFor(mapName, agentName);
 const uniq = (a) => [...new Set(a)];
-const sides = uniq(list.map((l) => l.side));
+const sides = uniq(list.flatMap((l) => l.side === 'Attaque et défense' ? ['Attaque', 'Défense'] : [l.side]));
 const sites = uniq(list.map((l) => l.site).filter(Boolean));
 const map = mapByName(mapName);
 const agent = agentInfo(agentName);
@@ -50,7 +50,7 @@ const agent = agentInfo(agentName);
   function apply() {
     let shown = 0;
     for (const c of cards) {
-      const ok = (state.side === 'Tous' || c.dataset.side === state.side) && (state.site === 'Tous' || c.dataset.site === state.site);
+      const ok = (state.side === 'Tous' || c.dataset.side === state.side || (c.dataset.side === 'Attaque et défense' && (state.side === 'Attaque' || state.side === 'Défense'))) && (state.site === 'Tous' || c.dataset.site === state.site);
       c.hidden = !ok;
       if (ok) shown++;
     }
