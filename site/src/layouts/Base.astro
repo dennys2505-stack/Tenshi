@@ -30,7 +30,7 @@ const ogImage = image && Astro.site ? new URL(image, Astro.site).href : image;
         var q = new URLSearchParams(location.search).get('num');
         if (q === '1') localStorage.setItem('tenshi_num', '1');
         if (q === '0') localStorage.removeItem('tenshi_num');
-        if (localStorage.getItem('tenshi_num') === '1' || localStorage.getItem('tenshi_gh')) document.documentElement.classList.add('show-num');
+        if (localStorage.getItem('tenshi_num') === '1' || localStorage.getItem('tenshi_gh') || localStorage.getItem('tenshi_pw')) document.documentElement.classList.add('show-num');
       } catch (e) {}
     </script>
   </head>

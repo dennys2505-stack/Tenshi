@@ -48,8 +48,15 @@ const boot = {
     var b64 = function (s) { return btoa(unescape(encodeURIComponent(s))); };
     var unb64 = function (s) { return decodeURIComponent(escape(atob(s.replace(/\n/g, '')))); };
 
+    var pw = ''; try { pw = localStorage.getItem('tenshi_pw') || ''; } catch (e) {}
     async function gh(path, opt) {
       opt = opt || {};
+      if (pw) {
+        var rp = await fetch('/api/gh', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ password: pw, method: opt.method || 'GET', path: path, body: opt.body }) });
+        var jp = null; try { jp = await rp.json(); } catch (e) {}
+        if (!rp.ok) throw new Error((jp && jp.message) || ('HTTP ' + rp.status));
+        return jp;
+      }
       var r = await fetch('https://api.github.com/repos/' + REPO + path, {
         method: opt.method || 'GET',
         headers: { Authorization: 'Bearer ' + tok, Accept: 'application/vnd.github+json', 'Content-Type': 'application/json' },
@@ -68,17 +75,23 @@ const boot = {
 
     function viewLogin() {
       app.innerHTML = '<div class="adm"><h1>Admin</h1>' + msgHtml() +
-        '<p class="lead">Pour modifier le site depuis cette page, il faut une clé GitHub (à faire une seule fois par appareil).</p>' +
-        '<ol><li>Sur GitHub : photo de profil → <b>Settings</b> → <b>Developer settings</b> → <b>Personal access tokens</b> → <b>Fine-grained tokens</b> → <b>Generate new token</b>.</li>' +
+        '<label for="p">Mot de passe</label><input id="p" type="password" autocomplete="current-password">' +
+        '<div class="row"><button class="b p" id="okp">Se connecter</button></div>' +
+        '<details style="margin-top:18px"><summary>Pas de mot de passe configuré ? Connexion avec une clé GitHub</summary>' +
+        '<ol><li>GitHub : photo de profil → <b>Settings</b> → <b>Developer settings</b> → <b>Personal access tokens</b> → <b>Fine-grained tokens</b> → <b>Generate new token</b>.</li>' +
         '<li><b>Repository access</b> : « Only select repositories » → <b>Tenshi</b>.</li>' +
-        '<li><b>Permissions</b> → Repository permissions → <b>Contents : Read and write</b>.</li>' +
-        '<li>Générer, copier la clé, la coller ci-dessous.</li></ol>' +
+        '<li><b>Permissions</b> → Repository permissions → <b>Contents : Read and write</b>.</li></ol>' +
         '<label for="t">Clé GitHub</label><input id="t" type="password" autocomplete="off" placeholder="github_pat_…">' +
-        '<div class="row"><button class="b p" id="ok">Se connecter</button></div>' +
-        '<p class="empty">La clé reste uniquement dans ton navigateur ; elle n\'est jamais publiée.</p></div>';
+        '<div class="row"><button class="b" id="ok">Se connecter avec la clé</button></div></details></div>';
+      document.getElementById('okp').onclick = async function () {
+        var v = document.getElementById('p').value; if (!v) return;
+        pw = v;
+        try { await gh(''); try { localStorage.setItem('tenshi_pw', pw); } catch (e) {} setMsg(null); viewList(); }
+        catch (e) { pw = ''; setMsg(e.message === 'non configuré' ? 'Le mot de passe n\'est pas encore configuré sur le site : utilise la clé GitHub ci-dessous.' : 'Connexion impossible : ' + e.message, true); viewLogin(); }
+      };
       document.getElementById('ok').onclick = async function () {
         var v = document.getElementById('t').value.trim(); if (!v) return;
-        tok = v;
+        tok = v; pw = '';
         try {
           var r = await gh('');
           if (!r.permissions || !r.permissions.push) throw new Error('Cette clé n\'a pas le droit d\'écrire (Contents : Read and write).');
@@ -101,7 +114,7 @@ const boot = {
         }).join('') + '</div>';
       document.getElementById('q').oninput = function (e) { var v = e.target.value; viewList(v); var el = document.getElementById('q'); el.focus(); el.setSelectionRange(v.length, v.length); };
       document.getElementById('new').onclick = function () { openEditor(null); };
-      document.getElementById('out').onclick = function () { try { localStorage.removeItem('tenshi_gh'); } catch (e) {} tok = ''; viewLogin(); };
+      document.getElementById('out').onclick = function () { try { localStorage.removeItem('tenshi_gh'); localStorage.removeItem('tenshi_pw'); } catch (e) {} tok = ''; pw = ''; viewLogin(); };
       Array.prototype.forEach.call(app.querySelectorAll('.it'), function (b) { b.onclick = function () { openEditor(b.getAttribute('data-id')); }; });
     }
 
@@ -235,7 +248,7 @@ const boot = {
     }
     function toB64(blob) { return new Promise(function (res) { var r = new FileReader(); r.onload = function () { res(String(r.result).split(',')[1]); }; r.readAsDataURL(blob); }); }
 
-    if (tok) viewList(); else viewLogin();
+    if (tok || pw) viewList(); else viewLogin();
   })();
   </script>
 </Base>
