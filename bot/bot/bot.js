@@ -4,6 +4,17 @@ import YTDlpWrap from 'yt-dlp-wrap';
 import fs from 'fs';
 import path from 'path';
 import 'dotenv/config';
+import http from 'http';
+
+// Render (Web Service) exige un port ouvert : mini serveur qui répond "ok".
+// Sert aussi de cible pour un ping régulier (UptimeRobot) afin d'éviter la mise en veille.
+const PORT = process.env.PORT || 3000;
+http
+  .createServer((req, res) => {
+    res.writeHead(200, { 'content-type': 'text/plain' });
+    res.end('ok');
+  })
+  .listen(PORT, () => console.log(`Serveur de santé sur le port ${PORT}`));
 
 const client = new Client({
   intents: [
