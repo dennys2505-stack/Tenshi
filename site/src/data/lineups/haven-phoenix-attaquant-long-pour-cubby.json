@@ -3,7 +3,7 @@
   "num": 56,
   "map": "Haven",
   "agent": "Phoenix",
-  "side": "À classer",
+  "side": "Attaque",
   "site": "C",
   "title": "Attaquant long pour cubby",
   "notes": [],
@@ -18,11 +18,11 @@
       "cap": ""
     },
     {
-      "src": "/img/lineups/6e0a9d5f1d05.jpg",
+      "src": "/img/lineups/6e0a9d5f1d05c.jpg",
       "cap": ""
     },
     {
-      "src": "/img/lineups/f82eeb87e0ee.jpg",
+      "src": "/img/lineups/f82eeb87e0eec.jpg",
       "cap": ""
     }
   ],

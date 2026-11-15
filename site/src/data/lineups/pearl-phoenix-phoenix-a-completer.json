@@ -3,9 +3,9 @@
   "num": 61,
   "map": "Pearl",
   "agent": "Phoenix",
-  "side": "À classer",
-  "site": "",
-  "title": "Phoenix – à compléter",
+  "side": "Attaque",
+  "site": "B",
+  "title": "B default plant (deny + delay)",
   "notes": [],
   "reveal": false,
   "images": [
@@ -14,7 +14,7 @@
       "cap": ""
     },
     {
-      "src": "/img/lineups/d3a506e5048f.jpg",
+      "src": "/img/lineups/d3a506e5048fc.jpg",
       "cap": ""
     },
     {

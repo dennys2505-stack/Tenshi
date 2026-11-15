@@ -6,20 +6,22 @@
   "side": "Attaque",
   "site": "B",
   "title": "Attaque B depuis main vers (dugout)",
-  "notes": [],
+  "notes": [
+    "Courir, sauter, lancer"
+  ],
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/6f67920cd25c.jpg",
-      "cap": "Repère de visée"
+      "src": "/img/lineups/6f67920cd25cc.jpg",
+      "cap": ""
     },
     {
       "src": "/img/lineups/6b4856c8c10c.jpg",
-      "cap": "Repère de visée"
+      "cap": ""
     },
     {
       "src": "/img/lineups/7c4791b56919.jpg",
-      "cap": "Repère de visée"
+      "cap": ""
     }
   ],
   "from": null,

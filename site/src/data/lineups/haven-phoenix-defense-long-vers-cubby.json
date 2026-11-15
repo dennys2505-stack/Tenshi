@@ -6,23 +6,25 @@
   "side": "Défense",
   "site": "C",
   "title": "Défense long vers cubby",
-  "notes": [],
+  "notes": [
+    "Courir, sauter, lancer"
+  ],
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/8ba4a07cb496.jpg",
+      "src": "/img/lineups/8ba4a07cb496c.jpg",
       "cap": ""
     },
     {
-      "src": "/img/lineups/a0810e2681eb.jpg",
+      "src": "/img/lineups/a0810e2681ebc.jpg",
       "cap": ""
     },
     {
-      "src": "/img/lineups/2bdf9c9c6f7d.jpg",
+      "src": "/img/lineups/2bdf9c9c6f7dc.jpg",
       "cap": ""
     },
     {
-      "src": "/img/lineups/8972bcfc56ad.jpg",
+      "src": "/img/lineups/8972bcfc56adc.jpg",
       "cap": ""
     }
   ],
