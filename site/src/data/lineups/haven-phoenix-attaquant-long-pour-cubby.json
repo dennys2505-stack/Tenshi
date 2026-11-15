@@ -8,7 +8,24 @@
   "title": "Attaquant long pour cubby",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/5a6375222a76.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/b7771c294d83.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/6e0a9d5f1d05.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/f82eeb87e0ee.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": [
     0.605,

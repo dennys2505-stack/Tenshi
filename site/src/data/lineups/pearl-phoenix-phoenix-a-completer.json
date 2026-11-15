@@ -8,7 +8,24 @@
   "title": "Phoenix – à compléter",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/4ed07e799b18.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/d3a506e5048f.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/e873ae29fc6d.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/bbbfc689e20f.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": null,
   "video": "https://www.instagram.com/reel/DXB-UCYsZ51/?igsh=czNsOW5hcWMwM2ww",

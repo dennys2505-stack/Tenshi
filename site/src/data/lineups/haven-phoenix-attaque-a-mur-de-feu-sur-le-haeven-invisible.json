@@ -8,7 +8,24 @@
   "title": "Attaque A ( Mur de feu sur le haeven ) invisible",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/ab14979b9896.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/c8ccf93278f7.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/45d868b7afe3.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/64e423655fa4.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": [
     0.364,
