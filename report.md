@@ -1,4 +1,4 @@
-# Tâche « import » — 2026-11-15T23:18:16.215Z
+# Tâche « import » — 2026-11-15T23:44:18.165Z
 
 ## Import (simulation) — cartes : toutes, limite : 0
 
