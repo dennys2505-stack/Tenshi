@@ -5,14 +5,10 @@
   "agent": "Brimstone",
   "side": "Attaque",
   "site": "A",
-  "title": "A default depuis spawn",
+  "title": "A default post plant depuis spawn",
   "notes": [],
   "reveal": false,
   "images": [
-    {
-      "src": "/img/lineups/68b29e2a7456.jpg",
-      "cap": "Image de la vidéo"
-    },
     {
       "src": "/img/lineups/1f3b0947e72a.jpg",
       "cap": "Image de la vidéo"
@@ -27,17 +23,18 @@
     }
   ],
   "from": [
-    0.872,
-    0.439
+    0.86,
+    0.294
   ],
   "to": [
-    0.424,
-    0.095
+    0.46,
+    0.143
   ],
   "video": "https://www.instagram.com/reel/DcN7KsEinO2/?stkn=MWtsZHdnZnpmaG9vZg==",
   "credit": "",
   "auto": true,
   "source": {
     "message": "1553724790341111921"
-  }
+  },
+  "checked": true
 }
