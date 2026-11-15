@@ -53,5 +53,25 @@
     "name": "Viper",
     "slug": "viper",
     "bg": "/img/agents/viper.jpg"
+  },
+  {
+    "name": "Sage",
+    "slug": "sage",
+    "bg": "/img/agents/sage.jpg"
+  },
+  {
+    "name": "Waylay",
+    "slug": "waylay",
+    "bg": "/img/agents/waylay.jpg"
+  },
+  {
+    "name": "Miks",
+    "slug": "miks",
+    "bg": "/img/agents/miks.jpg"
+  },
+  {
+    "name": "Tejo",
+    "slug": "tejo",
+    "bg": "/img/agents/tejo.jpg"
   }
 ]

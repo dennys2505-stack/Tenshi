@@ -6,7 +6,9 @@
   "side": "Attaque",
   "site": "A",
   "title": "Post plant A depuis spawn",
-  "notes": [],
+  "notes": [
+    "Atterrit sur le default A"
+  ],
   "reveal": false,
   "images": [
     {
