@@ -131,7 +131,7 @@ export default async function importTask({ log, rep, job }) {
                   if (r.minimap) { mmPts = r; log(`mini map reconnue (${map}, score ${r.score})`); continue; }
                 } catch (e) { log('analyse mini map impossible : ' + e.message.split('\n')[0]); }
               }
-              images.push({ src: `/img/lineups/${name}`, cap: m.attachments?.length ? 'Repère de visée' : 'Aperçu de la vidéo' });
+              images.push({ src: `/img/lineups/${name}`, cap: '' });
             }
           }
           let id = slug(`${map}-${agent}-${title}`) || `${slug(map)}-${slug(agent)}-${m.id}`;
@@ -145,7 +145,11 @@ export default async function importTask({ log, rep, job }) {
           if (mmPts?.to) { pts.to = mmPts.to; pts.toZone = 'mini map Discord'; }
           // Trop peu d'infos (pas de titre exploitable ni de point) → cachée au public, visible dans les Coulisses.
           const poor = /à compléter/.test(title) || (!pts.from && !pts.to);
-          const lu = { id, num: ++num, map, agent, side, site, title, notes, reveal: agent === 'Fade' && /reveal/i.test(all_text), images, from: pts.from || null, to: pts.to || null, video, credit: '', auto: true, ...(poor ? { hidden: true } : {}), source: { message: m.id } };
+          // Vérifiée d'office seulement si tout y est et vient de l'auteur : photos jointes sur Discord (pas des images tirées de la vidéo),
+          // départ ET arrivée lus sur sa mini map, côté et site connus, vrai titre. Au moindre doute → « À vérifier ».
+          const sure = !poor && mmPts?.from && mmPts?.to && (m.attachments?.length ?? 0) > 0 && images.length > 0
+            && side !== 'À classer' && !!site && title.split(/\s+/).length >= 3;
+          const lu = { id, num: ++num, map, agent, side, site, title, notes, reveal: agent === 'Fade' && /reveal/i.test(all_text), images, from: pts.from || null, to: pts.to || null, video, credit: '', auto: true, ...(poor ? { hidden: true } : {}), ...(sure ? { checked: true } : {}), source: { message: m.id } };
           if (!dry) fs.writeFileSync(path.join(LU_DIR, id + '.json'), JSON.stringify(lu, null, 2) + '\n');
           seenMsg.add(m.id); if (video) seenVideo.add(normUrl(video));
           created.push({ ...lu, imgCount: images.length || imgUrls.length, zones: `${pts.fromZone || '?'} → ${pts.toZone || '?'}` });
