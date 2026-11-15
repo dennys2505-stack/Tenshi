@@ -49,6 +49,9 @@ const boot = {
     var unb64 = function (s) { return decodeURIComponent(escape(atob(s.replace(/\n/g, '')))); };
 
     var pw = ''; try { pw = localStorage.getItem('tenshi_pw') || ''; } catch (e) {}
+    async function freshSha(id) {
+      try { return (await gh('/contents/' + DIR + '/' + id + '.json?ref=' + BR + '&t=' + Date.now())).sha; } catch (e) { return cur && cur.sha; }
+    }
     async function gh(path, opt) {
       opt = opt || {};
       if (pw) {
@@ -128,7 +131,7 @@ const boot = {
       }
       app.innerHTML = '<p class="empty">Chargement…</p>';
       try {
-        var f = await gh('/contents/' + DIR + '/' + id + '.json?ref=' + BR);
+        var f = await gh('/contents/' + DIR + '/' + id + '.json?ref=' + BR + '&t=' + Date.now());
         cur = { sha: f.sha, isNew: false, d: JSON.parse(unb64(f.content)) };
         viewEdit();
       } catch (e) { setMsg('Lecture impossible : ' + e.message, true); viewList(); }
@@ -223,7 +226,8 @@ const boot = {
           if (cur.isNew) out.id = slug(d.map + '-' + d.agent + '-' + d.title);
           if (!out.from) delete out.from; if (!out.to) delete out.to;
           var body = { message: 'Admin : ' + (cur.isNew ? 'ajout' : 'modification') + ' #' + out.num + ' ' + out.title, content: b64(JSON.stringify(out, null, 2) + '\n'), branch: BR };
-          if (cur.sha) body.sha = cur.sha;
+          // Toujours repartir de la version actuelle du fichier sur GitHub (évite « does not match » après un 2e enregistrement).
+          if (!cur.isNew) body.sha = await freshSha(out.id); else if (cur.sha) body.sha = cur.sha;
           var r = await gh('/contents/' + DIR + '/' + out.id + '.json', { method: 'PUT', body: body });
           cur.sha = r.content.sha; cur.isNew = false; cur.d = out;
           var ix = items.map(function (i) { return i.id; }).indexOf(out.id);
@@ -237,7 +241,7 @@ const boot = {
       if (del) del.onclick = async function () {
         if (!confirm('Supprimer cette line up ?')) return;
         try {
-          await gh('/contents/' + DIR + '/' + d.id + '.json', { method: 'DELETE', body: { message: 'Admin : suppression #' + d.num + ' ' + d.title, sha: cur.sha, branch: BR } });
+          await gh('/contents/' + DIR + '/' + d.id + '.json', { method: 'DELETE', body: { message: 'Admin : suppression #' + d.num + ' ' + d.title, sha: await freshSha(d.id), branch: BR } });
           items = items.filter(function (i) { return i.id !== d.id; });
           setMsg('Supprimée. Le site se met à jour dans 1 à 2 minutes.'); viewList();
         } catch (er) { setMsg('Échec : ' + er.message, true); viewEdit(); }

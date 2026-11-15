@@ -3,7 +3,7 @@
 import crypto from 'node:crypto';
 
 const REPO = 'dennys2505-stack/Tenshi';
-const ALLOWED = /^\/contents\/site\/(src\/data\/|public\/img\/)[A-Za-z0-9_\-./]*(\?ref=main)?$/;
+const ALLOWED = /^\/contents\/site\/(src\/data\/|public\/img\/)[A-Za-z0-9_\-./]*(\?ref=main(&t=\d+)?)?$/;
 
 const same = (a, b) => {
   const x = crypto.createHash('sha256').update(String(a)).digest();
