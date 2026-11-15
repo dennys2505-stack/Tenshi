@@ -5,25 +5,25 @@
   "agent": "Sova",
   "side": "Attaque",
   "site": "A",
-  "title": "A pont line up post plant",
-  "notes": [],
+  "title": "Post plant pont A",
+  "notes": [
+    "2 shock darts",
+    "1re (viser le rocher) : 2 barres de charge",
+    "2e : charge pleine, 2 rebonds"
+  ],
   "reveal": false,
   "images": [
     {
       "src": "/img/lineups/b06055131ffc.jpg",
-      "cap": "Image de la vidéo"
+      "cap": ""
     },
     {
       "src": "/img/lineups/f26a11a60912.jpg",
-      "cap": "Image de la vidéo"
+      "cap": ""
     },
     {
       "src": "/img/lineups/6ffe2a87ec82.jpg",
-      "cap": "Image de la vidéo"
-    },
-    {
-      "src": "/img/lineups/a984e195ea0cc.jpg",
-      "cap": "Image de la vidéo"
+      "cap": ""
     }
   ],
   "from": null,
