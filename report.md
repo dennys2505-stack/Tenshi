@@ -1,7 +1,12 @@
-# Tâche « clip » — 2026-11-15T23:13:36.218Z
+# Tâche « import » — 2026-11-15T23:16:15.556Z
 
-## Clips de test
+## Import (simulation) — cartes : aucune, limite : aucune
 
-| n° | titre | résultat |
-|---|---|---|
-| 53 | Attaque , molly au fond de la windows | ✅ 3.0 s à partir de 0.6 s (pic de mouvement à 2.6 s), 175 Ko |
+### 0 line ups simulées
+
+| n° | map | agent | côté | site | titre | points | photos | vidéo |
+|---|---|---|---|---|---|---|---|---|
+
+Ignorés : 0 déjà présents (même message, même lien ou même image), 0 messages sans lien ni image.
+
+Salons spéciaux laissés de côté pour l'instant : Salons textuels/général.
