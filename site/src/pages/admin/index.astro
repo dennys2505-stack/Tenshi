@@ -120,7 +120,7 @@ const boot = {
       var chip = function (k, t) { return '<button class="b' + (vue === k ? ' p' : '') + '" data-vue="' + k + '">' + t + ' (' + nb(k) + ')</button>'; };
       app.innerHTML = '<div class="adm"><h1>Admin</h1>' + msgHtml() +
         '<div class="row"><a class="b p" href="/" style="text-decoration:none">← Voir le site (avec les numéros)</a><a class="b" href="/coulisses/" style="text-decoration:none">🙈 Coulisses</a></div>' +
-        '<div class="row"><button class="b p" id="quick">⚡ Vérification rapide (' + nb('averifier') + ')</button></div>' +
+        '<div class="row"><button class="b p" id="quick">⚡ Vérification rapide (' + items.filter(function (i) { return !i.checked && !i.hidden && !isDefSetup(i); }).length + ')</button></div>' +
         '<div class="row"><button class="b" id="new">+ Nouvelle line up</button><button class="b" id="out">Se déconnecter</button></div>' +
         '<div class="row" style="flex-wrap:wrap">' + chip('toutes', 'Toutes') + chip('averifier', 'À vérifier') + chip('cachees', 'Cachées') + chip('verifiees', 'Vérifiées ✔') + '</div>' +
         '<input type="search" id="q" placeholder="Chercher (numéro, map, agent, titre)" value="' + esc(q) + '">' +
