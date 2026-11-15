@@ -6,15 +6,14 @@
   "side": "Attaque",
   "site": "",
   "title": "Post plant",
-  "notes": [],
+  "notes": [
+    "Charge pleine",
+    "1 rebond"
+  ],
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/9f3fa61fa472.jpg",
-      "cap": ""
-    },
-    {
-      "src": "/img/lineups/598db0001aac.jpg",
+      "src": "/img/lineups/9f3fa61fa472c.jpg",
       "cap": ""
     },
     {
