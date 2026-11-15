@@ -1,6 +1,6 @@
-# Tâche « import » — 2026-11-15T23:16:15.556Z
+# Tâche « import » — 2026-11-15T23:18:16.215Z
 
-## Import (simulation) — cartes : aucune, limite : aucune
+## Import (simulation) — cartes : toutes, limite : 0
 
 ### 0 line ups simulées
 
