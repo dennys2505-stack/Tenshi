@@ -1,0 +1,23 @@
+{
+  "id": "haven-phoenix-defense-long-vers-cubby",
+  "num": 57,
+  "map": "Haven",
+  "agent": "Phoenix",
+  "side": "Défense",
+  "site": "C",
+  "title": "Défense long vers cubby",
+  "notes": [],
+  "reveal": false,
+  "images": [],
+  "from": null,
+  "to": [
+    0.605,
+    0.817
+  ],
+  "video": "https://www.instagram.com/reel/DbrbkPBRwJt/?igsh=MWdoYjg4dGszcWZycQ==",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1535657140331487282"
+  }
+}

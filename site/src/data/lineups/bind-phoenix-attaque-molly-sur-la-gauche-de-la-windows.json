@@ -1,0 +1,35 @@
+{
+  "id": "bind-phoenix-attaque-molly-sur-la-gauche-de-la-windows",
+  "num": 53,
+  "map": "Bind",
+  "agent": "Phoenix",
+  "side": "Attaque",
+  "site": "B",
+  "title": "Attaque , molly sur la gauche de la windows",
+  "notes": [],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/cabec7a184c5.jpg",
+      "cap": "Repère de visée"
+    },
+    {
+      "src": "/img/lineups/ae81090f6c78.jpg",
+      "cap": "Repère de visée"
+    }
+  ],
+  "from": [
+    0.425,
+    0.494
+  ],
+  "to": [
+    0.314,
+    0.474
+  ],
+  "video": "https://www.instagram.com/reel/DWHLg5KtqQ6/?igsh=MWNkeWJ6NnJ2aTk4aQ==",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1486734599470973129"
+  }
+}

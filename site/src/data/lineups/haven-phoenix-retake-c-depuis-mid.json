@@ -1,0 +1,41 @@
+{
+  "id": "haven-phoenix-retake-c-depuis-mid",
+  "num": 55,
+  "map": "Haven",
+  "agent": "Phoenix",
+  "side": "Défense",
+  "site": "C",
+  "title": "Retake C depuis mid",
+  "notes": [
+    "(Molly sur logs)"
+  ],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/ebd992e88c5f.jpg",
+      "cap": "Repère de visée"
+    },
+    {
+      "src": "/img/lineups/91bdf8f068ba.jpg",
+      "cap": "Repère de visée"
+    },
+    {
+      "src": "/img/lineups/aa5d7e475bc2.jpg",
+      "cap": "Repère de visée"
+    }
+  ],
+  "from": [
+    0.622,
+    0.563
+  ],
+  "to": [
+    0.359,
+    0.856
+  ],
+  "video": "https://www.instagram.com/reel/DWbQYgcNFdW/?igsh=c3prdmlldmp1cDh2",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1487414533898113075"
+  }
+}

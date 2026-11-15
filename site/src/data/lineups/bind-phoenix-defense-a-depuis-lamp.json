@@ -1,0 +1,31 @@
+{
+  "id": "bind-phoenix-defense-a-depuis-lamp",
+  "num": 52,
+  "map": "Bind",
+  "agent": "Phoenix",
+  "side": "Défense",
+  "site": "A",
+  "title": "Défense A depuis lamp",
+  "notes": [],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/af32ab1c0220.jpg",
+      "cap": "Repère de visée"
+    }
+  ],
+  "from": [
+    0.632,
+    0.317
+  ],
+  "to": [
+    0.726,
+    0.324
+  ],
+  "video": "https://www.instagram.com/reel/DV1DnO3k-in/?igsh=MTduaG93ZWk3d3ZkMA==",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1486117988842082346"
+  }
+}

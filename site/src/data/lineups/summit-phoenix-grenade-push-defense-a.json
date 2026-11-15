@@ -1,0 +1,21 @@
+{
+  "id": "summit-phoenix-grenade-push-defense-a",
+  "num": 58,
+  "map": "Summit",
+  "agent": "Phoenix",
+  "side": "Défense",
+  "site": "A",
+  "title": "Grenade push defense A",
+  "notes": [],
+  "reveal": false,
+  "images": [],
+  "from": null,
+  "to": null,
+  "video": "https://www.instagram.com/reel/DbDfgplPWgi/?igsh=MTA4aHBleTBieHBwNg==",
+  "credit": "",
+  "auto": true,
+  "hidden": true,
+  "source": {
+    "message": "1529564602361188434"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "id": "haven-phoenix-attaquant-long-pour-cubby",
+  "num": 56,
+  "map": "Haven",
+  "agent": "Phoenix",
+  "side": "À classer",
+  "site": "C",
+  "title": "Attaquant long pour cubby",
+  "notes": [],
+  "reveal": false,
+  "images": [],
+  "from": null,
+  "to": [
+    0.605,
+    0.817
+  ],
+  "video": "https://www.instagram.com/reel/DXDR2JRoJV-/?igsh=NHloMHg1NnloMGJy",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1493397708914823229"
+  }
+}
