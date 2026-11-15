@@ -1,0 +1,20 @@
+{
+  "id": "abyss-hush-attaque",
+  "num": 48,
+  "map": "Abyss",
+  "agent": "Hush",
+  "side": "Attaque",
+  "site": "",
+  "title": "Attaque",
+  "notes": [],
+  "reveal": false,
+  "images": [],
+  "from": null,
+  "to": null,
+  "video": "https://www.instagram.com/reel/De9MUM3ADq2/?cplk=YnN4eTJ4cW9zaWpy",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1564618288577650688"
+  }
+}

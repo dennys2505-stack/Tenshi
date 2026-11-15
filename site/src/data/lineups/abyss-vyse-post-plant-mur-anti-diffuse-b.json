@@ -1,0 +1,23 @@
+{
+  "id": "abyss-vyse-post-plant-mur-anti-diffuse-b",
+  "num": 45,
+  "map": "Abyss",
+  "agent": "Vyse",
+  "side": "Attaque",
+  "site": "B",
+  "title": "Post plant (Mur anti diffuse) B",
+  "notes": [],
+  "reveal": false,
+  "images": [],
+  "from": null,
+  "to": [
+    0.395,
+    0.922
+  ],
+  "video": "https://www.instagram.com/reel/DUvolYjDqGU/?igsh=MWp0a3Z1bnpsdDVjMw==",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1484123769814646897"
+  }
+}

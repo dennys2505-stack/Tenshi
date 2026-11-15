@@ -1,0 +1,23 @@
+{
+  "id": "abyss-veto-set-up-defense-a",
+  "num": 44,
+  "map": "Abyss",
+  "agent": "Veto",
+  "side": "Défense",
+  "site": "A",
+  "title": "Set up défense A",
+  "notes": [],
+  "reveal": false,
+  "images": [],
+  "from": null,
+  "to": [
+    0.424,
+    0.095
+  ],
+  "video": "https://www.instagram.com/reel/DQkMt1HkmDh/?igsh=MW8zM3AxdWJvOWp0bw==",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1482804581640442117"
+  }
+}

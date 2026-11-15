@@ -1,0 +1,25 @@
+{
+  "id": "bind-miks-heal-a-vers-b-et-b-vers-a",
+  "num": 50,
+  "map": "Bind",
+  "agent": "Miks",
+  "side": "À classer",
+  "site": "A",
+  "title": "Heal A vers B et B vers A",
+  "notes": [],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/43fcb5beaab7.jpg",
+      "cap": "Aperçu de la vidéo"
+    }
+  ],
+  "from": null,
+  "to": null,
+  "video": "https://x.com/i/status/2036328833675087898",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1485925055958356069"
+  }
+}

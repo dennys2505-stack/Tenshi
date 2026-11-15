@@ -1,0 +1,30 @@
+{
+  "id": "bind-miks-line-up-attaque-b",
+  "num": 51,
+  "map": "Bind",
+  "agent": "Miks",
+  "side": "Attaque",
+  "site": "B",
+  "title": "Line up attaque B",
+  "notes": [
+    "1er du mid pour pick long B , 2 ème de long sur la box B"
+  ],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/8a8f8dc7536a.jpg",
+      "cap": "Aperçu de la vidéo"
+    }
+  ],
+  "from": null,
+  "to": [
+    0.292,
+    0.281
+  ],
+  "video": "https://x.com/i/status/2037041552447389731",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1486659171737931929"
+  }
+}

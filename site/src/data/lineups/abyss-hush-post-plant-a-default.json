@@ -1,0 +1,23 @@
+{
+  "id": "abyss-hush-post-plant-a-default",
+  "num": 49,
+  "map": "Abyss",
+  "agent": "Hush",
+  "side": "Attaque",
+  "site": "A",
+  "title": "Post plant A default",
+  "notes": [],
+  "reveal": false,
+  "images": [],
+  "from": null,
+  "to": [
+    0.424,
+    0.095
+  ],
+  "video": "https://www.instagram.com/reel/De8CVEJIAVP/?xtok=MW13NmxraTg3aTRheA==",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1564620171883319328"
+  }
+}
