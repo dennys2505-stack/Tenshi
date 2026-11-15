@@ -8,7 +8,24 @@
   "title": "Attaque B",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/7a313b816192.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/f61be237d921.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/839a1dad92db.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/337ff0b64553.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": [
     0.395,

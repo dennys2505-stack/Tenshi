@@ -8,7 +8,24 @@
   "title": "Post plant (Mur anti diffuse) B",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/c1384bfc41ec.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/a768a4227329.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/47021d0e97d0.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/74668f04ecbb.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": [
     0.395,

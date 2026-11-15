@@ -8,7 +8,24 @@
   "title": "Attaque",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/48ecc466d988.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/34ce714c3479.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/ee4c7c032428.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/b8d407fa145c.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": null,
   "video": "https://www.instagram.com/reel/De9MUM3ADq2/?cplk=YnN4eTJ4cW9zaWpy",

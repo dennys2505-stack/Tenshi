@@ -8,7 +8,24 @@
   "title": "Post plant",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/9f3fa61fa472.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/598db0001aac.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/30d5f6ad8b60.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/d7870478fd5c.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": null,
   "video": "https://www.instagram.com/reel/DdYmJcTCqI-/?stkn=Y3hzd3U2anA0N21o",

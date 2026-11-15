@@ -8,7 +8,24 @@
   "title": "Post plant A default",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/9ce8446ad8f5.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/2b76c031c3c8.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/4122672bff79.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/10ce521305bf.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": [
     0.424,
