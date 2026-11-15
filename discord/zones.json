@@ -509,6 +509,26 @@
    "Attacker Side Spawn": [
     0.872,
     0.439
+   ],
+   "B Default": [
+    0.412,
+    0.955
+   ],
+   "A Default": [
+    0.46,
+    0.143
+   ],
+   "B Box Main": [
+    0.688,
+    0.704
+   ],
+   "B Under Window": [
+    0.646,
+    0.942
+   ],
+   "A Spawn": [
+    0.86,
+    0.294
    ]
   }
  },
@@ -587,7 +607,10 @@
    "danger": "B Danger",
    "catwalk": "Mid Catwalk",
    "bend": "Mid Bend",
-   "nest": "B Nest"
+   "nest": "B Nest",
+   "under window": "B Under Window",
+   "under windows": "B Under Window",
+   "box main": "B Box Main"
   }
  }
 }

@@ -12,6 +12,7 @@ function findZone(map, text, letter, side) {
   const t = ' ' + norm(text) + ' ';
   // 1. spawn
   if (/ barriere /.test(t) && letter && zones[letter.toUpperCase() + ' Barrier']) return letter.toUpperCase() + ' Barrier';
+  if (/ spawn /.test(t) && letter && zones[letter.toUpperCase() + ' Spawn']) return letter.toUpperCase() + ' Spawn';
   if (/ spawn | barriere /.test(t)) {
     const att = / attaque | atk | attacker /.test(t) ? true : / defense | def | defender /.test(t) ? false : side !== 'Défense';
     return zones[att ? 'Attacker Side Spawn' : 'Defender Side Spawn'] ? (att ? 'Attacker Side Spawn' : 'Defender Side Spawn') : null;
@@ -48,6 +49,8 @@ export function place(map, side, site, title) {
   if (fz) { out.from = zones[fz]; out.fromZone = fz; }
   let tz = findZone(map, target.replace(/^(post plant|reveal|anti rush|set up|setup|defense|defaut|block|smoke|molly)\b/g, ''), letter, side);
   if (tz && /Spawn|Barrier/.test(tz)) tz = null; // « vers le spawn » : on ne sait pas où ça tombe, tu places à la main
+  // « default / défaut » : point de plant habituel du site, s'il est connu sur cette map.
+  if ((!tz || / Site$/.test(tz)) && / (default|defaut) /.test(' ' + norm(title) + ' ') && letter && zones[letter.toUpperCase() + ' Default']) tz = letter.toUpperCase() + ' Default';
   if (!tz && !dest && letter && zones[letter.toUpperCase() + ' Site']) tz = letter.toUpperCase() + ' Site';
   if (tz && tz !== fz) { out.to = zones[tz]; out.toZone = tz; }
   return out;

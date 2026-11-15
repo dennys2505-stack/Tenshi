@@ -2,7 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import { allLineups as lineups, maps, agents } from '../../lib/data.js';
 const boot = {
-  items: lineups.map((l) => ({ id: l.id, num: l.num ?? 0, map: l.map, agent: l.agent, title: l.title, hidden: !!l.hidden, checked: !!l.checked })),
+  items: lineups.map((l) => ({ id: l.id, num: l.num ?? 0, map: l.map, agent: l.agent, title: l.title, side: l.side, hidden: !!l.hidden, checked: !!l.checked })),
   maps: maps.map((m) => ({ name: m.name, minimap: m.minimap, dim: m.dim })),
   agents: agents.map((a) => a.name),
 };
@@ -154,8 +154,10 @@ const boot = {
 
     // ⚡ Vérification rapide : une line up à la fois, trois gros boutons.
     var qList = [], qi = 0;
+    // Les set up de défense restent hors de la vérification rapide pour l'instant (format encore à définir).
+    function isDefSetup(i) { return i.side === 'Défense' && /set ?up/i.test(i.title || ''); }
     function startQuick() {
-      qList = items.filter(function (i) { return !i.checked && !i.hidden; }).sort(function (a, b) { return a.num - b.num; }).map(function (i) { return i.id; });
+      qList = items.filter(function (i) { return !i.checked && !i.hidden && !isDefSetup(i); }).sort(function (a, b) { return a.num - b.num; }).map(function (i) { return i.id; });
       qi = 0; showQuick();
     }
     async function showQuick() {
@@ -293,7 +295,7 @@ const boot = {
           var r = await gh('/contents/' + DIR + '/' + out.id + '.json', { method: 'PUT', body: body });
           cur.sha = r.content.sha; cur.isNew = false; cur.d = out;
           var ix = items.map(function (i) { return i.id; }).indexOf(out.id);
-          var row = { id: out.id, num: out.num, map: out.map, agent: out.agent, title: out.title, hidden: !!out.hidden, checked: !!out.checked };
+          var row = { id: out.id, num: out.num, map: out.map, agent: out.agent, title: out.title, side: out.side, hidden: !!out.hidden, checked: !!out.checked };
           if (ix >= 0) items[ix] = row; else items.push(row);
           setMsg('Enregistré ✔ Le site se met à jour dans 1 à 2 minutes.');
         } catch (er) { setMsg('Échec : ' + er.message, true); }
