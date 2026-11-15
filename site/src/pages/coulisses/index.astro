@@ -13,7 +13,7 @@ const byMap = [...new Set(hiddenLineups.map((l) => l.map))].map((m) => [m, hidde
   {byMap.map(([m, list]) => (
     <section>
       <h2>{m} · {list.length}</h2>
-      <div>{list.map((l) => (<><p class="meta-line" style="margin:18px 0 6px"><b>{l.agent}</b></p><LineupCard lineup={l} /></>))}</div>
+      <div>{list.map((l) => (<><p class="meta-line" style="margin:18px 0 6px"><b>{l.agent}</b>{l.proposed && " · 💡 proposition Discord"}</p><LineupCard lineup={l} /></>))}</div>
     </section>
   ))}
   <script is:inline>try{document.documentElement.classList.add('show-num')}catch(e){}</script>

@@ -56,5 +56,16 @@ const ogImage = image && Astro.site ? new URL(image, Astro.site).href : image;
       {SITE_NAME} est un projet de fans. Il n'est pas affilié à Riot Games et ne reflète ni leurs avis ni ceux de personnes
       travaillant pour Riot Games. VALORANT et Riot Games sont des marques de Riot Games, Inc.
     </footer>
-  </body>
+    <script is:inline>
+    // Bouton « Partager » : partage natif du téléphone, sinon copie du lien.
+    document.addEventListener('click', function (e) {
+      var b = e.target.closest && e.target.closest('.share'); if (!b) return;
+      var url = location.origin + b.dataset.url, t = b.dataset.title;
+      var done = function () { var o = b.textContent; b.textContent = 'Lien copié ✔'; setTimeout(function () { b.textContent = o; }, 1800); };
+      if (navigator.share) navigator.share({ title: t, url: url }).catch(function () {});
+      else if (navigator.clipboard) navigator.clipboard.writeText(url).then(done, function () { prompt('Lien :', url); });
+      else prompt('Lien :', url);
+    });
+  </script>
+</body>
 </html>

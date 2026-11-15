@@ -1,0 +1,23 @@
+---
+// Page de test (non référencée) : photo fixe + petit clip en boucle, côte à côte, pour comparer.
+import Base from '../../layouts/Base.astro';
+import MiniMap from '../../components/MiniMap.astro';
+import { allLineups, mapByName } from '../../lib/data.js';
+const list = allLineups.filter((l) => l.clipTest);
+---
+<Base title="Test clip" description="Test">
+  <meta name="robots" content="noindex,nofollow" slot="head" />
+  <div class="top"><h1>Test : photo fixe ou petit clip ?</h1></div>
+  {list.length === 0 && <p class="empty">Le clip de test n'est pas encore prêt.</p>}
+  {list.map((l) => (
+    <article class="card">
+      <h2>#{l.num} · {l.title}</h2>
+      <p class="meta-line">{l.map} · {l.agent} · {l.side}{l.site ? `, site ${l.site}` : ''}</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;align-items:start">
+        <figure style="margin:0">{l.images?.[0] && <img src={l.images[0].src} alt="" style="width:100%;border-radius:8px" />}<figcaption>Photo fixe</figcaption></figure>
+        <figure style="margin:0"><video src={l.clipTest} autoplay loop muted playsinline style="width:100%;border-radius:8px"></video><figcaption>Clip 3 s en boucle</figcaption></figure>
+        <MiniMap lineup={l} map={mapByName(l.map)} />
+      </div>
+    </article>
+  ))}
+</Base>

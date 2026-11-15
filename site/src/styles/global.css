@@ -56,3 +56,6 @@ img{width:100%;height:auto;border-radius:6px;display:block;background:#000}
 .show-num .admin-only{display:flex}
 .adminbox{flex-wrap:wrap;gap:10px 16px;align-items:center;margin:14px 0;padding:12px 14px;border:1px dashed #f0a83c88;border-radius:12px;background:#f0a83c12}
 .adminbox a{color:#f0a83c;text-decoration:none;font-weight:600}
+
+.actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.btn.ghost{background:transparent;border:1px solid currentColor;color:inherit;cursor:pointer;font:inherit}

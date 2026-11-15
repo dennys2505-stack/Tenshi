@@ -21,6 +21,9 @@ const Heading = detail ? 'h1' : 'h2';
     ))}
     <MiniMap lineup={l} map={m} />
   </div>
-  {l.video && <a class="btn" href={l.video} target="_blank" rel="noopener noreferrer">Voir la vidéo</a>}
+  <div class="actions">
+    {l.video && <a class="btn" href={l.video} target="_blank" rel="noopener noreferrer">Voir la vidéo</a>}
+    {!l.hidden && <button type="button" class="btn ghost share" data-url={lineupUrl(l)} data-title={`${l.title} (${l.agent} · ${l.map})`}>🔗 Partager</button>}
+  </div>
   {l.credit && <p class="credit">{l.credit}</p>}
 </article>

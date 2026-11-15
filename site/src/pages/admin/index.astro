@@ -31,6 +31,11 @@ const boot = {
     .adm .ims img{max-height:180px;object-fit:contain}
     .adm .mmw{position:relative;max-width:520px;touch-action:manipulation}
     .adm .mmw img{cursor:crosshair}
+    .quick .qgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px;margin:10px 0}
+    .quick .qgrid img{width:100%;border-radius:8px;display:block}
+    .quick .qgrid .mmw img{cursor:default}
+    .quick .qbar{position:sticky;bottom:0;display:flex;gap:8px;padding:10px 0;background:var(--bg,#14161c)}
+    .quick .qbar .b{flex:1;font-size:1.05rem;padding:14px 6px}
     .adm .dot{position:absolute;width:18px;height:18px;margin:-9px 0 0 -9px;border-radius:50%;border:3px solid #111;pointer-events:none}
     .adm ol{padding-left:1.2em;color:var(--mu)} .adm ol li{margin:6px 0}
   </style>
@@ -115,6 +120,7 @@ const boot = {
       var chip = function (k, t) { return '<button class="b' + (vue === k ? ' p' : '') + '" data-vue="' + k + '">' + t + ' (' + nb(k) + ')</button>'; };
       app.innerHTML = '<div class="adm"><h1>Admin</h1>' + msgHtml() +
         '<div class="row"><a class="b p" href="/" style="text-decoration:none">← Voir le site (avec les numéros)</a><a class="b" href="/coulisses/" style="text-decoration:none">🙈 Coulisses</a></div>' +
+        '<div class="row"><button class="b p" id="quick">⚡ Vérification rapide (' + nb('averifier') + ')</button></div>' +
         '<div class="row"><button class="b" id="new">+ Nouvelle line up</button><button class="b" id="out">Se déconnecter</button></div>' +
         '<div class="row" style="flex-wrap:wrap">' + chip('toutes', 'Toutes') + chip('averifier', 'À vérifier') + chip('cachees', 'Cachées') + chip('verifiees', 'Vérifiées ✔') + '</div>' +
         '<input type="search" id="q" placeholder="Chercher (numéro, map, agent, titre)" value="' + esc(q) + '">' +
@@ -125,6 +131,7 @@ const boot = {
         }).join('') + '</div>';
       document.getElementById('q').oninput = function (e) { var v = e.target.value; viewList(v); var el = document.getElementById('q'); el.focus(); el.setSelectionRange(v.length, v.length); };
       document.getElementById('new').onclick = function () { openEditor(null); };
+      document.getElementById('quick').onclick = startQuick;
       document.getElementById('out').onclick = function () { try { localStorage.removeItem('tenshi_gh'); localStorage.removeItem('tenshi_pw'); } catch (e) {} tok = ''; pw = ''; viewLogin(); };
       Array.prototype.forEach.call(app.querySelectorAll('[data-vue]'), function (b) { b.onclick = function () { vue = b.getAttribute('data-vue'); viewList(document.getElementById('q').value); }; });
       Array.prototype.forEach.call(app.querySelectorAll('.it'), function (b) { b.onclick = function () { openEditor(b.getAttribute('data-id')); }; });
@@ -143,6 +150,50 @@ const boot = {
         cur = { sha: f.sha, isNew: false, d: JSON.parse(unb64(f.content)) };
         viewEdit();
       } catch (e) { setMsg('Lecture impossible : ' + e.message, true); viewList(); }
+    }
+
+    // ⚡ Vérification rapide : une line up à la fois, trois gros boutons.
+    var qList = [], qi = 0;
+    function startQuick() {
+      qList = items.filter(function (i) { return !i.checked && !i.hidden; }).sort(function (a, b) { return a.num - b.num; }).map(function (i) { return i.id; });
+      qi = 0; showQuick();
+    }
+    async function showQuick() {
+      if (qi >= qList.length) { setMsg('Tout est vérifié 🎉'); return viewList(); }
+      app.innerHTML = '<p class="empty">Chargement…</p>';
+      var f;
+      try { f = await gh('/contents/' + DIR + '/' + qList[qi] + '.json?ref=' + BR + '&t=' + Date.now()); }
+      catch (e) { setMsg('Lecture impossible : ' + e.message, true); return viewList(); }
+      cur = { sha: f.sha, isNew: false, d: JSON.parse(unb64(f.content)) };
+      var d = cur.d, mi = mapInfo(d.map);
+      var dot = function (p, c) { return p ? '<span class="dot" style="display:block;left:' + p[0] * 100 + '%;top:' + p[1] * 100 + '%;background:' + c + '"></span>' : ''; };
+      app.innerHTML = '<div class="adm quick"><div class="row"><button class="b" id="qback">← Liste</button><span style="margin-left:auto;opacity:.7">' + (qi + 1) + ' / ' + qList.length + '</span></div>' +
+        msgHtml() +
+        '<h1>#' + d.num + ' · ' + esc(d.title) + '</h1>' +
+        '<p class="lead">' + esc(d.map) + ' · ' + esc(d.agent) + (d.also && d.also.length ? ' (+ ' + esc(d.also.join(', ')) + ')' : '') + ' · ' + esc(d.side) + (d.site ? ', site ' + esc(d.site) : '') + '</p>' +
+        (d.notes && d.notes.length ? '<ul>' + d.notes.map(function (n) { return '<li>' + esc(n) + '</li>'; }).join('') + '</ul>' : '<p style="opacity:.6">Pas d\'indications</p>') +
+        '<div class="qgrid">' +
+        (mi && mi.minimap ? '<div class="mmw" style="cursor:default"><img src="' + esc(mi.minimap) + '" alt="Mini map">' + dot(d.from, '#fff') + dot(d.to, '#f0a93f') + '</div>' : '') +
+        (d.images || []).map(function (im) { return '<img src="' + esc(im.src) + '" alt="">'; }).join('') +
+        '</div>' +
+        (!d.from || !d.to ? '<p style="color:#f0a93f">⚠ ' + (!d.from && !d.to ? 'Pas de points' : !d.from ? 'Pas de départ' : 'Pas d\'arrivée') + ' sur la carte</p>' : '') +
+        '<div class="qbar"><button class="b p" id="qok">✔ Valider</button><button class="b" id="qfix">✎ Corriger</button><button class="b" id="qhide">🙈 Cacher</button><button class="b" id="qskip">⏭ Passer</button></div></div>';
+      setMsg(null);
+      async function saveFlag(k) {
+        try {
+          var out = Object.assign({}, cur.d); out[k] = true;
+          var body = { message: 'Admin : ' + (k === 'checked' ? 'vérifiée' : 'cachée') + ' #' + out.num + ' ' + out.title, content: b64(JSON.stringify(out, null, 2) + '\n'), branch: BR, sha: await freshSha(out.id) };
+          await gh('/contents/' + DIR + '/' + out.id + '.json', { method: 'PUT', body: body });
+          items.forEach(function (i) { if (i.id === out.id) i[k] = true; });
+          setMsg(k === 'checked' ? '✔ #' + out.num + ' validée' : '🙈 #' + out.num + ' cachée');
+          qi++; showQuick();
+        } catch (e) { setMsg('Échec : ' + e.message, true); showQuick(); }
+      }
+      document.getElementById('qback').onclick = function () { viewList(); };
+      document.getElementById('qok').onclick = function () { saveFlag('checked'); };
+      document.getElementById('qhide').onclick = function () { saveFlag('hidden'); };
+      document.getElementById('qskip').onclick = function () { qi++; showQuick(); };
+      document.getElementById('qfix').onclick = function () { viewEdit(); };
     }
 
     function mapInfo(n) { return boot.maps.filter(function (m) { return m.name === n; })[0]; }

@@ -17,7 +17,9 @@ const slug = (s) => String(s).normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCa
 const normUrl = (u) => { try { const x = new URL(u); return (x.host.replace(/^www\./, '') + x.pathname).replace(/\/$/, '').toLowerCase(); } catch { return u; } };
 
 // Salons dont le nom n'est pas un agent : traités plus tard à part.
-const SPECIAL = new Set(['general', 'proposition', 'multiagent', 'wallbang', 'gekkokayo']);
+const SPECIAL = new Set(['general', 'multiagent', 'wallbang', 'gekkokayo']);
+// Salon « proposition » : la map et l'agent sont lus dans le message ; tout arrive caché, dans les Coulisses.
+const PROPOSAL = 'proposition';
 const AGENT_ALIASES = { kj: 'Killjoy', kayo: 'KAY/O', pheonix: 'Phoenix', miks: 'Miks', weyley: 'Waylay' };
 
 // Empreinte visuelle 16x16 : sert à repérer une image déjà présente sur le site même recadrée (écart typique 12–22 sur 256 ; images différentes ≈ 90).
@@ -66,14 +68,18 @@ export default async function importTask({ log, rep, job }) {
     const ch = (await discord(`/guilds/${g.id}/channels`)).data;
     const cats = ch.filter((c) => c.type === 4).sort((a, b) => a.position - b.position);
     for (const cat of cats) {
-      const map = mapName(cat.name);
-      if (onlyMaps.length && !onlyMaps.includes(norm(map))) { skipped.horsFiltre++; continue; }
+      const catMap = mapName(cat.name);
+      const chansAll = ch.filter((c) => (c.type === 0 || c.type === 5) && c.parent_id === cat.id);
+      const hasProposal = chansAll.some((c) => norm(c.name) === PROPOSAL);
+      if (onlyMaps.length && !onlyMaps.includes(norm(catMap)) && !hasProposal) { skipped.horsFiltre++; continue; }
       const chans = ch.filter((c) => (c.type === 0 || c.type === 5) && c.parent_id === cat.id).sort((a, b) => a.position - b.position);
       for (const c of chans) {
-        if (SPECIAL.has(norm(c.name))) { skipped.speciaux.push(`${map}/${c.name}`); continue; }
-        const agent = agentName(c.name);
-        if (onlyAgents.length && !onlyAgents.includes(norm(agent))) continue;
-        if (!agentsData.some((a) => a.name === agent)) inconnus.add(`${c.name} → ${agent}`);
+        if (SPECIAL.has(norm(c.name))) { skipped.speciaux.push(`${catMap}/${c.name}`); continue; }
+        const prop = norm(c.name) === PROPOSAL;
+        if (!prop && onlyMaps.length && !onlyMaps.includes(norm(catMap))) continue;
+        const chAgent = prop ? null : agentName(c.name);
+        if (!prop && onlyAgents.length && !onlyAgents.includes(norm(chAgent))) continue;
+        if (!prop && !agentsData.some((a) => a.name === chAgent)) inconnus.add(`${c.name} → ${chAgent}`);
         // Tous les messages, du plus ancien au plus récent.
         let all = [], before = null;
         for (let p = 0; p < 60; p++) {
@@ -88,6 +94,14 @@ export default async function importTask({ log, rep, job }) {
           if (created.length >= limit) break outer;
           if (seenMsg.has(m.id)) { skipped.dejaLa++; continue; }
           const text = (m.content || '').trim();
+          // Proposition : map et agent cités dans le texte (sinon « À classer »).
+          const tn = ' ' + norm(text.replace(URL_RE, ' ')).replace(/[^a-z0-9]+/g, ' ') + ' ';
+          const allMaps = [...mapsData.map((x) => x.name), 'Ascent', 'Split', 'Fracture', 'Icebox', 'Pearl', 'Breeze', 'Sunset', 'Lotus', 'Abyss', 'Haven', 'Bind', 'Corrode', 'Summit'];
+          const map = prop ? (allMaps.find((n) => tn.includes(' ' + norm(n) + ' ')) || 'À classer') : catMap;
+          const agentNames = [...agentsData.map((a) => a.name), ...Object.keys(AGENT_ALIASES)];
+          const foundAg = prop ? agentNames.find((n) => tn.includes(' ' + norm(n).replace(/[^a-z0-9]+/g, '') + ' ')) : null;
+          const agent = prop ? (foundAg ? agentName(foundAg) : 'À classer') : chAgent;
+          if (prop && onlyAgents.length && !onlyAgents.includes(norm(agent))) continue;
           const urls = text.match(URL_RE) || [];
           const video = urls[0] || '';
           const imgUrls = [
@@ -149,7 +163,7 @@ export default async function importTask({ log, rep, job }) {
           // départ ET arrivée lus sur sa mini map, côté et site connus, vrai titre. Au moindre doute → « À vérifier ».
           const sure = !poor && mmPts?.from && mmPts?.to && (m.attachments?.length ?? 0) > 0 && images.length > 0
             && side !== 'À classer' && !!site && title.split(/\s+/).length >= 3;
-          const lu = { id, num: ++num, map, agent, side, site, title, notes, reveal: agent === 'Fade' && /reveal/i.test(all_text), images, from: pts.from || null, to: pts.to || null, video, credit: '', auto: true, ...(poor ? { hidden: true } : {}), ...(sure ? { checked: true } : {}), source: { message: m.id } };
+          const lu = { id, num: ++num, map, agent, side, site, title, notes, reveal: agent === 'Fade' && /reveal/i.test(all_text), images, from: pts.from || null, to: pts.to || null, video, credit: '', auto: true, ...(poor || prop ? { hidden: true } : {}), ...(prop ? { proposed: true } : {}), ...(sure && !prop ? { checked: true } : {}), source: { message: m.id } };
           if (!dry) fs.writeFileSync(path.join(LU_DIR, id + '.json'), JSON.stringify(lu, null, 2) + '\n');
           seenMsg.add(m.id); if (video) seenVideo.add(normUrl(video));
           created.push({ ...lu, imgCount: images.length || imgUrls.length, zones: `${pts.fromZone || '?'} → ${pts.toZone || '?'}` });
