@@ -21,7 +21,10 @@
       "cap": "Image de la vidéo"
     }
   ],
-  "from": null,
+  "from": [
+    0.602,
+    0.178
+  ],
   "to": [
     0.424,
     0.095
