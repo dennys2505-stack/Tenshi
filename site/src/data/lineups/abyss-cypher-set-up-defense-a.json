@@ -14,10 +14,6 @@
       "cap": "Image de la vidéo"
     },
     {
-      "src": "/img/lineups/ac9a3fca6e66.jpg",
-      "cap": "Image de la vidéo"
-    },
-    {
       "src": "/img/lineups/d30ef6be07d3.jpg",
       "cap": "Image de la vidéo"
     },
@@ -26,7 +22,6 @@
       "cap": "Image de la vidéo"
     }
   ],
-  "from": null,
   "to": [
     0.424,
     0.095
