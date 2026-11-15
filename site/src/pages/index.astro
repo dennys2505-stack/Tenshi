@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
-import { maps, lineupsFor, count, mapUrl, SITE_NAME, lineups } from '../lib/data.js';
+import { maps, lineupsFor, count, mapUrl, SITE_NAME, lineups, allLineups, hiddenLineups } from '../lib/data.js';
+const aVerifier = allLineups.filter((l) => !l.checked && !l.hidden).length;
 const total = lineups.length;
 ---
 <Base
@@ -8,6 +9,12 @@ const total = lineups.length;
 >
   <div class="top"><h1>{SITE_NAME}</h1></div>
   <p class="lead">Choisis une map, puis ton agent, et retrouve toutes les line ups : où te placer, quoi viser, où ça atterrit.</p>
+  <div class="admin-only adminbox">
+    <b>Espace admin</b>
+    <a href="/admin/?vue=averifier">📋 Suivi : {aVerifier} à vérifier</a>
+    <a href="/coulisses/">🙈 Coulisses : {hiddenLineups.length} cachées</a>
+    <a href="/admin/">Toutes les line ups</a>
+  </div>
   <h2>Choisis une map</h2>
   <div class="grid maps" style="margin-top:12px">
     {maps.map((m) => {

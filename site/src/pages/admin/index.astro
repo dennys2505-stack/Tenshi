@@ -1,8 +1,8 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { lineups, maps, agents } from '../../lib/data.js';
+import { allLineups as lineups, maps, agents } from '../../lib/data.js';
 const boot = {
-  items: lineups.map((l) => ({ id: l.id, num: l.num ?? 0, map: l.map, agent: l.agent, title: l.title })),
+  items: lineups.map((l) => ({ id: l.id, num: l.num ?? 0, map: l.map, agent: l.agent, title: l.title, hidden: !!l.hidden, checked: !!l.checked })),
   maps: maps.map((m) => ({ name: m.name, minimap: m.minimap, dim: m.dim })),
   agents: agents.map((a) => a.name),
 };
@@ -104,21 +104,29 @@ const boot = {
       };
     }
 
+    var vue = 'toutes';
+    try { var vq = new URLSearchParams(location.search).get('vue'); if (vq) vue = vq; } catch (e) {}
     function viewList(q) {
       q = (q || '').toLowerCase();
-      var list = items.filter(function (i) { return !q || (i.num + ' ' + i.map + ' ' + i.agent + ' ' + i.title).toLowerCase().indexOf(q) >= 0; })
+      var tests = { toutes: function () { return true; }, averifier: function (i) { return !i.checked && !i.hidden; }, cachees: function (i) { return i.hidden; }, verifiees: function (i) { return i.checked; } };
+      var nb = function (k) { return items.filter(tests[k]).length; };
+      var list = items.filter(function (i) { return tests[vue](i) && (!q || (i.num + ' ' + i.map + ' ' + i.agent + ' ' + i.title).toLowerCase().indexOf(q) >= 0); })
         .sort(function (a, b) { return a.num - b.num; });
+      var chip = function (k, t) { return '<button class="b' + (vue === k ? ' p' : '') + '" data-vue="' + k + '">' + t + ' (' + nb(k) + ')</button>'; };
       app.innerHTML = '<div class="adm"><h1>Admin</h1>' + msgHtml() +
-        '<div class="row"><a class="b p" href="/" style="text-decoration:none">← Voir le site (avec les numéros)</a></div>' +
+        '<div class="row"><a class="b p" href="/" style="text-decoration:none">← Voir le site (avec les numéros)</a><a class="b" href="/coulisses/" style="text-decoration:none">🙈 Coulisses</a></div>' +
         '<div class="row"><button class="b" id="new">+ Nouvelle line up</button><button class="b" id="out">Se déconnecter</button></div>' +
+        '<div class="row" style="flex-wrap:wrap">' + chip('toutes', 'Toutes') + chip('averifier', 'À vérifier') + chip('cachees', 'Cachées') + chip('verifiees', 'Vérifiées ✔') + '</div>' +
         '<input type="search" id="q" placeholder="Chercher (numéro, map, agent, titre)" value="' + esc(q) + '">' +
-        '<p class="lead" style="margin-top:12px">' + items.length + ' line ups. Ici, c\'est l\'atelier. Sur le site, touche le petit #numéro d\'une line up pour la modifier.</p>' +
+        '<p class="lead" style="margin-top:12px">✔ = vérifiée par toi · 🙈 = cachée au public (en attente, visible dans les Coulisses).</p>' +
         list.map(function (i) {
-          return '<button class="it" data-id="' + esc(i.id) + '"><span class="n">#' + (i.num || '–') + '</span><span>' + esc(i.title) + '<br><small>' + esc(i.map) + ' · ' + esc(i.agent) + '</small></span></button>';
+          var st = (i.checked ? ' ✔' : '') + (i.hidden ? ' 🙈' : '');
+          return '<button class="it" data-id="' + esc(i.id) + '"><span class="n">#' + (i.num || '–') + st + '</span><span>' + esc(i.title) + '<br><small>' + esc(i.map) + ' · ' + esc(i.agent) + '</small></span></button>';
         }).join('') + '</div>';
       document.getElementById('q').oninput = function (e) { var v = e.target.value; viewList(v); var el = document.getElementById('q'); el.focus(); el.setSelectionRange(v.length, v.length); };
       document.getElementById('new').onclick = function () { openEditor(null); };
       document.getElementById('out').onclick = function () { try { localStorage.removeItem('tenshi_gh'); localStorage.removeItem('tenshi_pw'); } catch (e) {} tok = ''; pw = ''; viewLogin(); };
+      Array.prototype.forEach.call(app.querySelectorAll('[data-vue]'), function (b) { b.onclick = function () { vue = b.getAttribute('data-vue'); viewList(document.getElementById('q').value); }; });
       Array.prototype.forEach.call(app.querySelectorAll('.it'), function (b) { b.onclick = function () { openEditor(b.getAttribute('data-id')); }; });
     }
 
@@ -153,6 +161,7 @@ const boot = {
         '<div class="row"><div style="flex:1;min-width:140px"><label>Côté</label><select id="side">' + opts(['Attaque', 'Défense', 'Attaque et défense', 'À classer'], d.side) + '</select></div>' +
         '<div style="flex:1;min-width:140px"><label>Site (A, B, C ou vide)</label><input type="text" id="site" value="' + esc(d.site) + '"></div></div>' +
         '<label>Indications (une par ligne : posture, touche, etc.)</label><textarea id="notes">' + esc((d.notes || []).join('\n')) + '</textarea>' +
+        '<div class="row" style="flex-wrap:wrap;gap:18px;margin:10px 0"><label style="display:flex;gap:8px;align-items:center"><input type="checkbox" id="checked"' + (d.checked ? ' checked' : '') + '> ✔ Vérifiée par moi</label><label style="display:flex;gap:8px;align-items:center"><input type="checkbox" id="hidden"' + (d.hidden ? ' checked' : '') + '> 🙈 Cachée au public (en attente)</label></div>' +
         '<label>Marche aussi pour (autres agents, séparés par des virgules)</label><input type="text" id="also" value="' + esc((d.also || []).join(', ')) + '">' +
         '<label>Lien vidéo</label><input type="text" id="video" value="' + esc(d.video) + '">' +
         '<label>Crédit</label><input type="text" id="credit" value="' + esc(d.credit) + '">' +
@@ -196,6 +205,8 @@ const boot = {
         d.notes = document.getElementById('notes').value.split('\n').map(function (s) { return s.trim(); }).filter(Boolean);
         d.video = document.getElementById('video').value.trim(); d.credit = document.getElementById('credit').value.trim();
         d.reveal = document.getElementById('reveal').checked;
+        if (document.getElementById('checked').checked) d.checked = true; else delete d.checked;
+        if (document.getElementById('hidden').checked) d.hidden = true; else delete d.hidden;
         var al = document.getElementById('also').value.split(',').map(function (s) { return s.trim(); }).filter(Boolean); if (al.length) d.also = al; else delete d.also;
         Array.prototype.forEach.call(document.querySelectorAll('.cap'), function (c) { d.images[+c.getAttribute('data-k')].cap = c.value; });
       }
@@ -231,7 +242,7 @@ const boot = {
           var r = await gh('/contents/' + DIR + '/' + out.id + '.json', { method: 'PUT', body: body });
           cur.sha = r.content.sha; cur.isNew = false; cur.d = out;
           var ix = items.map(function (i) { return i.id; }).indexOf(out.id);
-          var row = { id: out.id, num: out.num, map: out.map, agent: out.agent, title: out.title };
+          var row = { id: out.id, num: out.num, map: out.map, agent: out.agent, title: out.title, hidden: !!out.hidden, checked: !!out.checked };
           if (ix >= 0) items[ix] = row; else items.push(row);
           setMsg('Enregistré ✔ Le site se met à jour dans 1 à 2 minutes.');
         } catch (er) { setMsg('Échec : ' + er.message, true); }

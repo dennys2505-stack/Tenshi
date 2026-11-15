@@ -31,6 +31,7 @@ const ham = (a, b) => a.reduce((s, v, i) => s + (v !== b[i]), 0);
 
 export default async function importTask({ log, rep, job }) {
   const onlyMaps = (job.maps || []).map(norm);
+  const onlyAgents = (job.agents || []).map(norm);
   const limit = job.limit ?? Infinity;
   const dry = !!job.dry;
   const { default: sharp } = await import('sharp');
@@ -58,7 +59,7 @@ export default async function importTask({ log, rep, job }) {
   log(`Images déjà sur le site : ${known.length}`);
   const guilds = (await discord('/users/@me/guilds')).data;
   const created = [], skipped = { dejaLa: 0, vide: 0, speciaux: [], horsFiltre: 0 }, inconnus = new Set();
-  rep(`## Import ${dry ? '(simulation) ' : ''}— cartes : ${onlyMaps.length ? job.maps.join(', ') : 'toutes'}, limite : ${Number.isFinite(limit) ? limit : 'aucune'}\n`);
+  rep(`## Import ${dry ? '(simulation) ' : ''}— cartes : ${onlyMaps.length ? job.maps.join(', ') : 'toutes'}${onlyAgents.length ? ', agents : ' + job.agents.join(', ') : ''}, limite : ${Number.isFinite(limit) ? limit : 'aucune'}\n`);
 
   outer:
   for (const g of guilds) {
@@ -71,6 +72,7 @@ export default async function importTask({ log, rep, job }) {
       for (const c of chans) {
         if (SPECIAL.has(norm(c.name))) { skipped.speciaux.push(`${map}/${c.name}`); continue; }
         const agent = agentName(c.name);
+        if (onlyAgents.length && !onlyAgents.includes(norm(agent))) continue;
         if (!agentsData.some((a) => a.name === agent)) inconnus.add(`${c.name} → ${agent}`);
         // Tous les messages, du plus ancien au plus récent.
         let all = [], before = null;
@@ -141,7 +143,9 @@ export default async function importTask({ log, rep, job }) {
           if (!site && zl) { site = zl; pts = place(map, side, site, title); }
           if (mmPts?.from) { pts.from = mmPts.from; pts.fromZone = 'mini map Discord'; }
           if (mmPts?.to) { pts.to = mmPts.to; pts.toZone = 'mini map Discord'; }
-          const lu = { id, num: ++num, map, agent, side, site, title, notes, reveal: agent === 'Fade' && /reveal/i.test(all_text), images, from: pts.from || null, to: pts.to || null, video, credit: '', auto: true, source: { message: m.id } };
+          // Trop peu d'infos (pas de titre exploitable ni de point) → cachée au public, visible dans les Coulisses.
+          const poor = /à compléter/.test(title) || (!pts.from && !pts.to);
+          const lu = { id, num: ++num, map, agent, side, site, title, notes, reveal: agent === 'Fade' && /reveal/i.test(all_text), images, from: pts.from || null, to: pts.to || null, video, credit: '', auto: true, ...(poor ? { hidden: true } : {}), source: { message: m.id } };
           if (!dry) fs.writeFileSync(path.join(LU_DIR, id + '.json'), JSON.stringify(lu, null, 2) + '\n');
           seenMsg.add(m.id); if (video) seenVideo.add(normUrl(video));
           created.push({ ...lu, imgCount: images.length || imgUrls.length, zones: `${pts.fromZone || '?'} → ${pts.toZone || '?'}` });

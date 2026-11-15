@@ -17,9 +17,12 @@ export const slug = (s) =>
     .replace(/^-|-$/g, '');
 
 const files = import.meta.glob('../data/lineups/*.json', { eager: true });
-export const lineups = Object.values(files)
+// Toutes les line ups (admin, coulisses) et seulement celles visibles du public (« hidden » = en attente, cachée).
+export const allLineups = Object.values(files)
   .map((m) => m.default ?? m)
   .sort((a, b) => a.id.localeCompare(b.id));
+export const lineups = allLineups.filter((l) => !l.hidden);
+export const hiddenLineups = allLineups.filter((l) => l.hidden);
 
 const uniq = (a) => [...new Set(a)];
 

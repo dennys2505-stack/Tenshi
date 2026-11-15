@@ -1,0 +1,20 @@
+---
+// Coulisses : line ups cachées au public (en attente d'infos ou de validation). Page non référencée, liée seulement depuis l'admin.
+import Base from '../../layouts/Base.astro';
+import LineupCard from '../../components/LineupCard.astro';
+import { hiddenLineups } from '../../lib/data.js';
+const byMap = [...new Set(hiddenLineups.map((l) => l.map))].map((m) => [m, hiddenLineups.filter((l) => l.map === m).sort((a, b) => (a.num ?? 0) - (b.num ?? 0))]);
+---
+<Base title="Coulisses" description="Line ups en attente">
+  <meta name="robots" content="noindex,nofollow" slot="head" />
+  <div class="top"><h1>🙈 Coulisses</h1></div>
+  <p class="lead">Line ups cachées au public : il manque des infos ou elles attendent ta validation. Touche le #numéro pour compléter, puis décoche « Cachée au public » pour la publier.</p>
+  {hiddenLineups.length === 0 && <p class="empty">Rien en attente 🎉</p>}
+  {byMap.map(([m, list]) => (
+    <section>
+      <h2>{m} · {list.length}</h2>
+      <div>{list.map((l) => (<><p class="meta-line" style="margin:18px 0 6px"><b>{l.agent}</b></p><LineupCard lineup={l} /></>))}</div>
+    </section>
+  ))}
+  <script is:inline>try{document.documentElement.classList.add('show-num')}catch(e){}</script>
+</Base>

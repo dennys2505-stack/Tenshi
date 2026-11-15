@@ -50,3 +50,9 @@ img{width:100%;height:auto;border-radius:6px;display:block;background:#000}
 .card{position:relative}
 .num{display:none;text-decoration:none;z-index:2;position:absolute;top:10px;right:10px;padding:2px 10px;border-radius:20px;background:#111;color:#fff;font:700 .85rem system-ui,sans-serif;border:1px solid #fff4}
 .show-num .num{display:inline-block}
+
+/* Réservé à l'admin (affiché seulement en mode admin, comme les numéros) */
+.admin-only{display:none}
+.show-num .admin-only{display:flex}
+.adminbox{flex-wrap:wrap;gap:10px 16px;align-items:center;margin:14px 0;padding:12px 14px;border:1px dashed #f0a83c88;border-radius:12px;background:#f0a83c12}
+.adminbox a{color:#f0a83c;text-decoration:none;font-weight:600}
