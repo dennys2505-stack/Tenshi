@@ -73,5 +73,20 @@
     "name": "Tejo",
     "slug": "tejo",
     "bg": "/img/agents/tejo.jpg"
+  },
+  {
+    "name": "Hush",
+    "slug": "hush",
+    "bg": "/img/agents/hush.jpg"
+  },
+  {
+    "name": "Veto",
+    "slug": "veto",
+    "bg": "/img/agents/veto.jpg"
+  },
+  {
+    "name": "Yoru",
+    "slug": "yoru",
+    "bg": "/img/agents/yoru.jpg"
   }
 ]
