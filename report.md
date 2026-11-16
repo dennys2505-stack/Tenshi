@@ -1,4 +1,4 @@
-# Tâche « import » — 2026-11-16T13:00:25.262Z
+# Tâche « import » — 2026-11-16T17:55:04.942Z
 
 ## Import — cartes : toutes, agents : Brimstone, limite : aucune
 
@@ -7,7 +7,7 @@
 | n° | map | agent | côté | site | titre | points | photos | vidéo |
 |---|---|---|---|---|---|---|---|---|
 
-Ignorés : 59 déjà présents (même message, même lien ou même image), 0 messages sans lien ni image.
+Ignorés : 58 déjà présents (même message, même lien ou même image), 0 messages sans lien ni image.
 
 Détail des doublons (hors messages déjà importés) :
 - Bind/brimstone : « https://www.instagram.com/reel/DUXybBgjIKb/ » (même vidéo)
