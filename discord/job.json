@@ -1,1 +1,1 @@
-{ "task": "import", "agents": ["Brimstone"] }
+{ "task": "import", "maps": ["Summit"], "agents": ["Fade"] }
