@@ -46,6 +46,16 @@ def analyze(im, ref_path):
         v = a.mean(2); sat = a.max(2) - a.min(2)
         white = (v > 225) & (sat < 30)
         s = s * q  # coordonnées lues sur la grande image
+        # On efface tout ce qui est déjà blanc sur la mini map du site (contours, portes, cercles) :
+        # il ne reste que ce que l'auteur a ajouté (point et croix).
+        refw = np.asarray(Image.open(ref_path).convert('RGBA')).astype(float)
+        FH, FW = refw.shape[:2]
+        rw = ndimage.binary_dilation((refw[..., 3] > 0) & (refw[..., :3].min(2) > 200), iterations=2)
+        ys0, xs0 = np.nonzero(white)
+        fx0 = ((xs0 * s + tx) / RW * FW).astype(int); fy0 = ((ys0 * s + ty) / RH * FH).astype(int)
+        inside = (fx0 >= 0) & (fx0 < FW) & (fy0 >= 0) & (fy0 < FH)
+        drop = np.zeros(len(xs0), bool); drop[inside] = rw[fy0[inside], fx0[inside]]
+        white[ys0[drop], xs0[drop]] = False
         lab, n = ndimage.label(white)
         blobs = []
         for j in range(1, n + 1):
@@ -69,8 +79,8 @@ def analyze(im, ref_path):
             fx, fy = (xs.mean() * s + tx) / RW, (ys.mean() * s + ty) / RH
             if 0 <= fx <= 1 and 0 <= fy <= 1: dots.append((len(xs) / (bw * bh), len(xs), [round(fx, 3), round(fy, 3)]))
         dots.sort(key=lambda b: -b[1])
-        crosses = sorted([b for b in blobs if b[0] < 0.5 and b[3] < 0.35], key=lambda b: -b[1])
-        if dots: out['from'] = dots[0][2]
+        crosses = sorted([b for b in blobs if b[0] < 0.6 and b[3] < 0.35 and b[1] / b[0] <= 1000], key=lambda b: -b[1])
+        if dots: out["from"] = dots[0][2]
         if crosses: out['to'] = crosses[0][2]
         # Une croix collée au point de départ = le point lui-même mal lu → on l'ignore.
         if out['from'] and out['to'] and abs(out['from'][0] - out['to'][0]) + abs(out['from'][1] - out['to'][1]) < 0.04: out['to'] = None

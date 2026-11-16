@@ -301,6 +301,10 @@
    "Attacker Side Spawn": [
     0.914,
     0.55
+   ],
+   "B Default": [
+    0.434,
+    0.518
    ]
   },
   "Lotus": {
@@ -415,6 +419,18 @@
    "Attacker Side Spawn": [
     0.524,
     0.827
+   ],
+   "A Default": [
+    0.877,
+    0.372
+   ],
+   "C Default": [
+    0.069,
+    0.468
+   ],
+   "B Default": [
+    0.499,
+    0.454
    ]
   },
   "Abyss": {
