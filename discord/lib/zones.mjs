@@ -40,7 +40,7 @@ export function place(map, side, site, title) {
   const zones = Z.zones[map]; if (!zones) return {};
   // « A depuis X vers Y » : X = départ ; ce qui suit « vers » ou précède « depuis » = arrivée.
   let t0 = ' ' + norm(title) + ' ', dest = '';
-  const v = t0.split(' vers '); if (v.length > 1) { t0 = v[0] + ' '; dest = v.slice(1).join(' '); }
+  const v = t0.split(/ vers | pour /); if (v.length > 1) { t0 = v[0] + ' '; dest = v.slice(1).join(' '); }
   const parts = t0.split(/ depuis | from /);
   const target = dest || parts[0], origin = parts.length > 1 ? parts.slice(1).join(' ') : '';
   const letter = (site || '').toLowerCase() || null;
