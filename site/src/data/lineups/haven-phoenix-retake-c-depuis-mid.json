@@ -18,6 +18,10 @@
     {
       "src": "/img/lineups/91bdf8f068ba.jpg",
       "cap": ""
+    },
+    {
+      "src": "/img/lineups/087d47f2ef64.jpg",
+      "cap": "Repère de visée"
     }
   ],
   "from": [
@@ -33,5 +37,6 @@
   "auto": true,
   "source": {
     "message": "1487414533898113075"
-  }
+  },
+  "checked": true
 }
