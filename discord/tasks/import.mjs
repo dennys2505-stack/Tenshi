@@ -34,6 +34,7 @@ const ham = (a, b) => a.reduce((s, v, i) => s + (v !== b[i]), 0);
 export default async function importTask({ log, rep, job }) {
   const onlyMaps = (job.maps || []).map(norm);
   const onlyAgents = (job.agents || []).map(norm);
+  const ignores = [];
   const limit = job.limit ?? Infinity;
   const dry = !!job.dry;
   const { default: sharp } = await import('sharp');
@@ -109,7 +110,7 @@ export default async function importTask({ log, rep, job }) {
           ];
           if (!imgUrls.length) for (const e of m.embeds || []) { const u = e.image?.url || e.thumbnail?.url; if (u) imgUrls.push(u); }
           if (!video && !imgUrls.length) { skipped.vide++; continue; }
-          if (video && seenVideo.has(normUrl(video))) { skipped.dejaLa++; continue; }
+          if (video && seenVideo.has(normUrl(video))) { skipped.dejaLa++; ignores.push(`${catMap}/${c.name} : « ${(text.split('\n')[0] || '').slice(0, 60)} » (même vidéo)`); continue; }
 
           const clean = text.replace(URL_RE, '').replace(/<[@#:][^>]*>/g, '').split('\n').map((s) => s.trim()).filter(Boolean);
           const title = (clean[0] || `${agent} – à compléter`).slice(0, 90);
@@ -128,11 +129,13 @@ export default async function importTask({ log, rep, job }) {
                 if (!r.ok) throw new Error('HTTP ' + r.status);
                 const buf = Buffer.from(await r.arrayBuffer());
                 const hh = await dhash(sharp, buf);
-                if (known.some((k) => ham(k, hh) <= 40)) { dupImage = true; break; }
-                pending.push({ buf, hh, u });
+                pending.push({ buf, hh, u, dup: known.some((k) => ham(k, hh) <= 12) });
               } catch (e) { log(`image ignorée (${c.name}) : ${e.message}`); }
             }
-            if (dupImage) { skipped.dejaLa++; continue; }
+            // Doublon par l'image seulement pour un message sans vidéo dont TOUTES les images sont déjà sur le site
+            // (avant : une seule image proche suffisait → les mini maps, toutes semblables, faisaient sauter des line ups).
+            dupImage = !video && pending.length > 0 && pending.every((x) => x.dup);
+            if (dupImage) { skipped.dejaLa++; ignores.push(`${catMap}/${c.name} : « ${(text.split('\n')[0] || '').slice(0, 60)} » (mêmes images)`); continue; }
             for (const { buf, hh, u } of pending) {
               const name = crypto.createHash('sha1').update(new URL(u).pathname).digest('hex').slice(0, 12) + '.jpg';
               await sharp(buf).rotate().resize({ width: 1100, height: 1100, fit: 'inside', withoutEnlargement: true }).jpeg({ quality: 85 }).toFile(path.join(IMG_DIR, name));
@@ -178,6 +181,7 @@ export default async function importTask({ log, rep, job }) {
   rep('|---|---|---|---|---|---|---|---|---|');
   for (const l of created) rep(`| ${l.num} | ${l.map} | ${l.agent} | ${l.side} | ${l.site || '–'} | ${l.title.replace(/\|/g, '/')} | ${l.zones} | ${l.imgCount} | ${l.video ? new URL(l.video).host.replace('www.', '') : '–'} |`);
   rep(`\nIgnorés : ${skipped.dejaLa} déjà présents (même message, même lien ou même image), ${skipped.vide} messages sans lien ni image.`);
+  if (ignores.length) { rep('\nDétail des doublons (hors messages déjà importés) :'); for (const x of ignores) rep('- ' + x); }
   if (skipped.speciaux.length) rep(`\nSalons spéciaux laissés de côté pour l'instant : ${skipped.speciaux.join(', ')}.`);
   if (inconnus.size) rep(`\nSalons dont le nom n'est pas un agent connu (créés quand même) : ${[...inconnus].join(' ; ')}.`);
 }
