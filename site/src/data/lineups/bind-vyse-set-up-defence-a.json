@@ -1,0 +1,23 @@
+{
+  "id": "bind-vyse-set-up-defence-a",
+  "num": 125,
+  "map": "Bind",
+  "agent": "Vyse",
+  "side": "À classer",
+  "site": "A",
+  "title": "Set up defence A",
+  "notes": [],
+  "reveal": false,
+  "images": [],
+  "from": null,
+  "to": [
+    0.726,
+    0.324
+  ],
+  "video": "https://www.instagram.com/reel/DYfOOIFJ_32/?igsh=NGl1OG1oaDlsdzZu",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1506085912269033553"
+  }
+}

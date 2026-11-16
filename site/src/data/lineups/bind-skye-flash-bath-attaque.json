@@ -1,0 +1,23 @@
+{
+  "id": "bind-skye-flash-bath-attaque",
+  "num": 114,
+  "map": "Bind",
+  "agent": "Skye",
+  "side": "Attaque",
+  "site": "A",
+  "title": "Flash bath attaque",
+  "notes": [],
+  "reveal": false,
+  "images": [],
+  "from": null,
+  "to": [
+    0.852,
+    0.488
+  ],
+  "video": "https://www.instagram.com/reel/DXN6WDiiL_F/?igsh=cWR2dXJseHA5Z25w",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1494557965699645561"
+  }
+}

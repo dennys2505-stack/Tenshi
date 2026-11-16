@@ -1,0 +1,32 @@
+{
+  "id": "bind-viper-one-way-pour-les-attaquants-vers-le-ct-en-b-depuis-spawn",
+  "num": 117,
+  "map": "Bind",
+  "agent": "Viper",
+  "side": "Attaque",
+  "site": "B",
+  "title": "One way pour les attaquants vers le Ct en B depuis spawn",
+  "notes": [],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/ff75100421c6.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/688b14c6a67d.jpg",
+      "cap": ""
+    }
+  ],
+  "from": [
+    0.395,
+    0.563
+  ],
+  "to": null,
+  "video": "https://www.instagram.com/reel/DV97fWrmjdY/?igsh=MWQ2a2MyMXdnYjh5MA==",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1486067811343274204"
+  }
+}

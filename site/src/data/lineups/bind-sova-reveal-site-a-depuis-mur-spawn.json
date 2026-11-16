@@ -1,0 +1,33 @@
+{
+  "id": "bind-sova-reveal-site-a-depuis-mur-spawn",
+  "num": 115,
+  "map": "Bind",
+  "agent": "Sova",
+  "side": "Attaque et défense",
+  "site": "A",
+  "title": "Reveal Site A depuis mur spawn",
+  "notes": [
+    "1 CHARGE SANS REBOND"
+  ],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/8263fb470bec.jpg",
+      "cap": ""
+    }
+  ],
+  "from": [
+    0.686,
+    0.585
+  ],
+  "to": [
+    0.726,
+    0.324
+  ],
+  "video": "https://www.instagram.com/reel/DWtKTc5A-s1/?igsh=MnNvamg5bjJudmhw",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1489950318924923021"
+  }
+}

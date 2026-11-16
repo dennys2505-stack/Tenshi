@@ -1,0 +1,23 @@
+{
+  "id": "bind-veto-set-up-defense-b",
+  "num": 118,
+  "map": "Bind",
+  "agent": "Veto",
+  "side": "Défense",
+  "site": "B",
+  "title": "Set up défense B",
+  "notes": [],
+  "reveal": false,
+  "images": [],
+  "from": null,
+  "to": [
+    0.292,
+    0.281
+  ],
+  "video": "https://www.instagram.com/reel/DPmeluEkb6d/?igsh=MWE2YXBicnZweTlhbw==",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1489599595033002044"
+  }
+}

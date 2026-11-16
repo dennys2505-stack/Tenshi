@@ -1,0 +1,23 @@
+{
+  "id": "bind-sage-retake-a-2-slow-wall",
+  "num": 123,
+  "map": "Bind",
+  "agent": "Sage",
+  "side": "Défense",
+  "site": "A",
+  "title": "Retake A (2 slow )+ wall",
+  "notes": [],
+  "reveal": false,
+  "images": [],
+  "from": null,
+  "to": [
+    0.726,
+    0.324
+  ],
+  "video": "https://www.instagram.com/reel/DXjjlU1Ag5v/?igsh=MWoyODMzdHl1eWh1eA==",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1500142684319383653"
+  }
+}

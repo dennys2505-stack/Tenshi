@@ -1,0 +1,23 @@
+{
+  "id": "bind-yoru-attaque-a-par-short",
+  "num": 120,
+  "map": "Bind",
+  "agent": "Yoru",
+  "side": "Attaque",
+  "site": "A",
+  "title": "Attaque A par short",
+  "notes": [],
+  "reveal": false,
+  "images": [],
+  "from": null,
+  "to": [
+    0.717,
+    0.515
+  ],
+  "video": "https://www.instagram.com/reel/DU4goRnEn9K/",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1480650623308533920"
+  }
+}

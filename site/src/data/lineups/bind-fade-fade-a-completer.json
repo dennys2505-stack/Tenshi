@@ -1,0 +1,33 @@
+{
+  "id": "bind-fade-fade-a-completer",
+  "num": 112,
+  "map": "Bind",
+  "agent": "Fade",
+  "side": "À classer",
+  "site": "",
+  "title": "Fade – à compléter",
+  "notes": [],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/63d3b463b280.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/8311304a361d.jpg",
+      "cap": ""
+    }
+  ],
+  "from": [
+    0.674,
+    0.304
+  ],
+  "to": null,
+  "video": "",
+  "credit": "",
+  "auto": true,
+  "hidden": true,
+  "source": {
+    "message": "1568271773135278182"
+  }
+}
