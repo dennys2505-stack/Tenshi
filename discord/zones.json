@@ -1118,15 +1118,15 @@
     0.117,
     0.499
    ],
-   "B Arch": [
+   "A Arch": [
     0.173,
     0.822
    ],
-   "A Crane": [
+   "B Crane": [
     0.18,
     0.231
    ],
-   "B Tower": [
+   "A Tower": [
     0.291,
     0.739
    ],
@@ -1134,15 +1134,15 @@
     0.318,
     0.501
    ],
-   "B Elbow": [
+   "A Elbow": [
     0.323,
     0.893
    ],
-   "B Site": [
+   "A Site": [
     0.4,
     0.769
    ],
-   "B Link": [
+   "A Link": [
     0.4,
     0.613
    ],
@@ -1150,27 +1150,27 @@
     0.389,
     0.505
    ],
-   "A Site": [
+   "B Site": [
     0.4,
     0.198
    ],
-   "A Elbow": [
+   "B Elbow": [
     0.374,
     0.11
    ],
-   "A Link": [
+   "B Link": [
     0.441,
     0.396
    ],
-   "A Yard": [
+   "B Yard": [
     0.47,
     0.246
    ],
-   "A Pocket": [
+   "B Pocket": [
     0.47,
     0.113
    ],
-   "B Main": [
+   "A Main": [
     0.536,
     0.798
    ],
@@ -1178,11 +1178,11 @@
     0.543,
     0.488
    ],
-   "A Main": [
+   "B Main": [
     0.604,
     0.242
    ],
-   "B Lobby": [
+   "A Lobby": [
     0.695,
     0.67
    ],
@@ -1190,7 +1190,7 @@
     0.719,
     0.496
    ],
-   "A Lobby": [
+   "B Lobby": [
     0.724,
     0.347
    ],
@@ -1675,12 +1675,12 @@
    "ct": "Defender Side Spawn"
   },
   "Corrode": {
-   "arch": "B Arch",
-   "crane": "A Crane",
-   "tower": "B Tower",
+   "arch": "A Arch",
+   "crane": "B Crane",
+   "tower": "A Tower",
    "window": "Mid Window",
-   "yard": "A Yard",
-   "pocket": "A Pocket",
+   "yard": "B Yard",
+   "pocket": "B Pocket",
    "stairs": "Mid Stairs"
   },
   "Summit": {
