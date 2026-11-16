@@ -50,7 +50,7 @@ export function place(map, side, site, title) {
   let tz = findZone(map, target.replace(/^(post plant|reveal|anti rush|set up|setup|defense|defaut|block|smoke|molly)\b/g, ''), letter, side);
   if (tz && /Spawn|Barrier/.test(tz)) tz = null; // « vers le spawn » : on ne sait pas où ça tombe, tu places à la main
   // « default / défaut » : point de plant habituel du site, s'il est connu sur cette map.
-  if ((!tz || / Site$/.test(tz)) && / (default|defaut) /.test(' ' + norm(title) + ' ') && letter && zones[letter.toUpperCase() + ' Default']) tz = letter.toUpperCase() + ' Default';
+  if ((!tz || / Site$/.test(tz)) && / (default|defaut|defaults?) /.test(' ' + norm(title) + ' ') && letter && zones[letter.toUpperCase() + ' Default']) tz = letter.toUpperCase() + ' Default';
   if (!tz && !dest && letter && zones[letter.toUpperCase() + ' Site']) tz = letter.toUpperCase() + ' Site';
   if (tz && tz !== fz) { out.to = zones[tz]; out.toZone = tz; }
   return out;

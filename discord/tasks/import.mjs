@@ -115,7 +115,7 @@ export default async function importTask({ log, rep, job }) {
           const title = (clean[0] || `${agent} – à compléter`).slice(0, 90);
           const notes = clean.slice(1, 6);
           const all_text = clean.join(' ');
-          const side = agent === 'Sova' && /reveal/i.test(all_text) && !/post ?plant|d[ée]faut|default|attaque|d[ée]fense|atk|\bdef\b/i.test(all_text) ? 'Attaque et défense' : /\bd[ée]fense\b|\bdef\b|anti ?rush|retake/i.test(all_text) ? 'Défense' : /post ?plant|attaque|attaquant|\batk\b|d[ée]faut|default|depuis (le |la )?spawn/i.test(all_text) ? 'Attaque' : 'À classer';
+          const side = agent === 'Sova' && /reveal/i.test(all_text) && !/post ?plant|d[ée]faut|d[ée]fault|attaque|d[ée]fense|atk|\bdef\b/i.test(all_text) ? 'Attaque et défense' : /\bd[ée]fense\b|\bdef\b|anti ?rush|retake/i.test(all_text) ? 'Défense' : /post ?plant|attaque|attaquant|\batk\b|d[ée]faut|d[ée]fault|depuis (le |la )?spawn/i.test(all_text) ? 'Attaque' : 'À classer';
           let site = (all_text.match(/\b(?:site\s*)?([ABC])\b/) || [])[1] || '';
 
           const images = [], pending = [];
