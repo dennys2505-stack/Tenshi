@@ -3,35 +3,37 @@
   "num": 110,
   "map": "Summit",
   "agent": "Fade",
-  "side": "À classer",
-  "site": "",
-  "title": "Fade – à compléter",
+  "side": "Attaque",
+  "site": "B",
+  "title": "Reveal attaque B",
   "notes": [],
-  "reveal": false,
+  "reveal": true,
   "images": [
     {
-      "src": "/img/lineups/360d91186266.jpg",
+      "src": "/img/lineups/360d91186266c.jpg",
       "cap": ""
     },
     {
-      "src": "/img/lineups/56ad03219a09.jpg",
+      "src": "/img/lineups/56ad03219a09c.jpg",
       "cap": ""
     },
     {
-      "src": "/img/lineups/df98b5b98132.jpg",
+      "src": "/img/lineups/df98b5b98132c.jpg",
       "cap": ""
     },
     {
-      "src": "/img/lineups/92e042a05b23.jpg",
+      "src": "/img/lineups/92e042a05b23c.jpg",
       "cap": ""
     }
   ],
   "from": null,
-  "to": null,
+  "to": [
+    0.155,
+    0.337
+  ],
   "video": "https://www.instagram.com/reel/DaLnJs5N8XD/?igsh=NmRvMTRpc20zemo4",
   "credit": "",
   "auto": true,
-  "hidden": true,
   "source": {
     "message": "1531089673898823730"
   }
