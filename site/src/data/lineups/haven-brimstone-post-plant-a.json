@@ -10,10 +10,6 @@
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/df875f2e90d0.jpg",
-      "cap": ""
-    },
-    {
       "src": "/img/lineups/8b3ebff344c8.jpg",
       "cap": ""
     },
@@ -26,10 +22,9 @@
       "cap": ""
     }
   ],
-  "from": null,
   "to": [
-    0.364,
-    0.165
+    0.41,
+    0.119
   ],
   "video": "https://www.instagram.com/reel/DbNjPLNir_o/?igsh=YnY2M25wNHhkbjNm",
   "credit": "",
