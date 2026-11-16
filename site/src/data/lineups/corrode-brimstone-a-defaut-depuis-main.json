@@ -5,7 +5,7 @@
   "agent": "Brimstone",
   "side": "Attaque",
   "site": "A",
-  "title": "A défaut depuis main",
+  "title": "A post plant default depuis main",
   "notes": [],
   "reveal": false,
   "images": [
@@ -16,28 +16,21 @@
     {
       "src": "/img/lineups/ba6cf4507f62.jpg",
       "cap": ""
-    },
-    {
-      "src": "/img/lineups/99878c21a940.jpg",
-      "cap": ""
-    },
-    {
-      "src": "/img/lineups/5640f869d137c.jpg",
-      "cap": ""
     }
   ],
   "from": [
-    0.604,
-    0.242
+    0.57,
+    0.734
   ],
   "to": [
-    0.4,
-    0.198
+    0.403,
+    0.744
   ],
   "video": "https://www.instagram.com/reel/DVq-0J0twe6/?igsh=bzBvcjBjaml2Y2Fv",
   "credit": "",
   "auto": true,
   "source": {
     "message": "1480910224662597754"
-  }
+  },
+  "checked": true
 }
