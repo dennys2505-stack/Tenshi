@@ -2,7 +2,8 @@
 // Mini map avec le point de départ (point blanc) et l'arrivée (cible, ou icône de reveal pour Fade).
 const { lineup: l, map: m } = Astro.props;
 const isRev = l.reveal && l.agent === 'Fade';
-const withOverlay = Boolean(m?.minimap && (l.from || l.to));
+const marks = (l.marks ?? []).filter((k) => k?.p);
+const withOverlay = Boolean(m?.minimap && (l.from || l.to || marks.length));
 const [W, H] = m?.dim ?? [640, 640];
 const hasFrom = withOverlay && Boolean(l.from);
 const x = hasFrom ? l.from[0] * W : 0;
@@ -11,7 +12,12 @@ const hasTo = withOverlay && Boolean(l.to);
 const X = hasTo ? l.to[0] * W : 0;
 const Y = hasTo ? l.to[1] * H : 0;
 const r = W * 0.011, s = W * 0.004, t = W * 0.02;
-const caption = isRev
+const ICON = { cage: '/img/icons/cypher-cage.png', fil: '/img/icons/cypher-fil.png', cam: '/img/icons/cypher-cam.png' };
+const NOM = { cage: 'cage', fil: 'fil', cam: 'caméra' };
+const used = [...new Set(marks.map((k) => k.t))].filter((k) => NOM[k]);
+const caption = marks.length
+  ? `Mini map : ${used.map((k) => NOM[k]).join(', ')}${l.from ? ' · point = position de Cypher' : ''}`
+  : isRev
   ? 'Mini map : point = départ, icône = zone de retombée de la reveal'
   : 'Mini map : point = départ, cible = arrivée';
 ---
@@ -34,6 +40,12 @@ const caption = isRev
           </>
         )}
         {hasFrom && <circle cx={x} cy={y} r={r} fill="#fff" stroke="#111" stroke-width={s} />}
+        {marks.map((k) => ICON[k.t] && (
+          <>
+            <circle cx={k.p[0] * W} cy={k.p[1] * H} r={t * 1.15} fill="#111" fill-opacity="0.85" stroke="#fff" stroke-width={s * 0.6} />
+            <image href={ICON[k.t]} x={k.p[0] * W - t * 0.85} y={k.p[1] * H - t * 0.85} width={t * 1.7} height={t * 1.7} />
+          </>
+        ))}
       </svg>
     </div>
     <figcaption>{caption}</figcaption>

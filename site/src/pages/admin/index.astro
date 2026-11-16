@@ -36,6 +36,8 @@ const boot = {
     .quick .qgrid .mmw img{cursor:default}
     .quick .qbar{position:sticky;bottom:0;display:flex;gap:8px;padding:10px 0;background:var(--bg,#14161c)}
     .quick .qbar .b{flex:1;font-size:1.05rem;padding:14px 6px}
+    .adm .mk{position:absolute;width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;background:#111d;border:2px solid #fff;display:flex;align-items:center;justify-content:center;cursor:pointer}
+    .adm .mk img{width:24px;height:24px;cursor:pointer}
     .adm .dot{position:absolute;width:18px;height:18px;margin:-9px 0 0 -9px;border-radius:50%;border:3px solid #111;pointer-events:none}
     .adm ol{padding-left:1.2em;color:var(--mu)} .adm ol li{margin:6px 0}
   </style>
@@ -175,10 +177,11 @@ const boot = {
         '<p class="lead">' + esc(d.map) + ' · ' + esc(d.agent) + (d.also && d.also.length ? ' (+ ' + esc(d.also.join(', ')) + ')' : '') + ' · ' + esc(d.side) + (d.site ? ', site ' + esc(d.site) : '') + '</p>' +
         (d.notes && d.notes.length ? '<ul>' + d.notes.map(function (n) { return '<li>' + esc(n) + '</li>'; }).join('') + '</ul>' : '<p style="opacity:.6">Pas d\'indications</p>') +
         '<div class="qgrid">' +
-        (mi && mi.minimap ? '<div class="mmw" style="cursor:default"><img src="' + esc(mi.minimap) + '" alt="Mini map">' + dot(d.from, '#fff') + dot(d.to, '#f0a93f') + '</div>' : '') +
+        (mi && mi.minimap ? '<div class="mmw" style="cursor:default"><img src="' + esc(mi.minimap) + '" alt="Mini map">' + dot(d.from, '#fff') + dot(d.to, '#f0a93f') +
+          (d.marks || []).map(function (k) { return '<span class="mk" style="left:' + k.p[0] * 100 + '%;top:' + k.p[1] * 100 + '%"><img src="/img/icons/cypher-' + esc(k.t) + '.png" alt=""></span>'; }).join('') + '</div>' : '') +
         (d.images || []).map(function (im) { return '<img src="' + esc(im.src) + '" alt="">'; }).join('') +
         '</div>' +
-        (!d.from || !d.to ? '<p style="color:#f0a93f">⚠ ' + (!d.from && !d.to ? 'Pas de points' : !d.from ? 'Pas de départ' : 'Pas d\'arrivée') + ' sur la carte</p>' : '') +
+        ((!d.from || !d.to) && !(d.marks && d.marks.length) ? '<p style="color:#f0a93f">⚠ ' + (!d.from && !d.to ? 'Pas de points' : !d.from ? 'Pas de départ' : 'Pas d\'arrivée') + ' sur la carte</p>' : '') +
         '<div class="qbar"><button class="b p" id="qok">✔ Valider</button><button class="b" id="qfix">✎ Corriger</button><button class="b" id="qhide">🙈 Cacher</button><button class="b" id="qskip">⏭ Passer</button></div></div>';
       setMsg(null);
       async function saveFlag(k) {
@@ -232,8 +235,15 @@ const boot = {
           '<button class="b" id="mfrom" aria-pressed="' + (mode === 'from') + '">⚪ Départ</button>' +
           '<button class="b" id="mto" aria-pressed="' + (mode === 'to') + '">🎯 Arrivée</button>' +
           '<button class="b" id="mclr">Effacer</button></div>' +
-          '<div class="mmw" id="mmw"><img src="' + esc(mi.minimap) + '" alt="Mini map"><span class="dot" id="df" style="background:#fff"></span><span class="dot" id="dt" style="background:#f0a93f"></span></div>' : '') +
-        '<div class="row"><button class="b p" id="save">Enregistrer</button>' + (cur.isNew ? '' : '<button class="b d" id="del">Supprimer</button>') + '</div></div>';
+          (d.agent === 'Cypher' ? '<div class="row">' +
+            '<button class="b" data-mk="cage" aria-pressed="' + (mode === 'cage') + '"><img src="/img/icons/cypher-cage.png" alt="" style="height:18px;vertical-align:middle;filter:invert(1)"> Cage</button>' +
+            '<button class="b" data-mk="fil" aria-pressed="' + (mode === 'fil') + '"><img src="/img/icons/cypher-fil.png" alt="" style="height:18px;vertical-align:middle;filter:invert(1)"> Fil</button>' +
+            '<button class="b" data-mk="cam" aria-pressed="' + (mode === 'cam') + '"><img src="/img/icons/cypher-cam.png" alt="" style="height:18px;vertical-align:middle;filter:invert(1)"> Cam</button></div>' +
+            '<p class="lead" style="margin:4px 0">Choisis Cage, Fil ou Cam puis touche la carte (autant de fois que nécessaire). Touche une icône posée pour la retirer.</p>' : '') +
+          '<div class="mmw" id="mmw"><img src="' + esc(mi.minimap) + '" alt="Mini map"><span class="dot" id="df" style="background:#fff"></span><span class="dot" id="dt" style="background:#f0a93f"></span>' +
+          (d.marks || []).map(function (k, i) { return '<span class="mk" data-mi="' + i + '" style="left:' + k.p[0] * 100 + '%;top:' + k.p[1] * 100 + '%"><img src="/img/icons/cypher-' + esc(k.t) + '.png" alt="' + esc(k.t) + '"></span>'; }).join('') +
+          '</div>' : '') +
+        '<div class="row"><button class="b p" id="save">Enregistrer</button>' + (cur.isNew ? '' : '<button class="b" id="dup">⧉ Autre line up, même vidéo</button><button class="b d" id="del">Supprimer</button>') + '</div></div>';
 
       function place() {
         var df = document.getElementById('df'), dt = document.getElementById('dt'); if (!df) return;
@@ -245,12 +255,23 @@ const boot = {
         mm.onclick = function (e) {
           var r = mm.getBoundingClientRect();
           var pt = [Math.round((e.clientX - r.left) / r.width * 1000) / 1000, Math.round((e.clientY - r.top) / r.height * 1000) / 1000];
+          if (mode === 'cage' || mode === 'fil' || mode === 'cam') { read(); d.marks = (d.marks || []).concat([{ t: mode, p: pt }]); return viewEdit(); }
           if (mode === 'from') d.from = pt; else d.to = pt; place();
         };
+        Array.prototype.forEach.call(mm.querySelectorAll('.mk'), function (el) { el.onclick = function (e) { e.stopPropagation(); read(); d.marks.splice(+el.getAttribute('data-mi'), 1); if (!d.marks.length) delete d.marks; viewEdit(); }; });
+        Array.prototype.forEach.call(document.querySelectorAll('[data-mk]'), function (b) { b.onclick = function () { mode = b.getAttribute('data-mk'); read(); viewEdit(); }; });
         document.getElementById('mfrom').onclick = function () { mode = 'from'; read(); viewEdit(); };
         document.getElementById('mto').onclick = function () { mode = 'to'; read(); viewEdit(); };
         document.getElementById('mclr').onclick = function () { if (mode === 'from') d.from = null; else d.to = null; place(); };
       }
+      var agSel = document.getElementById('agent'); if (agSel) agSel.onchange = function () { read(); viewEdit(); };
+      var dupB = document.getElementById('dup');
+      if (dupB) dupB.onclick = function () {
+        read();
+        var mx = items.reduce(function (m, i) { return Math.max(m, i.num || 0); }, 0);
+        cur = { sha: null, isNew: true, d: { id: '', num: mx + 1, map: d.map, agent: d.agent, side: d.side, site: '', title: '', notes: [], reveal: false, images: [], from: null, to: null, video: d.video, credit: d.credit } };
+        setMsg('Nouvelle line up avec la même vidéo : remplis le titre, les photos et la carte, puis Enregistrer.'); viewEdit();
+      };
       function read() {
         d.title = document.getElementById('title').value.trim();
         d.map = document.getElementById('map').value; d.agent = document.getElementById('agent').value;
