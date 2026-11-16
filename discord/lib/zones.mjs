@@ -41,6 +41,8 @@ export function place(map, side, site, title) {
   // « A depuis X vers Y » : X = départ ; ce qui suit « vers » ou précède « depuis » = arrivée.
   let t0 = ' ' + norm(title) + ' ', dest = '';
   const v = t0.split(/ vers | pour /); if (v.length > 1) { t0 = v[0] + ' '; dest = v.slice(1).join(' '); }
+  // « C pour main depuis Main » : le « depuis » peut être après la destination.
+  const dd = (' ' + dest + ' ').split(/ depuis | from /); if (dd.length > 1) { dest = dd[0].trim(); t0 = t0 + ' depuis ' + dd.slice(1).join(' ') + ' '; }
   const parts = t0.split(/ depuis | from /);
   const target = dest || parts[0], origin = parts.length > 1 ? parts.slice(1).join(' ') : '';
   const letter = (site || '').toLowerCase() || null;
