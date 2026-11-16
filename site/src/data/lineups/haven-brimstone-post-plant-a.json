@@ -10,14 +10,6 @@
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/8b3ebff344c8.jpg",
-      "cap": ""
-    },
-    {
-      "src": "/img/lineups/64428251c405.jpg",
-      "cap": ""
-    },
-    {
       "src": "/img/lineups/2e720f3c58bb.jpg",
       "cap": ""
     }
@@ -31,5 +23,10 @@
   "auto": true,
   "source": {
     "message": "1530612282051264796"
-  }
+  },
+  "from": [
+    0.662,
+    0.278
+  ],
+  "checked": true
 }
