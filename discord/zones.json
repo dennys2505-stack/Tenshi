@@ -1197,6 +1197,14 @@
    "Attacker Side Spawn": [
     0.896,
     0.499
+   ],
+   "A Default": [
+    0.403,
+    0.744
+   ],
+   "B Default": [
+    0.376,
+    0.231
    ]
   },
   "Summit": {
