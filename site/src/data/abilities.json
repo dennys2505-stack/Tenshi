@@ -125,5 +125,75 @@
    ],
    "icon": "/img/icons/sage-mur.png"
   }
+ ],
+ "Vyse": [
+  {
+   "key": "flash",
+   "label": "Flash",
+   "words": [
+    "flash",
+    "arc rose",
+    "rose",
+    "arcrose"
+   ],
+   "icon": "/img/icons/vyse-flash.png"
+  },
+  {
+   "key": "mur",
+   "label": "Mur",
+   "words": [
+    "mur",
+    "wall",
+    "shear"
+   ],
+   "icon": "/img/icons/vyse-mur.png"
+  },
+  {
+   "key": "ronces",
+   "label": "Ronces",
+   "words": [
+    "ronces",
+    "ronce",
+    "razorvine",
+    "vine",
+    "vines",
+    "molly"
+   ],
+   "icon": "/img/icons/vyse-ronces.png"
+  }
+ ],
+ "Veto": [
+  {
+   "key": "intercepteur",
+   "label": "Intercepteur",
+   "words": [
+    "intercepteur",
+    "interceptor",
+    "intercept"
+   ],
+   "icon": "/img/icons/veto-intercepteur.png"
+  },
+  {
+   "key": "trap",
+   "label": "Trap",
+   "words": [
+    "trap",
+    "chokehold",
+    "piege",
+    "piège"
+   ],
+   "icon": "/img/icons/veto-trap.png"
+  },
+  {
+   "key": "tp",
+   "label": "TP",
+   "words": [
+    "tp",
+    "crosscut",
+    "teleport",
+    "téléporteur"
+   ],
+   "icon": "/img/icons/veto-tp.png"
+  }
  ]
 }
