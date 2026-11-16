@@ -5,36 +5,28 @@
   "agent": "Fade",
   "side": "Attaque",
   "site": "B",
-  "title": "Reveal attaque B",
+  "title": "Reveal attaque B depuis main",
   "notes": [],
   "reveal": true,
   "images": [
-    {
-      "src": "/img/lineups/360d91186266c.jpg",
-      "cap": ""
-    },
-    {
-      "src": "/img/lineups/56ad03219a09c.jpg",
-      "cap": ""
-    },
-    {
-      "src": "/img/lineups/df98b5b98132c.jpg",
-      "cap": ""
-    },
     {
       "src": "/img/lineups/92e042a05b23c.jpg",
       "cap": ""
     }
   ],
-  "from": null,
+  "from": [
+    0.264,
+    0.537
+  ],
   "to": [
-    0.155,
-    0.337
+    0.195,
+    0.339
   ],
   "video": "https://www.instagram.com/reel/DaLnJs5N8XD/?igsh=NmRvMTRpc20zemo4",
   "credit": "",
   "auto": true,
   "source": {
     "message": "1531089673898823730"
-  }
+  },
+  "checked": true
 }
