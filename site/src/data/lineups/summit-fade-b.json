@@ -3,34 +3,30 @@
   "num": 111,
   "map": "Summit",
   "agent": "Fade",
-  "side": "À classer",
+  "side": "Défense",
   "site": "B",
-  "title": "B",
+  "title": "B retake depuis spawn",
   "notes": [],
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/00d28dc54d5c.jpg",
-      "cap": ""
-    },
-    {
       "src": "/img/lineups/e23d41e04388.jpg",
-      "cap": ""
-    },
-    {
-      "src": "/img/lineups/df8cb09460f2.jpg",
       "cap": ""
     }
   ],
-  "from": null,
+  "from": [
+    0.205,
+    0.168
+  ],
   "to": [
-    0.153,
-    0.305
+    0.28,
+    0.258
   ],
   "video": "https://www.instagram.com/reel/DaZhB7KT91M/?stkn=MWgzNWNjeTY3Y3o0cA==",
   "credit": "",
   "auto": true,
   "source": {
     "message": "1547192922359992421"
-  }
+  },
+  "checked": true
 }
