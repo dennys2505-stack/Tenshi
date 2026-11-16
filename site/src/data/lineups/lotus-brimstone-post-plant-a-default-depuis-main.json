@@ -10,17 +10,13 @@
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/993d4756d01d.jpg",
-      "cap": ""
-    },
-    {
-      "src": "/img/lineups/9b0b932e75dc.jpg",
+      "src": "/img/lineups/993d4756d01dc.jpg",
       "cap": ""
     }
   ],
   "from": [
-    0.729,
-    0.488
+    0.669,
+    0.484
   ],
   "to": [
     0.866,
