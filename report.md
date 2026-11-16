@@ -1,20 +1,13 @@
-# Tâche « import » — 2026-11-16T21:07:40.935Z
+# Tâche « import » — 2026-11-16T21:18:21.242Z
 
-## Import — cartes : toutes, agents : Brimstone, limite : aucune
+## Import — cartes : Summit, agents : Fade, limite : aucune
 
-### 0 line ups créées
+### 3 line ups créées
 
 | n° | map | agent | côté | site | titre | points | photos | vidéo |
 |---|---|---|---|---|---|---|---|---|
+| 109 | Summit | Fade | Défense | A | Defense A fast info | ? → A Site | 0 | instagram.com |
+| 110 | Summit | Fade | À classer | – | Fade – à compléter | ? → ? | 0 | instagram.com |
+| 111 | Summit | Fade | À classer | B | B | ? → B Site | 0 | instagram.com |
 
-Ignorés : 58 déjà présents (même message, même lien ou même image), 0 messages sans lien ni image.
-
-Détail des doublons (hors messages déjà importés) :
-- Bind/brimstone : « https://www.instagram.com/reel/DUXybBgjIKb/ » (même vidéo)
-- Bind/brimstone : « https://www.instagram.com/reel/DTQUWXZjMoC/ » (même vidéo)
-- Bind/brimstone : « https://www.instagram.com/reel/DVDvHcrDemv/?igsh=MTl1ankydHB » (même vidéo)
-- Haven/brimstone : « Post plant pour C long depuis long » (mêmes images)
-- Haven/brimstone : « https://www.instagram.com/reel/DWtuFE7iVD3/?igsh=MTRjdWtsODV » (même vidéo)
-- Sunset/brimstone : « B default depuis spawn » (même vidéo)
-
-Salons spéciaux laissés de côté pour l'instant : Bind/wallbang, Bind/multi-agent, Haven/wallbang, Corrode/gekko-kayo, Pearl/wallbang.
+Ignorés : 0 déjà présents (même message, même lien ou même image), 0 messages sans lien ni image.
