@@ -5,7 +5,7 @@
   "agent": "Brimstone",
   "side": "Attaque",
   "site": "B",
-  "title": "Post plant B (defautl) depuis Main",
+  "title": "Post plant B (under) depuis Main",
   "notes": [],
   "reveal": false,
   "images": [
@@ -15,12 +15,12 @@
     }
   ],
   "from": [
-    0.523,
-    0.707
+    0.53,
+    0.703
   ],
   "to": [
-    0.499,
-    0.454
+    0.511,
+    0.456
   ],
   "video": "https://www.instagram.com/reel/DWVFSAlklQ7/?igsh=MTZjYjNjdWE5eGt6aA==",
   "credit": "",
