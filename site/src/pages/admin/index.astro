@@ -1,8 +1,10 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { allLineups as lineups, maps, agents } from '../../lib/data.js';
+import abilities from '../../data/abilities.json';
 const boot = {
-  items: lineups.map((l) => ({ id: l.id, num: l.num ?? 0, map: l.map, agent: l.agent, title: l.title, side: l.side, hidden: !!l.hidden, checked: !!l.checked })),
+  abilities: abilities,
+    items: lineups.map((l) => ({ id: l.id, num: l.num ?? 0, map: l.map, agent: l.agent, title: l.title, side: l.side, hidden: !!l.hidden, checked: !!l.checked })),
   maps: maps.map((m) => ({ name: m.name, minimap: m.minimap, dim: m.dim })),
   agents: agents.map((a) => a.name),
 };
@@ -49,6 +51,8 @@ const boot = {
     var tok = ''; try { tok = localStorage.getItem('tenshi_gh') || ''; } catch (e) {}
     var app = document.getElementById('app');
     var cur = null, mode = 'from', msg = null, busy = false;
+    var AB = boot.abilities || {};
+    function icon(agent, key) { var a = (AB[agent] || []).filter(function (x) { return x.key === key; })[0]; return a ? a.icon : ''; }
 
     var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
     var slug = function (s) { return String(s).normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); };
@@ -178,7 +182,7 @@ const boot = {
         (d.notes && d.notes.length ? '<ul>' + d.notes.map(function (n) { return '<li>' + esc(n) + '</li>'; }).join('') + '</ul>' : '<p style="opacity:.6">Pas d\'indications</p>') +
         '<div class="qgrid">' +
         (mi && mi.minimap ? '<div class="mmw" style="cursor:default"><img src="' + esc(mi.minimap) + '" alt="Mini map">' + dot(d.from, '#fff') + dot(d.to, '#f0a93f') +
-          (d.marks || []).map(function (k) { return '<span class="mk" style="left:' + k.p[0] * 100 + '%;top:' + k.p[1] * 100 + '%"><img src="/img/icons/cypher-' + esc(k.t) + '.png" alt=""></span>'; }).join('') + '</div>' : '') +
+          (d.marks || []).map(function (k) { return '<span class="mk" style="left:' + k.p[0] * 100 + '%;top:' + k.p[1] * 100 + '%"><img src="' + esc(icon(d.agent, k.t)) + '" alt=""></span>'; }).join('') + '</div>' : '') +
         (d.images || []).map(function (im) { return '<img src="' + esc(im.src) + '" alt="">'; }).join('') +
         '</div>' +
         ((!d.from || !d.to) && !(d.marks && d.marks.length) ? '<p style="color:#f0a93f">⚠ ' + (!d.from && !d.to ? 'Pas de points' : !d.from ? 'Pas de départ' : 'Pas d\'arrivée') + ' sur la carte</p>' : '') +
@@ -235,13 +239,11 @@ const boot = {
           '<button class="b" id="mfrom" aria-pressed="' + (mode === 'from') + '">⚪ Départ</button>' +
           '<button class="b" id="mto" aria-pressed="' + (mode === 'to') + '">🎯 Arrivée</button>' +
           '<button class="b" id="mclr">Effacer</button></div>' +
-          (d.agent === 'Cypher' ? '<div class="row">' +
-            '<button class="b" data-mk="cage" aria-pressed="' + (mode === 'cage') + '"><img src="/img/icons/cypher-cage.png" alt="" style="height:18px;vertical-align:middle;filter:invert(1)"> Cage</button>' +
-            '<button class="b" data-mk="fil" aria-pressed="' + (mode === 'fil') + '"><img src="/img/icons/cypher-fil.png" alt="" style="height:18px;vertical-align:middle;filter:invert(1)"> Fil</button>' +
-            '<button class="b" data-mk="cam" aria-pressed="' + (mode === 'cam') + '"><img src="/img/icons/cypher-cam.png" alt="" style="height:18px;vertical-align:middle;filter:invert(1)"> Cam</button></div>' +
-            '<p class="lead" style="margin:4px 0">Choisis Cage, Fil ou Cam puis touche la carte (autant de fois que nécessaire). Touche une icône posée pour la retirer.</p>' : '') +
+          (AB[d.agent] ? '<div class="row" style="flex-wrap:wrap">' +
+            AB[d.agent].map(function (a) { return '<button class="b" data-mk="' + a.key + '" aria-pressed="' + (mode === a.key) + '"><img src="' + a.icon + '" alt="" style="height:18px;vertical-align:middle;filter:invert(1)"> ' + esc(a.label) + '</button>'; }).join('') + '</div>' +
+            '<p class="lead" style="margin:4px 0">Choisis un utilitaire puis touche la carte (autant de fois que nécessaire). Touche une icône posée pour la retirer.</p>' : '') +
           '<div class="mmw" id="mmw"><img src="' + esc(mi.minimap) + '" alt="Mini map"><span class="dot" id="df" style="background:#fff"></span><span class="dot" id="dt" style="background:#f0a93f"></span>' +
-          (d.marks || []).map(function (k, i) { return '<span class="mk" data-mi="' + i + '" style="left:' + k.p[0] * 100 + '%;top:' + k.p[1] * 100 + '%"><img src="/img/icons/cypher-' + esc(k.t) + '.png" alt="' + esc(k.t) + '"></span>'; }).join('') +
+          (d.marks || []).map(function (k, i) { return '<span class="mk" data-mi="' + i + '" style="left:' + k.p[0] * 100 + '%;top:' + k.p[1] * 100 + '%"><img src="' + esc(icon(d.agent, k.t)) + '" alt="' + esc(k.t) + '"></span>'; }).join('') +
           '</div>' : '') +
         '<div class="row"><button class="b p" id="save">Enregistrer</button>' + (cur.isNew ? '' : '<button class="b" id="dup">⧉ Autre line up, même vidéo</button><button class="b d" id="del">Supprimer</button>') + '</div></div>';
 
@@ -255,7 +257,7 @@ const boot = {
         mm.onclick = function (e) {
           var r = mm.getBoundingClientRect();
           var pt = [Math.round((e.clientX - r.left) / r.width * 1000) / 1000, Math.round((e.clientY - r.top) / r.height * 1000) / 1000];
-          if (mode === 'cage' || mode === 'fil' || mode === 'cam') { read(); d.marks = (d.marks || []).concat([{ t: mode, p: pt }]); return viewEdit(); }
+          if (AB[d.agent] && AB[d.agent].some(function (a) { return a.key === mode; })) { read(); d.marks = (d.marks || []).concat([{ t: mode, p: pt }]); return viewEdit(); }
           if (mode === 'from') d.from = pt; else d.to = pt; place();
         };
         Array.prototype.forEach.call(mm.querySelectorAll('.mk'), function (el) { el.onclick = function (e) { e.stopPropagation(); read(); d.marks.splice(+el.getAttribute('data-mi'), 1); if (!d.marks.length) delete d.marks; viewEdit(); }; });

@@ -55,3 +55,9 @@ export function place(map, side, site, title) {
   if (tz && tz !== fz) { out.to = zones[tz]; out.toZone = tz; }
   return out;
 }
+
+// Position d'une zone citée librement (« B Main », « heaven »…) : sert aux utilitaires des sentinelles.
+export function zoneAt(map, text, letter, side) {
+  const z = findZone(map, text, (letter || '').toLowerCase() || null, side);
+  return z ? { name: z, p: Z.zones[map][z] } : null;
+}

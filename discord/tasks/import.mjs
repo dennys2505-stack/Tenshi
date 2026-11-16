@@ -5,7 +5,8 @@ import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
 import { discord, sleep } from '../lib/discord.mjs';
-import { place } from '../lib/zones.mjs';
+import { place, zoneAt } from '../lib/zones.mjs';
+const ABILITIES = JSON.parse(fs.readFileSync(new URL('../../site/src/data/abilities.json', import.meta.url), 'utf8'));
 import { execFileSync } from 'child_process';
 
 const ROOT = new URL('../../site/', import.meta.url).pathname;
@@ -161,12 +162,22 @@ export default async function importTask({ log, rep, job }) {
           if (mmPts?.from) { pts.from = mmPts.from; pts.fromZone = 'mini map Discord'; }
           if (mmPts?.to) { pts.to = mmPts.to; pts.toZone = 'mini map Discord'; }
           // Trop peu d'infos (pas de titre exploitable ni de point) → cachée au public, visible dans les Coulisses.
-          const poor = /à compléter/.test(title) || (!pts.from && !pts.to);
+          // Sentinelles : une ligne par utilitaire, ex. « Cage : B Main », « Fil - B Lobby » → icône posée sur la zone.
+          const marks = [];
+          for (const ab of ABILITIES[agent] ?? []) {
+            for (const line of text.split('\n').slice(1)) {
+              const mm2 = line.match(/^\s*([^:\-–]+?)\s*[:\-–]\s*(.+)$/); if (!mm2) continue;
+              const w = norm(mm2[1]).replace(/[^a-z]/g, '');
+              if (!ab.words.some((x) => norm(x).replace(/[^a-z]/g, '') === w || w === norm(x).replace(/[^a-z]/g, '') + 's')) continue;
+              const z = zoneAt(map, mm2[2], site, side); if (z) marks.push({ t: ab.key, p: z.p });
+            }
+          }
+          const poor = /à compléter/.test(title) || (!pts.from && !pts.to && !marks.length);
           // Vérifiée d'office seulement si tout y est et vient de l'auteur : photos jointes sur Discord (pas des images tirées de la vidéo),
           // départ ET arrivée lus sur sa mini map, côté et site connus, vrai titre. Au moindre doute → « À vérifier ».
           const sure = !poor && mmPts?.from && mmPts?.to && (m.attachments?.length ?? 0) > 0 && images.length > 0
             && side !== 'À classer' && !!site && title.split(/\s+/).length >= 3;
-          const lu = { id, num: ++num, map, agent, side, site, title, notes, reveal: agent === 'Fade' && /reveal/i.test(all_text), images, from: pts.from || null, to: pts.to || null, video, credit: '', auto: true, ...(poor || prop ? { hidden: true } : {}), ...(prop ? { proposed: true } : {}), ...(sure && !prop ? { checked: true } : {}), source: { message: m.id } };
+          const lu = { id, num: ++num, map, agent, side, site, title, notes, reveal: agent === 'Fade' && /reveal/i.test(all_text), images, from: pts.from || null, to: pts.to || null, ...(marks.length ? { marks } : {}), video, credit: '', auto: true, ...(poor || prop ? { hidden: true } : {}), ...(prop ? { proposed: true } : {}), ...(sure && !prop ? { checked: true } : {}), source: { message: m.id } };
           if (!dry) fs.writeFileSync(path.join(LU_DIR, id + '.json'), JSON.stringify(lu, null, 2) + '\n');
           seenMsg.add(m.id); if (video) seenVideo.add(normUrl(video));
           created.push({ ...lu, imgCount: images.length || imgUrls.length, zones: `${pts.fromZone || '?'} → ${pts.toZone || '?'}` });

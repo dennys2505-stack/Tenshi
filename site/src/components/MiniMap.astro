@@ -1,5 +1,6 @@
 ---
 // Mini map avec le point de départ (point blanc) et l'arrivée (cible, ou icône de reveal pour Fade).
+import abilities from '../data/abilities.json';
 const { lineup: l, map: m } = Astro.props;
 const isRev = l.reveal && l.agent === 'Fade';
 const marks = (l.marks ?? []).filter((k) => k?.p);
@@ -12,11 +13,13 @@ const hasTo = withOverlay && Boolean(l.to);
 const X = hasTo ? l.to[0] * W : 0;
 const Y = hasTo ? l.to[1] * H : 0;
 const r = W * 0.011, s = W * 0.004, t = W * 0.02;
-const ICON = { cage: '/img/icons/cypher-cage.png', fil: '/img/icons/cypher-fil.png', cam: '/img/icons/cypher-cam.png' };
-const NOM = { cage: 'cage', fil: 'fil', cam: 'caméra' };
+// Utilitaires posés sur la carte (sentinelles) : icônes et noms dans data/abilities.json.
+const ABIL = (abilities[l.agent] ?? []);
+const ICON = Object.fromEntries(ABIL.map((a) => [a.key, a.icon]));
+const NOM = Object.fromEntries(ABIL.map((a) => [a.key, a.label.toLowerCase()]));
 const used = [...new Set(marks.map((k) => k.t))].filter((k) => NOM[k]);
 const caption = marks.length
-  ? `Mini map : ${used.map((k) => NOM[k]).join(', ')}${l.from ? ' · point = position de Cypher' : ''}`
+  ? `Mini map : ${used.map((k) => NOM[k]).join(', ')}${l.from ? ` · point = position de ${l.agent}` : ''}`
   : isRev
   ? 'Mini map : point = départ, icône = zone de retombée de la reveal'
   : 'Mini map : point = départ, cible = arrivée';

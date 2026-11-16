@@ -1,0 +1,129 @@
+{
+ "Cypher": [
+  {
+   "key": "cage",
+   "label": "Cage",
+   "words": [
+    "cage",
+    "smoke",
+    "cyber"
+   ],
+   "icon": "/img/icons/cypher-cage.png"
+  },
+  {
+   "key": "fil",
+   "label": "Fil",
+   "words": [
+    "fil",
+    "trip",
+    "tripwire",
+    "trapwire"
+   ],
+   "icon": "/img/icons/cypher-fil.png"
+  },
+  {
+   "key": "cam",
+   "label": "Cam",
+   "words": [
+    "cam",
+    "camera",
+    "caméra",
+    "spycam"
+   ],
+   "icon": "/img/icons/cypher-cam.png"
+  }
+ ],
+ "Killjoy": [
+  {
+   "key": "tourelle",
+   "label": "Tourelle",
+   "words": [
+    "tourelle",
+    "turret",
+    "turrel",
+    "turel"
+   ],
+   "icon": "/img/icons/killjoy-tourelle.png"
+  },
+  {
+   "key": "alarmbot",
+   "label": "Alarmbot",
+   "words": [
+    "alarmbot",
+    "alarmebot",
+    "alarm",
+    "alarme",
+    "bot"
+   ],
+   "icon": "/img/icons/killjoy-alarmbot.png"
+  },
+  {
+   "key": "nanoswarm",
+   "label": "Nanoswarm",
+   "words": [
+    "nanoswarm",
+    "nanite",
+    "nanites",
+    "nano",
+    "nanos"
+   ],
+   "icon": "/img/icons/killjoy-nanoswarm.png"
+  }
+ ],
+ "Deadlock": [
+  {
+   "key": "ult",
+   "label": "Ult",
+   "words": [
+    "ult",
+    "ulti",
+    "annihilation"
+   ],
+   "icon": "/img/icons/deadlock-ult.png"
+  },
+  {
+   "key": "grenade",
+   "label": "Grenade",
+   "words": [
+    "grenade",
+    "gravnet",
+    "net",
+    "filet"
+   ],
+   "icon": "/img/icons/deadlock-grenade.png"
+  },
+  {
+   "key": "trap",
+   "label": "Trap",
+   "words": [
+    "trap",
+    "sonic",
+    "sensor",
+    "capteur"
+   ],
+   "icon": "/img/icons/deadlock-trap.png"
+  },
+  {
+   "key": "barriere",
+   "label": "Barrière",
+   "words": [
+    "barriere",
+    "barrière",
+    "barrier",
+    "mesh"
+   ],
+   "icon": "/img/icons/deadlock-barriere.png"
+  }
+ ],
+ "Sage": [
+  {
+   "key": "mur",
+   "label": "Mur",
+   "words": [
+    "mur",
+    "wall"
+   ],
+   "icon": "/img/icons/sage-mur.png"
+  }
+ ]
+}
