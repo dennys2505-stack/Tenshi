@@ -5,36 +5,32 @@
   "agent": "Brimstone",
   "side": "Attaque",
   "site": "A",
-  "title": "Post plant A",
+  "title": "Post plant A ( default) depuis main",
   "notes": [],
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/2e11e1ffa9c7c.jpg",
-      "cap": ""
+      "src": "/img/lineups/da711d41c4b1.jpg",
+      "cap": "Repère de visée"
     },
     {
-      "src": "/img/lineups/08c4e5df4accc.jpg",
-      "cap": ""
-    },
-    {
-      "src": "/img/lineups/57de39e2173ec.jpg",
-      "cap": ""
-    },
-    {
-      "src": "/img/lineups/fc587fa3926cc.jpg",
-      "cap": ""
+      "src": "/img/lineups/0cc4f0a54e4d.jpg",
+      "cap": "Repère de visée"
     }
   ],
-  "from": null,
+  "from": [
+    0.775,
+    0.535
+  ],
   "to": [
-    0.918,
-    0.429
+    0.886,
+    0.441
   ],
   "video": "https://www.instagram.com/reel/DbKzxWJKKuk/?igsh=aWZvamJzdHB2eG9r",
   "credit": "",
   "auto": true,
   "source": {
     "message": "1530214310691733624"
-  }
+  },
+  "checked": true
 }
