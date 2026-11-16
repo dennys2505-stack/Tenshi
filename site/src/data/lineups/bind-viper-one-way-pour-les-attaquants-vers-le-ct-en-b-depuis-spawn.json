@@ -6,11 +6,13 @@
   "side": "Attaque",
   "site": "B",
   "title": "One way pour les attaquants vers le Ct en B depuis spawn",
-  "notes": [],
+  "notes": [
+    "Sauter, lancer"
+  ],
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/ff75100421c6.jpg",
+      "src": "/img/lineups/ff75100421c6u.jpg",
       "cap": ""
     },
     {

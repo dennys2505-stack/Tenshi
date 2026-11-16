@@ -4,17 +4,19 @@
   "map": "Bind",
   "agent": "Fade",
   "side": "À classer",
-  "site": "",
-  "title": "Fade – à compléter",
-  "notes": [],
+  "site": "A",
+  "title": "A site (spam eye)",
+  "notes": [
+    "Lancer normal"
+  ],
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/63d3b463b280.jpg",
+      "src": "/img/lineups/63d3b463b280u.jpg",
       "cap": ""
     },
     {
-      "src": "/img/lineups/8311304a361d.jpg",
+      "src": "/img/lineups/8311304a361du.jpg",
       "cap": ""
     }
   ],
@@ -22,11 +24,13 @@
     0.674,
     0.304
   ],
-  "to": null,
+  "to": [
+    0.726,
+    0.324
+  ],
   "video": "",
   "credit": "",
   "auto": true,
-  "hidden": true,
   "source": {
     "message": "1568271773135278182"
   }
