@@ -6,6 +6,7 @@ import path from 'path';
 import crypto from 'crypto';
 import { discord, sleep } from '../lib/discord.mjs';
 import { place, zoneAt } from '../lib/zones.mjs';
+const IGNORED = new Set((() => { try { return JSON.parse(fs.readFileSync(new URL('../../site/src/data/ignored.json', import.meta.url), 'utf8')).messages; } catch { return []; } })());
 const ABILITIES = JSON.parse(fs.readFileSync(new URL('../../site/src/data/abilities.json', import.meta.url), 'utf8'));
 import { execFileSync } from 'child_process';
 
@@ -94,7 +95,7 @@ export default async function importTask({ log, rep, job }) {
         all.reverse();
         for (const m of all) {
           if (created.length >= limit) break outer;
-          if (seenMsg.has(m.id)) { skipped.dejaLa++; continue; }
+          if (seenMsg.has(m.id) || IGNORED.has(m.id)) { skipped.dejaLa++; continue; }
           const text = (m.content || '').trim();
           // Proposition : map et agent cités dans le texte (sinon « À classer »).
           const tn = ' ' + norm(text.replace(URL_RE, ' ')).replace(/[^a-z0-9]+/g, ' ') + ' ';

@@ -88,5 +88,10 @@
     "name": "Yoru",
     "slug": "yoru",
     "bg": "/img/agents/yoru.jpg"
+  },
+  {
+    "name": "Skye",
+    "slug": "skye",
+    "bg": "/img/agents/skye.jpg"
   }
 ]

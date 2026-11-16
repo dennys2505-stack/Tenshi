@@ -330,6 +330,17 @@ const boot = {
         try {
           await gh('/contents/' + DIR + '/' + d.id + '.json', { method: 'DELETE', body: { message: 'Admin : suppression #' + d.num + ' ' + d.title, sha: await freshSha(d.id), branch: BR } });
           items = items.filter(function (i) { return i.id !== d.id; });
+          // Venue de Discord : on note le message pour que le bot ne la réimporte jamais.
+          if (d.source && d.source.message) {
+            try {
+              var ig = await gh('/contents/site/src/data/ignored.json?ref=' + BR + '&t=' + Date.now());
+              var j = JSON.parse(unb64(ig.content)); j.messages = j.messages || [];
+              if (j.messages.indexOf(d.source.message) < 0) {
+                j.messages.push(d.source.message);
+                await gh('/contents/site/src/data/ignored.json', { method: 'PUT', body: { message: 'Admin : ne plus importer #' + d.num, content: b64(JSON.stringify(j, null, 1) + '\n'), sha: ig.sha, branch: BR } });
+              }
+            } catch (e2) {}
+          }
           setMsg('Supprimée. Le site se met à jour dans 1 à 2 minutes.'); viewList();
         } catch (er) { setMsg('Échec : ' + er.message, true); viewEdit(); }
       };
