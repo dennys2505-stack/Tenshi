@@ -1,4 +1,4 @@
-# Tâche « import » — 2026-11-16T09:16:23.134Z
+# Tâche « import » — 2026-11-16T13:00:25.262Z
 
 ## Import — cartes : toutes, agents : Brimstone, limite : aucune
 
