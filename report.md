@@ -1,4 +1,4 @@
-# Tâche « import » — 2026-11-16T17:55:51.913Z
+# Tâche « import » — 2026-11-16T20:11:04.589Z
 
 ## Import — cartes : toutes, agents : Brimstone, limite : aucune
 
@@ -17,4 +17,4 @@ Détail des doublons (hors messages déjà importés) :
 - Haven/brimstone : « https://www.instagram.com/reel/DWtuFE7iVD3/?igsh=MTRjdWtsODV » (même vidéo)
 - Sunset/brimstone : « B default depuis spawn » (même vidéo)
 
-Salons spéciaux laissés de côté pour l'instant : Salons textuels/général, Bind/wallbang, Bind/multi-agent, Haven/wallbang, Corrode/gekko-kayo, Pearl/wallbang.
+Salons spéciaux laissés de côté pour l'instant : Bind/wallbang, Bind/multi-agent, Haven/wallbang, Corrode/gekko-kayo, Pearl/wallbang.
