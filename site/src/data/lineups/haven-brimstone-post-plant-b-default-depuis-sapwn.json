@@ -1,0 +1,36 @@
+{
+  "id": "haven-brimstone-post-plant-b-default-depuis-sapwn",
+  "num": 89,
+  "map": "Haven",
+  "agent": "Brimstone",
+  "side": "Attaque",
+  "site": "B",
+  "title": "Post plant B (default) depuis sapwn",
+  "notes": [],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/3de86f3e8007.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/9939873f4abe.jpg",
+      "cap": ""
+    }
+  ],
+  "from": [
+    0.953,
+    0.548
+  ],
+  "to": [
+    0.804,
+    0.576
+  ],
+  "video": "https://www.instagram.com/reel/DWtJeujDnZg/?igsh=MXA2b2c3MndpdGFzNw==",
+  "credit": "",
+  "auto": true,
+  "checked": true,
+  "source": {
+    "message": "1489945410595323986"
+  }
+}

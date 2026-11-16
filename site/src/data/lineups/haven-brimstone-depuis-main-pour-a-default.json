@@ -1,0 +1,32 @@
+{
+  "id": "haven-brimstone-depuis-main-pour-a-default",
+  "num": 86,
+  "map": "Haven",
+  "agent": "Brimstone",
+  "side": "Attaque",
+  "site": "A",
+  "title": "depuis main pour A default",
+  "notes": [],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/1f1c93965c6c.jpg",
+      "cap": ""
+    }
+  ],
+  "from": [
+    0.599,
+    0.154
+  ],
+  "to": [
+    0.804,
+    0.576
+  ],
+  "video": "https://www.instagram.com/reel/DUSqkhLCq0A/",
+  "credit": "",
+  "auto": true,
+  "checked": true,
+  "source": {
+    "message": "1484146940689125406"
+  }
+}

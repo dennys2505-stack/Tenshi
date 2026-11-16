@@ -1,0 +1,34 @@
+{
+  "id": "split-brimstone-b-default-depuis-spawn-attaquant",
+  "num": 106,
+  "map": "Split",
+  "agent": "Brimstone",
+  "side": "Attaque",
+  "site": "B",
+  "title": "B (default) depuis spawn attaquant",
+  "notes": [],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/7636087ee63e.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/4f82d79fc270.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/b0c5bad29414.jpg",
+      "cap": ""
+    }
+  ],
+  "from": null,
+  "to": null,
+  "video": "https://www.instagram.com/reel/C09cTH-NEyU/?igsh=MWtyMGpjMGJnejk2Mg==",
+  "credit": "",
+  "auto": true,
+  "hidden": true,
+  "source": {
+    "message": "1489588279664836781"
+  }
+}

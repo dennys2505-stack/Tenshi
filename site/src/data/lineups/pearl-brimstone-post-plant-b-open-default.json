@@ -1,0 +1,32 @@
+{
+  "id": "pearl-brimstone-post-plant-b-open-default",
+  "num": 100,
+  "map": "Pearl",
+  "agent": "Brimstone",
+  "side": "Attaque",
+  "site": "B",
+  "title": "Post plant B open default",
+  "notes": [
+    "Depuis long"
+  ],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/61d72fb2b9ca.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/3b287d625774.jpg",
+      "cap": ""
+    }
+  ],
+  "from": null,
+  "to": null,
+  "video": "https://www.instagram.com/reel/DXANhPCDavP/?igsh=MThwbmc5OTc3aTYzYQ==",
+  "credit": "",
+  "auto": true,
+  "hidden": true,
+  "source": {
+    "message": "1493151746653159475"
+  }
+}

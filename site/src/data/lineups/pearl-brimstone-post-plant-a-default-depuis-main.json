@@ -1,0 +1,30 @@
+{
+  "id": "pearl-brimstone-post-plant-a-default-depuis-main",
+  "num": 97,
+  "map": "Pearl",
+  "agent": "Brimstone",
+  "side": "Attaque",
+  "site": "A",
+  "title": "Post plant A (défault) depuis main",
+  "notes": [],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/535333c0e797.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/4d3a02609d53.jpg",
+      "cap": ""
+    }
+  ],
+  "from": null,
+  "to": null,
+  "video": "https://www.instagram.com/reel/DUsacEZCsvg/?igsh=MWp4Mmh5aTU2bnFnaA==",
+  "credit": "",
+  "auto": true,
+  "hidden": true,
+  "source": {
+    "message": "1486675483402702939"
+  }
+}

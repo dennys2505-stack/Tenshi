@@ -1,0 +1,32 @@
+{
+  "id": "haven-brimstone-c-defence-retake-pour-cubby",
+  "num": 87,
+  "map": "Haven",
+  "agent": "Brimstone",
+  "side": "Défense",
+  "site": "C",
+  "title": "C defence retake pour cubby",
+  "notes": [],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/2e0cf52e6d2a.jpg",
+      "cap": ""
+    }
+  ],
+  "from": [
+    0.407,
+    0.844
+  ],
+  "to": [
+    0.804,
+    0.576
+  ],
+  "video": "https://www.instagram.com/reel/DO-xnHcCp37/",
+  "credit": "",
+  "auto": true,
+  "checked": true,
+  "source": {
+    "message": "1484147513320804433"
+  }
+}

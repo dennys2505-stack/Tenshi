@@ -1,0 +1,32 @@
+{
+  "id": "split-brimstone-post-plant-b-default-pour-long",
+  "num": 107,
+  "map": "Split",
+  "agent": "Brimstone",
+  "side": "Attaque",
+  "site": "B",
+  "title": "Post plant B (  default pour long)",
+  "notes": [
+    "Depuis Main"
+  ],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/589c20cdbe64.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/816b2fb3c964.jpg",
+      "cap": ""
+    }
+  ],
+  "from": null,
+  "to": null,
+  "video": "https://www.instagram.com/reel/DVoA18pgErC/?igsh=MTBidmg2ZjRkZTZobA==",
+  "credit": "",
+  "auto": true,
+  "hidden": true,
+  "source": {
+    "message": "1489604036205219950"
+  }
+}

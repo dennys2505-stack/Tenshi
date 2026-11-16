@@ -1,0 +1,30 @@
+{
+  "id": "pearl-brimstone-post-plant-b-long-depuis-long",
+  "num": 98,
+  "map": "Pearl",
+  "agent": "Brimstone",
+  "side": "Attaque",
+  "site": "B",
+  "title": "Post plant B ( long) depuis long",
+  "notes": [],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/24fbc26a6394.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/07ff0f4b38cb.jpg",
+      "cap": ""
+    }
+  ],
+  "from": null,
+  "to": null,
+  "video": "https://www.instagram.com/reel/DP1bT6LgcKM/?igsh=Y3F0OTI3anNqa2Vm",
+  "credit": "",
+  "auto": true,
+  "hidden": true,
+  "source": {
+    "message": "1486676283738951711"
+  }
+}

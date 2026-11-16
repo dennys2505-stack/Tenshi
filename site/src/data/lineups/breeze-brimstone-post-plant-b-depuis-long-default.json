@@ -1,0 +1,30 @@
+{
+  "id": "breeze-brimstone-post-plant-b-depuis-long-default",
+  "num": 94,
+  "map": "Breeze",
+  "agent": "Brimstone",
+  "side": "Attaque",
+  "site": "B",
+  "title": "Post plant B depuis long ( défault)",
+  "notes": [],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/75c968344a31.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/a6706c39ceee.jpg",
+      "cap": ""
+    }
+  ],
+  "from": null,
+  "to": null,
+  "video": "https://www.instagram.com/reel/DTSQ8tTjnCW/?igsh=Z2psbDZvMzlqMXVs",
+  "credit": "",
+  "auto": true,
+  "hidden": true,
+  "source": {
+    "message": "1495421070789050549"
+  }
+}

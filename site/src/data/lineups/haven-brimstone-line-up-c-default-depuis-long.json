@@ -1,0 +1,36 @@
+{
+  "id": "haven-brimstone-line-up-c-default-depuis-long",
+  "num": 88,
+  "map": "Haven",
+  "agent": "Brimstone",
+  "side": "Attaque",
+  "site": "C",
+  "title": "line up C (default) depuis long",
+  "notes": [],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/d127b1be3733.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/b5ed1fef044f.jpg",
+      "cap": ""
+    }
+  ],
+  "from": [
+    0.751,
+    0.941
+  ],
+  "to": [
+    0.804,
+    0.576
+  ],
+  "video": "",
+  "credit": "",
+  "auto": true,
+  "checked": true,
+  "source": {
+    "message": "1486439280459911491"
+  }
+}

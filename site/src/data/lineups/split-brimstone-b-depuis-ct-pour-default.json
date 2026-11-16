@@ -1,0 +1,30 @@
+{
+  "id": "split-brimstone-b-depuis-ct-pour-default",
+  "num": 105,
+  "map": "Split",
+  "agent": "Brimstone",
+  "side": "Attaque",
+  "site": "B",
+  "title": "B depuis Ct pour default",
+  "notes": [],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/1d9ae633efa1.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/9a7b50e4459e.jpg",
+      "cap": ""
+    }
+  ],
+  "from": null,
+  "to": null,
+  "video": "https://www.instagram.com/reel/DVQquYijuOv/",
+  "credit": "",
+  "auto": true,
+  "hidden": true,
+  "source": {
+    "message": "1484142930938691674"
+  }
+}

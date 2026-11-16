@@ -1,0 +1,31 @@
+{
+  "id": "lotus-brimstone-line-up-c-pour-main-depuis-main",
+  "num": 92,
+  "map": "Lotus",
+  "agent": "Brimstone",
+  "side": "À classer",
+  "site": "C",
+  "title": "Line up C pour main depuis Main",
+  "notes": [],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/7d117c6a5964.jpg",
+      "cap": ""
+    }
+  ],
+  "from": [
+    0.318,
+    0.689
+  ],
+  "to": [
+    0.156,
+    0.496
+  ],
+  "video": "https://www.instagram.com/reel/DW3dZctBC1L/?igsh=MWN2Mjl1MXRlem9qOA==",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1491506047360303114"
+  }
+}

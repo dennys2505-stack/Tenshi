@@ -1,0 +1,32 @@
+{
+  "id": "lotus-brimstone-post-plant-b-defautl-depuis-main",
+  "num": 90,
+  "map": "Lotus",
+  "agent": "Brimstone",
+  "side": "Attaque",
+  "site": "B",
+  "title": "Post plant B (defautl) depuis Main",
+  "notes": [],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/bd80c45c45e8.jpg",
+      "cap": ""
+    }
+  ],
+  "from": [
+    0.526,
+    0.707
+  ],
+  "to": [
+    0.68,
+    0.519
+  ],
+  "video": "https://www.instagram.com/reel/DWVFSAlklQ7/?igsh=MTZjYjNjdWE5eGt6aA==",
+  "credit": "",
+  "auto": true,
+  "checked": true,
+  "source": {
+    "message": "1486687417569251348"
+  }
+}

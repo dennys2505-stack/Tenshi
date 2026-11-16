@@ -1,0 +1,34 @@
+{
+  "id": "pearl-brimstone-post-plant-close-b-depuis-long",
+  "num": 101,
+  "map": "Pearl",
+  "agent": "Brimstone",
+  "side": "Attaque",
+  "site": "B",
+  "title": "Post plant close B depuis long",
+  "notes": [],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/e864d249893d.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/1cbbead52011.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/c52942fe2f9d.jpg",
+      "cap": ""
+    }
+  ],
+  "from": null,
+  "to": null,
+  "video": "https://www.instagram.com/reel/DY_7qioI050/?igsh=MTBhNmh3MGtueHhxdA==",
+  "credit": "",
+  "auto": true,
+  "hidden": true,
+  "source": {
+    "message": "1516078350098108466"
+  }
+}
