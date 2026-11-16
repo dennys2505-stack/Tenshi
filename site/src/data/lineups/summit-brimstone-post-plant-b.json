@@ -5,36 +5,34 @@
   "agent": "Brimstone",
   "side": "Attaque",
   "site": "B",
-  "title": "Post plant B",
-  "notes": [],
+  "title": "Post plant B sur default depuis la porte",
+  "notes": [
+    "Porte fermer"
+  ],
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/72df2c545d41.jpg",
-      "cap": ""
+      "src": "/img/lineups/01a2952ab523.jpg",
+      "cap": "Repère de visée"
     },
     {
       "src": "/img/lineups/5469eed4e486.jpg",
       "cap": ""
-    },
-    {
-      "src": "/img/lineups/1fc5886032fd.jpg",
-      "cap": ""
-    },
-    {
-      "src": "/img/lineups/84f3d6872cde.jpg",
-      "cap": ""
     }
   ],
-  "from": null,
+  "from": [
+    0.121,
+    0.211
+  ],
   "to": [
-    0.153,
-    0.305
+    0.155,
+    0.337
   ],
   "video": "https://www.instagram.com/reel/DcipO3Ox1KW/?igsi=enViY2Vjd3h0ZGp3",
   "credit": "",
   "auto": true,
   "source": {
     "message": "1542545968078258186"
-  }
+  },
+  "checked": true
 }
