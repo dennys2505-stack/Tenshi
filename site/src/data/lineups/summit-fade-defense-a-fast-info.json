@@ -1,0 +1,23 @@
+{
+  "id": "summit-fade-defense-a-fast-info",
+  "num": 109,
+  "map": "Summit",
+  "agent": "Fade",
+  "side": "Défense",
+  "site": "A",
+  "title": "Defense A fast info",
+  "notes": [],
+  "reveal": false,
+  "images": [],
+  "from": null,
+  "to": [
+    0.918,
+    0.429
+  ],
+  "video": "https://www.instagram.com/reel/DbI3h9_tfmR/?igsh=MThseHl1ejMxMGxvYQ==",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1530172192455655426"
+  }
+}
