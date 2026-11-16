@@ -5,36 +5,29 @@
   "agent": "Vyse",
   "side": "Attaque",
   "site": "B",
-  "title": "Post plant (Mur anti diffuse) B",
+  "title": "Post plant (Mur anti diffuse) B pour long",
   "notes": [],
   "reveal": false,
   "images": [
     {
       "src": "/img/lineups/c1384bfc41ecc.jpg",
       "cap": ""
-    },
-    {
-      "src": "/img/lineups/a768a4227329c.jpg",
-      "cap": ""
-    },
-    {
-      "src": "/img/lineups/47021d0e97d0c.jpg",
-      "cap": ""
-    },
-    {
-      "src": "/img/lineups/74668f04ecbbc.jpg",
-      "cap": ""
     }
-  ],
-  "from": null,
-  "to": [
-    0.395,
-    0.922
   ],
   "video": "https://www.instagram.com/reel/DUvolYjDqGU/?igsh=MWp0a3Z1bnpsdDVjMw==",
   "credit": "",
   "auto": true,
   "source": {
     "message": "1484123769814646897"
-  }
+  },
+  "checked": true,
+  "marks": [
+    {
+      "t": "mur",
+      "p": [
+        0.332,
+        0.837
+      ]
+    }
+  ]
 }
