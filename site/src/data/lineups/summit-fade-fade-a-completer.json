@@ -8,7 +8,24 @@
   "title": "Fade – à compléter",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/360d91186266.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/56ad03219a09.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/df98b5b98132.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/92e042a05b23.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": null,
   "video": "https://www.instagram.com/reel/DaLnJs5N8XD/?igsh=NmRvMTRpc20zemo4",

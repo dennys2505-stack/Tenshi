@@ -8,7 +8,24 @@
   "title": "Defense A fast info",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/6637cb49b40f.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/87c7b785dea7.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/cc5528ed7fd9.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/c2bb89d62a59.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": [
     0.918,
