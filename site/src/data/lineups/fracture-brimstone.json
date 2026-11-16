@@ -1,0 +1,32 @@
+{
+  "id": "fracture-brimstone",
+  "num": 74,
+  "map": "Fracture",
+  "agent": "Brimstone",
+  "side": "Attaque",
+  "site": "A",
+  "title": "<>",
+  "notes": [
+    "A (default) depuis A dish"
+  ],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/626d71796b67.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/102b7ee7d674.jpg",
+      "cap": ""
+    }
+  ],
+  "from": null,
+  "to": null,
+  "video": "https://youtube.com/shorts/MG8Fa53OugU?is=eBkKqVP6bKRIYAKs",
+  "credit": "",
+  "auto": true,
+  "hidden": true,
+  "source": {
+    "message": "1484294871391932478"
+  }
+}

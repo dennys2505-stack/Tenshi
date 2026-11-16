@@ -1,0 +1,34 @@
+{
+  "id": "split-brimstone-a-default-ou-pour-heaven-depuis-spawn",
+  "num": 79,
+  "map": "Split",
+  "agent": "Brimstone",
+  "side": "Attaque",
+  "site": "A",
+  "title": "A default ou pour heaven depuis spawn",
+  "notes": [],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/973eadcc0d57.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/3f924aa76777.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/189bd9422eb1.jpg",
+      "cap": ""
+    }
+  ],
+  "from": null,
+  "to": null,
+  "video": "https://www.instagram.com/reel/DRkDOHViuN1/",
+  "credit": "",
+  "auto": true,
+  "hidden": true,
+  "source": {
+    "message": "1484142751418290206"
+  }
+}

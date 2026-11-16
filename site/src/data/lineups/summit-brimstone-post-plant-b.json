@@ -1,0 +1,21 @@
+{
+  "id": "summit-brimstone-post-plant-b",
+  "num": 68,
+  "map": "Summit",
+  "agent": "Brimstone",
+  "side": "Attaque",
+  "site": "B",
+  "title": "Post plant B",
+  "notes": [],
+  "reveal": false,
+  "images": [],
+  "from": null,
+  "to": null,
+  "video": "https://www.instagram.com/reel/DcipO3Ox1KW/?igsi=enViY2Vjd3h0ZGp3",
+  "credit": "",
+  "auto": true,
+  "hidden": true,
+  "source": {
+    "message": "1542545968078258186"
+  }
+}

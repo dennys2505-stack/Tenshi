@@ -1,0 +1,30 @@
+{
+  "id": "fracture-brimstone-a-main-sur-default",
+  "num": 75,
+  "map": "Fracture",
+  "agent": "Brimstone",
+  "side": "Attaque",
+  "site": "A",
+  "title": "A main sur ( default)",
+  "notes": [],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/aacfe10fb0a2.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/a94933c451ed.jpg",
+      "cap": ""
+    }
+  ],
+  "from": null,
+  "to": null,
+  "video": "https://www.instagram.com/reel/DWbY9WODCyR/?igsh=ODFkY29zYWdjZjZh",
+  "credit": "",
+  "auto": true,
+  "hidden": true,
+  "source": {
+    "message": "1487445668544122990"
+  }
+}

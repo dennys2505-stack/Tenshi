@@ -1,0 +1,31 @@
+{
+  "id": "lotus-brimstone-line-up-c-default-depuis-dune",
+  "num": 64,
+  "map": "Lotus",
+  "agent": "Brimstone",
+  "side": "À classer",
+  "site": "C",
+  "title": "Line up C (défault) depuis dune",
+  "notes": [],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/de6417405c83.jpg",
+      "cap": ""
+    }
+  ],
+  "from": [
+    0.319,
+    0.692
+  ],
+  "to": [
+    0.678,
+    0.518
+  ],
+  "video": "https://www.instagram.com/reel/DWBMqfOCBOO/?igsh=emhtMHp0aTlqb2dp",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1484289956037001387"
+  }
+}

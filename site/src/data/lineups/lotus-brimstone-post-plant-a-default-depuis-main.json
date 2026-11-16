@@ -1,0 +1,35 @@
+{
+  "id": "lotus-brimstone-post-plant-a-default-depuis-main",
+  "num": 63,
+  "map": "Lotus",
+  "agent": "Brimstone",
+  "side": "Attaque",
+  "site": "A",
+  "title": "Post plant A (default) depuis main",
+  "notes": [],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/993d4756d01d.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/9b0b932e75dc.jpg",
+      "cap": ""
+    }
+  ],
+  "from": [
+    0.729,
+    0.488
+  ],
+  "to": [
+    0.866,
+    0.311
+  ],
+  "video": "https://www.instagram.com/reel/DWBYv0GAsOJ/?igsh=bnJ1MDR2bTcxNGc0",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1484263733827211274"
+  }
+}

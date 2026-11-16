@@ -1,0 +1,23 @@
+{
+  "id": "ascent-brimstone-line-up-default-b",
+  "num": 82,
+  "map": "Ascent",
+  "agent": "Brimstone",
+  "side": "Attaque",
+  "site": "B",
+  "title": "Line up (default) B",
+  "notes": [
+    "Depuis mid"
+  ],
+  "reveal": false,
+  "images": [],
+  "from": null,
+  "to": null,
+  "video": "https://www.instagram.com/reel/DX6lHD6g00b/?igsh=aXlrYjN0ejlkMXVy",
+  "credit": "",
+  "auto": true,
+  "hidden": true,
+  "source": {
+    "message": "1501051590101041213"
+  }
+}
