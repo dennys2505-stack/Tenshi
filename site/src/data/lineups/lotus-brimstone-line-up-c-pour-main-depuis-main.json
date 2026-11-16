@@ -3,7 +3,7 @@
   "num": 92,
   "map": "Lotus",
   "agent": "Brimstone",
-  "side": "À classer",
+  "side": "Attaque",
   "site": "C",
   "title": "Line up C pour main depuis Main",
   "notes": [],
@@ -27,5 +27,6 @@
   "auto": true,
   "source": {
     "message": "1491506047360303114"
-  }
+  },
+  "checked": true
 }
