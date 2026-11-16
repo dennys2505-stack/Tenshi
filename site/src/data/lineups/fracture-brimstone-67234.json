@@ -10,7 +10,24 @@
     "3 post plant"
   ],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/9619ad910369.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/6e7b2557825a.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/e2a7e6ebcf50.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/496f32f0c8f1.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": null,
   "video": "https://www.instagram.com/reel/DXEjC4-s15h/?igsh=dGkwNmY4MHpodGtq",

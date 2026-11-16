@@ -8,7 +8,24 @@
   "title": "B (default)depuis Main",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/474b61d61468.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/a01520e04084.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/fb95adc63ba4.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/31a9ccb195e7.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": null,
   "video": "https://www.instagram.com/reel/DYRlXl5Nn1G/?igsh=bWxkYzYydHVxN2Rq",

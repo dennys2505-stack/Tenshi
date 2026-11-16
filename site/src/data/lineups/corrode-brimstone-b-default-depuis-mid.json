@@ -8,7 +8,24 @@
   "title": "B default depuis mid",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/9f75c640f324.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/d98a1888497b.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/52baac43d877.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/b3b4b0e0605a.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": null,
   "video": "https://www.instagram.com/reel/DewmosQP8dW/?cplk=MWdoemd4bHN2N2ZuYQ==",
