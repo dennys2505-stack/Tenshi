@@ -5,14 +5,10 @@
   "agent": "Yoru",
   "side": "Attaque",
   "site": "B",
-  "title": "Attaque B",
+  "title": "Attaque B flash + tp sur site",
   "notes": [],
   "reveal": false,
   "images": [
-    {
-      "src": "/img/lineups/7a313b816192c.jpg",
-      "cap": ""
-    },
     {
       "src": "/img/lineups/f61be237d921c.jpg",
       "cap": ""
@@ -26,15 +22,19 @@
       "cap": ""
     }
   ],
-  "from": null,
+  "from": [
+    0.614,
+    0.825
+  ],
   "to": [
-    0.395,
-    0.922
+    0.356,
+    0.892
   ],
   "video": "https://www.instagram.com/reel/DVDwNGyEi-L/",
   "credit": "",
   "auto": true,
   "source": {
     "message": "1480651117993132063"
-  }
+  },
+  "checked": true
 }
