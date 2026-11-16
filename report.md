@@ -1,36 +1,24 @@
-# Tâche « import » — 2026-11-16T00:12:22.197Z
+# Tâche « frames » — 2026-11-16T00:14:27.480Z
 
-## Import — cartes : toutes, agents : Brimstone, limite : aucune
+## Images tirées des vidéos
 
-### 24 line ups créées
+| n° | titre | résultat |
+|---|---|---|
+| 85 | Brimstone – à compléter | ✅ 4 images (vidéo 13 s) |
+| 82 | Line up (default) B | ✅ 4 images (vidéo 16 s) |
+| 83 | Molly anti rush A depuis market | ❌ ERROR: [Instagram] DYBnAVFsFkG: Instagram sent an empty media response. Check if this post is accessible in your browser without being logge |
+| 84 | Post plant B | ❌ ERROR: [Instagram] DYL_4yHMmv2: Instagram sent an empty media response. Check if this post is accessible in your browser without being logge |
+| 21 | Trap bath | ❌ ERROR: [Instagram] DXVpRieDGQ-: Instagram sent an empty media response. Check if this post is accessible in your browser without being logge |
+| 71 | A défaut depuis main | ✅ 4 images (vidéo 23 s) |
+| 72 | B default depuis mid | ✅ 4 images (vidéo 24 s) |
+| 76 | Brimstone – à compléter | ✅ 4 images (vidéo 44 s) |
+| 78 | B (default)depuis Main | ✅ 4 images (vidéo 18 s) |
+| 62 | Post plant A | ✅ 4 images (vidéo 17 s) |
+| 80 | Brimstone – à compléter | ✅ 4 images (vidéo 22 s) |
+| 67 | Brimstone – à compléter | ✅ 4 images (vidéo 24 s) |
+| 66 | Post plant A | ✅ 4 images (vidéo 11 s) |
+| 68 | Post plant B | ✅ 4 images (vidéo 19 s) |
+| 70 | Brimstone – à compléter | ✅ 4 images (vidéo 17 s) |
+| 69 | Post plant | ✅ 4 images (vidéo 12 s) |
 
-| n° | map | agent | côté | site | titre | points | photos | vidéo |
-|---|---|---|---|---|---|---|---|---|
-| 62 | Haven | Brimstone | Attaque | A | Post plant A | ? → A Site | 0 | instagram.com |
-| 63 | Lotus | Brimstone | Attaque | A | Post plant A (default) depuis main | A Main → A Site | 2 | instagram.com |
-| 64 | Lotus | Brimstone | À classer | C | Line up C (défault) depuis dune | mini map Discord → mini map Discord | 1 | instagram.com |
-| 65 | Lotus | Brimstone | À classer | A | A (défault) depuis ouverte porte | ? → A Site | 2 | instagram.com |
-| 66 | Summit | Brimstone | Attaque | A | Post plant A | ? → ? | 0 | instagram.com |
-| 67 | Summit | Brimstone | À classer | – | Brimstone – à compléter | ? → ? | 0 | instagram.com |
-| 68 | Summit | Brimstone | Attaque | B | Post plant B | ? → ? | 0 | instagram.com |
-| 69 | Sunset | Brimstone | Attaque | – | Post plant | ? → ? | 0 | instagram.com |
-| 70 | Sunset | Brimstone | À classer | – | Brimstone – à compléter | ? → ? | 0 | instagram.com |
-| 71 | Corrode | Brimstone | Attaque | A | A défaut depuis main | ? → ? | 0 | instagram.com |
-| 72 | Corrode | Brimstone | Attaque | B | B default depuis mid | ? → ? | 0 | instagram.com |
-| 73 | Breeze | Brimstone | Attaque | A | Post plant A (default) depuis mid | ? → ? | 2 | instagram.com |
-| 74 | Fracture | Brimstone | Attaque | A | <> | ? → ? | 2 | youtube.com |
-| 75 | Fracture | Brimstone | Attaque | A | A main sur ( default) | ? → ? | 2 | instagram.com |
-| 76 | Fracture | Brimstone | Attaque | – | <> | ? → ? | 0 | instagram.com |
-| 77 | Fracture | Brimstone | Attaque | A | A default depuis dish | ? → ? | 2 | instagram.com |
-| 78 | Fracture | Brimstone | Attaque | B | B (default)depuis Main | ? → ? | 0 | instagram.com |
-| 79 | Split | Brimstone | Attaque | A | A default ou pour heaven depuis spawn | ? → ? | 3 | instagram.com |
-| 80 | Split | Brimstone | À classer | – | Brimstone – à compléter | ? → ? | 0 | instagram.com |
-| 81 | Ascent | Brimstone | Attaque | A | Post plant depuis Main sur ( default ) A | ? → ? | 3 | instagram.com |
-| 82 | Ascent | Brimstone | Attaque | B | Line up (default) B | ? → ? | 0 | instagram.com |
-| 83 | Ascent | Brimstone | Défense | A | Molly anti rush A depuis market | ? → ? | 0 | instagram.com |
-| 84 | Ascent | Brimstone | Attaque | B | Post plant B | ? → ? | 0 | instagram.com |
-| 85 | Ascent | Brimstone | À classer | – | Brimstone – à compléter | ? → ? | 0 | instagram.com |
-
-Ignorés : 35 déjà présents (même message, même lien ou même image), 0 messages sans lien ni image.
-
-Salons spéciaux laissés de côté pour l'instant : Salons textuels/général, Bind/wallbang, Bind/multi-agent, Haven/wallbang, Corrode/gekko-kayo, Pearl/wallbang.
+13 line ups complétées, 3 échecs.
