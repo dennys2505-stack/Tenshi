@@ -26,12 +26,17 @@
       "cap": ""
     }
   ],
-  "from": null,
-  "to": null,
+  "from": [
+    0.604,
+    0.242
+  ],
+  "to": [
+    0.4,
+    0.198
+  ],
   "video": "https://www.instagram.com/reel/DVq-0J0twe6/?igsh=bzBvcjBjaml2Y2Fv",
   "credit": "",
   "auto": true,
-  "hidden": true,
   "source": {
     "message": "1480910224662597754"
   }

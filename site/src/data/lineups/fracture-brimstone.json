@@ -12,16 +12,18 @@
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/626d71796b67.jpg",
-      "cap": ""
-    },
-    {
       "src": "/img/lineups/102b7ee7d674.jpg",
       "cap": ""
     }
   ],
-  "from": null,
-  "to": null,
+  "from": [
+    0.686,
+    0.192
+  ],
+  "to": [
+    0.906,
+    0.506
+  ],
   "video": "https://youtube.com/shorts/MG8Fa53OugU?is=eBkKqVP6bKRIYAKs",
   "credit": "",
   "auto": true,

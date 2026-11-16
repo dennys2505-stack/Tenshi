@@ -5,7 +5,7 @@
   "agent": "Brimstone",
   "side": "À classer",
   "site": "A",
-  "title": "<>",
+  "title": "Brimstone – à compléter",
   "notes": [
     "Line up (under pour long A) depuis Main"
   ],
@@ -14,19 +14,18 @@
     {
       "src": "/img/lineups/c1f01a692579.jpg",
       "cap": ""
-    },
-    {
-      "src": "/img/lineups/745e381f98ae.jpg",
-      "cap": ""
     }
   ],
   "from": null,
-  "to": null,
+  "to": [
+    0.906,
+    0.506
+  ],
   "video": "https://www.instagram.com/reel/DWXR-HXDmxU/?igsh=NW84cDhubTI1N2hp",
   "credit": "",
   "auto": true,
-  "hidden": true,
   "source": {
     "message": "1487163800372117534"
-  }
+  },
+  "hidden": true
 }
