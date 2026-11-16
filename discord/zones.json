@@ -267,12 +267,12 @@
     0.136
    ],
    "C Long": [
-    0.564,
-    0.865
+    0.751,
+    0.941
    ],
    "C Cubby": [
-    0.605,
-    0.817
+    0.598,
+    0.854
    ],
    "Mid Doors": [
     0.582,
@@ -305,6 +305,14 @@
    "B Default": [
     0.434,
     0.518
+   ],
+   "C Default": [
+    0.416,
+    0.861
+   ],
+   "A Default": [
+    0.411,
+    0.13
    ]
   },
   "Lotus": {
@@ -855,6 +863,10 @@
    "Attacker Side Spawn": [
     0.434,
     0.884
+   ],
+   "A Default": [
+    0.928,
+    0.485
    ]
   },
   "Pearl": {
@@ -1375,6 +1387,14 @@
    "A Default": [
     0.886,
     0.441
+   ],
+   "B Default": [
+    0.155,
+    0.337
+   ],
+   "B Door": [
+    0.121,
+    0.211
    ]
   },
   "Fracture": {
@@ -1683,7 +1703,8 @@
    "tiles": "Mid Tiles",
    "arcade": "A Arcade",
    "stool": "A Stool",
-   "ct": "Defender Side Spawn"
+   "ct": "Defender Side Spawn",
+   "porte": "B Door"
   },
   "Fracture": {
    "hall": "A Hall",
