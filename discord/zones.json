@@ -546,6 +546,556 @@
     0.86,
     0.294
    ]
+  },
+  "Split": {
+   "A Back": [
+    0.231,
+    0.112
+   ],
+   "A Site": [
+    0.336,
+    0.093
+   ],
+   "A Main": [
+    0.498,
+    0.196
+   ],
+   "A Lobby": [
+    0.657,
+    0.154
+   ],
+   "A Screens": [
+    0.152,
+    0.246
+   ],
+   "A Rafters": [
+    0.358,
+    0.263
+   ],
+   "A Tower": [
+    0.32,
+    0.326
+   ],
+   "A Sewer": [
+    0.665,
+    0.308
+   ],
+   "A Ramps": [
+    0.484,
+    0.344
+   ],
+   "Mid Vent": [
+    0.431,
+    0.443
+   ],
+   "Defender Side Spawn": [
+    0.144,
+    0.523
+   ],
+   "Mid Top": [
+    0.49,
+    0.532
+   ],
+   "Mid Bottom": [
+    0.622,
+    0.539
+   ],
+   "Attacker Side Spawn": [
+    0.853,
+    0.541
+   ],
+   "B Stairs": [
+    0.318,
+    0.608
+   ],
+   "Mid Mail": [
+    0.472,
+    0.6
+   ],
+   "B Tower": [
+    0.434,
+    0.678
+   ],
+   "B Link": [
+    0.665,
+    0.694
+   ],
+   "B Rafters": [
+    0.37,
+    0.741
+   ],
+   "B Alley": [
+    0.215,
+    0.782
+   ],
+   "B Lobby": [
+    0.694,
+    0.792
+   ],
+   "B Site": [
+    0.332,
+    0.807
+   ],
+   "B Main": [
+    0.548,
+    0.864
+   ],
+   "B Back": [
+    0.266,
+    0.936
+   ]
+  },
+  "Icebox": {
+   "Defender Side Spawn": [
+    0.581,
+    0.17
+   ],
+   "B Back": [
+    0.295,
+    0.213
+   ],
+   "B Snowman": [
+    0.203,
+    0.249
+   ],
+   "B Hut": [
+    0.451,
+    0.247
+   ],
+   "A Rafters": [
+    0.841,
+    0.263
+   ],
+   "A Site": [
+    0.846,
+    0.299
+   ],
+   "B Fence": [
+    0.326,
+    0.308
+   ],
+   "B Kitchen": [
+    0.502,
+    0.301
+   ],
+   "B Hall": [
+    0.386,
+    0.343
+   ],
+   "Mid Boiler": [
+    0.59,
+    0.347
+   ],
+   "A Screen": [
+    0.723,
+    0.348
+   ],
+   "B Snow Pile": [
+    0.466,
+    0.382
+   ],
+   "B Site": [
+    0.265,
+    0.41
+   ],
+   "B Orange": [
+    0.428,
+    0.444
+   ],
+   "Mid Pallet": [
+    0.653,
+    0.433
+   ],
+   "A Pipes": [
+    0.81,
+    0.441
+   ],
+   "B Tube": [
+    0.519,
+    0.477
+   ],
+   "A Nest": [
+    0.841,
+    0.5
+   ],
+   "B Yellow": [
+    0.196,
+    0.557
+   ],
+   "B Green": [
+    0.392,
+    0.578
+   ],
+   "A Belt": [
+    0.878,
+    0.587
+   ],
+   "Mid Blue": [
+    0.566,
+    0.598
+   ],
+   "B Cubby": [
+    0.272,
+    0.626
+   ],
+   "B Garage": [
+    0.431,
+    0.673
+   ],
+   "Attacker Side Spawn": [
+    0.668,
+    0.757
+   ]
+  },
+  "Breeze": {
+   "B Back": [
+    0.066,
+    0.31
+   ],
+   "B Ladder": [
+    0.04,
+    0.365
+   ],
+   "B Site": [
+    0.137,
+    0.295
+   ],
+   "B Wall": [
+    0.255,
+    0.24
+   ],
+   "Defender Side Arches": [
+    0.374,
+    0.18
+   ],
+   "Mid Nest": [
+    0.486,
+    0.233
+   ],
+   "Defender Side Spawn": [
+    0.713,
+    0.216
+   ],
+   "A Bridge": [
+    0.713,
+    0.251
+   ],
+   "A Ramp": [
+    0.658,
+    0.328
+   ],
+   "A Yellow": [
+    0.758,
+    0.35
+   ],
+   "B Tunnel": [
+    0.364,
+    0.388
+   ],
+   "Mid Top": [
+    0.503,
+    0.407
+   ],
+   "A Pyramids": [
+    0.849,
+    0.476
+   ],
+   "A Site": [
+    0.892,
+    0.462
+   ],
+   "Mid Wood Doors": [
+    0.645,
+    0.503
+   ],
+   "Mid Hall": [
+    0.642,
+    0.543
+   ],
+   "A Hall": [
+    0.616,
+    0.599
+   ],
+   "B Elbow": [
+    0.262,
+    0.513
+   ],
+   "Mid Pillar": [
+    0.499,
+    0.549
+   ],
+   "B Main": [
+    0.153,
+    0.592
+   ],
+   "Mid Cannon": [
+    0.336,
+    0.638
+   ],
+   "B Window": [
+    0.172,
+    0.686
+   ],
+   "A Rope": [
+    0.641,
+    0.669
+   ],
+   "A Shop": [
+    0.765,
+    0.691
+   ],
+   "Mid Bottom": [
+    0.499,
+    0.732
+   ],
+   "A Lobby": [
+    0.676,
+    0.734
+   ],
+   "Attacker Side Spawn": [
+    0.434,
+    0.884
+   ]
+  },
+  "Pearl": {
+   "Defender Side Spawn": [
+    0.552,
+    0.148
+   ],
+   "A Secret": [
+    0.84,
+    0.19
+   ],
+   "A Flowers": [
+    0.744,
+    0.24
+   ],
+   "A Dugout": [
+    0.924,
+    0.321
+   ],
+   "A Site": [
+    0.818,
+    0.301
+   ],
+   "Mid Records": [
+    0.43,
+    0.247
+   ],
+   "Mid Water": [
+    0.569,
+    0.314
+   ],
+   "B Hall": [
+    0.202,
+    0.301
+   ],
+   "B Screen": [
+    0.08,
+    0.375
+   ],
+   "B Site": [
+    0.191,
+    0.384
+   ],
+   "B Tunnel": [
+    0.375,
+    0.354
+   ],
+   "B Tower": [
+    0.31,
+    0.406
+   ],
+   "Mid Connector": [
+    0.515,
+    0.389
+   ],
+   "A Link": [
+    0.676,
+    0.426
+   ],
+   "A Main": [
+    0.891,
+    0.493
+   ],
+   "B Main": [
+    0.11,
+    0.535
+   ],
+   "B Link": [
+    0.342,
+    0.524
+   ],
+   "Mid Doors": [
+    0.504,
+    0.526
+   ],
+   "A Art": [
+    0.683,
+    0.509
+   ],
+   "Mid Plaza": [
+    0.552,
+    0.629
+   ],
+   "A Restaurant": [
+    0.759,
+    0.648
+   ],
+   "B Ramp": [
+    0.119,
+    0.688
+   ],
+   "Mid Shops": [
+    0.382,
+    0.675
+   ],
+   "Mid Top": [
+    0.615,
+    0.716
+   ],
+   "B Club": [
+    0.287,
+    0.777
+   ],
+   "Attacker Side Spawn": [
+    0.523,
+    0.86
+   ]
+  },
+  "Ascent": {
+   "A Site": [
+    0.305,
+    0.181
+   ],
+   "A Heaven": [
+    0.222,
+    0.154
+   ],
+   "A Hell": [
+    0.305,
+    0.137
+   ],
+   "A Main": [
+    0.503,
+    0.132
+   ],
+   "A Generator": [
+    0.309,
+    0.203
+   ],
+   "A Door": [
+    0.387,
+    0.248
+   ],
+   "A Lobby": [
+    0.639,
+    0.261
+   ],
+   "A Cubby": [
+    0.46,
+    0.273
+   ],
+   "A Window": [
+    0.259,
+    0.295
+   ],
+   "A Heaven Stairs": [
+    0.15,
+    0.292
+   ],
+   "A Gardens": [
+    0.271,
+    0.35
+   ],
+   "A Link": [
+    0.392,
+    0.345
+   ],
+   "Mid Cubby": [
+    0.484,
+    0.384
+   ],
+   "Mid Pizza": [
+    0.3,
+    0.438
+   ],
+   "Mid Catwalk": [
+    0.532,
+    0.43
+   ],
+   "Mid Arch": [
+    0.411,
+    0.467
+   ],
+   "Attacker Side Spawn": [
+    0.082,
+    0.5
+   ],
+   "Mid Bottom": [
+    0.314,
+    0.51
+   ],
+   "Mid Top": [
+    0.665,
+    0.486
+   ],
+   "Mid": [
+    0.479,
+    0.542
+   ],
+   "Defender Side Spawn": [
+    0.837,
+    0.559
+   ],
+   "Mid Market": [
+    0.305,
+    0.583
+   ],
+   "B Door": [
+    0.28,
+    0.622
+   ],
+   "B Link": [
+    0.522,
+    0.607
+   ],
+   "B Cubby": [
+    0.319,
+    0.634
+   ],
+   "B Main": [
+    0.222,
+    0.682
+   ],
+   "B Corner": [
+    0.401,
+    0.689
+   ],
+   "B Lobby": [
+    0.566,
+    0.711
+   ],
+   "B Shed": [
+    0.275,
+    0.743
+   ],
+   "B Tunnels": [
+    0.43,
+    0.781
+   ],
+   "B Bait": [
+    0.576,
+    0.801
+   ],
+   "B Site": [
+    0.261,
+    0.825
+   ],
+   "B Back": [
+    0.251,
+    0.932
+   ]
   }
  },
  "aliases": {
@@ -627,6 +1177,100 @@
    "under window": "B Under Window",
    "under windows": "B Under Window",
    "box main": "B Box Main"
+  },
+  "Split": {
+   "screens": "A Screens",
+   "sewer": "A Sewer",
+   "ramps": "A Ramps",
+   "vent": "Mid Vent",
+   "stairs": "B Stairs",
+   "mail": "Mid Mail",
+   "alley": "B Alley",
+   "ct": "Defender Side Spawn",
+   "mall": "Mid Mail"
+  },
+  "Icebox": {
+   "back": "B Back",
+   "snowman": "B Snowman",
+   "hut": "B Hut",
+   "rafters": "A Rafters",
+   "fence": "B Fence",
+   "kitchen": "B Kitchen",
+   "hall": "B Hall",
+   "boiler": "Mid Boiler",
+   "screen": "A Screen",
+   "pile": "B Snow Pile",
+   "orange": "B Orange",
+   "pallet": "Mid Pallet",
+   "pipes": "A Pipes",
+   "tube": "B Tube",
+   "nest": "A Nest",
+   "yellow": "B Yellow",
+   "green": "B Green",
+   "belt": "A Belt",
+   "blue": "Mid Blue",
+   "cubby": "B Cubby",
+   "garage": "B Garage"
+  },
+  "Breeze": {
+   "back": "B Back",
+   "ladder": "B Ladder",
+   "wall": "B Wall",
+   "arches": "Defender Side Arches",
+   "nest": "Mid Nest",
+   "bridge": "A Bridge",
+   "ramp": "A Ramp",
+   "yellow": "A Yellow",
+   "tunnel": "B Tunnel",
+   "pyramids": "A Pyramids",
+   "doors": "Mid Wood Doors",
+   "elbow": "B Elbow",
+   "pillar": "Mid Pillar",
+   "cannon": "Mid Cannon",
+   "window": "B Window",
+   "rope": "A Rope",
+   "shop": "A Shop",
+   "pyramide": "A Pyramids"
+  },
+  "Pearl": {
+   "secret": "A Secret",
+   "flowers": "A Flowers",
+   "dugout": "A Dugout",
+   "records": "Mid Records",
+   "water": "Mid Water",
+   "hall": "B Hall",
+   "screen": "B Screen",
+   "tunnel": "B Tunnel",
+   "tower": "B Tower",
+   "connector": "Mid Connector",
+   "doors": "Mid Doors",
+   "art": "A Art",
+   "plaza": "Mid Plaza",
+   "restaurant": "A Restaurant",
+   "ramp": "B Ramp",
+   "shops": "Mid Shops",
+   "club": "B Club"
+  },
+  "Ascent": {
+   "heaven": "A Heaven",
+   "hell": "A Hell",
+   "generator": "A Generator",
+   "window": "A Window",
+   "stairs": "A Heaven Stairs",
+   "gardens": "A Gardens",
+   "pizza": "Mid Pizza",
+   "catwalk": "Mid Catwalk",
+   "arch": "Mid Arch",
+   "market": "Mid Market",
+   "corner": "B Corner",
+   "shed": "B Shed",
+   "tunnels": "B Tunnels",
+   "bait": "B Bait",
+   "back": "B Back",
+   "generateur": "A Generator",
+   "générateur": "A Generator",
+   "marche": "Mid Market",
+   "ct": "Defender Side Spawn"
   }
  }
 }

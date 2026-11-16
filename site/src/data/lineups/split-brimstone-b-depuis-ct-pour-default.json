@@ -10,20 +10,21 @@
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/1d9ae633efa1.jpg",
-      "cap": ""
-    },
-    {
       "src": "/img/lineups/9a7b50e4459e.jpg",
       "cap": ""
     }
   ],
-  "from": null,
-  "to": null,
+  "from": [
+    0.196,
+    0.7
+  ],
+  "to": [
+    0.332,
+    0.807
+  ],
   "video": "https://www.instagram.com/reel/DVQquYijuOv/",
   "credit": "",
   "auto": true,
-  "hidden": true,
   "source": {
     "message": "1484142930938691674"
   }

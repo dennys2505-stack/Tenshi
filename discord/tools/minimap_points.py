@@ -67,7 +67,15 @@ def analyze(im, ref_path):
             cx, cy = xs.mean(), ys.mean()
             fx, fy = (cx * s + tx) / RW, (cy * s + ty) / RH
             if not (0 <= fx <= 1 and 0 <= fy <= 1): continue
-            blobs.append((fill, len(xs), [round(fx, 3), round(fy, 3)], abs(bw - bh) / max(bw, bh)))
+            # Forme de croix : un croisement plein au centre et des branches vers les 4 coins (×) ou les 4 côtés (+).
+            M = np.zeros((bh, bw), bool); M[ys - ys.min(), xs - xs.min()] = True
+            cy0, cx0 = bh // 2, bw // 2
+            def hit(y, x, r=3): return M[max(0, y - r):y + r + 1, max(0, x - r):x + r + 1].any()
+            q1, q3 = 0.2, 0.8
+            corners = sum(hit(int(bh * a), int(bw * b)) for a in (q1, q3) for b in (q1, q3)) >= 3
+            sides = sum(hit(int(bh * a), int(bw * b)) for a, b in ((0.1, 0.5), (0.9, 0.5), (0.5, 0.1), (0.5, 0.9))) >= 3
+            crossy = hit(cy0, cx0, 2) and (corners or sides) and bw >= 7 and bh >= 7
+            blobs.append((fill, len(xs), [round(fx, 3), round(fy, 3)], abs(bw - bh) / max(bw, bh), crossy))
         # Point plein : on efface les traits fins (contours, croix) puis on cherche une tache ronde.
         dots = []
         op = ndimage.binary_opening(white, structure=np.ones((5, 5)))
@@ -79,7 +87,7 @@ def analyze(im, ref_path):
             fx, fy = (xs.mean() * s + tx) / RW, (ys.mean() * s + ty) / RH
             if 0 <= fx <= 1 and 0 <= fy <= 1: dots.append((len(xs) / (bw * bh), len(xs), [round(fx, 3), round(fy, 3)]))
         dots.sort(key=lambda b: -b[1])
-        crosses = sorted([b for b in blobs if b[0] < 0.6 and b[3] < 0.35 and b[1] / b[0] <= 1000], key=lambda b: -b[1])
+        crosses = sorted([b for b in blobs if b[4] and b[0] < 0.6 and b[3] < 0.35 and b[1] / b[0] <= 1000], key=lambda b: -b[1])
         if dots: out["from"] = dots[0][2]
         if crosses: out['to'] = crosses[0][2]
         # Une croix collée au point de départ = le point lui-même mal lu → on l'ignore.

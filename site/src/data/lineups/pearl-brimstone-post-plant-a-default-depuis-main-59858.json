@@ -12,19 +12,21 @@
     {
       "src": "/img/lineups/560a582635f2.jpg",
       "cap": ""
-    },
-    {
-      "src": "/img/lineups/41e19e83d2e8.jpg",
-      "cap": ""
     }
   ],
-  "from": null,
-  "to": null,
+  "from": [
+    0.852,
+    0.62
+  ],
+  "to": [
+    0.803,
+    0.351
+  ],
   "video": "https://www.instagram.com/reel/DVqlmzsACIu/?igsh=MWZlOWNxd2RnZmR3dg==",
   "credit": "",
   "auto": true,
-  "hidden": true,
   "source": {
     "message": "1489603093216759858"
-  }
+  },
+  "checked": true
 }

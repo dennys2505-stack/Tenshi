@@ -12,18 +12,16 @@
     {
       "src": "/img/lineups/ca76689cc3d2.jpg",
       "cap": ""
-    },
-    {
-      "src": "/img/lineups/91420eb6f684.jpg",
-      "cap": ""
     }
   ],
   "from": null,
-  "to": null,
+  "to": [
+    0.818,
+    0.301
+  ],
   "video": "https://www.instagram.com/reel/DV-0DuQAngu/?igsh=MThqdWx3anZxYzQ0cA==",
   "credit": "",
   "auto": true,
-  "hidden": true,
   "source": {
     "message": "1486674748053393540"
   }
