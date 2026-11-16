@@ -47,6 +47,18 @@ export function place(map, side, site, title) {
   const out = {};
   const fz = origin ? findZone(map, origin, letter, side) : null;
   if (fz) { out.from = zones[fz]; out.fromZone = fz; }
+  // Post plant « pour main / pour long » : la bombe est posée là où on la voit DEPUIS main/long (ce n'est pas l'arrivée).
+  // → zone « X Plant Main » si on la connaît, sinon le default / le site.
+  const nt = ' ' + norm(title) + ' ';
+  const isPlant = / (post plant|plant|default|defaut|line up|lineup) /.test(nt) && !/ (retake|defense|anti rush|reveal|flash) /.test(nt);
+  if (isPlant && dest && / pour /.test(' ' + norm(title) + ' ')) {
+    const seen = findZone(map, dest, letter, side);
+    const word = seen ? seen.split(' ').slice(1).join(' ') : norm(dest).split(' ')[0];
+    const pz = letter && Object.keys(zones).find((k) => norm(k) === norm(letter + ' plant ' + word));
+    const tzp = pz || (letter && zones[letter.toUpperCase() + ' Default'] ? letter.toUpperCase() + ' Default' : letter && zones[letter.toUpperCase() + ' Site'] ? letter.toUpperCase() + ' Site' : null);
+    if (tzp && tzp !== fz) { out.to = zones[tzp]; out.toZone = tzp; }
+    return out;
+  }
   let tz = findZone(map, target.replace(/^(post plant|reveal|anti rush|set up|setup|defense|defaut|block|smoke|molly)\b/g, ''), letter, side);
   if (tz && /Spawn|Barrier/.test(tz)) tz = null; // « vers le spawn » : on ne sait pas où ça tombe, tu places à la main
   // « default / défaut » : point de plant habituel du site, s'il est connu sur cette map.

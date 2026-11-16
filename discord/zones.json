@@ -440,9 +440,13 @@
     0.069,
     0.468
    ],
-   "B Default": [
-    0.499,
-    0.454
+   "B Under": [
+    0.511,
+    0.456
+   ],
+   "C Plant Main": [
+    0.155,
+    0.494
    ]
   },
   "Abyss": {
@@ -1564,7 +1568,8 @@
    "root": "A Root",
    "rubble": "A Rubble",
    "mound": "C Mound",
-   "pillars": "B Pillars"
+   "pillars": "B Pillars",
+   "under": "B Under"
   },
   "Abyss": {
    "secret": "A Secret",
