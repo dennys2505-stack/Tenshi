@@ -8,7 +8,24 @@
   "title": "Attaque A par short",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/3e75e91e0b17.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/546d105d1c11.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/ba7b3ebfe691.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/6122a0846bf3.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": [
     0.717,

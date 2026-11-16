@@ -8,7 +8,24 @@
   "title": "Flash bath attaque",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/d9692eb96aad.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/0cbb364f609c.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/53ce9169b77a.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/5189baf0a166.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": [
     0.852,

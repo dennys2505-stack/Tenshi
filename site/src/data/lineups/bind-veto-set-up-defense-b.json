@@ -8,7 +8,24 @@
   "title": "Set up défense B",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/0cd7be63f2be.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/f748fe479294.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/9ccb08193e9d.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/a3c84d9c2827.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": [
     0.292,

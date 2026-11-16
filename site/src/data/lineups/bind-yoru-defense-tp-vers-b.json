@@ -8,7 +8,24 @@
   "title": "Défense tp vers B",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/b1e4d1ba9601.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/c11f19ed716a.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/59f8cff43348.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/f6f392b18895.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": null,
   "video": "https://www.instagram.com/reel/DVpJjSpiitm/?igsh=MTVxMzZxeXo0MWZhaA==",

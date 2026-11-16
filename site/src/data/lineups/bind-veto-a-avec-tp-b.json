@@ -8,7 +8,24 @@
   "title": "A avec tp B",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/68f62eddadd4.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/9f4015b391e8.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/9a239cfcb23c.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/1e2cc511b3be.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": [
     0.603,

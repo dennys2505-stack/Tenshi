@@ -8,7 +8,24 @@
   "title": "Retake A (2 slow )+ wall",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/8df2ccd5b622.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/10cb34b6e2d5.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/c94adac7c0b2.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/7700a5c18151.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": [
     0.726,

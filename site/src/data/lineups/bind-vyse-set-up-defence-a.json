@@ -8,7 +8,24 @@
   "title": "Set up defence A",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/4648d233be28.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/c21b00b6e04d.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/c16ed6c4a1cc.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/63be4be4e810.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": [
     0.726,

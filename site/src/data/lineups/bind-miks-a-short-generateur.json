@@ -8,7 +8,24 @@
   "title": "A short ( générateur)",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/53ee5295b41f.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/c7e58e5f4a22.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/f316e3221216.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/8e31394593e6.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": [
     0.717,
