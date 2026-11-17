@@ -8,7 +8,16 @@
   "title": "Reveal site B depuis main",
   "notes": [],
   "reveal": true,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/49260a6647dd.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/5de5b5bbc43f.jpg",
+      "cap": ""
+    }
+  ],
   "from": [
     0.576,
     0.713
