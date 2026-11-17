@@ -12,18 +12,14 @@
     {
       "src": "/img/lineups/58c3c1ed29fbu.jpg",
       "cap": ""
-    },
-    {
-      "src": "/img/lineups/7e65cc9edd30u.jpg",
-      "cap": ""
     }
   ],
   "from": [
-    0.547,
-    0.719
+    0.576,
+    0.713
   ],
   "to": [
-    0.422,
+    0.428,
     0.655
   ],
   "video": "https://www.instagram.com/reel/DSHdQHZEvaI/?igsh=ZGhibjBzbWhiZ2U3",
@@ -31,5 +27,6 @@
   "auto": true,
   "source": {
     "message": "1480910931595624719"
-  }
+  },
+  "checked": true
 }
