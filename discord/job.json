@@ -1,1 +1,1 @@
-{ "task": "frames" }
+{ "task": "import", "limit": 0, "dry": true }
