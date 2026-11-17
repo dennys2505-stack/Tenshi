@@ -8,7 +8,24 @@
   "title": "Post plant ( ou anti plant ) shock dart A default depuis mid",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/a4d02c2d04f7.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/6b86b672f2b7.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/9ff76487438e.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/7162363a7e54.jpg",
+      "cap": ""
+    }
+  ],
   "from": [
     0.622,
     0.563

@@ -8,7 +8,24 @@
   "title": "Anti rush / retake C",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/6d4e59f5ae56.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/f154f4831de5.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/4bfe87404d86.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/24f8c85505ea.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": [
     0.359,

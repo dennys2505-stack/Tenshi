@@ -8,7 +8,24 @@
   "title": "Reveal A ( attaque ) depuis C Main",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/25ed0cf37d2e.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/79d07924376e.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/5ecd0b73712b.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/7ac74c6e2cfe.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": [
     0.364,
