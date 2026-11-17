@@ -1,11 +1,10 @@
-# Tâche « frames » — 2026-11-17T10:22:34.484Z
+# Tâche « import » — 2026-11-17T10:23:59.444Z
 
-## Images tirées des vidéos
+## Import (simulation) — cartes : toutes, limite : 0
 
-| n° | titre | résultat |
-|---|---|---|
-| 83 | Molly anti rush A depuis market | ❌ ERROR: [Instagram] DYBnAVFsFkG: Instagram sent an empty media response. Check if this post is accessible in your browser without being logge |
-| 21 | Trap bath | ❌ ERROR: [Instagram] DXVpRieDGQ-: Instagram sent an empty media response. Check if this post is accessible in your browser without being logge |
-| 126 | Reveal B flower depuis main | ✅ 4 images (vidéo 14 s) |
+### 0 line ups simulées
 
-1 line ups complétées, 2 échecs.
+| n° | map | agent | côté | site | titre | points | photos | vidéo |
+|---|---|---|---|---|---|---|---|---|
+
+Ignorés : 0 déjà présents (même message, même lien ou même image), 0 messages sans lien ni image.
