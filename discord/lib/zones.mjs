@@ -28,7 +28,11 @@ function findZone(map, text, letter, side) {
     if (letter && zones[letter.toUpperCase() + ' ' + v.slice(1)]) return letter.toUpperCase() + ' ' + v.slice(1);
   }
   if (/^ site /.test(t) && letter && zones[letter.toUpperCase() + ' Site']) return letter.toUpperCase() + ' Site';
+  // 3b. lettre écrite juste devant le mot (« depuis C Main ») : elle prime sur le site de la line up
+  const lm = t.match(/ ([abc]) ([a-z]+) /);
+  if (lm) for (const n of names) { const [l, ...rest] = n.split(' '); if (l.toLowerCase() === lm[1] && norm(rest.join(' ')) === lm[2]) return n; }
   // 4. mot seul « long », « short », « lobby », « main », « link »… complété par la lettre du site
+  if (lm) letter = lm[1];  // « C Main » inconnu sur la map : on ne se rabat pas sur « A Main »
   if (letter) for (const n of names) {
     const [l, ...rest] = n.split(' ');
     if (l.toLowerCase() === letter && rest.length && t.includes(' ' + norm(rest.join(' ')) + ' ')) return n;

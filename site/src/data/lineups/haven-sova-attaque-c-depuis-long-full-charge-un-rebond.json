@@ -6,7 +6,10 @@
   "side": "Attaque",
   "site": "C",
   "title": "Attaque C depuis long full charge un rebond",
-  "notes": [],
+  "notes": [
+    "Charge pleine",
+    "1 rebond"
+  ],
   "reveal": false,
   "images": [
     {

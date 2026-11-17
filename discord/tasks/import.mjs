@@ -118,7 +118,7 @@ export default async function importTask({ log, rep, job }) {
           const title = (clean[0] || `${agent} – à compléter`).slice(0, 90);
           const notes = clean.slice(1, 6);
           const all_text = clean.join(' ');
-          const side = agent === 'Sova' && /reveal/i.test(all_text) && !/post ?plant|d[ée]faut|d[ée]fault|attaque|d[ée]fense|atk|\bdef\b/i.test(all_text) ? 'Attaque et défense' : /\bd[ée]fense\b|\bdef\b|anti ?rush|retake/i.test(all_text) ? 'Défense' : /post ?plant|attaque|attaquant|\batk\b|d[ée]faut|d[ée]fault|depuis (le |la )?spawn/i.test(all_text) ? 'Attaque' : 'À classer';
+          const side = agent === 'Sova' && /reveal/i.test(all_text) && !/post ?plant|d[ée]faut|d[ée]fault|attaque|d[ée]fen[cs]e|atk|\bdef\b|retake|anti ?rush/i.test(all_text) ? 'Attaque et défense' : /\bd[ée]fen[cs]e\b|\bdef\b|anti ?rush|retake/i.test(all_text) ? 'Défense' : /post ?plant|attaque|attaquant|\batk\b|d[ée]faut|d[ée]fault|depuis (le |la )?spawn/i.test(all_text) ? 'Attaque' : 'À classer';
           let site = (all_text.match(/\b(?:site\s*)?([ABC])\b/) || [])[1] || '';
 
           const images = [], pending = [];
@@ -156,6 +156,10 @@ export default async function importTask({ log, rep, job }) {
           let id = slug(`${map}-${agent}-${title}`) || `${slug(map)}-${slug(agent)}-${m.id}`;
           if (ids.has(id)) id += '-' + m.id.slice(-5);
           ids.add(id);
+          // Charge et rebonds écrits dans le message (« full charge un rebond », « charge pleine 2 rebonds »).
+          if (/full ?charge|charge pleine|pleine charge/i.test(all_text)) notes.push('Charge pleine');
+          const rb = all_text.match(/\b(0|1|2|un|une|deux|z[ée]ro|sans)\s*(rebonds?|bounces?)\b/i);
+          if (rb) { const n = { un: 1, une: 1, deux: 2, zero: 0, 'zéro': 0, sans: 0 }[rb[1].toLowerCase()] ?? +rb[1]; notes.push(n === 0 ? 'Sans rebond' : `${n} rebond${n > 1 ? 's' : ''}`); }
           let pts = place(map, side, site, title);
           // Pas de lettre de site dans le texte : on la déduit de la zone (« elbow » sur Sunset → A).
           const zl = [pts.toZone, pts.fromZone].map((z) => (z || '').match(/^([ABC]) /)?.[1]).find(Boolean);
