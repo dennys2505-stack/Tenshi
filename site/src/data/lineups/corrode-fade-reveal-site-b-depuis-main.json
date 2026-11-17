@@ -1,0 +1,26 @@
+{
+  "id": "corrode-fade-reveal-site-b-depuis-main",
+  "num": 129,
+  "map": "Corrode",
+  "agent": "Fade",
+  "side": "À classer",
+  "site": "B",
+  "title": "Reveal site B depuis main",
+  "notes": [],
+  "reveal": true,
+  "images": [],
+  "from": [
+    0.604,
+    0.242
+  ],
+  "to": [
+    0.4,
+    0.198
+  ],
+  "video": "https://www.instagram.com/reel/DSHdQHZEvaI/?igsh=ZGhibjBzbWhiZ2U3",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1480910931595624719"
+  }
+}

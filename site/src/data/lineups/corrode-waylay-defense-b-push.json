@@ -1,0 +1,28 @@
+{
+  "id": "corrode-waylay-defense-b-push",
+  "num": 134,
+  "map": "Corrode",
+  "agent": "Waylay",
+  "side": "Défense",
+  "site": "B",
+  "title": "Défense B ( push)",
+  "notes": [],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/a98f384e6b8f.jpg",
+      "cap": ""
+    }
+  ],
+  "from": null,
+  "to": [
+    0.4,
+    0.198
+  ],
+  "video": "https://youtube.com/shorts/LSYPikQwPKo?is=krplgcuezqDYwYsb",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1483176449266552904"
+  }
+}

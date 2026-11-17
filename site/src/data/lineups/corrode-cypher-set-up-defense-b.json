@@ -1,0 +1,23 @@
+{
+  "id": "corrode-cypher-set-up-defense-b",
+  "num": 127,
+  "map": "Corrode",
+  "agent": "Cypher",
+  "side": "Défense",
+  "site": "B",
+  "title": "Set up défense B",
+  "notes": [],
+  "reveal": false,
+  "images": [],
+  "from": null,
+  "to": [
+    0.4,
+    0.198
+  ],
+  "video": "https://www.instagram.com/reel/DVFa-zKjGe8/?igsh=bXZtbXRiYW1zaG9l",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1482798678208155748"
+  }
+}

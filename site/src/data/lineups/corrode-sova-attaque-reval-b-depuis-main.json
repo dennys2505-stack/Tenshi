@@ -1,0 +1,26 @@
+{
+  "id": "corrode-sova-attaque-reval-b-depuis-main",
+  "num": 132,
+  "map": "Corrode",
+  "agent": "Sova",
+  "side": "Attaque",
+  "site": "B",
+  "title": "Attaque reval B depuis main",
+  "notes": [],
+  "reveal": false,
+  "images": [],
+  "from": [
+    0.604,
+    0.242
+  ],
+  "to": [
+    0.4,
+    0.198
+  ],
+  "video": "https://www.instagram.com/reel/DUxkC7Aig3k/?igsh=YzVybzN5ZWFoMXpw",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1482506537753772193"
+  }
+}

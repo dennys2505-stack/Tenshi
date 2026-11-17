@@ -1,0 +1,21 @@
+{
+  "id": "corrode-fade-reveal-defense-mid",
+  "num": 130,
+  "map": "Corrode",
+  "agent": "Fade",
+  "side": "Défense",
+  "site": "",
+  "title": "Reveal défense mid",
+  "notes": [],
+  "reveal": true,
+  "images": [],
+  "from": null,
+  "to": null,
+  "video": "https://www.instagram.com/reel/DSPLokQgT-L/?igsh=Zzh2bWEza3pmbGsz",
+  "credit": "",
+  "auto": true,
+  "hidden": true,
+  "source": {
+    "message": "1482166267078246562"
+  }
+}

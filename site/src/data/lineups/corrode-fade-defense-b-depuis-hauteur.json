@@ -1,0 +1,23 @@
+{
+  "id": "corrode-fade-defense-b-depuis-hauteur",
+  "num": 131,
+  "map": "Corrode",
+  "agent": "Fade",
+  "side": "Défense",
+  "site": "B",
+  "title": "Défense B depuis hauteur",
+  "notes": [],
+  "reveal": false,
+  "images": [],
+  "from": null,
+  "to": [
+    0.4,
+    0.198
+  ],
+  "video": "https://www.instagram.com/reel/DVinyY8joiY/?igsh=MXVzbjlocHlsMDVzbg==",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1482803582456824082"
+  }
+}
