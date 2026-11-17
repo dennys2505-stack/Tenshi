@@ -115,7 +115,7 @@ export default async function importTask({ log, rep, job }) {
           if (video && seenVideo.has(normUrl(video))) { skipped.dejaLa++; ignores.push(`${catMap}/${c.name} : « ${(text.split('\n')[0] || '').slice(0, 60)} » (même vidéo)`); continue; }
 
           const clean = text.replace(URL_RE, '').replace(/<[@#:][^>]*>/g, '').split('\n').map((s) => s.trim()).filter(Boolean);
-          const title = (clean[0] || `${agent} – à compléter`).slice(0, 90);
+          let title = (clean[0] || `${agent} – à compléter`).slice(0, 90);
           const notes = clean.slice(1, 6);
           const all_text = clean.join(' ');
           const side = agent === 'Sova' && /reveal/i.test(all_text) && !/post ?plant|d[ée]faut|d[ée]fault|attaque|d[ée]fen[cs]e|atk|\bdef\b|retake|anti ?rush/i.test(all_text) ? 'Attaque et défense' : /\bd[ée]fen[cs]e\b|\bdef\b|anti ?rush|retake/i.test(all_text) ? 'Défense' : /post ?plant|attaque|attaquant|\batk\b|d[ée]faut|d[ée]fault|depuis (le |la )?spawn/i.test(all_text) ? 'Attaque' : 'À classer';
@@ -160,6 +160,8 @@ export default async function importTask({ log, rep, job }) {
           if (/full ?charge|charge pleine|pleine charge/i.test(all_text)) notes.push('Charge pleine');
           const rb = all_text.match(/\b(0|1|2|un|une|deux|z[ée]ro|sans)\s*(rebonds?|bounces?)\b/i);
           if (rb) { const n = { un: 1, une: 1, deux: 2, zero: 0, 'zéro': 0, sans: 0 }[rb[1].toLowerCase()] ?? +rb[1]; notes.push(n === 0 ? 'Sans rebond' : `${n} rebond${n > 1 ? 's' : ''}`); }
+          // … et on les retire du titre, puisqu'ils passent en indications.
+          title = title.replace(/\s*(full ?charge|charge pleine|pleine charge)\s*/ig, ' ').replace(/\s*\b(0|1|2|un|une|deux|z[ée]ro|sans)\s*(rebonds?|bounces?)\b\s*/ig, ' ').replace(/\s+/g, ' ').trim() || title;
           let pts = place(map, side, site, title);
           // Pas de lettre de site dans le texte : on la déduit de la zone (« elbow » sur Sunset → A).
           const zl = [pts.toZone, pts.fromZone].map((z) => (z || '').match(/^([ABC]) /)?.[1]).find(Boolean);
