@@ -6,7 +6,9 @@
   "side": "Défense",
   "site": "A",
   "title": "Grenade push defense A",
-  "notes": [],
+  "notes": [
+    "Sauter"
+  ],
   "reveal": false,
   "images": [
     {
@@ -16,25 +18,21 @@
     {
       "src": "/img/lineups/0d33eb2ffe3ac.jpg",
       "cap": ""
-    },
-    {
-      "src": "/img/lineups/8eb2eb031cd4c.jpg",
-      "cap": ""
-    },
-    {
-      "src": "/img/lineups/3abde181b903c.jpg",
-      "cap": ""
     }
   ],
-  "from": null,
+  "from": [
+    0.063,
+    0.412
+  ],
   "to": [
-    0.918,
-    0.429
+    0.211,
+    0.471
   ],
   "video": "https://www.instagram.com/reel/DbDfgplPWgi/?igsh=MTA4aHBleTBieHBwNg==",
   "credit": "",
   "auto": true,
   "source": {
     "message": "1529564602361188434"
-  }
+  },
+  "checked": true
 }
