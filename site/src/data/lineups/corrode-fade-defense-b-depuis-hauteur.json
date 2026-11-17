@@ -8,7 +8,24 @@
   "title": "Défense B depuis hauteur",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/92bbb46438ad.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/6f73eab54a39.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/5d8219772c92.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/4c7bc1b034df.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": [
     0.4,

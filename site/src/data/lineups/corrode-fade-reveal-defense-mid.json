@@ -8,7 +8,24 @@
   "title": "Reveal défense mid",
   "notes": [],
   "reveal": true,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/576c48babd6d.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/da1c66fd368e.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/9f8665ee670c.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/a019fb0cfa3f.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": null,
   "video": "https://www.instagram.com/reel/DSPLokQgT-L/?igsh=Zzh2bWEza3pmbGsz",

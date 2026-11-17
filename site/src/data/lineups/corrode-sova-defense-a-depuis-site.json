@@ -8,7 +8,24 @@
   "title": "Défense A depuis site",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/cc7df8cc544f.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/5828bd5c37ab.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/9007ce532c40.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/73ccacd51c1e.jpg",
+      "cap": ""
+    }
+  ],
   "from": [
     0.4,
     0.769

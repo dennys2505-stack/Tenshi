@@ -8,7 +8,24 @@
   "title": "Set up défense 2",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/44b76799447d.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/99a90ff0b75d.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/46ad7c354150.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/ee147c42920c.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": null,
   "video": "https://www.instagram.com/reel/DVQrssSiAy8/?igsh=MTd4YXdwbHEzNmluNQ==",
