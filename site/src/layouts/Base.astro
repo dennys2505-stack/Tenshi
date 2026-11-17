@@ -67,5 +67,11 @@ const ogImage = image && Astro.site ? new URL(image, Astro.site).href : image;
       else prompt('Lien :', url);
     });
   </script>
+  <script is:inline>
+    (function () {
+      function mark(img) { if (img.naturalWidth > img.naturalHeight * 1.2) { var f = img.closest('figure'); if (f && f.parentElement && f.parentElement.classList.contains('shots')) f.classList.add('wide'); } }
+      document.querySelectorAll('.shots img').forEach(function (img) { if (img.complete) mark(img); else img.addEventListener('load', function () { mark(img); }); });
+    })();
+  </script>
 </body>
 </html>
