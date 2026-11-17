@@ -1,21 +1,18 @@
-# Tâche « import » — 2026-11-17T18:11:55.204Z
+# Tâche « frames » — 2026-11-17T18:13:42.555Z
 
-## Import — cartes : Corrode, limite : aucune
+## Images tirées des vidéos
 
-### 9 line ups créées
+| n° | titre | résultat |
+|---|---|---|
+| 83 | Molly anti rush A depuis market | ❌ ERROR: [Instagram] DYBnAVFsFkG: Instagram sent an empty media response. Check if this post is accessible in your browser without being logge |
+| 21 | Trap bath | ❌ ERROR: [Instagram] DXVpRieDGQ-: Instagram sent an empty media response. Check if this post is accessible in your browser without being logge |
+| 128 | Set up défense 2 | ✅ 4 images (vidéo 26 s) |
+| 127 | Set up défense B | ✅ 4 images (vidéo 42 s) |
+| 131 | Défense B depuis hauteur | ✅ 4 images (vidéo 38 s) |
+| 130 | Reveal défense mid | ✅ 4 images (vidéo 26 s) |
+| 129 | Reveal site B depuis main | ✅ 4 images (vidéo 44 s) |
+| 135 | KAY/O – à compléter | ✅ 4 images (vidéo 66 s) |
+| 132 | Reveal attaque B depuis main | ✅ 4 images (vidéo 25 s) |
+| 133 | Défense A depuis site | ✅ 4 images (vidéo 15 s) |
 
-| n° | map | agent | côté | site | titre | points | photos | vidéo |
-|---|---|---|---|---|---|---|---|---|
-| 127 | Corrode | Cypher | Défense | B | Set up défense B | ? → B Site | 0 | instagram.com |
-| 128 | Corrode | Cypher | Défense | – | Set up défense 2 | ? → ? | 0 | instagram.com |
-| 129 | Corrode | Fade | À classer | B | Reveal site B depuis main | B Main → B Site | 0 | instagram.com |
-| 130 | Corrode | Fade | Défense | – | Reveal défense mid | ? → ? | 0 | instagram.com |
-| 131 | Corrode | Fade | Défense | B | Défense B depuis hauteur | ? → B Site | 0 | instagram.com |
-| 132 | Corrode | Sova | Attaque | B | Attaque reval B depuis main | B Main → B Site | 0 | instagram.com |
-| 133 | Corrode | Sova | Défense | A | Défense A depuis site | A Site → ? | 0 | instagram.com |
-| 134 | Corrode | Waylay | Défense | B | Défense B ( push) | ? → B Site | 1 | youtube.com |
-| 135 | Corrode | KAY/O | À classer | – | KAY/O – à compléter | ? → ? | 0 | instagram.com |
-
-Ignorés : 2 déjà présents (même message, même lien ou même image), 0 messages sans lien ni image.
-
-Salons spéciaux laissés de côté pour l'instant : Corrode/gekko-kayo.
+8 line ups complétées, 2 échecs.
