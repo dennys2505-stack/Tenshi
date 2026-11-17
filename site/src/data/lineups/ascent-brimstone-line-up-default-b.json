@@ -12,23 +12,18 @@
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/0b7892d31cc8.jpg",
-      "cap": ""
-    },
-    {
-      "src": "/img/lineups/72e92601ce7c.jpg",
+      "src": "/img/lineups/6d3165d1623a.jpg",
       "cap": ""
     },
     {
       "src": "/img/lineups/33e5e2614f0c.jpg",
       "cap": ""
-    },
-    {
-      "src": "/img/lineups/6d3165d1623a.jpg",
-      "cap": ""
     }
   ],
-  "from": null,
+  "from": [
+    0.509,
+    0.582
+  ],
   "to": [
     0.261,
     0.825
@@ -38,5 +33,6 @@
   "auto": true,
   "source": {
     "message": "1501051590101041213"
-  }
+  },
+  "checked": true
 }
