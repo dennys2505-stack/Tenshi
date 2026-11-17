@@ -8,7 +8,24 @@
   "title": "Reveal B flower depuis main",
   "notes": [],
   "reveal": true,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/309b193f0367.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/993e0e2b398d.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/3e53923cbd9d.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/2907a5065dec.jpg",
+      "cap": ""
+    }
+  ],
   "from": [
     0.173,
     0.493
