@@ -1,11 +1,11 @@
-# Tâche « import » — 2026-11-17T10:21:16.365Z
+# Tâche « frames » — 2026-11-17T10:22:34.484Z
 
-## Import — cartes : Summit, agents : Fade, limite : aucune
+## Images tirées des vidéos
 
-### 1 line ups créées
+| n° | titre | résultat |
+|---|---|---|
+| 83 | Molly anti rush A depuis market | ❌ ERROR: [Instagram] DYBnAVFsFkG: Instagram sent an empty media response. Check if this post is accessible in your browser without being logge |
+| 21 | Trap bath | ❌ ERROR: [Instagram] DXVpRieDGQ-: Instagram sent an empty media response. Check if this post is accessible in your browser without being logge |
+| 126 | Reveal B flower depuis main | ✅ 4 images (vidéo 14 s) |
 
-| n° | map | agent | côté | site | titre | points | photos | vidéo |
-|---|---|---|---|---|---|---|---|---|
-| 126 | Summit | Fade | À classer | B | Reveal B flowrer depuis main | B Main → B Site | 0 | instagram.com |
-
-Ignorés : 3 déjà présents (même message, même lien ou même image), 0 messages sans lien ni image.
+1 line ups complétées, 2 échecs.
