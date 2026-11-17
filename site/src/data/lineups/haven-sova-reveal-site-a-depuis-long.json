@@ -1,0 +1,35 @@
+{
+  "id": "haven-sova-reveal-site-a-depuis-long",
+  "num": 140,
+  "map": "Haven",
+  "agent": "Sova",
+  "side": "Attaque et défense",
+  "site": "A",
+  "title": "Reveal Site A depuis long",
+  "notes": [],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/c9a1b5dae0c6.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/39a6dbac1370.jpg",
+      "cap": ""
+    }
+  ],
+  "from": [
+    0.537,
+    0.164
+  ],
+  "to": [
+    0.364,
+    0.165
+  ],
+  "video": "https://www.instagram.com/reel/DWYj2FbAZNm/?igsh=MWx3ZG0ydHllOW42OQ==",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1487160543184683080"
+  }
+}

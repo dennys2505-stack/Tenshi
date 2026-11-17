@@ -1,0 +1,35 @@
+{
+  "id": "haven-sova-attaque-c-depuis-long-full-charge-un-rebond",
+  "num": 143,
+  "map": "Haven",
+  "agent": "Sova",
+  "side": "Attaque",
+  "site": "C",
+  "title": "Attaque C depuis long full charge un rebond",
+  "notes": [],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/bea8453467c8.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/d954ea45f560.jpg",
+      "cap": ""
+    }
+  ],
+  "from": [
+    0.751,
+    0.941
+  ],
+  "to": [
+    0.359,
+    0.856
+  ],
+  "video": "https://www.instagram.com/reel/DPev000jdd1/?igsh=MWpyODJiY2xuYXQ3cg==",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1498316022363455549"
+  }
+}

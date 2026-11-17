@@ -1,0 +1,35 @@
+{
+  "id": "haven-sova-defense-c-long-depuis-site",
+  "num": 142,
+  "map": "Haven",
+  "agent": "Sova",
+  "side": "Défense",
+  "site": "C",
+  "title": "Défense C long depuis site",
+  "notes": [],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/235ba4ffa59b.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/a5d95baa8ab1.jpg",
+      "cap": ""
+    }
+  ],
+  "from": [
+    0.359,
+    0.856
+  ],
+  "to": [
+    0.751,
+    0.941
+  ],
+  "video": "https://www.instagram.com/reel/DWyzAMLiZ5B/?igsh=aDVtbWlvMTF1Y2Jl",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1490738592987746336"
+  }
+}

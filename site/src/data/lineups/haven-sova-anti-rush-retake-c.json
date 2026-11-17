@@ -1,0 +1,23 @@
+{
+  "id": "haven-sova-anti-rush-retake-c",
+  "num": 139,
+  "map": "Haven",
+  "agent": "Sova",
+  "side": "Défense",
+  "site": "C",
+  "title": "Anti rush / retake C",
+  "notes": [],
+  "reveal": false,
+  "images": [],
+  "from": null,
+  "to": [
+    0.359,
+    0.856
+  ],
+  "video": "https://www.instagram.com/reel/DVGRsxAjUzH/?igsh=MTlranpnNWdqNTIwMw==",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1482513592514248868"
+  }
+}

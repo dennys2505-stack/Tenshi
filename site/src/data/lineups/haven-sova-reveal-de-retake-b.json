@@ -1,0 +1,23 @@
+{
+  "id": "haven-sova-reveal-de-retake-b",
+  "num": 141,
+  "map": "Haven",
+  "agent": "Sova",
+  "side": "Attaque et défense",
+  "site": "B",
+  "title": "Reveal de retake B",
+  "notes": [],
+  "reveal": false,
+  "images": [],
+  "from": null,
+  "to": [
+    0.392,
+    0.517
+  ],
+  "video": "https://www.instagram.com/reel/DWU0lb9D93A/?igsh=ZXllcDRiNnRsd3Vx",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1487420261484593232"
+  }
+}

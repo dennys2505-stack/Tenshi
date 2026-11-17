@@ -1,0 +1,32 @@
+{
+  "id": "haven-sova-reveal-defense-a-rapide-full-charge-2-rebond",
+  "num": 144,
+  "map": "Haven",
+  "agent": "Sova",
+  "side": "Défense",
+  "site": "A",
+  "title": "Reveal défense A rapide full charge 2 rebond",
+  "notes": [],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/4a6fb897182b.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/4ef0bf9dda85.jpg",
+      "cap": ""
+    }
+  ],
+  "from": null,
+  "to": [
+    0.364,
+    0.165
+  ],
+  "video": "https://www.instagram.com/reel/DXj9ZCSALIm/?igsh=MWFhZDk3MnU5Y2VhNw==",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1498319278867222528"
+  }
+}
