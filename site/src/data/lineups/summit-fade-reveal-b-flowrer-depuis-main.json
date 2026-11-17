@@ -6,38 +6,29 @@
   "side": "Attaque",
   "site": "B",
   "title": "Reveal B flower depuis main",
-  "notes": [],
+  "notes": [
+    "Courir + sauter"
+  ],
   "reveal": true,
   "images": [
-    {
-      "src": "/img/lineups/309b193f0367c.jpg",
-      "cap": ""
-    },
-    {
-      "src": "/img/lineups/993e0e2b398dc.jpg",
-      "cap": ""
-    },
-    {
-      "src": "/img/lineups/3e53923cbd9dc.jpg",
-      "cap": ""
-    },
     {
       "src": "/img/lineups/2907a5065decc.jpg",
       "cap": ""
     }
   ],
   "from": [
-    0.173,
-    0.493
+    0.242,
+    0.519
   ],
   "to": [
-    0.237,
-    0.316
+    0.295,
+    0.31
   ],
   "video": "https://www.instagram.com/reel/DfspnS5Nu9b/?dlrf=d3U1cG51YmUzYXF3",
   "credit": "",
   "auto": true,
   "source": {
     "message": "1572146492016304149"
-  }
+  },
+  "checked": true
 }
