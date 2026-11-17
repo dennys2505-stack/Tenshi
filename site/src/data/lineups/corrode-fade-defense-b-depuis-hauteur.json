@@ -10,11 +10,11 @@
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/5d8219772c92.jpg",
-      "cap": ""
+      "src": "/img/lineups/bcd787ba4c1c.jpg",
+      "cap": "Repère de visée"
     },
     {
-      "src": "/img/lineups/4c7bc1b034df.jpg",
+      "src": "/img/lineups/5d8219772c92.jpg",
       "cap": ""
     }
   ],
@@ -31,5 +31,6 @@
   "auto": true,
   "source": {
     "message": "1482803582456824082"
-  }
+  },
+  "checked": true
 }
