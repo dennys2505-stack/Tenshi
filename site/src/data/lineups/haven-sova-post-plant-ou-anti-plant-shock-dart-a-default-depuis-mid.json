@@ -6,23 +6,27 @@
   "side": "Attaque",
   "site": "A",
   "title": "Post plant ( ou anti plant ) shock dart A default depuis mid",
-  "notes": [],
+  "notes": [
+    "Se coller au tonneau",
+    "Viser : 1 icône de souris dans le haut du câble",
+    "1 barre de charge"
+  ],
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/a4d02c2d04f7.jpg",
+      "src": "/img/lineups/a4d02c2d04f7u.jpg",
       "cap": ""
     },
     {
-      "src": "/img/lineups/6b86b672f2b7.jpg",
+      "src": "/img/lineups/6b86b672f2b7u.jpg",
       "cap": ""
     },
     {
-      "src": "/img/lineups/9ff76487438e.jpg",
+      "src": "/img/lineups/9ff76487438eu.jpg",
       "cap": ""
     },
     {
-      "src": "/img/lineups/7162363a7e54.jpg",
+      "src": "/img/lineups/7162363a7e54u.jpg",
       "cap": ""
     }
   ],

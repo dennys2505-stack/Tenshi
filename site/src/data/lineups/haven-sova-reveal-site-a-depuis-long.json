@@ -6,15 +6,18 @@
   "side": "Attaque et défense",
   "site": "A",
   "title": "Reveal Site A depuis long",
-  "notes": [],
+  "notes": [
+    "Charge pleine",
+    "1 rebond"
+  ],
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/c9a1b5dae0c6.jpg",
+      "src": "/img/lineups/c9a1b5dae0c6u.jpg",
       "cap": ""
     },
     {
-      "src": "/img/lineups/39a6dbac1370.jpg",
+      "src": "/img/lineups/39a6dbac1370u.jpg",
       "cap": ""
     }
   ],

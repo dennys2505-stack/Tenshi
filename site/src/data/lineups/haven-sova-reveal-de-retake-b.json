@@ -6,23 +6,27 @@
   "side": "Défense",
   "site": "B",
   "title": "Reveal de retake B",
-  "notes": [],
+  "notes": [
+    "Aligner le viseur sur le ping",
+    "Charge pleine",
+    "1 rebond"
+  ],
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/d12b0d448017.jpg",
+      "src": "/img/lineups/d12b0d448017u.jpg",
       "cap": ""
     },
     {
-      "src": "/img/lineups/a61eb508ec76.jpg",
+      "src": "/img/lineups/a61eb508ec76u.jpg",
       "cap": ""
     },
     {
-      "src": "/img/lineups/5bc7ef12a073.jpg",
+      "src": "/img/lineups/5bc7ef12a073u.jpg",
       "cap": ""
     },
     {
-      "src": "/img/lineups/b7476f3b686e.jpg",
+      "src": "/img/lineups/b7476f3b686eu.jpg",
       "cap": ""
     }
   ],
