@@ -8,7 +8,24 @@
   "title": "Post plant B depuis Main",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/44b2bb532dd8.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/56d3a3a3c429.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/174008bb114a.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/4e1a0c1b3b96.jpg",
+      "cap": ""
+    }
+  ],
   "from": [
     0.11,
     0.535
