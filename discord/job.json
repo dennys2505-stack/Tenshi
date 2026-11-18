@@ -1,1 +1,1 @@
-{ "task": "import", "maps": ["Corrode"], "dry": false }
+{ "task": "import", "limit": 0, "dry": true }
