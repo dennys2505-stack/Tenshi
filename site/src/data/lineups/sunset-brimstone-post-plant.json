@@ -10,24 +10,22 @@
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/db22fd9338b7.jpg",
-      "cap": ""
-    },
-    {
-      "src": "/img/lineups/c4aa8be79e5c.jpg",
+      "src": "/img/lineups/20936c0804ec.jpg",
       "cap": ""
     },
     {
       "src": "/img/lineups/c4b8736de15f.jpg",
       "cap": ""
-    },
-    {
-      "src": "/img/lineups/20936c0804ec.jpg",
-      "cap": ""
     }
   ],
-  "from": null,
-  "to": null,
+  "from": [
+    0.723,
+    0.169
+  ],
+  "to": [
+    0.776,
+    0.335
+  ],
   "video": "https://www.instagram.com/reel/DdQ3zisCpi3/?stkn=M3BzZDVzZDVxNndw",
   "credit": "",
   "auto": true,
