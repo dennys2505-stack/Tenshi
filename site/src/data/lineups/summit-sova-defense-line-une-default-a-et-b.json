@@ -1,0 +1,23 @@
+{
+  "id": "summit-sova-defense-line-une-default-a-et-b",
+  "num": 182,
+  "map": "Summit",
+  "agent": "Sova",
+  "side": "Défense",
+  "site": "A",
+  "title": "Défense, line une default A et B",
+  "notes": [],
+  "reveal": false,
+  "images": [],
+  "from": null,
+  "to": [
+    0.886,
+    0.441
+  ],
+  "video": "https://www.instagram.com/reel/De519v-AMTo/?rpxt=MWZtZmljdnhsN2lwNg==",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1568176311204188182"
+  }
+}

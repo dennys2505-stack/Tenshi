@@ -1,0 +1,23 @@
+{
+  "id": "summit-cypher-set-up-defense-a",
+  "num": 178,
+  "map": "Summit",
+  "agent": "Cypher",
+  "side": "Défense",
+  "site": "A",
+  "title": "Set up défense A",
+  "notes": [],
+  "reveal": false,
+  "images": [],
+  "from": null,
+  "to": [
+    0.918,
+    0.429
+  ],
+  "video": "https://www.instagram.com/reel/DbNxCV9SroR/?igsh=MWV6ZThhdDQ3cHZmeA==",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1530611902886187292"
+  }
+}

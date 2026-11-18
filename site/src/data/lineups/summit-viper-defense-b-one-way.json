@@ -1,0 +1,23 @@
+{
+  "id": "summit-viper-defense-b-one-way",
+  "num": 179,
+  "map": "Summit",
+  "agent": "Viper",
+  "side": "Défense",
+  "site": "B",
+  "title": "Défense B one way",
+  "notes": [],
+  "reveal": false,
+  "images": [],
+  "from": null,
+  "to": [
+    0.153,
+    0.305
+  ],
+  "video": "https://www.instagram.com/reel/DbUNknMOjUM/?igsh=OG9zYmYwdm9mZ3Fy",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1531602926114701445"
+  }
+}
