@@ -10,11 +10,11 @@
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/ac6dfa4ede20.jpg",
+      "src": "/img/lineups/adf89d267c54.jpg",
       "cap": "Image de la vidéo"
     },
     {
-      "src": "/img/lineups/adf89d267c54.jpg",
+      "src": "/img/lineups/ac6dfa4ede20.jpg",
       "cap": "Image de la vidéo"
     },
     {
@@ -28,8 +28,35 @@
   "source": {
     "message": "1482801536961740860"
   },
-  "to": [
-    0.335,
-    0.429
-  ]
+  "marks": [
+    {
+      "t": "tourelle",
+      "p": [
+        0.314,
+        0.267
+      ]
+    },
+    {
+      "t": "alarmbot",
+      "p": [
+        0.338,
+        0.455
+      ]
+    },
+    {
+      "t": "nanoswarm",
+      "p": [
+        0.353,
+        0.407
+      ]
+    },
+    {
+      "t": "nanoswarm",
+      "p": [
+        0.374,
+        0.473
+      ]
+    }
+  ],
+  "checked": true
 }
