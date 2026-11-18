@@ -33,6 +33,8 @@ export default async function clip({ log, rep, job }) {
     const tmp = fs.mkdtempSync('/tmp/cl-'), v = path.join(tmp, 'v.mp4');
     try {
       await run('yt-dlp', ['--no-playlist', '--no-warnings', '-f', 'b[filesize<40M]/w', '--max-filesize', '40M', '-o', v, l.video], { timeout: 150_000 });
+      // Option « full » : on garde aussi la vidéo entière (480 px) dans le compte-rendu privé (branche bot-logs), pas sur le site.
+      if (job.full) { await run('ffmpeg', ['-y', '-v', 'error', '-i', v, '-vf', 'scale=480:-2', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '26', '-pix_fmt', 'yuv420p', path.resolve('out', `video-${l.num}.mp4`)], { timeout: 150_000 }); rep(`| ${l.num} | vidéo entière | ✅ out/video-${l.num}.mp4 |`); if (job.only) continue; }
       const dur = parseFloat((await run('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', v])).stdout) || 0;
       await run('ffmpeg', ['-y', '-v', 'error', '-i', v, '-vf', 'fps=5,scale=160:-2', path.join(tmp, 'm%04d.png')], { timeout: 120_000 });
       fs.writeFileSync(path.join(tmp, 'motion.py'), MOTION_PY);
