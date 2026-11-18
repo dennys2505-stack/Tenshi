@@ -10,20 +10,20 @@
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/6231c1f00ece.jpg",
+      "src": "/img/lineups/c02438a25cdc.jpg",
       "cap": ""
     },
     {
-      "src": "/img/lineups/c02438a25cdc.jpg",
-      "cap": ""
+      "src": "/img/lineups/df168e7ce19e.jpg",
+      "cap": "Repère de visée"
     }
   ],
   "from": [
-    0.914,
-    0.55
+    0.79,
+    0.434
   ],
   "to": [
-    0.392,
+    0.469,
     0.517
   ],
   "video": "https://www.instagram.com/reel/DTFap_FimVD/?igsh=anQyYXAydm9saGgz",
@@ -31,5 +31,6 @@
   "auto": true,
   "source": {
     "message": "1482488884268105830"
-  }
+  },
+  "checked": true
 }
