@@ -1,0 +1,32 @@
+{
+  "id": "lotus-fade-reveal-c-depuis-connecteur",
+  "num": 176,
+  "map": "Lotus",
+  "agent": "Fade",
+  "side": "Défense",
+  "site": "",
+  "title": "reveal C depuis connecteur",
+  "notes": [],
+  "reveal": true,
+  "images": [
+    {
+      "src": "/img/lineups/3565a678682c.jpg",
+      "cap": "Repère de visée"
+    },
+    {
+      "src": "/img/lineups/1fc2d20af5ef.jpg",
+      "cap": "Repère de visée"
+    }
+  ],
+  "from": [
+    0.335,
+    0.401
+  ],
+  "to": [
+    0.3,
+    0.497
+  ],
+  "video": "https://x.com/xive_vlrt/status/2037586898638766342?s=46&t=evZ7C1s8I0Tvk3i_2DGKzg",
+  "credit": "",
+  "checked": true
+}
