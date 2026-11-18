@@ -93,5 +93,15 @@
     "name": "Skye",
     "slug": "skye",
     "bg": "/img/agents/skye.jpg"
+  },
+  {
+    "name": "Neon",
+    "slug": "neon",
+    "bg": "/img/agents/neon.jpg"
+  },
+  {
+    "name": "Breach",
+    "slug": "breach",
+    "bg": "/img/agents/breach.jpg"
   }
 ]

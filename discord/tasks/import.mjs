@@ -19,7 +19,9 @@ const slug = (s) => String(s).normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCa
 const normUrl = (u) => { try { const x = new URL(u); return (x.host.replace(/^www\./, '') + x.pathname).replace(/\/$/, '').toLowerCase(); } catch { return u; } };
 
 // Salons dont le nom n'est pas un agent : traités plus tard à part.
-const SPECIAL = new Set(['general', 'multiagent', 'wallbang', 'gekkokayo']);
+const SPECIAL = new Set(['general', 'multiagent', 'wallbang']);
+// Salons partagés entre deux agents : rangé sous le premier, « Marche aussi pour » le second.
+const SHARED = { gekkokayo: ['Gekko', 'KAY/O'] };
 // Salon « proposition » : la map et l'agent sont lus dans le message ; tout arrive caché, dans les Coulisses.
 const PROPOSAL = 'proposition';
 const AGENT_ALIASES = { kj: 'Killjoy', kayo: 'KAY/O', pheonix: 'Phoenix', miks: 'Miks', weyley: 'Waylay' };
@@ -80,7 +82,8 @@ export default async function importTask({ log, rep, job }) {
         if (SPECIAL.has(norm(c.name))) { skipped.speciaux.push(`${catMap}/${c.name}`); continue; }
         const prop = norm(c.name) === PROPOSAL;
         if (!prop && onlyMaps.length && !onlyMaps.includes(norm(catMap))) continue;
-        const chAgent = prop ? null : agentName(c.name);
+        const shared = SHARED[norm(c.name)];
+        const chAgent = prop ? null : shared ? shared[0] : agentName(c.name);
         if (!prop && onlyAgents.length && !onlyAgents.includes(norm(chAgent))) continue;
         if (!prop && !agentsData.some((a) => a.name === chAgent)) inconnus.add(`${c.name} → ${chAgent}`);
         // Tous les messages, du plus ancien au plus récent.
@@ -184,7 +187,7 @@ export default async function importTask({ log, rep, job }) {
           // départ ET arrivée lus sur sa mini map, côté et site connus, vrai titre. Au moindre doute → « À vérifier ».
           const sure = !poor && mmPts?.from && mmPts?.to && (m.attachments?.length ?? 0) > 0 && images.length > 0
             && side !== 'À classer' && !!site && title.split(/\s+/).length >= 3;
-          const lu = { id, num: ++num, map, agent, side, site, title, notes, reveal: agent === 'Fade' && /reveal/i.test(all_text), images, from: pts.from || null, to: pts.to || null, ...(marks.length ? { marks } : {}), video, credit: '', auto: true, ...(poor || prop ? { hidden: true } : {}), ...(prop ? { proposed: true } : {}), ...(sure && !prop ? { checked: true } : {}), source: { message: m.id } };
+          const lu = { id, num: ++num, map, agent, side, site, title, notes, reveal: agent === 'Fade' && /reveal/i.test(all_text), ...(shared && !prop ? { also: shared.slice(1) } : {}), images, from: pts.from || null, to: pts.to || null, ...(marks.length ? { marks } : {}), video, credit: '', auto: true, ...(poor || prop ? { hidden: true } : {}), ...(prop ? { proposed: true } : {}), ...(sure && !prop ? { checked: true } : {}), source: { message: m.id } };
           if (!dry) fs.writeFileSync(path.join(LU_DIR, id + '.json'), JSON.stringify(lu, null, 2) + '\n');
           seenMsg.add(m.id); if (video) seenVideo.add(normUrl(video));
           created.push({ ...lu, imgCount: images.length || imgUrls.length, zones: `${pts.fromZone || '?'} → ${pts.toZone || '?'}` });
