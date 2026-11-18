@@ -8,7 +8,24 @@
   "title": "Défense B one way",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/b03d09194e5d.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/785506e5c06c.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/9f1ec1520ec0.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/79acd0fd5435.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": [
     0.153,

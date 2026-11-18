@@ -8,7 +8,24 @@
   "title": "Attaque tp vers spawn depuis A",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/3dc4bec623b5.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/2df35f476023.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/3e3282b7842e.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/1267e4f9520d.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": null,
   "video": "https://www.instagram.com/reel/Da2rIVfs0_I/?igsi=MTRvejhmM3JyZTZuaA==",

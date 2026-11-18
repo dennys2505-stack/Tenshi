@@ -8,7 +8,24 @@
   "title": "Défense, line une default A et B",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/add739df9dda.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/d5f4350d00d3.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/c3192cb39ec0.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/bb9d4ab716a4.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": [
     0.886,
