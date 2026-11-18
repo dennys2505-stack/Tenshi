@@ -8,7 +8,24 @@
   "title": "A défense wallbang door",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/61e7b3a054bf.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/a5b32253c4d3.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/bc364511a9bf.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/d84f0dfb8356.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": [
     0.843,

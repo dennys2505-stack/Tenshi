@@ -8,7 +8,24 @@
   "title": "Wall bang",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/cc7e65c82d86.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/5dcdf15694e8.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/30bedf35cd7a.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/d89cce774246.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": null,
   "video": "https://www.instagram.com/reel/Dd6QkBpsGmI/?stkn=MWNxOHlpZTluMHpqcg==",

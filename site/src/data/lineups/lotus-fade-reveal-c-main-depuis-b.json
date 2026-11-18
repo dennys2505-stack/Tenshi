@@ -8,7 +8,24 @@
   "title": "Reveal c main depuis B",
   "notes": [],
   "reveal": true,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/6de892091c95.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/0af90a3edafa.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/3f79bab58c51.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/9524191c1810.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": [
     0.237,

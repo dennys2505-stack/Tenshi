@@ -8,7 +8,24 @@
   "title": "Set up C",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/41c996fd6ac9.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/b7736625e489.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/6185739e5f95.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/ed168723c084.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": [
     0.144,

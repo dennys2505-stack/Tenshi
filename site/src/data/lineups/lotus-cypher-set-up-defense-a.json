@@ -8,7 +8,24 @@
   "title": "Set up défense A",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/13c5076b1199.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/b6488a28e12e.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/e8c36da11f04.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/56032a8b3938.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": [
     0.866,

@@ -8,7 +8,24 @@
   "title": "entry C",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/148d5fa0f166.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/f4c3c864140b.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/ecbf895f4b32.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/83e39ca8f4e1.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": [
     0.144,

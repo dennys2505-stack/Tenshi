@@ -8,7 +8,24 @@
   "title": "One way ct depuis A main",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/4906c077632b.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/71c529c85458.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/3c088c09eeac.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/e332009cfca2.jpg",
+      "cap": ""
+    }
+  ],
   "from": [
     0.729,
     0.488

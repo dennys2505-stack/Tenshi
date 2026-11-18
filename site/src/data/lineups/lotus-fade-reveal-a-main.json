@@ -8,7 +8,24 @@
   "title": "Reveal A main",
   "notes": [],
   "reveal": true,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/99cd7c2034ce.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/6895cd5666c7.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/d60ffaa076e0.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/7d1635e3c189.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": [
     0.729,

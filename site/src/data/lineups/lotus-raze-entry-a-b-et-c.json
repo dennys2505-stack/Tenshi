@@ -8,7 +8,24 @@
   "title": "Entry A,B et C",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/aa4d301f1cf0.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/f6b6edbf5abb.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/6a262a5c16d8.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/4f0f784bc6c3.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": [
     0.866,

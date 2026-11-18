@@ -8,7 +8,24 @@
   "title": "Défense set up C",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/84db66adcd63.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/a3c581b39fa3.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/5daf407facc5.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/14d45e8745e7.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": [
     0.144,

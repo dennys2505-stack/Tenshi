@@ -8,7 +8,24 @@
   "title": "Lotus attaque reveal",
   "notes": [],
   "reveal": true,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/24dc13acdafc.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/11c640013779.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/eccb34bba47b.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/108a8d4862fc.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": null,
   "video": "https://www.instagram.com/reel/DWsLLo0jgne/?igsh=cGcwOG1oMmRza205",

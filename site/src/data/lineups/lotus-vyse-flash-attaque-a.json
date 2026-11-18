@@ -8,7 +8,24 @@
   "title": "Flash attaque A",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/5cd1b9655c0b.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/7bfae1324f48.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/d8d1223dfe94.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/ecb265384d68.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": [
     0.866,

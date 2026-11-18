@@ -8,7 +8,24 @@
   "title": "Entry site A main et tree",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/ada3fa623028.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/458559716e19.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/8ebdfebb169f.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/cc881aff605f.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": [
     0.729,

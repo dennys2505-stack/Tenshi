@@ -8,7 +8,24 @@
   "title": "Flash Main A et Flash Main C (défense)",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/ab7009d3f685.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/ae8380039353.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/b57a545e4f88.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/7d8cf3d58b31.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": [
     0.729,

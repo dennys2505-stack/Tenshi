@@ -8,7 +8,24 @@
   "title": "Exemple set up défense",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/79d86dd2eda8.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/5c6d3d61cac6.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/7bcb7de9d670.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/07f896117deb.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": null,
   "video": "https://www.instagram.com/reel/DXCmFD8AIhd/?igsh=MTE0NnFwZTRmZnd2aA==",

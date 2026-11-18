@@ -8,7 +8,24 @@
   "title": "Tp C ct (attaque) depuis main",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/94ce9ac13352.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/8f61ab65dbd7.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/38265e789579.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/46a0904c8029.jpg",
+      "cap": ""
+    }
+  ],
   "from": [
     0.237,
     0.542
