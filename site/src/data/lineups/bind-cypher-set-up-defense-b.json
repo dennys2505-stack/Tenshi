@@ -5,16 +5,16 @@
   "agent": "Cypher",
   "side": "Défense",
   "site": "B",
-  "title": "Set up défense B",
+  "title": "Set up défense B window",
   "notes": [],
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/a767785d3fa5c.jpg",
+      "src": "/img/lineups/348a34f6ab74c.jpg",
       "cap": ""
     },
     {
-      "src": "/img/lineups/348a34f6ab74c.jpg",
+      "src": "/img/lineups/a767785d3fa5c.jpg",
       "cap": ""
     }
   ],
@@ -24,8 +24,32 @@
   "source": {
     "message": "1494557726942953623"
   },
-  "to": [
-    0.292,
-    0.281
-  ]
+  "marks": [
+    {
+      "t": "cage",
+      "p": [
+        0.309,
+        0.378
+      ]
+    },
+    {
+      "t": "fil",
+      "p": [
+        0.247,
+        0.386
+      ]
+    },
+    {
+      "t": "cam",
+      "p": [
+        0.289,
+        0.478
+      ]
+    }
+  ],
+  "from": [
+    0.343,
+    0.34
+  ],
+  "checked": true
 }
