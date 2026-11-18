@@ -1,0 +1,23 @@
+{
+  "id": "haven-killjoy-retake-c-avec-ult-line-up-molly",
+  "num": 199,
+  "map": "Haven",
+  "agent": "Killjoy",
+  "side": "Défense",
+  "site": "C",
+  "title": "Retake C avec ult + line up molly",
+  "notes": [],
+  "reveal": false,
+  "images": [],
+  "from": null,
+  "to": [
+    0.359,
+    0.856
+  ],
+  "video": "https://www.instagram.com/reel/DXDSw4SEWe6/?igsh=NWpneWlkMmw1emd3",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1495585892860035122"
+  }
+}

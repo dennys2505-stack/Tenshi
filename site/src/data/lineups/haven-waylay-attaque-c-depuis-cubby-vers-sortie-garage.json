@@ -1,0 +1,31 @@
+{
+  "id": "haven-waylay-attaque-c-depuis-cubby-vers-sortie-garage",
+  "num": 202,
+  "map": "Haven",
+  "agent": "Waylay",
+  "side": "Attaque",
+  "site": "C",
+  "title": "Attaque C depuis cubby vers sortie garage",
+  "notes": [],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/21b939371d67.jpg",
+      "cap": ""
+    }
+  ],
+  "from": [
+    0.598,
+    0.854
+  ],
+  "to": [
+    0.496,
+    0.652
+  ],
+  "video": "https://youtube.com/shorts/95n96MK5QUc?is=QLl1oonRVMfFjLyP",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1483178094130102495"
+  }
+}

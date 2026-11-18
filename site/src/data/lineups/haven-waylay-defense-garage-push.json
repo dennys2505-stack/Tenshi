@@ -1,0 +1,28 @@
+{
+  "id": "haven-waylay-defense-garage-push",
+  "num": 203,
+  "map": "Haven",
+  "agent": "Waylay",
+  "side": "Défense",
+  "site": "C",
+  "title": "Défense garage ( push)",
+  "notes": [],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/1ec43a9238fc.jpg",
+      "cap": ""
+    }
+  ],
+  "from": null,
+  "to": [
+    0.496,
+    0.652
+  ],
+  "video": "https://youtube.com/shorts/o1sHX_c9LJg?is=KZx2pPFqk8WgRLwU",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1483178898979291206"
+  }
+}

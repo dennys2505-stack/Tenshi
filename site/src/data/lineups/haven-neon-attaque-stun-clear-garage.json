@@ -1,0 +1,23 @@
+{
+  "id": "haven-neon-attaque-stun-clear-garage",
+  "num": 200,
+  "map": "Haven",
+  "agent": "Neon",
+  "side": "Attaque",
+  "site": "C",
+  "title": "Attaque stun clear garage",
+  "notes": [],
+  "reveal": false,
+  "images": [],
+  "from": null,
+  "to": [
+    0.496,
+    0.652
+  ],
+  "video": "https://www.instagram.com/reel/DVy2bpwtinZ/?igsh=cWlmcnBxdjZtZ2R2",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1490006120625078343"
+  }
+}

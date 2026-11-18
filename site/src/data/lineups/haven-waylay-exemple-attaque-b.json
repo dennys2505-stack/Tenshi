@@ -1,0 +1,23 @@
+{
+  "id": "haven-waylay-exemple-attaque-b",
+  "num": 204,
+  "map": "Haven",
+  "agent": "Waylay",
+  "side": "Attaque",
+  "site": "B",
+  "title": "Exemple attaque B",
+  "notes": [],
+  "reveal": false,
+  "images": [],
+  "from": null,
+  "to": [
+    0.392,
+    0.517
+  ],
+  "video": "https://www.instagram.com/reel/DXbxmMvCM2d/?igsh=ZncxMG45M3ZuMGRk",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1496582037660762234"
+  }
+}

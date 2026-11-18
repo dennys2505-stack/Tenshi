@@ -1,0 +1,41 @@
+{
+  "id": "haven-fade-attaque-a-reveal-depuis-long-jump",
+  "num": 191,
+  "map": "Haven",
+  "agent": "Fade",
+  "side": "Attaque",
+  "site": "A",
+  "title": "Attaque A reveal depuis long ( jump)",
+  "notes": [
+    "By Mati"
+  ],
+  "reveal": true,
+  "images": [
+    {
+      "src": "/img/lineups/009158c783d7.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/8c56238e2d09.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/09db7d2ec061.jpg",
+      "cap": ""
+    }
+  ],
+  "from": [
+    0.572,
+    0.22
+  ],
+  "to": [
+    0.364,
+    0.165
+  ],
+  "video": "",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1486904369705390151"
+  }
+}

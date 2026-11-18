@@ -1,0 +1,23 @@
+{
+  "id": "haven-cypher-set-up-defense-c",
+  "num": 186,
+  "map": "Haven",
+  "agent": "Cypher",
+  "side": "Défense",
+  "site": "C",
+  "title": "Set up défense C",
+  "notes": [],
+  "reveal": false,
+  "images": [],
+  "from": null,
+  "to": [
+    0.359,
+    0.856
+  ],
+  "video": "https://www.instagram.com/reel/DUx4SbCiEqB/?igsh=c25hb2hicnprbXd2",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1483745172092354620"
+  }
+}

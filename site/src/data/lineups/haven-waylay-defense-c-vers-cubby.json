@@ -1,0 +1,23 @@
+{
+  "id": "haven-waylay-defense-c-vers-cubby",
+  "num": 207,
+  "map": "Haven",
+  "agent": "Waylay",
+  "side": "Défense",
+  "site": "C",
+  "title": "Défense C vers cubby",
+  "notes": [],
+  "reveal": false,
+  "images": [],
+  "from": null,
+  "to": [
+    0.598,
+    0.854
+  ],
+  "video": "https://vm.tiktok.com/ZGd9aCeNc/",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1521299248216539146"
+  }
+}

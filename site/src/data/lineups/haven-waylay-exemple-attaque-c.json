@@ -1,0 +1,23 @@
+{
+  "id": "haven-waylay-exemple-attaque-c",
+  "num": 206,
+  "map": "Haven",
+  "agent": "Waylay",
+  "side": "Attaque",
+  "site": "C",
+  "title": "Exemple attaque C",
+  "notes": [],
+  "reveal": false,
+  "images": [],
+  "from": null,
+  "to": [
+    0.359,
+    0.856
+  ],
+  "video": "https://www.instagram.com/reel/DXuaD1RCHg2/?igsh=MWkyYTRxeTN4YWowMw==",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1499233044471746600"
+  }
+}
