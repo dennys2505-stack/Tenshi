@@ -8,7 +8,24 @@
   "title": "Retake avec l ult + molly du A",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/ff336d79c035.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/7c572a03d8ce.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/e0dd5ae4a824.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/f8e1f1853773.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": [
     0.364,

@@ -8,7 +8,24 @@
   "title": "One way double door",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/592f1221ae7f.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/0be935daf3ab.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/17427099bd4c.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/aa730bea3dd5.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": null,
   "video": "https://www.instagram.com/reel/DZ2HfoMNTBo/?igsh=OGp6a2JpYjlpNTh4",

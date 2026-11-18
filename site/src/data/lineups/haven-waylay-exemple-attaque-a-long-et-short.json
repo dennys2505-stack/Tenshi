@@ -8,7 +8,24 @@
   "title": "Exemple attaque A long et short",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/b8de752841d9.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/f9d2c9328512.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/2c4af9c0d26d.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/9a88c91806e7.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": [
     0.572,

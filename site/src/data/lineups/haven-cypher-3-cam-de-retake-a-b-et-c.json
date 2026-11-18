@@ -8,7 +8,24 @@
   "title": "3 cam de retake ( a, b et c)",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/97ef2b95af35.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/c18be2a7c3a1.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/cae5918c6b70.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/4b7b3862d42b.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": null,
   "video": "https://www.instagram.com/reel/DXMSEFqs_79/?igsh=ZW1sazJrcXZwNGR0",

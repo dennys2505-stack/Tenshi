@@ -8,7 +8,24 @@
   "title": "Retake C avec ult + line up molly",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/ce30e0a32bd5.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/e175c41fba4e.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/0bdb04a8c149.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/b3cd86a2a565.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": [
     0.359,

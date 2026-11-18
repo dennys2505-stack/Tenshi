@@ -8,7 +8,24 @@
   "title": "Post plant C",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/7366205a9178.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/b9f55c0eccc2.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/fc6ba93c160b.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/0a82bf037cdc.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": [
     0.359,

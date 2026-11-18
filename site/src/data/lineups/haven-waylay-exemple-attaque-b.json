@@ -8,7 +8,24 @@
   "title": "Exemple attaque B",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/fb1cb6677e06.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/582520d7eaff.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/cef9fdbdfd7b.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/28822f9abf24.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": [
     0.392,

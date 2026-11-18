@@ -8,7 +8,24 @@
   "title": "Exemple attaque C",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/2ee3d177fd07.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/25f83b614341.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/09caf9205821.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/d1b621b3d346.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": [
     0.359,

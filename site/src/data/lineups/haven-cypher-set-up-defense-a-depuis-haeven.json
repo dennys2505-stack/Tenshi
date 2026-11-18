@@ -8,7 +8,24 @@
   "title": "Set up défense A depuis haeven",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/ea5f589ebf1d.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/5590ee5418dd.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/eb652f72061e.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/88d91392101d.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": [
     0.364,

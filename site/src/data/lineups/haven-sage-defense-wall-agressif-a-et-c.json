@@ -8,7 +8,24 @@
   "title": "Défense wall agressif A et C",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/3ad960c0409c.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/271f9904b760.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/914aaf65e169.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/586dc1972c8f.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": [
     0.364,

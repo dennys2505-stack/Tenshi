@@ -8,7 +8,24 @@
   "title": "Attaque stun clear garage",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/b36e43fbeb73.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/f7751fd6eec6.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/96879e022349.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/e7ebf9bb67b8.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": [
     0.496,
