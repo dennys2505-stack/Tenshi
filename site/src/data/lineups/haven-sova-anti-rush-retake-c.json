@@ -10,26 +10,17 @@
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/6d4e59f5ae56.jpg",
-      "cap": ""
-    },
-    {
-      "src": "/img/lineups/f154f4831de5.jpg",
-      "cap": ""
-    },
-    {
-      "src": "/img/lineups/4bfe87404d86.jpg",
-      "cap": ""
-    },
-    {
-      "src": "/img/lineups/24f8c85505ea.jpg",
-      "cap": ""
+      "src": "/img/lineups/bfea565187a7.jpg",
+      "cap": "Repère de visée"
     }
   ],
-  "from": null,
+  "from": [
+    0.362,
+    0.97
+  ],
   "to": [
-    0.359,
-    0.856
+    0.546,
+    0.901
   ],
   "video": "https://www.instagram.com/reel/DVGRsxAjUzH/?igsh=MTlranpnNWdqNTIwMw==",
   "credit": "",
