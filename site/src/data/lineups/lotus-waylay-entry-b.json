@@ -1,0 +1,23 @@
+{
+  "id": "lotus-waylay-entry-b",
+  "num": 169,
+  "map": "Lotus",
+  "agent": "Waylay",
+  "side": "À classer",
+  "site": "B",
+  "title": "entry B",
+  "notes": [],
+  "reveal": false,
+  "images": [],
+  "from": null,
+  "to": [
+    0.462,
+    0.433
+  ],
+  "video": "https://www.instagram.com/notaffinityio/reel/DXW7AWNCO58/",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1499889685848395908"
+  }
+}

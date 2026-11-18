@@ -1,0 +1,35 @@
+{
+  "id": "lotus-viper-one-way-ct-depuis-main-a",
+  "num": 160,
+  "map": "Lotus",
+  "agent": "Viper",
+  "side": "À classer",
+  "site": "A",
+  "title": "One way (Ct )depuis main A",
+  "notes": [],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/2d869d3b3d6f.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/292b1b41261c.jpg",
+      "cap": ""
+    }
+  ],
+  "from": [
+    0.688,
+    0.627
+  ],
+  "to": [
+    0.741,
+    0.354
+  ],
+  "video": "https://www.instagram.com/reel/DWJ8vskjWll/?igsh=MTc5N3B0ZXJqNGg1Nw==",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1486415881465499809"
+  }
+}

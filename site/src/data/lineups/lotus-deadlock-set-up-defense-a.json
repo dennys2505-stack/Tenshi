@@ -1,0 +1,23 @@
+{
+  "id": "lotus-deadlock-set-up-defense-a",
+  "num": 171,
+  "map": "Lotus",
+  "agent": "Deadlock",
+  "side": "Défense",
+  "site": "A",
+  "title": "Set up défense A",
+  "notes": [],
+  "reveal": false,
+  "images": [],
+  "from": null,
+  "to": [
+    0.866,
+    0.311
+  ],
+  "video": "https://www.instagram.com/reel/DX_G1YRM2Ay/?igsh=OXg0cXN6bnpwdjN0",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1500440652318511154"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "id": "lotus-viper-line-up-a-depuis-main-sur-default",
+  "num": 162,
+  "map": "Lotus",
+  "agent": "Viper",
+  "side": "Attaque",
+  "site": "A",
+  "title": "Line up A depuis main sur (default)",
+  "notes": [],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/855a2fe50649.jpg",
+      "cap": ""
+    }
+  ],
+  "from": [
+    0.669,
+    0.627
+  ],
+  "to": null,
+  "video": "https://www.instagram.com/reel/DWj68G0jJKz/?igsh=MXh0d2R6cmN6ems3ZQ==",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1488796132036579479"
+  }
+}

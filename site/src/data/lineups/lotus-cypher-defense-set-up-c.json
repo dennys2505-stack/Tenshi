@@ -1,0 +1,23 @@
+{
+  "id": "lotus-cypher-defense-set-up-c",
+  "num": 147,
+  "map": "Lotus",
+  "agent": "Cypher",
+  "side": "Défense",
+  "site": "C",
+  "title": "Défense set up C",
+  "notes": [],
+  "reveal": false,
+  "images": [],
+  "from": null,
+  "to": [
+    0.144,
+    0.412
+  ],
+  "video": "https://www.instagram.com/reel/DWMm1CJD31p/?igsh=MXF6OGFmeWM5bHV2aQ==",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1487422354350014598"
+  }
+}

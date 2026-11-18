@@ -1,0 +1,28 @@
+{
+  "id": "lotus-fade-reveal-site-b-defense",
+  "num": 156,
+  "map": "Lotus",
+  "agent": "Fade",
+  "side": "Défense",
+  "site": "B",
+  "title": "Reveal Site B défense",
+  "notes": [],
+  "reveal": true,
+  "images": [
+    {
+      "src": "/img/lineups/d0b0b0a14318.jpg",
+      "cap": ""
+    }
+  ],
+  "from": null,
+  "to": [
+    0.462,
+    0.433
+  ],
+  "video": "https://www.instagram.com/reel/DWvpjHPk0dw/?igsh=OWFuMnI5emgwbW5m",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1493692630347939850"
+  }
+}

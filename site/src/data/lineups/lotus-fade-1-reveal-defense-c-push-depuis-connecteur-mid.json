@@ -1,0 +1,31 @@
+{
+  "id": "lotus-fade-1-reveal-defense-c-push-depuis-connecteur-mid",
+  "num": 151,
+  "map": "Lotus",
+  "agent": "Fade",
+  "side": "Défense",
+  "site": "C",
+  "title": "1 Reveal défense C push depuis connecteur mid",
+  "notes": [
+    "2 reveal attaque A depuis main",
+    "3 reveal attaque C push depuis main"
+  ],
+  "reveal": true,
+  "images": [
+    {
+      "src": "/img/lineups/0f90317535cd.jpg",
+      "cap": ""
+    }
+  ],
+  "from": null,
+  "to": [
+    0.144,
+    0.412
+  ],
+  "video": "https://x.com/xive_vlrt/status/2037586898638766342?s=46&t=evZ7C1s8I0Tvk3i_2DGKzg",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1487331174417174558"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "id": "lotus-kay-o-flash-main-a-et-flash-main-c-defense",
+  "num": 175,
+  "map": "Lotus",
+  "agent": "KAY/O",
+  "side": "Défense",
+  "site": "A",
+  "title": "Flash Main A et Flash Main C (défense)",
+  "notes": [],
+  "reveal": false,
+  "images": [],
+  "from": null,
+  "to": [
+    0.729,
+    0.488
+  ],
+  "video": "https://www.instagram.com/reel/DYq1l95vXnB/?igsh=c2NzMmRlazh5NW16",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1507976580754833480"
+  }
+}

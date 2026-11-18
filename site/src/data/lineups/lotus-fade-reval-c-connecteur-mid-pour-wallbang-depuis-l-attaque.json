@@ -1,0 +1,36 @@
+{
+  "id": "lotus-fade-reval-c-connecteur-mid-pour-wallbang-depuis-l-attaque",
+  "num": 150,
+  "map": "Lotus",
+  "agent": "Fade",
+  "side": "Attaque",
+  "site": "C",
+  "title": "Reval C ( connecteur mid) pour wallBang depuis l attaque",
+  "notes": [],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/623cfd2c0a0c.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/8f929f70949b.jpg",
+      "cap": ""
+    }
+  ],
+  "from": [
+    0.296,
+    0.522
+  ],
+  "to": [
+    0.263,
+    0.457
+  ],
+  "video": "https://www.instagram.com/reel/DWLKeaPuRe1/?igsh=MW56dzZpNTc4M2k2dg==",
+  "credit": "",
+  "auto": true,
+  "checked": true,
+  "source": {
+    "message": "1486070474109620396"
+  }
+}

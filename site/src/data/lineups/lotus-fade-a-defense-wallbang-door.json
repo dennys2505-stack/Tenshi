@@ -1,0 +1,23 @@
+{
+  "id": "lotus-fade-a-defense-wallbang-door",
+  "num": 152,
+  "map": "Lotus",
+  "agent": "Fade",
+  "side": "Défense",
+  "site": "A",
+  "title": "A défense wallbang door",
+  "notes": [],
+  "reveal": false,
+  "images": [],
+  "from": null,
+  "to": [
+    0.843,
+    0.518
+  ],
+  "video": "https://www.instagram.com/reel/DWitCmjjF2Q/?igsh=dWgxNnkwb3FucDZ4",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1488635232432296066"
+  }
+}
