@@ -3,10 +3,12 @@
   "num": 163,
   "map": "Lotus",
   "agent": "Viper",
-  "side": "À classer",
+  "side": "Attaque",
   "site": "A",
   "title": "One way ct depuis A main",
-  "notes": [],
+  "notes": [
+    "Sauter et lancer"
+  ],
   "reveal": false,
   "images": [
     {
@@ -15,10 +17,6 @@
     },
     {
       "src": "/img/lineups/71c529c85458.jpg",
-      "cap": ""
-    },
-    {
-      "src": "/img/lineups/3c088c09eeac.jpg",
       "cap": ""
     },
     {

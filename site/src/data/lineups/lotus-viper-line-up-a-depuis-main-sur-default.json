@@ -5,7 +5,7 @@
   "agent": "Viper",
   "side": "Attaque",
   "site": "A",
-  "title": "Line up A depuis main sur (default)",
+  "title": "Line up A default depuis main",
   "notes": [],
   "reveal": false,
   "images": [
@@ -18,7 +18,10 @@
     0.669,
     0.627
   ],
-  "to": null,
+  "to": [
+    0.877,
+    0.372
+  ],
   "video": "https://www.instagram.com/reel/DWj68G0jJKz/?igsh=MXh0d2R6cmN6ems3ZQ==",
   "credit": "",
   "auto": true,

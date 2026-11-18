@@ -3,26 +3,26 @@
   "num": 158,
   "map": "Lotus",
   "agent": "Fade",
-  "side": "À classer",
-  "site": "B",
+  "side": "Défense",
+  "site": "C",
   "title": "Reveal c main depuis B",
   "notes": [],
   "reveal": true,
   "images": [
     {
-      "src": "/img/lineups/6de892091c95.jpg",
+      "src": "/img/lineups/6de892091c95u.jpg",
       "cap": ""
     },
     {
-      "src": "/img/lineups/0af90a3edafa.jpg",
+      "src": "/img/lineups/0af90a3edafau.jpg",
       "cap": ""
     },
     {
-      "src": "/img/lineups/3f79bab58c51.jpg",
+      "src": "/img/lineups/3f79bab58c51u.jpg",
       "cap": ""
     },
     {
-      "src": "/img/lineups/9524191c1810.jpg",
+      "src": "/img/lineups/9524191c1810u.jpg",
       "cap": ""
     }
   ],

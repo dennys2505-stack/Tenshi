@@ -3,26 +3,22 @@
   "num": 148,
   "map": "Lotus",
   "agent": "Cypher",
-  "side": "À classer",
+  "side": "Défense",
   "site": "A",
   "title": "Set up A",
   "notes": [],
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/f98967b7de48.jpg",
+      "src": "/img/lineups/f98967b7de48u.jpg",
       "cap": ""
     },
     {
-      "src": "/img/lineups/f67bac619837.jpg",
+      "src": "/img/lineups/f67bac619837u.jpg",
       "cap": ""
     },
     {
-      "src": "/img/lineups/49f12b3bf74c.jpg",
-      "cap": ""
-    },
-    {
-      "src": "/img/lineups/2e67f02f318a.jpg",
+      "src": "/img/lineups/2e67f02f318au.jpg",
       "cap": ""
     }
   ],
