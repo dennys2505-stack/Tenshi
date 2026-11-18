@@ -6,23 +6,26 @@
   "side": "Attaque",
   "site": "A",
   "title": "Post plant A(défault)",
-  "notes": [],
+  "notes": [
+    "Puis viser légèrement plus bas",
+    "Clic gauche simple, 6 s pour arriver"
+  ],
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/db2cc457439a.jpg",
+      "src": "/img/lineups/db2cc457439au.jpg",
       "cap": ""
     },
     {
-      "src": "/img/lineups/82f538f0a06d.jpg",
+      "src": "/img/lineups/82f538f0a06du.jpg",
       "cap": ""
     },
     {
-      "src": "/img/lineups/06fc5a60e909.jpg",
+      "src": "/img/lineups/06fc5a60e909u.jpg",
       "cap": ""
     },
     {
-      "src": "/img/lineups/c55f018d54d2.jpg",
+      "src": "/img/lineups/c55f018d54d2u.jpg",
       "cap": ""
     }
   ],

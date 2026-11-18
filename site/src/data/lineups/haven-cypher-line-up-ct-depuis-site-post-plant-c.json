@@ -6,7 +6,10 @@
   "side": "Attaque",
   "site": "C",
   "title": "Line up Ct depuis site ( post plant ) C",
-  "notes": [],
+  "notes": [
+    "Se coller contre les rondins",
+    "Ne couvre pas rondins / garage"
+  ],
   "reveal": false,
   "images": [
     {
@@ -14,15 +17,7 @@
       "cap": ""
     },
     {
-      "src": "/img/lineups/d8056daaf5f2.jpg",
-      "cap": ""
-    },
-    {
       "src": "/img/lineups/350de9697d3a.jpg",
-      "cap": ""
-    },
-    {
-      "src": "/img/lineups/bc1adc45fd46.jpg",
       "cap": ""
     }
   ],
