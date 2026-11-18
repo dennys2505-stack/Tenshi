@@ -7,22 +7,17 @@
   "site": "A",
   "title": "A défense wallbang door",
   "notes": [],
-  "reveal": false,
+  "reveal": true,
   "images": [
-    {
-      "src": "/img/lineups/61e7b3a054bf.jpg",
-      "cap": ""
-    },
-    {
-      "src": "/img/lineups/bc364511a9bf.jpg",
-      "cap": ""
-    },
     {
       "src": "/img/lineups/d84f0dfb8356.jpg",
       "cap": ""
     }
   ],
-  "from": null,
+  "from": [
+    0.819,
+    0.44
+  ],
   "to": [
     0.843,
     0.518
@@ -32,5 +27,6 @@
   "auto": true,
   "source": {
     "message": "1488635232432296066"
-  }
+  },
+  "checked": true
 }
