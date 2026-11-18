@@ -1,0 +1,31 @@
+{
+  "id": "split-gekko-line-up-a-screen-depuis-spawn",
+  "num": 213,
+  "map": "Split",
+  "agent": "Gekko",
+  "side": "Attaque",
+  "site": "A",
+  "title": "Line up A(screen) depuis spawn",
+  "notes": [],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/5fde0996aec7.jpg",
+      "cap": ""
+    }
+  ],
+  "from": [
+    0.632,
+    0.075
+  ],
+  "to": [
+    0.336,
+    0.093
+  ],
+  "video": "https://www.instagram.com/reel/DV8yx0Stxt3/?igsh=MTd1Z3VpdjdhcXE0cw==",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1484170431635128551"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": "breeze-gekko-post-plant-b-depuis-main-default",
+  "num": 210,
+  "map": "Breeze",
+  "agent": "Gekko",
+  "side": "Attaque",
+  "site": "B",
+  "title": "Post plant B depuis Main (défault)",
+  "notes": [],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/00103fe64a83.jpg",
+      "cap": ""
+    }
+  ],
+  "from": [
+    0.107,
+    0.53
+  ],
+  "to": [
+    0.137,
+    0.295
+  ],
+  "video": "https://www.instagram.com/reel/DTm5DKFDYbM/?igsh=cGg5a2M3OXE1ZDBn",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1486692219728564374"
+  }
+}

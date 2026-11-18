@@ -1,0 +1,28 @@
+{
+  "id": "split-gekko-depuis-ct-pour-default",
+  "num": 214,
+  "map": "Split",
+  "agent": "Gekko",
+  "side": "Attaque",
+  "site": "",
+  "title": "Depuis Ct pour default",
+  "notes": [],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/0ed3c050b510.jpg",
+      "cap": ""
+    }
+  ],
+  "from": [
+    0.196,
+    0.7
+  ],
+  "to": null,
+  "video": "https://www.instagram.com/reel/DVSuysmEWJW/?igsh=ZTBkN2ZpeGFhZTNx",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1487433845098680470"
+  }
+}

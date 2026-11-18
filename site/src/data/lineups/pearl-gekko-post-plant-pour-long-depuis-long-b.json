@@ -1,0 +1,32 @@
+{
+  "id": "pearl-gekko-post-plant-pour-long-depuis-long-b",
+  "num": 211,
+  "map": "Pearl",
+  "agent": "Gekko",
+  "side": "Attaque",
+  "site": "B",
+  "title": "Post plant ( pour long) depuis long B",
+  "notes": [],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/4bb88923b2b3.jpg",
+      "cap": ""
+    }
+  ],
+  "from": [
+    0.104,
+    0.734
+  ],
+  "to": [
+    0.181,
+    0.373
+  ],
+  "video": "https://www.instagram.com/reel/DYUKIjmNPRQ/?igsh=MTdiZTBhdGNtcHpiNA==",
+  "credit": "",
+  "auto": true,
+  "checked": true,
+  "source": {
+    "message": "1504533677135233244"
+  }
+}
