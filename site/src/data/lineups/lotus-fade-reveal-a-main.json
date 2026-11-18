@@ -3,9 +3,9 @@
   "num": 157,
   "map": "Lotus",
   "agent": "Fade",
-  "side": "À classer",
+  "side": "Défense",
   "site": "A",
-  "title": "Reveal A main",
+  "title": "Reveal A main rapide pour traver smoke",
   "notes": [],
   "reveal": true,
   "images": [
@@ -14,27 +14,23 @@
       "cap": ""
     },
     {
-      "src": "/img/lineups/6895cd5666c7u.jpg",
-      "cap": ""
-    },
-    {
       "src": "/img/lineups/d60ffaa076e0u.jpg",
-      "cap": ""
-    },
-    {
-      "src": "/img/lineups/7d1635e3c189u.jpg",
       "cap": ""
     }
   ],
-  "from": null,
+  "from": [
+    0.721,
+    0.416
+  ],
   "to": [
-    0.729,
-    0.488
+    0.717,
+    0.436
   ],
   "video": "https://www.instagram.com/reel/DYecuUaMH9V/?igsh=MTQ0c3VqNG90MnJrYw==",
   "credit": "",
   "auto": true,
   "source": {
     "message": "1506036463790198815"
-  }
+  },
+  "checked": true
 }
