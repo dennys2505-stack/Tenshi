@@ -1,7 +1,10 @@
-# Tâche « clip » — 2026-11-18T19:04:59.338Z
+# Tâche « import » — 2026-11-18T19:07:11.061Z
 
-## Clips de test
+## Import (simulation) — cartes : toutes, limite : 0
 
-| n° | titre | résultat |
-|---|---|---|
-| 1 | vidéo entière | ✅ out/video-1.mp4 |
+### 0 line ups simulées
+
+| n° | map | agent | côté | site | titre | points | photos | vidéo |
+|---|---|---|---|---|---|---|---|---|
+
+Ignorés : 0 déjà présents (même message, même lien ou même image), 0 messages sans lien ni image.
