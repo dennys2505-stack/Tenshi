@@ -5,7 +5,7 @@
   "agent": "Deadlock",
   "side": "Défense",
   "site": "A",
-  "title": "Set up défense A",
+  "title": "Set up défense A pour jouer lamp",
   "notes": [],
   "reveal": false,
   "images": [
@@ -32,8 +32,32 @@
   "source": {
     "message": "1490264138495164516"
   },
-  "to": [
-    0.726,
-    0.324
-  ]
+  "marks": [
+    {
+      "t": "trap",
+      "p": [
+        0.803,
+        0.373
+      ]
+    },
+    {
+      "t": "trap",
+      "p": [
+        0.614,
+        0.403
+      ]
+    },
+    {
+      "t": "barriere",
+      "p": [
+        0.626,
+        0.526
+      ]
+    }
+  ],
+  "from": [
+    0.589,
+    0.357
+  ],
+  "checked": true
 }
