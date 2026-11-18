@@ -105,7 +105,7 @@ export default async function importTask({ log, rep, job }) {
           const foundAg = prop ? agentNames.find((n) => tn.includes(' ' + norm(n).replace(/[^a-z0-9]+/g, '') + ' ')) : null;
           const agent = prop ? (foundAg ? agentName(foundAg) : 'À classer') : chAgent;
           if (prop && onlyAgents.length && !onlyAgents.includes(norm(agent))) continue;
-          const urls = text.match(URL_RE) || [];
+          const urls = (text.match(URL_RE) || []).filter((u) => !/vercel\.app|astuces-de-tenshi|discord\.(com|gg)/i.test(u)); // liens vers le site ou Discord : jamais une line up
           const video = urls[0] || '';
           const imgUrls = [
             ...(m.attachments || []).filter((a) => (a.content_type || '').startsWith('image/')).map((a) => a.url),
