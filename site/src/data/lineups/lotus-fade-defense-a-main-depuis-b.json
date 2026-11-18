@@ -5,16 +5,14 @@
   "agent": "Fade",
   "side": "Défense",
   "site": "A",
-  "title": "Défense A main depuis B",
-  "notes": [],
-  "reveal": false,
+  "title": "reveal A main depuis B",
+  "notes": [
+    "sauter + courir"
+  ],
+  "reveal": true,
   "images": [
     {
-      "src": "/img/lineups/0bf50f669806.jpg",
-      "cap": ""
-    },
-    {
-      "src": "/img/lineups/5535ffe9b8c6u.jpg",
+      "src": "/img/lineups/c89baaaae3c0u.jpg",
       "cap": ""
     },
     {
@@ -22,19 +20,23 @@
       "cap": ""
     },
     {
-      "src": "/img/lineups/c89baaaae3c0u.jpg",
+      "src": "/img/lineups/5535ffe9b8c6u.jpg",
       "cap": ""
     }
   ],
-  "from": null,
+  "from": [
+    0.496,
+    0.43
+  ],
   "to": [
-    0.729,
-    0.488
+    0.652,
+    0.579
   ],
   "video": "https://www.instagram.com/reel/DW9JSchDhuH/?igsh=ZGhlcHQ5ODNwdDA0",
   "credit": "",
   "auto": true,
   "source": {
     "message": "1492266609824370718"
-  }
+  },
+  "checked": true
 }
