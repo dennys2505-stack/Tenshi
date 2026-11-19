@@ -10,31 +10,27 @@
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/8df2ccd5b622u.jpg",
-      "cap": ""
-    },
-    {
-      "src": "/img/lineups/10cb34b6e2d5u.jpg",
-      "cap": ""
-    },
-    {
       "src": "/img/lineups/c94adac7c0b2u.jpg",
-      "cap": ""
-    },
-    {
-      "src": "/img/lineups/7700a5c18151u.jpg",
       "cap": ""
     }
   ],
-  "from": null,
-  "to": [
-    0.726,
-    0.324
+  "from": [
+    0.672,
+    0.299
   ],
   "video": "https://www.instagram.com/reel/DXjjlU1Ag5v/?igsh=MWoyODMzdHl1eWh1eA==",
   "credit": "",
   "auto": true,
   "source": {
     "message": "1500142684319383653"
-  }
+  },
+  "marks": [
+    {
+      "t": "mur",
+      "p": [
+        0.699,
+        0.316
+      ]
+    }
+  ]
 }
