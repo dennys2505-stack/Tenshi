@@ -6,35 +6,33 @@
   "side": "Défense",
   "site": "A",
   "title": "Défense A depuis site",
-  "notes": [],
+  "notes": [
+    "2 rebond full charge"
+  ],
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/cc7df8cc544f.jpg",
-      "cap": ""
-    },
-    {
-      "src": "/img/lineups/5828bd5c37ab.jpg",
+      "src": "/img/lineups/73ccacd51c1e.jpg",
       "cap": ""
     },
     {
       "src": "/img/lineups/9007ce532c40.jpg",
       "cap": ""
-    },
-    {
-      "src": "/img/lineups/73ccacd51c1e.jpg",
-      "cap": ""
     }
   ],
   "from": [
-    0.4,
-    0.769
+    0.364,
+    0.211
   ],
-  "to": null,
+  "to": [
+    0.641,
+    0.251
+  ],
   "video": "https://www.instagram.com/reel/DSw0WGLCgPE/?igsh=MWRpZHB0dzM0Mmx2aA==",
   "credit": "",
   "auto": true,
   "source": {
     "message": "1482511228575420436"
-  }
+  },
+  "checked": true
 }
