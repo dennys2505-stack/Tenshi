@@ -24,12 +24,19 @@
     {
       "src": "/img/lineups/8e31394593e6c.jpg",
       "cap": ""
+    },
+    {
+      "src": "/img/lineups/1dd8d296ae14.jpg",
+      "cap": "Repère de visée"
     }
   ],
-  "from": null,
+  "from": [
+    0.585,
+    0.535
+  ],
   "to": [
-    0.717,
-    0.515
+    0.698,
+    0.324
   ],
   "video": "https://www.instagram.com/reel/DWnf-fVOhFN/?igsh=MmNkZHRncmUxcWts",
   "credit": "",
