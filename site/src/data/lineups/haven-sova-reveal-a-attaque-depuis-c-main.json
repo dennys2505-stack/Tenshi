@@ -6,17 +6,11 @@
   "side": "Attaque",
   "site": "A",
   "title": "Reveal A ( attaque ) depuis C Main",
-  "notes": [],
+  "notes": [
+    "2 charge"
+  ],
   "reveal": false,
   "images": [
-    {
-      "src": "/img/lineups/25ed0cf37d2e.jpg",
-      "cap": ""
-    },
-    {
-      "src": "/img/lineups/79d07924376e.jpg",
-      "cap": ""
-    },
     {
       "src": "/img/lineups/5ecd0b73712b.jpg",
       "cap": ""
@@ -26,15 +20,19 @@
       "cap": ""
     }
   ],
-  "from": null,
+  "from": [
+    0.761,
+    0.814
+  ],
   "to": [
-    0.364,
-    0.165
+    0.328,
+    0.08
   ],
   "video": "https://www.instagram.com/reel/DZj-q_GNK71/?igsh=bDdoODdubHBqZGpv",
   "credit": "",
   "auto": true,
   "source": {
     "message": "1515807312600891576"
-  }
+  },
+  "checked": true
 }
