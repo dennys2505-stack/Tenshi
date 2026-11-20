@@ -1,0 +1,16 @@
+---
+import { lineupsFor, count, mapUrl } from '../lib/data.js';
+const { m } = Astro.props;
+const n = lineupsFor(m.name).length;
+---
+{m.bg ? (
+  <a class={`tile mapbg${m.pool ? '' : ' horspool'}`} href={mapUrl(m.name)} aria-label={`${m.name}, ${count(n)}`} style={`background-image:url('${m.bg}')`}>
+    {!m.named && <b class="nm">{m.name}</b>}
+    <span>{count(n)}</span>
+  </a>
+) : (
+  <a class={`tile${m.pool ? '' : ' horspool'}`} href={mapUrl(m.name)}>
+    <b>{m.name}</b>
+    <span>{count(n)}</span>
+  </a>
+)}

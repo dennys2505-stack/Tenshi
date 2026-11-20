@@ -62,3 +62,8 @@ img{width:100%;height:auto;border-radius:6px;display:block;background:#000}
 
 /* Photo en paysage : prend toute la largeur pour rester lisible à côté des photos en portrait */
 .shots figure.wide{grid-column:1/-1}
+
+.lead.small{font-size:.9rem;margin:4px 0 0;opacity:.8}
+h2.autres{margin-top:32px}
+.tile.horspool{filter:grayscale(.6) brightness(.85)}
+.tile.horspool:hover{filter:none}

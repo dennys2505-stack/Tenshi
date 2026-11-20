@@ -1,8 +1,12 @@
 ---
 import Base from '../layouts/Base.astro';
+import Tile from '../components/MapTile.astro';
 import { maps, lineupsFor, count, mapUrl, SITE_NAME, lineups, allLineups, hiddenLineups } from '../lib/data.js';
 const aVerifier = allLineups.filter((l) => !l.checked && !l.hidden).length;
 const total = lineups.length;
+// Map pool : à mettre à jour dans maps.json (« pool »: true) à chaque changement.
+const pool = maps.filter((m) => m.pool);
+const autres = maps.filter((m) => !m.pool);
 ---
 <Base
   description={`${total} line ups Valorant classées par map puis par agent : position de départ, visée et zone d'arrivée.`}
@@ -15,21 +19,16 @@ const total = lineups.length;
     <a href="/coulisses/">🙈 Coulisses : {hiddenLineups.length} cachées</a>
     <a href="/admin/">Toutes les line ups</a>
   </div>
-  <h2>Choisis une map</h2>
+  <h2>Map pool compétitif actuel</h2>
+  <p class="lead small">Les {pool.length} maps jouées en ce moment en compétitif. Mises à jour à chaque changement de map pool.</p>
   <div class="grid maps" style="margin-top:12px">
-    {maps.map((m) => {
-      const n = lineupsFor(m.name).length;
-      return m.bg ? (
-        <a class="tile mapbg" href={mapUrl(m.name)} aria-label={`${m.name}, ${count(n)}`} style={`background-image:url('${m.bg}')`}>
-          {!m.named && <b class="nm">{m.name}</b>}
-          <span>{count(n)}</span>
-        </a>
-      ) : (
-        <a class="tile" href={mapUrl(m.name)}>
-          <b>{m.name}</b>
-          <span>{count(n)}</span>
-        </a>
-      );
-    })}
+    {pool.map((m) => <Tile m={m} />)}
   </div>
+  {autres.length > 0 && (<>
+    <h2 class="autres">Hors map pool</h2>
+    <p class="lead small">Maps qui ne sont plus en compétitif pour l'instant.</p>
+    <div class="grid maps" style="margin-top:12px">
+      {autres.map((m) => <Tile m={m} />)}
+    </div>
+  </>)}
 </Base>
