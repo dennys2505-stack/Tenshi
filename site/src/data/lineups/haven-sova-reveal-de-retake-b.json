@@ -7,7 +7,6 @@
   "site": "B",
   "title": "Reveal de retake B",
   "notes": [
-    "Aligner le viseur sur le ping",
     "Charge pleine",
     "1 rebond"
   ],
@@ -20,17 +19,12 @@
     {
       "src": "/img/lineups/a61eb508ec76u.jpg",
       "cap": ""
-    },
-    {
-      "src": "/img/lineups/5bc7ef12a073u.jpg",
-      "cap": ""
-    },
-    {
-      "src": "/img/lineups/b7476f3b686eu.jpg",
-      "cap": ""
     }
   ],
-  "from": null,
+  "from": [
+    0.359,
+    0.656
+  ],
   "to": [
     0.392,
     0.517
@@ -40,5 +34,6 @@
   "auto": true,
   "source": {
     "message": "1487420261484593232"
-  }
+  },
+  "checked": true
 }
