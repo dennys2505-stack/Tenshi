@@ -10,10 +10,6 @@
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/05e14926cda5c.jpg",
-      "cap": ""
-    },
-    {
       "src": "/img/lineups/3e634d1edda1c.jpg",
       "cap": ""
     },
@@ -26,15 +22,44 @@
       "cap": ""
     }
   ],
-  "from": null,
-  "to": [
-    0.292,
-    0.281
+  "from": [
+    0.166,
+    0.299
   ],
   "video": "https://www.instagram.com/reel/DX_gzo3B8l2/?igsh=MXZncG85dXBqbnU2Zw==",
   "credit": "",
   "auto": true,
   "source": {
     "message": "1501639820122914893"
-  }
+  },
+  "marks": [
+    {
+      "t": "flash",
+      "p": [
+        0.234,
+        0.309
+      ]
+    },
+    {
+      "t": "ronces",
+      "p": [
+        0.316,
+        0.382
+      ]
+    },
+    {
+      "t": "mur",
+      "p": [
+        0.239,
+        0.369
+      ]
+    },
+    {
+      "t": "ronces",
+      "p": [
+        0.199,
+        0.33
+      ]
+    }
+  ]
 }
