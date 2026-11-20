@@ -6,38 +6,29 @@
   "side": "Attaque",
   "site": "B",
   "title": "Reveal attaque B depuis main",
-  "notes": [],
+  "notes": [
+    "full charge 1 rebond"
+  ],
   "reveal": false,
   "images": [
-    {
-      "src": "/img/lineups/02c3830c0b49.jpg",
-      "cap": ""
-    },
-    {
-      "src": "/img/lineups/50247ff359cc.jpg",
-      "cap": ""
-    },
-    {
-      "src": "/img/lineups/c4f078e7a29a.jpg",
-      "cap": ""
-    },
     {
       "src": "/img/lineups/7b72e6a751b8.jpg",
       "cap": ""
     }
   ],
   "from": [
-    0.604,
-    0.242
+    0.795,
+    0.664
   ],
   "to": [
-    0.4,
-    0.198
+    0.332,
+    0.76
   ],
   "video": "https://www.instagram.com/reel/DUxkC7Aig3k/?igsh=YzVybzN5ZWFoMXpw",
   "credit": "",
   "auto": true,
   "source": {
     "message": "1482506537753772193"
-  }
+  },
+  "checked": true
 }
