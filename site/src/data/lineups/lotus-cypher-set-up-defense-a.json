@@ -10,25 +10,16 @@
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/13c5076b1199u.jpg",
-      "cap": ""
-    },
-    {
-      "src": "/img/lineups/b6488a28e12eu.jpg",
-      "cap": ""
-    },
-    {
       "src": "/img/lineups/e8c36da11f04u.jpg",
       "cap": ""
     },
     {
-      "src": "/img/lineups/56032a8b3938u.jpg",
+      "src": "/img/lineups/13c5076b1199u.jpg",
       "cap": ""
     }
   ],
-  "from": null,
-  "to": [
-    0.866,
+  "from": [
+    0.859,
     0.311
   ],
   "video": "https://www.instagram.com/reel/DW4jBR7Iovm/?igsh=MjV4MTR3M2t0Yzc=",
@@ -36,5 +27,43 @@
   "auto": true,
   "source": {
     "message": "1491722784555008082"
-  }
+  },
+  "marks": [
+    {
+      "t": "fil",
+      "p": [
+        0.884,
+        0.48
+      ]
+    },
+    {
+      "t": "fil",
+      "p": [
+        0.824,
+        0.409
+      ]
+    },
+    {
+      "t": "cage",
+      "p": [
+        0.795,
+        0.363
+      ]
+    },
+    {
+      "t": "cage",
+      "p": [
+        0.926,
+        0.39
+      ]
+    },
+    {
+      "t": "cam",
+      "p": [
+        0.832,
+        0.255
+      ]
+    }
+  ],
+  "checked": true
 }
