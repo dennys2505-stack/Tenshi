@@ -14,10 +14,13 @@
       "cap": ""
     }
   ],
-  "from": null,
+  "from": [
+    0.486,
+    0.81
+  ],
   "to": [
-    0.4,
-    0.198
+    0.63,
+    0.735
   ],
   "video": "https://youtube.com/shorts/LSYPikQwPKo?is=krplgcuezqDYwYsb",
   "credit": "",
