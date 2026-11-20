@@ -1,4 +1,4 @@
-# Tâche « import » — 2026-11-20T15:05:02.407Z
+# Tâche « import » — 2026-11-20T15:48:33.084Z
 
 ## Import (simulation) — cartes : toutes, limite : 0
 
@@ -9,4 +9,4 @@
 
 Ignorés : 0 déjà présents (même message, même lien ou même image), 0 messages sans lien ni image.
 
-Salons dont le nom n'est pas un agent connu (créés quand même) : site-line-up → Site-line-up.
+Salons spéciaux laissés de côté pour l'instant : Salons textuels/site-line-up.
