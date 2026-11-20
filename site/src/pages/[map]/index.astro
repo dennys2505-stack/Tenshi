@@ -14,7 +14,7 @@ const total = lineupsFor(map.name).length;
   image={map.bg}
   crumbs={[{ label: map.name }]}
 >
-  <div class="top"><h1>{map.name}</h1></div>
+  <div class="top"><h1 class="grad">{map.name}</h1></div>
   <h2>Choisis ton agent</h2>
   <div class="grid maps" style="margin-top:12px">
     {agents.map((a) => {

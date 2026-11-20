@@ -1,7 +1,7 @@
 @font-face{font-family:"Barlow Condensed";font-weight:600;font-style:normal;font-display:swap;src:url(/fonts/barlow-condensed-600.woff2) format("woff2")}
 @font-face{font-family:"Barlow Condensed";font-weight:700;font-style:normal;font-display:swap;src:url(/fonts/barlow-condensed-700.woff2) format("woff2")}
 :root{--bg:#ffffff;--pn:#f4f6f7;--tx:#0f1923;--mu:#5f6670;--ac:#0e9f8a;--ln:#dfe3e6;--brand:#0e9f8a;--glow:rgba(14,159,138,.20);--glow2:rgba(14,159,138,.10);--card:linear-gradient(135deg,rgba(14,159,138,.16) 0%,rgba(14,159,138,.04) 45%,rgba(244,246,247,0) 100%),#f4f6f7;--card-ln:rgba(14,159,138,.35);--ind:#fff;--on-ac:#fff;box-sizing:border-box}
-@media (prefers-color-scheme:dark){:root{--bg:#0f1923;--pn:#1b2633;--tx:#ece8e1;--mu:#a3acb8;--ac:#ff4655;--ln:#2b3644;--brand:#fff;--glow:rgba(255,70,85,.35);--glow2:rgba(255,70,85,.18);--card:linear-gradient(135deg,rgba(255,70,85,.30) 0%,rgba(255,70,85,.08) 45%,rgba(27,38,51,.95) 100%),#1b2633;--card-ln:rgba(255,70,85,.35);--ind:rgba(0,0,0,.22);--on-ac:#fff}}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1923;--pn:#1b2633;--tx:#ece8e1;--mu:#a3acb8;--ac:#3fe0c5;--ln:#2b3644;--brand:#fff;--glow:rgba(63,224,197,.20);--glow2:rgba(63,224,197,.10);--card:linear-gradient(135deg,rgba(63,224,197,.16) 0%,rgba(63,224,197,.04) 45%,rgba(27,38,51,.95) 100%),#1b2633;--card-ln:rgba(63,224,197,.35);--ind:rgba(0,0,0,.22);--on-ac:#0f1923}}
 *{box-sizing:inherit}html,body{margin:0}
 html{background:var(--bg)}
 body{position:relative;background:transparent;color:var(--tx);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -39,7 +39,11 @@ img{width:100%;height:auto;border-radius:6px;display:block;background:#000}
 .shots img.p{max-height:70vh;object-fit:contain}
 .btn{display:inline-flex;align-items:center;margin-top:14px;padding:0 18px;min-height:44px;border:0;border-radius:0;background:var(--ac);color:var(--on-ac);font:700 1.1rem/1 "Barlow Condensed","Arial Narrow",sans-serif;text-transform:uppercase;letter-spacing:.05em;text-decoration:none;clip-path:polygon(0 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%)}
 .btn.vid{background:linear-gradient(110deg,#17c3a6,#0e9f8a 55%,#08705f);color:#fff}
-@media (prefers-color-scheme:dark){.btn.vid{background:#fff}.btn.vid span{background:linear-gradient(110deg,#ff7a5c,#ff4655 45%,#a10e2a);-webkit-background-clip:text;background-clip:text;color:transparent}}
+@media (prefers-color-scheme:dark){.btn.vid{background:#fff}.btn.vid span{background:linear-gradient(110deg,#3fe0c5,#0e9f8a 55%,#08705f);-webkit-background-clip:text;background-clip:text;color:transparent}}
+/* Noms de map en dégradé turquoise (titre de la page map + tuiles de l'accueil) */
+.grad{background:linear-gradient(110deg,#17c3a6,#0e9f8a 55%,#08705f);-webkit-background-clip:text;background-clip:text;color:transparent}
+@media (prefers-color-scheme:dark){.grad{background-image:linear-gradient(110deg,#7ff0dc,#3fe0c5 40%,#0e9f8a)}}
+.mapbg .nm{background:linear-gradient(110deg,#7ff0dc,#3fe0c5 40%,#0e9f8a);-webkit-background-clip:text;background-clip:text;color:transparent!important;text-shadow:none!important;filter:drop-shadow(0 2px 4px rgba(0,0,0,.6))}
 .back{display:inline-flex;align-items:center;background:none;border:1px solid var(--ln);border-radius:8px;padding:8px 14px;min-height:44px;text-decoration:none}
 .mm{position:relative}.mm svg{position:absolute;inset:0;width:100%;height:100%}
 .empty{color:var(--mu)}
