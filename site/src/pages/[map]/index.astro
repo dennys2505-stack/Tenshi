@@ -20,8 +20,7 @@ const total = lineupsFor(map.name).length;
     {agents.map((a) => {
       const n = lineupsFor(map.name, a.name).length;
       return a.bg ? (
-        <a class="tile mapbg agbg" href={agentUrl(map.name, a.name)} aria-label={`${a.name}, ${count(n)}`} style={`background-image:url('${a.bg}')`}>
-          <b class="agn">{a.name}</b>
+        <a class={`tile mapbg agbg ${map.style === 'clair' ? 'clair' : 'sombre'}`} href={agentUrl(map.name, a.name)} aria-label={`${a.name}, ${count(n)}`} style={`background-image:url('/img/agents/${a.slug}-${map.style === 'clair' ? 'clair' : 'sombre'}.webp')`}>
           <span>{count(n)}</span>
         </a>
       ) : (

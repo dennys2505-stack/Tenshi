@@ -6,6 +6,7 @@ const n = lineupsFor(m.name).length;
 {m.bg ? (
   <a class={`tile mapbg${m.pool ? '' : ' horspool'}`} href={mapUrl(m.name)} aria-label={`${m.name}, ${count(n)}`} style={`background-image:url('${m.bg}')`}>
     {!m.named && <b class="nm">{m.name}</b>}
+    {!m.named && m.coords && <i class="coords">{m.coords}</i>}
     <span>{count(n)}</span>
   </a>
 ) : (

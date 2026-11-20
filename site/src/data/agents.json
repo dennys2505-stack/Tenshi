@@ -2,106 +2,151 @@
   {
     "name": "Brimstone",
     "slug": "brimstone",
-    "bg": "/img/agents/brimstone.jpg"
+    "bg": "/img/agents/brimstone-sombre.webp"
   },
   {
     "name": "Fade",
     "slug": "fade",
-    "bg": "/img/agents/fade.jpg"
+    "bg": "/img/agents/fade-sombre.webp"
   },
   {
     "name": "Killjoy",
     "slug": "killjoy",
-    "bg": "/img/agents/killjoy.jpg"
+    "bg": "/img/agents/killjoy-sombre.webp"
   },
   {
     "name": "Gekko",
     "slug": "gekko",
-    "bg": "/img/agents/gekko.jpg"
+    "bg": "/img/agents/gekko-sombre.webp"
   },
   {
     "name": "KAY/O",
     "slug": "kay-o",
-    "bg": "/img/agents/kay-o.jpg"
+    "bg": "/img/agents/kay-o-sombre.webp"
   },
   {
     "name": "Deadlock",
     "slug": "deadlock",
-    "bg": "/img/agents/deadlock.jpg"
+    "bg": "/img/agents/deadlock-sombre.webp"
   },
   {
     "name": "Vyse",
     "slug": "vyse",
-    "bg": "/img/agents/vyse.jpg"
+    "bg": "/img/agents/vyse-sombre.webp"
   },
   {
     "name": "Cypher",
     "slug": "cypher",
-    "bg": "/img/agents/cypher.jpg"
+    "bg": "/img/agents/cypher-sombre.webp"
   },
   {
     "name": "Sova",
     "slug": "sova",
-    "bg": "/img/agents/sova.jpg"
+    "bg": "/img/agents/sova-sombre.webp"
   },
   {
     "name": "Phoenix",
     "slug": "phoenix",
-    "bg": "/img/agents/phoenix.jpg"
+    "bg": "/img/agents/phoenix-sombre.webp"
   },
   {
     "name": "Viper",
     "slug": "viper",
-    "bg": "/img/agents/viper.jpg"
+    "bg": "/img/agents/viper-sombre.webp"
   },
   {
     "name": "Sage",
     "slug": "sage",
-    "bg": "/img/agents/sage.jpg"
+    "bg": "/img/agents/sage-sombre.webp"
   },
   {
     "name": "Waylay",
     "slug": "waylay",
-    "bg": "/img/agents/waylay.jpg"
+    "bg": "/img/agents/waylay-sombre.webp"
   },
   {
     "name": "Miks",
     "slug": "miks",
-    "bg": "/img/agents/miks.jpg"
+    "bg": "/img/agents/miks-sombre.webp"
   },
   {
     "name": "Tejo",
     "slug": "tejo",
-    "bg": "/img/agents/tejo.jpg"
+    "bg": "/img/agents/tejo-sombre.webp"
   },
   {
     "name": "Hush",
     "slug": "hush",
-    "bg": "/img/agents/hush.jpg"
+    "bg": "/img/agents/hush-sombre.webp"
   },
   {
     "name": "Veto",
     "slug": "veto",
-    "bg": "/img/agents/veto.jpg"
+    "bg": "/img/agents/veto-sombre.webp"
   },
   {
     "name": "Yoru",
     "slug": "yoru",
-    "bg": "/img/agents/yoru.jpg"
+    "bg": "/img/agents/yoru-sombre.webp"
   },
   {
     "name": "Skye",
     "slug": "skye",
-    "bg": "/img/agents/skye.jpg"
+    "bg": "/img/agents/skye-sombre.webp"
   },
   {
     "name": "Neon",
     "slug": "neon",
-    "bg": "/img/agents/neon.jpg"
+    "bg": "/img/agents/neon-sombre.webp"
   },
   {
     "name": "Breach",
     "slug": "breach",
-    "bg": "/img/agents/breach.jpg"
+    "bg": "/img/agents/breach-sombre.webp"
+  },
+  {
+    "name": "Raze",
+    "slug": "raze",
+    "bg": "/img/agents/raze-sombre.webp"
+  },
+  {
+    "name": "Reyna",
+    "slug": "reyna",
+    "bg": "/img/agents/reyna-sombre.webp"
+  },
+  {
+    "name": "Jett",
+    "slug": "jett",
+    "bg": "/img/agents/jett-sombre.webp"
+  },
+  {
+    "name": "Harbor",
+    "slug": "harbor",
+    "bg": "/img/agents/harbor-sombre.webp"
+  },
+  {
+    "name": "Omen",
+    "slug": "omen",
+    "bg": "/img/agents/omen-sombre.webp"
+  },
+  {
+    "name": "Iso",
+    "slug": "iso",
+    "bg": "/img/agents/iso-sombre.webp"
+  },
+  {
+    "name": "Clove",
+    "slug": "clove",
+    "bg": "/img/agents/clove-sombre.webp"
+  },
+  {
+    "name": "Chamber",
+    "slug": "chamber",
+    "bg": "/img/agents/chamber-sombre.webp"
+  },
+  {
+    "name": "Astra",
+    "slug": "astra",
+    "bg": "/img/agents/astra-sombre.webp"
   }
 ]

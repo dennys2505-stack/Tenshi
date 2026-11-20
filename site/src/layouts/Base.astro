@@ -20,9 +20,7 @@ const ogImage = image && Astro.site ? new URL(image, Astro.site).href : image;
     <meta property="og:description" content={description} />
     {ogImage && <meta property="og:image" content={ogImage} />}
     <meta name="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet" />
+    <link rel="preload" href="/fonts/barlow-condensed-700.woff2" as="font" type="font/woff2" crossorigin />
     <slot name="head" />
     <script is:inline>
       // Numéros de line ups visibles seulement pour nous : ouvrir une page avec ?num=1 (désactiver avec ?num=0).
