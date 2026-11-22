@@ -1,0 +1,76 @@
+// Tâche « montage » (étape 1 : récupération) : lit le salon privé « video-line-up-a-monter »,
+// prend la vidéo la plus récente (fichier joint ou lien Google Drive), la télécharge et publie dans le
+// compte-rendu (branche bot-logs) : infos, planches d'images (1 image / seconde) et une copie légère.
+// Rien n'est publié sur le site ni sur Discord à cette étape.
+import fs from 'fs';
+import path from 'path';
+import { execFile } from 'child_process';
+import { promisify } from 'util';
+import { discord } from '../lib/discord.mjs';
+const run = promisify(execFile);
+const norm = (s) => String(s).normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '');
+const CHANNEL = 'videolineupamonter';
+const DRIVE_RE = /https?:\/\/(?:drive|docs)\.google\.com\/[^\s<>]+/i;
+
+function driveId(u) {
+  const m = u.match(/\/d\/([\w-]{20,})/) || u.match(/[?&]id=([\w-]{20,})/);
+  return m ? m[1] : null;
+}
+
+async function downloadDrive(url, out, log) {
+  try {
+    await run('yt-dlp', ['--no-playlist', '--no-warnings', '-o', out, url], { timeout: 300_000, maxBuffer: 1 << 26 });
+    if (fs.existsSync(out) && fs.statSync(out).size > 100_000) return 'yt-dlp';
+  } catch (e) { log('yt-dlp Drive :', String(e.stderr || e.message).split('\n').filter(Boolean).pop()); }
+  const id = driveId(url);
+  if (!id) throw new Error('lien Drive sans identifiant de fichier (lien de dossier ?)');
+  const r = await fetch(`https://drive.usercontent.google.com/download?id=${id}&export=download&confirm=t`, { redirect: 'follow' });
+  const type = r.headers.get('content-type') || '';
+  if (!r.ok || type.includes('text/html')) throw new Error(`Drive refuse le téléchargement (${r.status}, ${type}) : le fichier est-il partagé « Tous les utilisateurs disposant du lien » ?`);
+  fs.writeFileSync(out, Buffer.from(await r.arrayBuffer()));
+  return 'téléchargement direct';
+}
+
+export default async function montage({ log, rep, job }) {
+  const guilds = (await discord('/users/@me/guilds')).data;
+  let chan = null;
+  for (const g of guilds) {
+    const ch = (await discord(`/guilds/${g.id}/channels`)).data;
+    chan = ch.find((c) => norm(c.name) === CHANNEL) || chan;
+  }
+  if (!chan) throw new Error('salon « video-line-up-a-monter » introuvable ou invisible pour le bot (vérifier qu’il est ajouté au salon privé)');
+  const r = await discord(`/channels/${chan.id}/messages?limit=20`);
+  if (r.status !== 200) throw new Error(`lecture du salon refusée (${r.status}) : donner au bot « Voir le salon » + « Lire l’historique »`);
+  const msgs = r.data.filter((m) => !m.author?.bot);
+  const pick = msgs.find((m) => (job.message ? m.id === job.message : true) &&
+    ((m.attachments || []).some((a) => /^video\//.test(a.content_type || '') || /\.(mp4|mov|webm|mkv)$/i.test(a.filename)) || DRIVE_RE.test(m.content || '')));
+  rep(`## Montage — étape 1 : récupération\n`);
+  rep(`- Salon : #${chan.name} — ${msgs.length} message(s) lus`);
+  if (!pick) { rep('- Aucune vidéo (fichier ou lien Drive) trouvée.'); return; }
+  const text = (pick.content || '').replace(DRIVE_RE, '[lien Drive]').trim();
+  rep(`- Message ${pick.id} du ${pick.timestamp}`);
+  rep(`- Consigne : ${text || '(aucune)'}`);
+
+  const tmp = fs.mkdtempSync('/tmp/mt-'), v = path.join(tmp, 'source.mp4');
+  const att = (pick.attachments || []).find((a) => /^video\//.test(a.content_type || '') || /\.(mp4|mov|webm|mkv)$/i.test(a.filename));
+  let how;
+  if (att) { const b = await fetch(att.url); fs.writeFileSync(v, Buffer.from(await b.arrayBuffer())); how = 'fichier Discord'; }
+  else how = await downloadDrive((pick.content || '').match(DRIVE_RE)[0], v, log);
+  const mb = (fs.statSync(v).size / 1e6).toFixed(1);
+  const info = JSON.parse((await run('ffprobe', ['-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=width,height,r_frame_rate:format=duration', '-of', 'json', v])).stdout);
+  const st = info.streams[0], dur = parseFloat(info.format.duration);
+  rep(`- Téléchargé via ${how} : ${mb} Mo, ${st.width}×${st.height}, ${st.r_frame_rate} ips, ${dur.toFixed(1)} s`);
+
+  fs.mkdirSync('out/montage', { recursive: true });
+  // Planches : 1 image par seconde, 4×4 = 16 s par planche, dans l'ordre (gauche→droite, haut→bas).
+  await run('ffmpeg', ['-y', '-v', 'error', '-i', v, '-vf', 'fps=1,scale=480:-2,tile=4x4:padding=4:color=white', 'out/montage/planche-%02d.jpg'], { timeout: 300_000 });
+  // Copie légère pour revoir la vidéo.
+  await run('ffmpeg', ['-y', '-v', 'error', '-i', v, '-vf', 'scale=960:-2', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '28', '-c:a', 'aac', '-b:a', '96k', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', 'out/montage/apercu.mp4'], { timeout: 300_000 });
+  // Images pleine définition demandées (param « at » : secondes).
+  for (const t of job.at || []) {
+    await run('ffmpeg', ['-y', '-v', 'error', '-ss', String(t), '-i', v, '-frames:v', '1', '-q:v', '2', `out/montage/image-${String(t).replace('.', '_')}s.jpg`]);
+  }
+  const sheets = fs.readdirSync('out/montage').filter((f) => f.startsWith('planche')).length;
+  rep(`- ${sheets} planche(s) d'images (1 image/s) + apercu.mp4 dans out/montage/`);
+  fs.rmSync(tmp, { recursive: true, force: true });
+}

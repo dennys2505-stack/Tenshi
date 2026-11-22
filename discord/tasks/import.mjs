@@ -19,7 +19,7 @@ const slug = (s) => String(s).normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCa
 const normUrl = (u) => { try { const x = new URL(u); return (x.host.replace(/^www\./, '') + x.pathname).replace(/\/$/, '').toLowerCase(); } catch { return u; } };
 
 // Salons dont le nom n'est pas un agent : traités plus tard à part.
-const SPECIAL = new Set(['general', 'multiagent', 'wallbang', 'sitelineup']); // sitelineup : salon du lien vers le site, pas de line ups
+const SPECIAL = new Set(['general', 'multiagent', 'wallbang', 'sitelineup', 'videolineupamonter']); // sitelineup : salon du lien vers le site, pas de line ups
 // Salons partagés entre deux agents : rangé sous le premier, « Marche aussi pour » le second.
 const SHARED = { gekkokayo: ['Gekko', 'KAY/O'] };
 // Salon « proposition » : la map et l'agent sont lus dans le message ; tout arrive caché, dans les Coulisses.
