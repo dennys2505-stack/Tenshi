@@ -11,7 +11,24 @@
     "Mur B + tp A"
   ],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/5ea9183c8221.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/f35fdd9089b0.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/a40facd65ddf.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/c96ba5d78212.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": [
     0.726,

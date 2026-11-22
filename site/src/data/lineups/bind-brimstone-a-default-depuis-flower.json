@@ -8,7 +8,24 @@
   "title": "A default depuis flower",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/026c444eb637.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/af9fec403ece.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/c15ef40cca6d.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/dd9f884a6ae9.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": [
     0.695,

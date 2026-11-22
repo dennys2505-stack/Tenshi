@@ -8,7 +8,24 @@
   "title": "Post plant A (default) depuis Main",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/cb50953abd07.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/05dfff727843.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/8dd61f4014ed.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/b57d27df7026.jpg",
+      "cap": ""
+    }
+  ],
   "from": [
     0.596,
     0.156

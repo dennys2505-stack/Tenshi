@@ -8,7 +8,24 @@
   "title": "Reveal défense depuis site A vers Main",
   "notes": [],
   "reveal": true,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/5524dc7ef135.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/46a00cc3928c.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/3b8aba00d63a.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/f059e7d05c26.jpg",
+      "cap": ""
+    }
+  ],
   "from": [
     0.814,
     0.386

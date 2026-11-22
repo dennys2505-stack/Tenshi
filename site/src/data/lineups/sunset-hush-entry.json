@@ -8,7 +8,24 @@
   "title": "Entry",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/15b861cc4194.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/528f5d384c06.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/c73d8c425385.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/54277ee9b9f8.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": null,
   "video": "https://www.instagram.com/reel/DfDPcYJhvAx/?exln=MWo5cndveWozemNrNA==",

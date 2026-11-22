@@ -10,7 +10,24 @@
     "Attaque Mid"
   ],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/99331db9a386.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/1353e33b6be0.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/46bae1a59c74.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/86454cba6095.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": [
     0.814,
