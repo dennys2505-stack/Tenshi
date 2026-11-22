@@ -64,7 +64,7 @@ def draw_title(d, title, subtitle):
     tw = d.textlength(t, font=ft)
     sw = d.textlength(subtitle.upper(), font=fs) if subtitle else 0
     w = max(tw, sw) + 90
-    x, y = W / 2 - w / 2, (250 if VERT else 120)
+    x, y = W / 2 - w / 2, (250 if VERT else 120 / TS)
     h = 150 if subtitle else 100
     slanted(d, x, y, x + w, y + h, DARK, k=26)
     d.rectangle([x + 26, y, x + 40, y + h], fill=RED)
@@ -82,7 +82,25 @@ def draw_marks(d, marks):
         d.polygon([(ax, ay), (ax - 48, ay - 12), (ax - 12, ay - 48)], fill=RED)
 
 
+TS = 0.7  # taille des textes et du chrono en horizontal (1 = taille du format vertical)
+
+
 def overlay(path, seg, plan, first):
+    global W, H
+    if VERT:
+        overlay_full(path, seg, plan, first)
+        return
+    # Horizontal : on dessine sur une toile agrandie puis on réduit (textes ~30 % plus petits).
+    W0, H0 = W, H
+    W, H = int(W0 / TS), int(H0 / TS)
+    try:
+        overlay_full(path, seg, plan, first)
+    finally:
+        W, H = W0, H0
+    Image.open(path).resize((W, H), Image.LANCZOS).save(path)
+
+
+def overlay_full(path, seg, plan, first):
     im = Image.new('RGBA', (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(im)
     if first and plan.get('title'):
@@ -91,7 +109,7 @@ def overlay(path, seg, plan, first):
         if VERT:
             y = 450 if first and plan.get('title') else 500
         else:
-            y = 300 if first and plan.get('title') else 140
+            y = (300 if first and plan.get('title') else 140) / TS
         draw_label(d, seg.get('step'), seg['label'], y)
     im.save(path)
 
@@ -180,9 +198,12 @@ def clip(src, s, ov, part, tmp):
         os.makedirs(cdir, exist_ok=True)
         for i in range(int(dur / sp * FPS) + 2):
             e = i / FPS * sp - ch['start']
-            chrono_frame(max(0, min(e, ch['stop'])), ch['stop'], e >= ch['stop']).save(os.path.join(cdir, f'{i:04d}.png'))
+            cf = chrono_frame(max(0, min(e, ch['stop'])), ch['stop'], e >= ch['stop'])
+            if not VERT:
+                cf = cf.resize((int(300 * TS), int(300 * TS)), Image.LANCZOS)
+            cf.save(os.path.join(cdir, f'{i:04d}.png'))
         inputs += ['-framerate', str(FPS), '-i', os.path.join(cdir, '%04d.png')]
-        cx, cy = ((W - 300) // 2, FY + FH + 60) if VERT else (W - 340, 130)
+        cx, cy = ((W - 300) // 2, FY + FH + 60) if VERT else (W - 270, 120)
         vf += f";[o0][2:v]overlay=x={cx}:y={cy}[o1]"
         last = 'o1'
     afilt = f'atempo={sp}' if sp != 1 else 'anull'
