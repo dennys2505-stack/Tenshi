@@ -70,6 +70,11 @@ export default async function montage({ log, rep, job }) {
   for (const t of job.at || []) {
     await run('ffmpeg', ['-y', '-v', 'error', '-ss', String(t), '-i', v, '-frames:v', '1', '-q:v', '2', `out/montage/image-${String(t).replace('.', '_')}s.jpg`]);
   }
+  // Planche détaillée (param « dense » : [début, fin, images/s]).
+  if (job.dense) {
+    const [a, b, f] = job.dense;
+    await run('ffmpeg', ['-y', '-v', 'error', '-ss', String(a), '-to', String(b), '-i', v, '-vf', `fps=${f},scale=480:-2,tile=4x4:padding=4:color=white`, 'out/montage/detail-%02d.jpg'], { timeout: 300_000 });
+  }
   const sheets = fs.readdirSync('out/montage').filter((f) => f.startsWith('planche')).length;
   rep(`- ${sheets} planche(s) d'images (1 image/s) + apercu.mp4 dans out/montage/`);
   fs.rmSync(tmp, { recursive: true, force: true });
