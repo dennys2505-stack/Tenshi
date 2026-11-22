@@ -75,6 +75,24 @@ export default async function montage({ log, rep, job }) {
     const [a, b, f] = job.dense;
     await run('ffmpeg', ['-y', '-v', 'error', '-ss', String(a), '-to', String(b), '-i', v, '-vf', `fps=${f},scale=480:-2,tile=4x4:padding=4:color=white`, 'out/montage/detail-%02d.jpg'], { timeout: 300_000 });
   }
+  // Étape 2 : montage selon le plan (param « render »), puis envoi dans un fil sous la vidéo (param « post »).
+  if (job.render) {
+    const plan = path.join(tmp, 'plan.json'), outFile = 'out/montage/montage.mp4';
+    fs.writeFileSync(plan, JSON.stringify(job.render));
+    const res = await run('python3', [new URL('../tools/montage.py', import.meta.url).pathname, v, plan, outFile], { timeout: 900_000 });
+    rep(`- Montage : ${res.stdout.trim()} → out/montage/montage.mp4`);
+    if (job.post) {
+      const th = await discord(`/channels/${chan.id}/messages/${pick.id}/threads`, { method: 'POST', body: { name: job.render.title.slice(0, 90), auto_archive_duration: 10080 } });
+      const threadId = th.status < 300 ? th.data.id : pick.id; // fil déjà créé → id du fil = id du message
+      const fd = new FormData();
+      fd.append('payload_json', JSON.stringify({ content: job.postText || 'Montage test : dis-moi ce qu’il faut corriger 🙂' }));
+      fd.append('files[0]', new Blob([fs.readFileSync(outFile)], { type: 'video/mp4' }), 'montage.mp4');
+      const { cleanToken } = await import('../lib/discord.mjs');
+      const pr = await fetch(`https://discord.com/api/v10/channels/${threadId}/messages`, { method: 'POST', headers: { Authorization: `Bot ${cleanToken()}` }, body: fd });
+      rep(`- Fil Discord : ${th.status < 300 ? 'créé' : 'déjà là (' + th.status + ')'} ; envoi de la vidéo : ${pr.status}${pr.ok ? ' ✅' : ' ❌ ' + (await pr.text()).slice(0, 200)}`);
+      if (pr.ok) await discord(`/channels/${chan.id}/messages/${pick.id}/reactions/${encodeURIComponent('🎬')}/@me`, { method: 'PUT' });
+    }
+  }
   const sheets = fs.readdirSync('out/montage').filter((f) => f.startsWith('planche')).length;
   rep(`- ${sheets} planche(s) d'images (1 image/s) + apercu.mp4 dans out/montage/`);
   fs.rmSync(tmp, { recursive: true, force: true });
