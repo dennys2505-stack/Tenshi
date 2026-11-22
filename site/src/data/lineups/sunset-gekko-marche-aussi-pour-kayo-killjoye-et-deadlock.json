@@ -5,10 +5,8 @@
   "agent": "Gekko",
   "side": "Attaque",
   "site": "A",
-  "title": "Marche aussi pour kayo ,killjoye et deadlock",
-  "notes": [
-    "Post plant A depuis elbow vers plant open"
-  ],
+  "title": "Post plant A depuis elbow (plant open)",
+  "notes": [],
   "reveal": false,
   "images": [],
   "from": null,
@@ -16,8 +14,13 @@
   "video": "https://www.instagram.com/reel/DgCmPU_BhDg/?jplx=aHA0bW02M2M3ZXIz",
   "credit": "",
   "auto": true,
-  "hidden": true,
+  "hidden": false,
   "source": {
     "message": "1574045456391078089"
-  }
+  },
+  "also": [
+    "KAY/O",
+    "Killjoy",
+    "Deadlock"
+  ]
 }
