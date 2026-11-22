@@ -19,6 +19,9 @@ import json, math, os, subprocess, sys, tempfile
 from PIL import Image, ImageDraw, ImageFont
 
 W, H, FPS = 1920, 1080, 30
+SW, SH = 1920, 1080          # taille de la vidéo source (repères en px 1920×1080)
+VERT = False                  # format vertical 9:16 (TikTok / Reels / Shorts)
+FW, FH, FY = 1080, 608, 656   # en vertical : image du jeu entière au milieu, fond flou
 HERE = os.path.dirname(os.path.abspath(__file__))
 F_BOLD = os.path.join(HERE, 'fonts', 'Oswald-Bold.ttf')
 F_REG = os.path.join(HERE, 'fonts', 'Oswald-Regular.ttf')
@@ -61,7 +64,7 @@ def draw_title(d, title, subtitle):
     tw = d.textlength(t, font=ft)
     sw = d.textlength(subtitle.upper(), font=fs) if subtitle else 0
     w = max(tw, sw) + 90
-    x, y = W / 2 - w / 2, 120
+    x, y = W / 2 - w / 2, (250 if VERT else 120)
     h = 150 if subtitle else 100
     slanted(d, x, y, x + w, y + h, DARK, k=26)
     d.rectangle([x + 26, y, x + 40, y + h], fill=RED)
@@ -85,7 +88,11 @@ def overlay(path, seg, plan, first):
     if first and plan.get('title'):
         draw_title(d, plan['title'], plan.get('subtitle'))
     if seg.get('label'):
-        draw_label(d, seg.get('step'), seg['label'], 300 if first and plan.get('title') else 140)
+        if VERT:
+            y = 450 if first and plan.get('title') else 500
+        else:
+            y = 300 if first and plan.get('title') else 140
+        draw_label(d, seg.get('step'), seg['label'], y)
     im.save(path)
 
 
@@ -126,13 +133,21 @@ def ff(*args):
 
 
 ENC = ['-c:v', 'libx264', '-preset', 'veryfast', '-crf', '18', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-ar', '48000', '-ac', '2']
-BASE = f'scale={W}:{H}:force_original_aspect_ratio=decrease,pad={W}:{H}:(ow-iw)/2:(oh-ih)/2,fps={FPS}'
+BASE = f'scale={SW}:{SH}:force_original_aspect_ratio=decrease,pad={SW}:{SH}:(ow-iw)/2:(oh-ih)/2,fps={FPS}'
+
+
+def compose(inp, out):
+    """Image du jeu 1920×1080 → format final (vertical : fond flou + image entière au milieu)."""
+    if not VERT:
+        return f'[{inp}]null[{out}]'
+    return (f'[{inp}]split[{out}a][{out}b];[{out}a]scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},'
+            f'boxblur=24:2,eq=brightness=-0.22[{out}bg];[{out}b]scale={FW}:{FH}[{out}fg];[{out}bg][{out}fg]overlay=0:{FY}[{out}]')
 
 
 def freeze(src, s, ov, part, tmp):
     """Image figée avec le repère entouré ; zoom rapide sur le repère puis retour au plan large."""
     raw = os.path.join(tmp, 'still.png')
-    ff('-ss', str(s['at']), '-i', src, '-frames:v', '1', '-vf', f'scale={W}:{H}', raw)
+    ff('-ss', str(s['at']), '-i', src, '-frames:v', '1', '-vf', f'scale={SW}:{SH}', raw)
     im = Image.open(raw).convert('RGBA')
     draw_marks(ImageDraw.Draw(im), s.get('marks', []))
     marked = os.path.join(tmp, 'still_marked.png')
@@ -144,20 +159,20 @@ def freeze(src, s, ov, part, tmp):
     ease = lambda p: f'(0.5-0.5*cos(PI*{p}))'
     z = (f"if(lt(in,{a}),1,if(lt(in,{b}),1+{Z - 1}*{ease(f'(in-{a})/{b - a}')},"
          f"if(lt(in,{c2}),{Z},if(lt(in,{e2}),{Z}-{Z - 1}*{ease(f'(in-{c2})/{e2 - c2}')},1))))")
-    mx, my = (s['marks'][0][0], s['marks'][0][1]) if s.get('marks') else (W / 2, H / 2)
+    mx, my = (s['marks'][0][0], s['marks'][0][1]) if s.get('marks') else (SW / 2, SH / 2)
     k = 2  # suréchantillonnage pour un zoom fluide
     x = f"max(0,min(iw-iw/zoom,{mx * k}-iw/zoom/2))"
     y = f"max(0,min(ih-ih/zoom,{my * k}-ih/zoom/2))"
     ff('-loop', '1', '-framerate', str(FPS), '-t', str(dur), '-i', marked, '-loop', '1', '-i', ov,
        '-f', 'lavfi', '-t', str(dur), '-i', 'anullsrc=r=48000:cl=stereo',
-       '-filter_complex', f"[0:v]scale={W * k}:{H * k},zoompan=z='{z}':x='{x}':y='{y}':d=1:s={W}x{H}:fps={FPS}[b];[b][1:v]overlay,trim=duration={dur}[v]",
+       '-filter_complex', f"[0:v]scale={SW * k}:{SH * k},zoompan=z='{z}':x='{x}':y='{y}':d=1:s={SW}x{SH}:fps={FPS}[z];" + compose('z', 'b') + f";[b][1:v]overlay,trim=duration={dur}[v]",
        '-map', '[v]', '-map', '2:a', '-t', str(dur), *ENC, part)
 
 
 def clip(src, s, ov, part, tmp):
     dur, sp = s['to'] - s['from'], s.get('speed', 1)
     inputs = ['-ss', str(s['from']), '-t', str(dur), '-i', src, '-loop', '1', '-i', ov]
-    vf = f"[0:v]{BASE},setpts=PTS/{sp}[b];[b][1:v]overlay[o0]"
+    vf = f"[0:v]{BASE},setpts=PTS/{sp}[g];" + compose('g', 'b') + ";[b][1:v]overlay[o0]"
     last = 'o0'
     if 'chrono' in s:
         ch = s['chrono']
@@ -167,15 +182,19 @@ def clip(src, s, ov, part, tmp):
             e = i / FPS * sp - ch['start']
             chrono_frame(max(0, min(e, ch['stop'])), ch['stop'], e >= ch['stop']).save(os.path.join(cdir, f'{i:04d}.png'))
         inputs += ['-framerate', str(FPS), '-i', os.path.join(cdir, '%04d.png')]
-        vf += f";[o0][2:v]overlay=x={W - 340}:y=130[o1]"
+        cx, cy = ((W - 300) // 2, FY + FH + 60) if VERT else (W - 340, 130)
+        vf += f";[o0][2:v]overlay=x={cx}:y={cy}[o1]"
         last = 'o1'
     afilt = f'atempo={sp}' if sp != 1 else 'anull'
     ff(*inputs, '-filter_complex', vf + f";[0:a]{afilt},aresample=48000[a]", '-map', f'[{last}]', '-map', '[a]',
        '-t', str(dur / sp), *ENC, part)
 
 
-def main(src, plan_path, out):
+def main(src, plan_path, out, fmt='horizontal'):
+    global W, H, VERT
     plan = json.load(open(plan_path))
+    if fmt == 'vertical':
+        W, H, VERT = 1080, 1920, True
     tmp = tempfile.mkdtemp()
     parts = []
     for i, s in enumerate(plan['segments']):
@@ -197,4 +216,4 @@ def main(src, plan_path, out):
 
 
 if __name__ == '__main__':
-    main(*sys.argv[1:4])
+    main(*sys.argv[1:5])
