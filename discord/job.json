@@ -1,1 +1,67 @@
-{ "task": "import", "limit": 0, "dry": true }
+{
+ "task": "montage",
+ "render": {
+  "title": "Bind · Brimstone",
+  "subtitle": "A default molly · from attacker spawn",
+  "segments": [
+   {
+    "type": "clip",
+    "from": 32.6,
+    "to": 35.5,
+    "label": "Result"
+   },
+   {
+    "type": "clip",
+    "from": 16.5,
+    "to": 21,
+    "step": 1,
+    "label": "Stand against the spawn barrier"
+   },
+   {
+    "type": "clip",
+    "from": 21,
+    "to": 25.4,
+    "step": 2,
+    "label": "Aim"
+   },
+   {
+    "type": "freeze",
+    "at": 25.4,
+    "dur": 3.4,
+    "step": 2,
+    "label": "Molly icon tip on the leaf tip",
+    "marks": [
+     [
+      900,
+      978,
+      50
+     ]
+    ],
+    "zoom": 2.4
+   },
+   {
+    "type": "clip",
+    "from": 25.4,
+    "to": 27,
+    "step": 3,
+    "label": "Throw",
+    "chrono": {
+     "start": 0.5,
+     "stop": 7.1
+    }
+   },
+   {
+    "type": "clip",
+    "from": 27,
+    "to": 35.5,
+    "label": "Time to impact",
+    "chrono": {
+     "start": -1.1,
+     "stop": 7.1
+    }
+   }
+  ]
+ },
+ "post": true,
+ "postText": "🎬 Version 2 : textes en anglais, nouveau style, plus de ralenti, zoom sur le repère, chrono. Dis-moi ce que tu en penses !"
+}

@@ -4,89 +4,185 @@ Usage : python3 montage.py source.mp4 plan.json sortie.mp4
 
 Plan :
 {
-  "title": "Bind · Brimstone · A défaut",
+  "title": "Bind · Brimstone", "subtitle": "A default molly",
   "segments": [
-    {"type": "clip", "from": 32.6, "to": 35.5, "label": "Le résultat"},
-    {"type": "freeze", "at": 25.5, "dur": 3, "label": "...", "marks": [[900, 978, 48]]},
-    {"type": "clip", "from": 25.5, "to": 27, "speed": 0.5, "label": "..."},
-    {"type": "clip", "from": 27, "to": 35.5, "label": "...", "chrono": {"start": -1.1, "stop": 7.1}}
+    {"type": "clip", "from": 32.6, "to": 35.5, "label": "Result"},
+    {"type": "clip", "from": 16.5, "to": 21, "step": 1, "label": "Stand against the spawn barrier"},
+    {"type": "freeze", "at": 25.4, "dur": 3.2, "step": 2, "label": "...", "marks": [[900, 978, 50]], "zoom": 2.4},
+    {"type": "clip", "from": 27, "to": 35.5, "label": "Time to impact", "chrono": {"start": -1.1, "stop": 7.1}}
   ]
 }
-Les coordonnées des marques sont en pixels de la vidéo source (1920×1080), [x, y, rayon].
+Coordonnées des marques en pixels 1920×1080 : [x, y, rayon]. « speed » (optionnel) ralentit un clip.
+Polices : Oswald / Bebas Neue (SIL Open Font License) dans tools/fonts/.
 """
-import json, os, subprocess, sys, tempfile
+import json, math, os, subprocess, sys, tempfile
 from PIL import Image, ImageDraw, ImageFont
 
 W, H, FPS = 1920, 1080, 30
-FONT = '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf'
-ACCENT = (255, 70, 85, 255)  # rouge Valorant
+HERE = os.path.dirname(os.path.abspath(__file__))
+F_BOLD = os.path.join(HERE, 'fonts', 'Oswald-Bold.ttf')
+F_REG = os.path.join(HERE, 'fonts', 'Oswald-Regular.ttf')
+F_NUM = os.path.join(HERE, 'fonts', 'BebasNeue.ttf')
+RED = (255, 70, 85, 255)      # rouge Valorant
+TEAL = (23, 229, 196, 255)    # turquoise (impact)
+DARK = (15, 25, 35, 230)
+WHITE = (236, 232, 225, 255)
 
 
-def font(size):
-    try:
-        return ImageFont.truetype(FONT, size)
-    except OSError:
-        return ImageFont.load_default()
+def font(path, size):
+    return ImageFont.truetype(path, size)
 
 
-def overlay(path, label=None, title=None, marks=()):
-    """Image transparente : bandeau titre en haut, étiquette en bas, cercles sur les repères."""
+def slanted(d, x0, y0, x1, y1, fill, k=18):
+    """Bandeau en parallélogramme (style HUD)."""
+    d.polygon([(x0 + k, y0), (x1, y0), (x1 - k, y1), (x0, y1)], fill=fill)
+
+
+def draw_label(d, step, text, y):
+    text = text.upper()
+    f = font(F_BOLD, 50)
+    tw = d.textlength(text, font=f)
+    badge = 86 if step else 0
+    total = badge + tw + 70
+    x = W / 2 - total / 2
+    if step:
+        slanted(d, x, y, x + badge + 10, y + 86, RED)
+        fn = font(F_NUM, 70)
+        s = str(step)
+        d.text((x + (badge + 10) / 2 - d.textlength(s, font=fn) / 2 + 2, y + 9), s, font=fn, fill=WHITE)
+    slanted(d, x + badge, y, x + total, y + 86, DARK)
+    d.rectangle([x + badge + 14, y + 80, x + total - 14, y + 86], fill=RED)
+    d.text((x + badge + 36, y + 6), text, font=f, fill=WHITE)
+
+
+def draw_title(d, title, subtitle):
+    ft, fs = font(F_NUM, 92), font(F_REG, 40)
+    t = title.upper()
+    tw = d.textlength(t, font=ft)
+    sw = d.textlength(subtitle.upper(), font=fs) if subtitle else 0
+    w = max(tw, sw) + 90
+    x, y = W / 2 - w / 2, 120
+    h = 150 if subtitle else 100
+    slanted(d, x, y, x + w, y + h, DARK, k=26)
+    d.rectangle([x + 26, y, x + 40, y + h], fill=RED)
+    d.text((x + 60, y + 4), t, font=ft, fill=WHITE)
+    if subtitle:
+        d.text((x + 62, y + 96), subtitle.upper(), font=fs, fill=RED)
+
+
+def draw_marks(d, marks):
+    for x, y, r in marks:
+        for k, a in ((10, 110), (5, 255)):
+            d.ellipse([x - r - k, y - r - k, x + r + k, y + r + k], outline=RED[:3] + (a,), width=6)
+        ax, ay = x - r * 0.72, y - r * 0.72
+        d.line([ax - 150, ay - 150, ax - 18, ay - 18], fill=RED, width=10)
+        d.polygon([(ax, ay), (ax - 48, ay - 12), (ax - 12, ay - 48)], fill=RED)
+
+
+def overlay(path, seg, plan, first):
     im = Image.new('RGBA', (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(im)
-    if title:
-        f = font(46)
-        w = d.textlength(title, font=f)
-        d.rounded_rectangle([W / 2 - w / 2 - 30, 150, W / 2 + w / 2 + 30, 230], 18, fill=(15, 25, 35, 215))
-        d.text((W / 2 - w / 2, 164), title, font=f, fill=(255, 255, 255, 255))
-    if label:
-        f = font(54)
-        w = d.textlength(label, font=f)
-        y = 250 if title else 160  # en haut : le bas de l'écran (HUD) sert souvent de repère
-        d.rounded_rectangle([W / 2 - w / 2 - 34, y, W / 2 + w / 2 + 34, y + 92], 20, fill=(15, 25, 35, 225))
-        d.rectangle([W / 2 - w / 2 - 34, y, W / 2 - w / 2 - 22, y + 92], fill=ACCENT)
-        d.text((W / 2 - w / 2, y + 14), label, font=f, fill=(255, 255, 255, 255))
-    for x, y, r in marks:
-        for k, a in ((10, 120), (6, 255)):
-            d.ellipse([x - r - k, y - r - k, x + r + k, y + r + k], outline=ACCENT[:3] + (a,), width=6)
-        # flèche qui pointe vers le repère depuis le haut à gauche
-        d.line([x - r - 140, y - r - 140, x - r * 0.75, y - r * 0.75], fill=ACCENT, width=10)
-        d.polygon([(x - r * 0.7, y - r * 0.7), (x - r * 0.7 - 46, y - r * 0.7 - 10), (x - r * 0.7 - 10, y - r * 0.7 - 46)], fill=ACCENT)
+    if first and plan.get('title'):
+        draw_title(d, plan['title'], plan.get('subtitle'))
+    if seg.get('label'):
+        draw_label(d, seg.get('step'), seg['label'], 300 if first and plan.get('title') else 140)
     im.save(path)
+
+
+def chrono_frame(e, stop, done):
+    """Chronomètre : cadran sombre, anneau qui se remplit, chiffres au centre."""
+    S, R = 300, 112
+    im = Image.new('RGBA', (S, S), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    c = S / 2
+    cy = c + 12
+    col = TEAL if done else RED
+    d.rounded_rectangle([c - 22, 4, c + 22, 26], 6, fill=WHITE)              # bouton du haut
+    d.rectangle([c - 8, 24, c + 8, cy - R - 6], fill=WHITE)
+    for ang in (-45, 45):                                                    # boutons latéraux
+        a = math.radians(ang - 90)
+        px, py = c + (R + 14) * math.cos(a), cy + (R + 14) * math.sin(a)
+        d.ellipse([px - 9, py - 9, px + 9, py + 9], fill=WHITE)
+    d.ellipse([c - R - 10, cy - R - 10, c + R + 10, cy + R + 10], fill=DARK)
+    d.ellipse([c - R, cy - R, c + R, cy + R], outline=(255, 255, 255, 50), width=12)
+    frac = min(e / stop, 1) if stop else 0
+    if frac > 0:
+        d.arc([c - R, cy - R, c + R, cy + R], -90, -90 + 360 * frac, fill=col, width=12)
+    for i in range(12):                                                      # graduations
+        a = math.radians(i * 30 - 90)
+        r1, r2 = R - 18, R - (30 if i % 3 == 0 else 24)
+        d.line([c + r1 * math.cos(a), cy + r1 * math.sin(a), c + r2 * math.cos(a), cy + r2 * math.sin(a)], fill=(255, 255, 255, 120), width=3)
+    txt = f'{e:.1f}'
+    fn = font(F_NUM, 104)
+    d.text((c - d.textlength(txt, font=fn) / 2, cy - 62), txt, font=fn, fill=WHITE)
+    sub = 'IMPACT' if done else 'SEC'
+    fs = font(F_BOLD, 26)
+    d.text((c - d.textlength(sub, font=fs) / 2, cy + 34), sub, font=fs, fill=col)
+    return im
 
 
 def ff(*args):
     subprocess.run(['ffmpeg', '-y', '-v', 'error', *args], check=True)
 
 
+ENC = ['-c:v', 'libx264', '-preset', 'veryfast', '-crf', '18', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-ar', '48000', '-ac', '2']
+BASE = f'scale={W}:{H}:force_original_aspect_ratio=decrease,pad={W}:{H}:(ow-iw)/2:(oh-ih)/2,fps={FPS}'
+
+
+def freeze(src, s, ov, part, tmp):
+    """Image figée avec le repère entouré ; zoom rapide sur le repère puis retour au plan large."""
+    raw = os.path.join(tmp, 'still.png')
+    ff('-ss', str(s['at']), '-i', src, '-frames:v', '1', '-vf', f'scale={W}:{H}', raw)
+    im = Image.open(raw).convert('RGBA')
+    draw_marks(ImageDraw.Draw(im), s.get('marks', []))
+    marked = os.path.join(tmp, 'still_marked.png')
+    im.convert('RGB').save(marked)
+    dur, Z = s['dur'], s.get('zoom', 2.4)
+    n = int(dur * FPS)
+    a, b = int(0.35 * FPS), int(0.85 * FPS)            # début / fin du zoom avant
+    c2, e2 = n - int(0.95 * FPS), n - int(0.45 * FPS)  # début / fin du retour
+    ease = lambda p: f'(0.5-0.5*cos(PI*{p}))'
+    z = (f"if(lt(in,{a}),1,if(lt(in,{b}),1+{Z - 1}*{ease(f'(in-{a})/{b - a}')},"
+         f"if(lt(in,{c2}),{Z},if(lt(in,{e2}),{Z}-{Z - 1}*{ease(f'(in-{c2})/{e2 - c2}')},1))))")
+    mx, my = (s['marks'][0][0], s['marks'][0][1]) if s.get('marks') else (W / 2, H / 2)
+    k = 2  # suréchantillonnage pour un zoom fluide
+    x = f"max(0,min(iw-iw/zoom,{mx * k}-iw/zoom/2))"
+    y = f"max(0,min(ih-ih/zoom,{my * k}-ih/zoom/2))"
+    ff('-loop', '1', '-framerate', str(FPS), '-t', str(dur), '-i', marked, '-loop', '1', '-i', ov,
+       '-f', 'lavfi', '-t', str(dur), '-i', 'anullsrc=r=48000:cl=stereo',
+       '-filter_complex', f"[0:v]scale={W * k}:{H * k},zoompan=z='{z}':x='{x}':y='{y}':d=1:s={W}x{H}:fps={FPS}[b];[b][1:v]overlay,trim=duration={dur}[v]",
+       '-map', '[v]', '-map', '2:a', '-t', str(dur), *ENC, part)
+
+
+def clip(src, s, ov, part, tmp):
+    dur, sp = s['to'] - s['from'], s.get('speed', 1)
+    inputs = ['-ss', str(s['from']), '-t', str(dur), '-i', src, '-loop', '1', '-i', ov]
+    vf = f"[0:v]{BASE},setpts=PTS/{sp}[b];[b][1:v]overlay[o0]"
+    last = 'o0'
+    if 'chrono' in s:
+        ch = s['chrono']
+        cdir = os.path.join(tmp, f"chrono{s['from']}")
+        os.makedirs(cdir, exist_ok=True)
+        for i in range(int(dur / sp * FPS) + 2):
+            e = i / FPS * sp - ch['start']
+            chrono_frame(max(0, min(e, ch['stop'])), ch['stop'], e >= ch['stop']).save(os.path.join(cdir, f'{i:04d}.png'))
+        inputs += ['-framerate', str(FPS), '-i', os.path.join(cdir, '%04d.png')]
+        vf += f";[o0][2:v]overlay=x={W - 340}:y=130[o1]"
+        last = 'o1'
+    afilt = f'atempo={sp}' if sp != 1 else 'anull'
+    ff(*inputs, '-filter_complex', vf + f";[0:a]{afilt},aresample=48000[a]", '-map', f'[{last}]', '-map', '[a]',
+       '-t', str(dur / sp), *ENC, part)
+
+
 def main(src, plan_path, out):
     plan = json.load(open(plan_path))
     tmp = tempfile.mkdtemp()
     parts = []
-    base = f'scale={W}:{H}:force_original_aspect_ratio=decrease,pad={W}:{H}:(ow-iw)/2:(oh-ih)/2,fps={FPS}'
     for i, s in enumerate(plan['segments']):
         ov = os.path.join(tmp, f'ov{i}.png')
-        overlay(ov, s.get('label'), plan.get('title') if i == 0 else None, s.get('marks', []))
+        overlay(ov, s, plan, i == 0)
         part = os.path.join(tmp, f'p{i}.mp4')
-        if s['type'] == 'freeze':
-            # image figée + léger zoom vers le repère, sans son
-            ff('-ss', str(s['at']), '-i', src, '-loop', '1', '-i', ov, '-f', 'lavfi', '-i', 'anullsrc=r=48000:cl=stereo',
-               '-filter_complex', f"[0:v]trim=end_frame=1,{base},loop=loop=-1:size=1,trim=duration={s['dur']},setpts=N/{FPS}/TB[b];[b][1:v]overlay[v]",
-               '-map', '[v]', '-map', '2:a', '-t', str(s['dur']), '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-ar', '48000', '-ac', '2', part)
-        else:
-            dur = s['to'] - s['from']
-            sp = s.get('speed', 1)
-            vf = f"[0:v]{base},setpts=PTS/{sp}[b];[b][1:v]overlay"
-            if 'chrono' in s:
-                c = s['chrono']
-                # temps écoulé depuis le lancer, figé à l'arrivée
-                e = f"min(t+{-c['start']}\\,{c['stop']})"
-                txt = f"%{{eif\\:trunc({e})\\:d}},%{{eif\\:trunc(mod({e}*10\\,10))\\:d}} s"
-                vf += f"[o];[o]drawbox=x=1580:y=60:w=280:h=110:color=0x0f1923@0.85:t=fill,drawtext=fontfile={FONT}:text='{txt}':x=1720-text_w/2:y=82:fontsize=64:fontcolor=white"
-            vf += '[v]'
-            afilt = f"atempo={sp}" if sp >= 0.5 else 'anull'
-            ff('-ss', str(s['from']), '-t', str(dur), '-i', src, '-loop', '1', '-i', ov,
-               '-filter_complex', vf + f";[0:a]{afilt},aresample=48000[a]", '-map', '[v]', '-map', '[a]',
-               '-t', str(dur / sp), '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-ar', '48000', '-ac', '2', part)
+        (freeze if s['type'] == 'freeze' else clip)(src, s, ov, part, tmp)
         parts.append(part)
     lst = os.path.join(tmp, 'list.txt')
     open(lst, 'w').write(''.join(f"file '{p}'\n" for p in parts))
