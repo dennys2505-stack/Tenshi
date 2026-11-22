@@ -1,0 +1,26 @@
+{
+  "id": "bind-viper-set-up-defense-mur-a-et-b",
+  "num": 217,
+  "map": "Bind",
+  "agent": "Viper",
+  "side": "Défense",
+  "site": "A",
+  "title": "Set up défense mur A et B",
+  "notes": [
+    "One way bath",
+    "Mur B + tp A"
+  ],
+  "reveal": false,
+  "images": [],
+  "from": null,
+  "to": [
+    0.726,
+    0.324
+  ],
+  "video": "https://www.instagram.com/reel/Df8jq87CvOO/?bqrl=Y3Mwdmtsc2c3b3Fy",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1573434569473134644"
+  }
+}

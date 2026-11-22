@@ -1,0 +1,35 @@
+{
+  "id": "haven-brimstone-post-plant-pour-c-long-depuis-long",
+  "num": 218,
+  "map": "Haven",
+  "agent": "Brimstone",
+  "side": "Attaque",
+  "site": "C",
+  "title": "Post plant pour C long depuis long",
+  "notes": [],
+  "reveal": false,
+  "images": [
+    {
+      "src": "/img/lineups/48b5c859b920.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/bbe659a39dc8.jpg",
+      "cap": ""
+    }
+  ],
+  "from": [
+    0.738,
+    0.835
+  ],
+  "to": [
+    0.416,
+    0.861
+  ],
+  "video": "",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1486440601577853180"
+  }
+}
