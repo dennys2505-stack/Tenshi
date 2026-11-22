@@ -13,23 +13,18 @@
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/db2cc457439au.jpg",
-      "cap": ""
-    },
-    {
-      "src": "/img/lineups/82f538f0a06du.jpg",
-      "cap": ""
-    },
-    {
       "src": "/img/lineups/06fc5a60e909u.jpg",
       "cap": ""
     },
     {
-      "src": "/img/lineups/c55f018d54d2u.jpg",
+      "src": "/img/lineups/db2cc457439au.jpg",
       "cap": ""
     }
   ],
-  "from": null,
+  "from": [
+    0.666,
+    0.262
+  ],
   "to": [
     0.411,
     0.13
