@@ -4,29 +4,41 @@
   "map": "Summit",
   "agent": "Sova",
   "side": "Défense",
-  "site": "A",
+  "site": "B",
   "title": "Défense, line une default A et B",
-  "notes": [],
+  "notes": [
+    "Full charge 2 rebonds"
+  ],
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/add739df9ddau.jpg",
-      "cap": ""
+      "src": "/img/lineups/0597a37cfdb3.jpg",
+      "cap": "Repère de visée"
     },
     {
       "src": "/img/lineups/bb9d4ab716a4.jpg",
       "cap": ""
     }
   ],
-  "from": null,
-  "to": [
-    0.886,
-    0.441
+  "from": [
+    0.256,
+    0.182
   ],
   "video": "https://www.instagram.com/reel/De519v-AMTo/?rpxt=MWZtZmljdnhsN2lwNg==",
   "credit": "",
   "auto": true,
   "source": {
     "message": "1568176311204188182"
-  }
+  },
+  "ability": "shock",
+  "checked": true,
+  "marks": [
+    {
+      "t": "shock",
+      "p": [
+        0.161,
+        0.334
+      ]
+    }
+  ]
 }
