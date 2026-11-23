@@ -240,6 +240,7 @@ const boot = {
         '<label>Lien vidéo</label><input type="text" id="video" value="' + esc(d.video) + '">' +
         '<label>Crédit</label><input type="text" id="credit" value="' + esc(d.credit) + '">' +
         '<label><input type="checkbox" id="reveal"' + (d.reveal ? ' checked' : '') + '> Reveal (Fade / Sova : affiche l\'icône à l\'arrivée)</label>' +
+        ((boot.abilities[d.agent] || []).length ? '<label>Compétence (filtre de la page agent)</label><select id="ability"><option value="">Automatique (selon le titre / la mini map)</option>' + boot.abilities[d.agent].map(function (a) { return '<option value="' + esc(a.key) + '"' + ([].concat(d.ability || []).indexOf(a.key) >= 0 ? ' selected' : '') + '>' + esc(a.label) + '</option>'; }).join('') + '</select>' : '') +
         '<label>Photos</label><div class="ims" id="ims">' + (d.images || []).map(function (im, k) {
           return '<div><img src="' + esc(im.src) + '" alt=""><input type="text" data-k="' + k + '" class="cap" value="' + esc(im.cap) + '" placeholder="Légende">' +
             '<div class="row" style="margin-top:6px;gap:6px;flex-wrap:nowrap">' +
@@ -295,6 +296,7 @@ const boot = {
         d.notes = document.getElementById('notes').value.split('\n').map(function (s) { return s.trim(); }).filter(Boolean);
         d.video = document.getElementById('video').value.trim(); d.credit = document.getElementById('credit').value.trim();
         d.reveal = document.getElementById('reveal').checked;
+        var abEl = document.getElementById('ability'); if (abEl) { if (abEl.value) d.ability = abEl.value; else delete d.ability; }
         if (document.getElementById('checked').checked) d.checked = true; else delete d.checked;
         if (document.getElementById('hidden').checked) d.hidden = true; else delete d.hidden;
         var al = document.getElementById('also').value.split(',').map(function (s) { return s.trim(); }).filter(Boolean); if (al.length) d.also = al; else delete d.also;

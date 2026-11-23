@@ -4,6 +4,7 @@
 //  - src/data/lineups/*.json : une line up par fichier
 import mapsData from '../data/maps.json';
 import agentsData from '../data/agents.json';
+import abilitiesData from '../data/abilities.json';
 
 export const SITE_NAME = 'Les astuces de Tenshi';
 export const SITE_TAGLINE = 'Line ups Valorant par map et par agent';
@@ -62,3 +63,22 @@ export const count = (n) => (n === 0 ? 'Bientôt' : n === 1 ? '1 line up' : `${n
 export const lineupUrl = (l) => `/${slug(l.map)}/${slug(l.agent)}/${l.id}/`;
 export const agentUrl = (mapName, agentName) => `/${slug(mapName)}/${slug(agentName)}/`;
 export const mapUrl = (mapName) => `/${slug(mapName)}/`;
+
+// Compétences d'une line up pour un agent (filtre « Compétence » de la page agent) :
+// champ « ability » s'il existe, sinon icônes posées sur la mini map, case Reveal, mots du titre.
+// Sova : une line up qui n'est pas un reveal est un shock dart (sauf wall bang / à compléter).
+export const abilitiesOf = (l, agentName) => {
+  const list = abilitiesData[agentName] ?? [];
+  if (!list.length) return [];
+  const keys = new Set(list.map((a) => a.key));
+  const out = new Set();
+  for (const k of [].concat(l.ability ?? [])) if (keys.has(k)) out.add(k);
+  if (out.size) return [...out];
+  for (const m of l.marks ?? []) if (keys.has(m.t)) out.add(m.t);
+  if (l.reveal && keys.has('reveal')) out.add('reveal');
+  const title = ` ${String(l.title ?? '').toLowerCase().replace(/[^a-zà-ÿ0-9/]+/g, ' ')} `;
+  for (const a of list) if (a.words.some((w) => title.includes(` ${w} `))) out.add(a.key);
+  if (agentName === 'Sova' && !out.size && !/wall ?bang|walbang|compl[eé]ter/i.test(l.title ?? '')) out.add('shock');
+  return [...out];
+};
+export const abilityInfo = (agentName, key) => (abilitiesData[agentName] ?? []).find((a) => a.key === key);

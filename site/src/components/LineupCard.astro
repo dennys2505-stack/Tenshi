@@ -1,11 +1,12 @@
 ---
 import MiniMap from './MiniMap.astro';
-import { lineupUrl, mapByName } from '../lib/data.js';
-const { lineup: l, detail = false } = Astro.props;
+import { lineupUrl, mapByName, abilitiesOf } from '../lib/data.js';
+const { lineup: l, detail = false, agent } = Astro.props;
+const abs = abilitiesOf(l, agent ?? l.agent).join(' ');
 const m = mapByName(l.map);
 const Heading = detail ? 'h1' : 'h2';
 ---
-<article class="card" id={l.id} data-side={l.side} data-site={l.site}>
+<article class="card" id={l.id} data-side={l.side} data-site={l.site} data-ab={abs}>
   {l.num && <a class="num" href={`/admin/?edit=${l.id}`} title="Modifier (admin)">#{l.num} {l.checked ? '✔' : '✎'}</a>}
   <p class="side-tag">{l.side}{l.site ? ` · ${l.site}` : ''}</p>
   <Heading>{detail ? l.title : <a href={lineupUrl(l)}>{l.title}</a>}</Heading>
