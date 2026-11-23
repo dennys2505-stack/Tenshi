@@ -1,12 +1,13 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { allLineups as lineups, maps, agents } from '../../lib/data.js';
+import { allLineups as lineups, maps, agents, AGENT_NO } from '../../lib/data.js';
 import abilities from '../../data/abilities.json';
 const boot = {
   abilities: abilities,
     items: lineups.map((l) => ({ id: l.id, num: l.num ?? 0, map: l.map, agent: l.agent, title: l.title, side: l.side, hidden: !!l.hidden, checked: !!l.checked })),
   maps: maps.map((m) => ({ name: m.name, minimap: m.minimap, dim: m.dim, pool: !!m.pool })),
   agents: agents.map((a) => a.name),
+  agentNo: AGENT_NO,
 };
 ---
 <Base title="Admin" description="Administration">
@@ -49,7 +50,7 @@ const boot = {
     var boot = JSON.parse(document.getElementById('boot').textContent);
     // Ordre des listes : maps du map pool compétitif d'abord, puis les autres ; ordre alphabétique dans
     // chaque groupe ; puis agents par numéro d'agent (VALORANT Protocol) ; puis numéro de line up.
-    var AGENT_NO = { 'Brimstone': 1, 'Viper': 2, 'Omen': 3, 'Killjoy': 4, 'Cypher': 5, 'Sova': 6, 'Sage': 7, 'Phoenix': 9, 'Jett': 10, 'Reyna': 11, 'Raze': 12, 'Breach': 13, 'Skye': 14, 'Yoru': 15, 'Astra': 16, 'KAY/O': 17, 'Chamber': 18, 'Neon': 19, 'Fade': 20, 'Harbor': 21, 'Gekko': 22, 'Deadlock': 23, 'Iso': 24, 'Clove': 25, 'Vyse': 26, 'Tejo': 27, 'Waylay': 28, 'Veto': 29, 'Miks': 30, 'Hush': 31 };
+    var AGENT_NO = boot.agentNo;
     var POOL = {}; boot.maps.forEach(function (m) { POOL[m.name] = m.pool; });
     function ordre(a, b) {
       var pa = POOL[a.map] ? 0 : 1, pb = POOL[b.map] ? 0 : 1;

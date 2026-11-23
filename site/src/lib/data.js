@@ -26,14 +26,19 @@ export const hiddenLineups = allLineups.filter((l) => l.hidden);
 
 const uniq = (a) => [...new Set(a)];
 
-// Maps : celles de maps.json d'abord (ordre du classé), puis toute map nouvelle apparue dans une line up.
+// Numéro d'agent (VALORANT Protocol, visible sur la bannière en jeu ; le n° 08 n'existe pas).
+export const AGENT_NO = { Brimstone: 1, Viper: 2, Omen: 3, Killjoy: 4, Cypher: 5, Sova: 6, Sage: 7, Phoenix: 9, Jett: 10, Reyna: 11, Raze: 12, Breach: 13, Skye: 14, Yoru: 15, Astra: 16, 'KAY/O': 17, Chamber: 18, Neon: 19, Fade: 20, Harbor: 21, Gekko: 22, Deadlock: 23, Iso: 24, Clove: 25, Vyse: 26, Tejo: 27, Waylay: 28, Veto: 29, Miks: 30, Hush: 31 };
+export const agentNo = (name) => AGENT_NO[name] ?? 99;
+
+// Maps : maps.json + toute map nouvelle apparue dans une line up.
+// Ordre : map pool compétitif d'abord, puis les autres ; ordre alphabétique dans chaque groupe.
 export const maps = (() => {
   const known = mapsData.map((m) => ({ ...m }));
   const names = new Set(known.map((m) => m.name));
   for (const n of uniq(lineups.map((l) => l.map))) {
     if (!names.has(n)) known.push({ name: n, slug: slug(n), named: false, bg: null, minimap: null, dim: [640, 640] });
   }
-  return known;
+  return known.sort((a, b) => (a.pool ? 0 : 1) - (b.pool ? 0 : 1) || a.name.localeCompare(b.name, 'fr'));
 })();
 
 export const agents = agentsData;
@@ -48,8 +53,9 @@ export const agentsOf = (l) => uniq([l.agent, ...(l.also ?? [])]);
 export const lineupsFor = (mapName, agentName) =>
   lineups.filter((l) => l.map === mapName && (!agentName || agentsOf(l).includes(agentName)));
 
+// Agents d'une map, triés par numéro d'agent.
 export const agentsForMap = (mapName) =>
-  uniq(lineupsFor(mapName).flatMap(agentsOf)).map(agentInfo);
+  uniq(lineupsFor(mapName).flatMap(agentsOf)).sort((a, b) => agentNo(a) - agentNo(b) || a.localeCompare(b)).map(agentInfo);
 
 export const count = (n) => (n === 0 ? 'Bientôt' : n === 1 ? '1 line up' : `${n} line ups`);
 
