@@ -10,10 +10,6 @@
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/7bfae1324f48u.jpg",
-      "cap": ""
-    },
-    {
       "src": "/img/lineups/d8d1223dfe94u.jpg",
       "cap": ""
     },
@@ -22,15 +18,25 @@
       "cap": ""
     }
   ],
-  "from": null,
-  "to": [
-    0.866,
-    0.311
+  "from": [
+    0.709,
+    0.712
   ],
   "video": "https://www.instagram.com/reel/DX_ZBtuPB25/?igsh=MWs2cmhvbHNnNWZsNQ==",
   "credit": "",
   "auto": true,
   "source": {
     "message": "1501631465476067469"
-  }
+  },
+  "checked": true,
+  "marks": [
+    {
+      "t": "flash",
+      "p": [
+        0.724,
+        0.658
+      ]
+    }
+  ],
+  "ability": "flash"
 }
