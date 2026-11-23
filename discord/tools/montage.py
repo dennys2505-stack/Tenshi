@@ -151,7 +151,9 @@ def ff(*args):
 
 
 ENC = ['-c:v', 'libx264', '-preset', 'veryfast', '-crf', '18', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-ar', '48000', '-ac', '2']
-BASE = f'scale={SW}:{SH}:force_original_aspect_ratio=decrease,pad={SW}:{SH}:(ow-iw)/2:(oh-ih)/2,fps={FPS}'
+# Efface les messages du chat en bas à gauche (« (Broadcast) … set Ghost to On/Off », jusqu'à 3 lignes).
+CHAT = 'delogo=x=2:y=935:w=478:h=103'
+BASE = f'scale={SW}:{SH}:force_original_aspect_ratio=decrease,pad={SW}:{SH}:(ow-iw)/2:(oh-ih)/2,{CHAT},fps={FPS}'
 
 
 def compose(inp, out):
@@ -165,7 +167,7 @@ def compose(inp, out):
 def freeze(src, s, ov, part, tmp):
     """Image figée avec le repère entouré ; zoom rapide sur le repère puis retour au plan large."""
     raw = os.path.join(tmp, 'still.png')
-    ff('-ss', str(s['at']), '-i', src, '-frames:v', '1', '-vf', f'scale={SW}:{SH}', raw)
+    ff('-ss', str(s['at']), '-i', src, '-frames:v', '1', '-vf', f'scale={SW}:{SH},{CHAT}', raw)
     im = Image.open(raw).convert('RGBA')
     draw_marks(ImageDraw.Draw(im), s.get('marks', []))
     marked = os.path.join(tmp, 'still_marked.png')
