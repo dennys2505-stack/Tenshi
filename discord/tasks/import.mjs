@@ -187,7 +187,7 @@ export default async function importTask({ log, rep, job }) {
           // départ ET arrivée lus sur sa mini map, côté et site connus, vrai titre. Au moindre doute → « À vérifier ».
           const sure = !poor && mmPts?.from && mmPts?.to && (m.attachments?.length ?? 0) > 0 && images.length > 0
             && side !== 'À classer' && !!site && title.split(/\s+/).length >= 3;
-          const lu = { id, num: ++num, map, agent, side, site, title, notes, reveal: agent === 'Fade' && /reveal/i.test(all_text), ...(shared && !prop ? { also: shared.slice(1) } : {}), images, from: pts.from || null, to: pts.to || null, ...(marks.length ? { marks } : {}), video, credit: '', auto: true, ...(poor || prop ? { hidden: true } : {}), ...(prop ? { proposed: true } : {}), ...(sure && !prop ? { checked: true } : {}), source: { message: m.id } };
+          const lu = { id, num: ++num, map, agent, side, site, title, notes, reveal: (agent === 'Fade' || agent === 'Sova') && /reveal|recon/i.test(all_text), ...(shared && !prop ? { also: shared.slice(1) } : {}), images, from: pts.from || null, to: pts.to || null, ...(marks.length ? { marks } : {}), video, credit: '', auto: true, ...(poor || prop ? { hidden: true } : {}), ...(prop ? { proposed: true } : {}), ...(sure && !prop ? { checked: true } : {}), source: { message: m.id } };
           if (!dry) fs.writeFileSync(path.join(LU_DIR, id + '.json'), JSON.stringify(lu, null, 2) + '\n');
           seenMsg.add(m.id); if (video) seenVideo.add(normUrl(video));
           created.push({ ...lu, imgCount: images.length || imgUrls.length, zones: `${pts.fromZone || '?'} → ${pts.toZone || '?'}` });

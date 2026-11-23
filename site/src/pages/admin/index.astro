@@ -239,7 +239,7 @@ const boot = {
         '<label>Marche aussi pour (autres agents, séparés par des virgules)</label><input type="text" id="also" value="' + esc((d.also || []).join(', ')) + '">' +
         '<label>Lien vidéo</label><input type="text" id="video" value="' + esc(d.video) + '">' +
         '<label>Crédit</label><input type="text" id="credit" value="' + esc(d.credit) + '">' +
-        '<label><input type="checkbox" id="reveal"' + (d.reveal ? ' checked' : '') + '> Reveal (Fade : affiche l\'icône à l\'arrivée)</label>' +
+        '<label><input type="checkbox" id="reveal"' + (d.reveal ? ' checked' : '') + '> Reveal (Fade / Sova : affiche l\'icône à l\'arrivée)</label>' +
         '<label>Photos</label><div class="ims" id="ims">' + (d.images || []).map(function (im, k) {
           return '<div><img src="' + esc(im.src) + '" alt=""><input type="text" data-k="' + k + '" class="cap" value="' + esc(im.cap) + '" placeholder="Légende">' +
             '<div class="row" style="margin-top:6px;gap:6px;flex-wrap:nowrap">' +

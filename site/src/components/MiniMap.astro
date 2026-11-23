@@ -1,8 +1,9 @@
 ---
-// Mini map avec le point de départ (point blanc) et l'arrivée (cible, ou icône de reveal pour Fade).
+// Mini map avec le point de départ (point blanc) et l'arrivée (cible, ou icône de reveal pour Fade et Sova).
 import abilities from '../data/abilities.json';
 const { lineup: l, map: m } = Astro.props;
-const isRev = l.reveal && l.agent === 'Fade';
+const isRev = l.reveal && (l.agent === 'Fade' || l.agent === 'Sova');
+const revIcon = l.agent === 'Sova' ? '/img/icons/sova-reveal.png' : '/img/icons/reveal.png';
 const marks = (l.marks ?? []).filter((k) => k?.p);
 const withOverlay = Boolean(m?.minimap && (l.from || l.to || marks.length));
 const [W, H] = m?.dim ?? [640, 640];
@@ -30,7 +31,7 @@ const caption = marks.length
       <img src={m.minimap} alt={`Mini map ${l.map}`} loading="lazy" />
       <svg viewBox={`0 0 ${W} ${H}`} aria-hidden="true">
         {hasTo && isRev && (
-          <image href="/img/icons/reveal.png" x={X - t * 1.4} y={Y - t * 1.4} width={t * 2.8} height={t * 2.8}
+          <image href={revIcon} x={X - t * 1.4} y={Y - t * 1.4} width={t * 2.8} height={t * 2.8}
             style="filter:drop-shadow(0 0 2px #000) drop-shadow(0 0 1px #000)" />
         )}
         {hasTo && !isRev && (

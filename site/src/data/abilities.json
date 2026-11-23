@@ -68,6 +68,16 @@
     "nanos"
    ],
    "icon": "/img/icons/killjoy-nanoswarm.png"
+  },
+  {
+   "key": "ult",
+   "label": "Ult (Lockdown)",
+   "words": [
+    "ult",
+    "lockdown",
+    "ultime"
+   ],
+   "icon": "/img/icons/killjoy-ult.png"
   }
  ],
  "Deadlock": [
@@ -194,6 +204,89 @@
     "téléporteur"
    ],
    "icon": "/img/icons/veto-tp.png"
+  }
+ ],
+ "Viper": [
+  {
+   "key": "molly",
+   "label": "Molly",
+   "words": [
+    "molly",
+    "snake",
+    "snakebite",
+    "snake bite",
+    "acide"
+   ],
+   "icon": "/img/icons/viper-molly.png"
+  },
+  {
+   "key": "orb",
+   "label": "Orbe",
+   "words": [
+    "orb",
+    "orbe",
+    "poison cloud",
+    "smoke"
+   ],
+   "icon": "/img/icons/viper-orb.png"
+  },
+  {
+   "key": "mur",
+   "label": "Mur",
+   "words": [
+    "mur",
+    "wall",
+    "toxic screen",
+    "screen"
+   ],
+   "icon": "/img/icons/viper-mur.png"
+  }
+ ],
+ "Sova": [
+  {
+   "key": "reveal",
+   "label": "Reveal",
+   "words": [
+    "reveal",
+    "recon",
+    "recon bolt",
+    "flèche"
+   ],
+   "icon": "/img/icons/sova-reveal.png"
+  },
+  {
+   "key": "shock",
+   "label": "Shock dart",
+   "words": [
+    "shock",
+    "shock dart",
+    "dart",
+    "dard"
+   ],
+   "icon": "/img/icons/sova-shock.png"
+  }
+ ],
+ "Yoru": [
+  {
+   "key": "tp",
+   "label": "TP",
+   "words": [
+    "tp",
+    "tp",
+    "gatecrash",
+    "teleport",
+    "téléport"
+   ],
+   "icon": "/img/icons/yoru-tp.png"
+  },
+  {
+   "key": "flash",
+   "label": "Flash",
+   "words": [
+    "flash",
+    "blindside"
+   ],
+   "icon": "/img/icons/yoru-flash.png"
   }
  ]
 }
