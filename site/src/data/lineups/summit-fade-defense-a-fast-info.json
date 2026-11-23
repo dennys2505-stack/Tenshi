@@ -4,15 +4,11 @@
   "map": "Summit",
   "agent": "Fade",
   "side": "Défense",
-  "site": "A",
+  "site": "B",
   "title": "Defense A fast info",
   "notes": [],
-  "reveal": false,
+  "reveal": true,
   "images": [
-    {
-      "src": "/img/lineups/6637cb49b40f.jpg",
-      "cap": ""
-    },
     {
       "src": "/img/lineups/87c7b785dea7.jpg",
       "cap": ""
@@ -20,21 +16,21 @@
     {
       "src": "/img/lineups/cc5528ed7fd9c.jpg",
       "cap": ""
-    },
-    {
-      "src": "/img/lineups/c2bb89d62a59c.jpg",
-      "cap": ""
     }
   ],
-  "from": null,
+  "from": [
+    0.22,
+    0.303
+  ],
   "to": [
-    0.918,
-    0.429
+    0.263,
+    0.446
   ],
   "video": "https://www.instagram.com/reel/DbI3h9_tfmR/?igsh=MThseHl1ejMxMGxvYQ==",
   "credit": "",
   "auto": true,
   "source": {
     "message": "1530172192455655426"
-  }
+  },
+  "checked": true
 }
