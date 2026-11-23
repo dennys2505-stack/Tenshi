@@ -1,1 +1,1 @@
-{ "task": "import", "limit": 0, "dry": true }
+{ "task": "montage", "dense": [0, 64, 2] }

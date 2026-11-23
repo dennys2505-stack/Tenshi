@@ -65,10 +65,22 @@ export default async function montage({ log, rep, job }) {
   const r = await discord(`/channels/${chan.id}/messages?limit=20`);
   if (r.status !== 200) throw new Error(`lecture du salon refusée (${r.status}) : donner au bot « Voir le salon » + « Lire l’historique »`);
   const msgs = r.data.filter((m) => !m.author?.bot);
+  // Heure d'un clip Medal (nom « MedalTVValorantAAAAMMJJhhmmss… », heure de Bruxelles) → Date.
+  const clipTime = (name) => {
+    const m = name.match(/(20\d{2})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})/);
+    if (!m) return null;
+    const asUtc = Date.UTC(+m[1], m[2] - 1, +m[3], +m[4], +m[5], +m[6]);
+    const tz = new Date(asUtc).toLocaleString('en-US', { timeZone: 'Europe/Brussels', hour12: false });
+    const off = new Date(tz + ' UTC').getTime() - asUtc; // décalage de Bruxelles à cette date
+    return new Date(asUtc - off);
+  };
   const driveFile = job.file ? driveFiles.find((f) => f.name === job.file) || driveFiles.find((f) => f.name.startsWith(job.file)) : null;
   if (job.file && !driveFile) throw new Error(`clip « ${job.file} » introuvable dans le dossier Drive`);
+  const hasVideo = (m) => (m.attachments || []).some((a) => /^video\//.test(a.content_type || '') || /\.(mp4|mov|webm|mkv)$/i.test(a.filename)) || DRIVE_RE.test(m.content || '');
+  // Sans lien ni fichier : le clip Drive le plus récent enregistré avant le message.
+  const autoClip = (m) => driveFiles.map((f) => ({ ...f, t: clipTime(f.name) })).filter((f) => f.t && f.t <= new Date(new Date(m.timestamp).getTime() + 60_000)).sort((a, b) => b.t - a.t)[0];
   const pick = msgs.find((m) => (job.message ? m.id === job.message : true) &&
-    (driveFile || (m.attachments || []).some((a) => /^video\//.test(a.content_type || '') || /\.(mp4|mov|webm|mkv)$/i.test(a.filename)) || DRIVE_RE.test(m.content || '')));
+    (driveFile || (!hasVideo(m) && autoClip(m)) || (m.attachments || []).some((a) => /^video\//.test(a.content_type || '') || /\.(mp4|mov|webm|mkv)$/i.test(a.filename)) || DRIVE_RE.test(m.content || '')));
   rep(`## Montage — étape 1 : récupération\n`);
   rep(`- Salon : #${chan.name} — ${msgs.length} message(s) lus`);
   if (!pick) { rep('- Aucune vidéo (fichier ou lien Drive) trouvée.'); return; }
@@ -80,6 +92,7 @@ export default async function montage({ log, rep, job }) {
   const att = (pick.attachments || []).find((a) => /^video\//.test(a.content_type || '') || /\.(mp4|mov|webm|mkv)$/i.test(a.filename));
   let how;
   if (att) { const b = await fetch(att.url); fs.writeFileSync(v, Buffer.from(await b.arrayBuffer())); how = 'fichier Discord'; }
+  else if (!driveFile && !DRIVE_RE.test(pick.content || '') && autoClip(pick)) { const f = autoClip(pick); how = `dossier Drive, clip le plus proche (${f.name})`; await downloadDrive(`https://drive.google.com/file/d/${f.id}/view`, v, log); }
   else if (driveFile) { how = `dossier Drive (${driveFile.name})`; await downloadDrive(`https://drive.google.com/file/d/${driveFile.id}/view`, v, log); }
   else how = await downloadDrive((pick.content || '').match(DRIVE_RE)[0], v, log);
   const mb = (fs.statSync(v).size / 1e6).toFixed(1);
