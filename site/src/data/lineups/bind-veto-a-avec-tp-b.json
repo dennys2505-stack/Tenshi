@@ -3,38 +3,47 @@
   "num": 119,
   "map": "Bind",
   "agent": "Veto",
-  "side": "À classer",
-  "site": "A",
+  "side": "Défense",
+  "site": "A et B",
   "title": "A avec tp B",
   "notes": [],
   "reveal": false,
-  "images": [
-    {
-      "src": "/img/lineups/68f62eddadd4.jpg",
-      "cap": ""
-    },
-    {
-      "src": "/img/lineups/9f4015b391e8.jpg",
-      "cap": ""
-    },
-    {
-      "src": "/img/lineups/9a239cfcb23c.jpg",
-      "cap": ""
-    },
-    {
-      "src": "/img/lineups/1e2cc511b3be.jpg",
-      "cap": ""
-    }
-  ],
-  "from": null,
-  "to": [
-    0.603,
-    0.397
-  ],
+  "images": [],
   "video": "https://www.instagram.com/reel/DW9aOQlCMgQ/?igsh=MTdrN29hdmJyZ3V5",
   "credit": "",
   "auto": true,
   "source": {
     "message": "1492412447401709648"
-  }
+  },
+  "marks": [
+    {
+      "t": "tp",
+      "p": [
+        0.453,
+        0.209
+      ]
+    },
+    {
+      "t": "tp",
+      "p": [
+        0.34,
+        0.359
+      ]
+    },
+    {
+      "t": "trap",
+      "p": [
+        0.804,
+        0.39
+      ]
+    },
+    {
+      "t": "intercepteur",
+      "p": [
+        0.601,
+        0.372
+      ]
+    }
+  ],
+  "checked": true
 }
