@@ -4,6 +4,8 @@ import abilities from '../data/abilities.json';
 const { lineup: l, map: m } = Astro.props;
 const isRev = l.reveal && (l.agent === 'Fade' || l.agent === 'Sova');
 const revIcon = l.agent === 'Sova' ? '/img/icons/sova-reveal.png' : '/img/icons/reveal.png';
+// Brimstone : l'arrivée est dessinée comme une molly en feu.
+const isMolly = !isRev && l.agent === 'Brimstone';
 const marks = (l.marks ?? []).filter((k) => k?.p);
 const withOverlay = Boolean(m?.minimap && (l.from || l.to || marks.length));
 const [W, H] = m?.dim ?? [640, 640];
@@ -23,6 +25,8 @@ const caption = marks.length
   ? `Mini map : ${used.map((k) => NOM[k]).join(', ')}${l.from ? ` · point = position de ${l.agent}` : ''}`
   : isRev
   ? 'Mini map : point = départ, icône = zone de retombée de la reveal'
+  : isMolly
+  ? 'Mini map : point = départ, feu = arrivée de la molly'
   : 'Mini map : point = départ, cible = arrivée';
 ---
 {withOverlay && (
@@ -34,7 +38,10 @@ const caption = marks.length
           <image href={revIcon} x={X - t * 1.4} y={Y - t * 1.4} width={t * 2.8} height={t * 2.8}
             style="filter:drop-shadow(0 0 2px #000) drop-shadow(0 0 1px #000)" />
         )}
-        {hasTo && !isRev && (
+        {hasTo && isMolly && (
+          <image href="/img/icons/brimstone-molly.png" x={X - t * 1.8} y={Y - t * 1.8} width={t * 3.6} height={t * 3.6} />
+        )}
+        {hasTo && !isRev && !isMolly && (
           <>
             <circle cx={X} cy={Y} r={t} fill="none" stroke="#111" stroke-width={s * 2.6} />
             <circle cx={X} cy={Y} r={t} fill="none" stroke="#fff" stroke-width={s * 1.2} />
