@@ -6,7 +6,9 @@
   "side": "Attaque",
   "site": "C",
   "title": "Shock dart anti cypher trappe C",
-  "notes": [],
+  "notes": [
+    "1 charge et demi"
+  ],
   "reveal": false,
   "images": [
     {
@@ -16,21 +18,27 @@
     {
       "src": "/img/lineups/2395388a6a71u.jpg",
       "cap": ""
-    },
-    {
-      "src": "/img/lineups/bf6b7a31f35au.jpg",
-      "cap": ""
     }
   ],
-  "from": null,
-  "to": [
-    0.359,
-    0.856
+  "from": [
+    0.713,
+    0.815
   ],
   "video": "https://www.instagram.com/reel/DV3gLpKDCot/?igsh=amk3ZGo2OTUzNzA=",
   "credit": "",
   "auto": true,
   "source": {
     "message": "1482511760429678792"
-  }
+  },
+  "ability": "shock",
+  "checked": true,
+  "marks": [
+    {
+      "t": "shock",
+      "p": [
+        0.505,
+        0.879
+      ]
+    }
+  ]
 }
