@@ -5,7 +5,7 @@ import abilities from '../../data/abilities.json';
 const boot = {
   abilities: abilities,
     items: lineups.map((l) => ({ id: l.id, num: l.num ?? 0, map: l.map, agent: l.agent, title: l.title, side: l.side, hidden: !!l.hidden, checked: !!l.checked })),
-  maps: maps.map((m) => ({ name: m.name, minimap: m.minimap, dim: m.dim })),
+  maps: maps.map((m) => ({ name: m.name, minimap: m.minimap, dim: m.dim, pool: !!m.pool })),
   agents: agents.map((a) => a.name),
 };
 ---
@@ -47,6 +47,19 @@ const boot = {
   (function () {
     var REPO = 'dennys2505-stack/Tenshi', BR = 'main', DIR = 'site/src/data/lineups', IMG = 'site/public/img/lineups';
     var boot = JSON.parse(document.getElementById('boot').textContent);
+    // Ordre des listes : maps du map pool compétitif d'abord, puis les autres ; ordre alphabétique dans
+    // chaque groupe ; puis agents par numéro d'agent (VALORANT Protocol) ; puis numéro de line up.
+    var AGENT_NO = { 'Brimstone': 1, 'Viper': 2, 'Omen': 3, 'Killjoy': 4, 'Cypher': 5, 'Sova': 6, 'Sage': 7, 'Phoenix': 9, 'Jett': 10, 'Reyna': 11, 'Raze': 12, 'Breach': 13, 'Skye': 14, 'Yoru': 15, 'Astra': 16, 'KAY/O': 17, 'Chamber': 18, 'Neon': 19, 'Fade': 20, 'Harbor': 21, 'Gekko': 22, 'Deadlock': 23, 'Iso': 24, 'Clove': 25, 'Vyse': 26, 'Tejo': 27, 'Waylay': 28, 'Veto': 29, 'Miks': 30, 'Hush': 31 };
+    var POOL = {}; boot.maps.forEach(function (m) { POOL[m.name] = m.pool; });
+    function ordre(a, b) {
+      var pa = POOL[a.map] ? 0 : 1, pb = POOL[b.map] ? 0 : 1;
+      if (pa !== pb) return pa - pb;
+      var m = String(a.map || '').localeCompare(String(b.map || ''), 'fr');
+      if (m) return m;
+      var ga = AGENT_NO[a.agent] || 99, gb = AGENT_NO[b.agent] || 99;
+      if (ga !== gb) return ga - gb;
+      return (a.num || 0) - (b.num || 0);
+    }
     var items = boot.items.slice();
     var tok = ''; try { tok = localStorage.getItem('tenshi_gh') || ''; } catch (e) {}
     var app = document.getElementById('app');
@@ -122,7 +135,7 @@ const boot = {
       var tests = { toutes: function () { return true; }, averifier: function (i) { return !i.checked && !i.hidden; }, cachees: function (i) { return i.hidden; }, verifiees: function (i) { return i.checked; } };
       var nb = function (k) { return items.filter(tests[k]).length; };
       var list = items.filter(function (i) { return tests[vue](i) && (!q || (i.num + ' ' + i.map + ' ' + i.agent + ' ' + i.title).toLowerCase().indexOf(q) >= 0); })
-        .sort(function (a, b) { return a.num - b.num; });
+        .sort(ordre);
       var chip = function (k, t) { return '<button class="b' + (vue === k ? ' p' : '') + '" data-vue="' + k + '">' + t + ' (' + nb(k) + ')</button>'; };
       app.innerHTML = '<div class="adm"><h1>Admin</h1>' + msgHtml() +
         '<div class="row"><a class="b p" href="/" style="text-decoration:none">← Voir le site (avec les numéros)</a><a class="b" href="/coulisses/" style="text-decoration:none">🙈 Coulisses</a></div>' +
@@ -163,7 +176,7 @@ const boot = {
     // Les set up de défense restent hors de la vérification rapide pour l'instant (format encore à définir).
     function isDefSetup(i) { return i.side === 'Défense' && /set ?up/i.test(i.title || ''); }
     function startQuick() {
-      qList = items.filter(function (i) { return !i.checked && !i.hidden && !isDefSetup(i); }).sort(function (a, b) { return a.num - b.num; }).map(function (i) { return i.id; });
+      qList = items.filter(function (i) { return !i.checked && !i.hidden && !isDefSetup(i); }).sort(ordre).map(function (i) { return i.id; });
       qi = 0; showQuick();
     }
     async function showQuick() {
