@@ -10,23 +10,14 @@
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/41c996fd6ac9u.jpg",
+      "src": "/img/lineups/ed168723c084u.jpg",
       "cap": ""
     },
     {
       "src": "/img/lineups/b7736625e489u.jpg",
       "cap": ""
-    },
-    {
-      "src": "/img/lineups/6185739e5f95u.jpg",
-      "cap": ""
-    },
-    {
-      "src": "/img/lineups/ed168723c084u.jpg",
-      "cap": ""
     }
   ],
-  "from": null,
   "to": [
     0.144,
     0.412
@@ -36,5 +27,36 @@
   "auto": true,
   "source": {
     "message": "1507008766497783868"
-  }
+  },
+  "checked": true,
+  "marks": [
+    {
+      "t": "flash",
+      "p": [
+        0.111,
+        0.441
+      ]
+    },
+    {
+      "t": "mur",
+      "p": [
+        0.189,
+        0.543
+      ]
+    },
+    {
+      "t": "ronces",
+      "p": [
+        0.163,
+        0.481
+      ]
+    },
+    {
+      "t": "ronces",
+      "p": [
+        0.12,
+        0.558
+      ]
+    }
+  ]
 }
