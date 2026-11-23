@@ -9,34 +9,27 @@
   "notes": [
     "Depuis A Main"
   ],
-  "reveal": false,
+  "reveal": true,
   "images": [
-    {
-      "src": "/img/lineups/80879134e4f5u.jpg",
-      "cap": ""
-    },
     {
       "src": "/img/lineups/b919f91c38b3u.jpg",
       "cap": ""
-    },
-    {
-      "src": "/img/lineups/2e9cc8ff2997u.jpg",
-      "cap": ""
-    },
-    {
-      "src": "/img/lineups/04f6d55b7ad2u.jpg",
-      "cap": ""
     }
   ],
-  "from": null,
+  "from": [
+    0.426,
+    0.044
+  ],
   "to": [
-    0.364,
-    0.165
+    0.618,
+    0.337
   ],
   "video": "https://www.instagram.com/reel/DVOft_fCFU0/?igsh=b2hyZmMxYXY0b3ho",
   "credit": "",
   "auto": true,
   "source": {
     "message": "1482488350018634003"
-  }
+  },
+  "ability": "reveal",
+  "checked": true
 }
