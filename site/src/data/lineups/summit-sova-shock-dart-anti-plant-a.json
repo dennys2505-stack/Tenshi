@@ -1,0 +1,29 @@
+{
+  "id": "summit-sova-shock-dart-anti-plant-a",
+  "num": 225,
+  "map": "Summit",
+  "agent": "Sova",
+  "side": "Défense",
+  "site": "A",
+  "title": "shock dart anti plant A",
+  "notes": [],
+  "reveal": false,
+  "images": [],
+  "from": [
+    0.859,
+    0.262
+  ],
+  "video": "https://www.instagram.com/reel/De519v-AMTo/?rpxt=MWZtZmljdnhsN2lwNg==",
+  "credit": "",
+  "checked": true,
+  "marks": [
+    {
+      "t": "shock",
+      "p": [
+        0.891,
+        0.435
+      ]
+    }
+  ],
+  "ability": "shock"
+}
