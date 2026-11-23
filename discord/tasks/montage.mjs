@@ -57,7 +57,7 @@ export default async function montage({ log, rep, job }) {
       const ls = await run('python3', [new URL('../tools/drive_list.py', import.meta.url).pathname], { timeout: 120_000, maxBuffer: 1 << 24 });
       driveFiles = JSON.parse(ls.stdout.trim().split('\n').pop() || '[]').sort((a, b) => a.name.localeCompare(b.name));
       rep(`- Dossier Drive : ${driveFiles.length} vidéo(s)`);
-      if (!driveFiles.length && ls.stderr) rep(`  (détail : ${ls.stderr.trim().slice(0, 600)})`);
+      if (ls.stderr) rep(`  (détail : ${ls.stderr.trim().slice(0, 600)})`);
       for (const [i, f] of driveFiles.entries()) rep(`  ${i + 1}. ${f.name}`);
     } catch (e) { rep(`- Dossier Drive illisible : ${String(e.stderr || e.message).split('\n').filter(Boolean).pop()}`); }
     if (job.list) return;

@@ -9,9 +9,10 @@ if not url:
 buf = io.StringIO()
 with contextlib.redirect_stdout(buf), contextlib.redirect_stderr(buf):
     files = gdown.download_folder(url=url, skip_download=True, quiet=True, use_cookies=False) or []
-if not files:
+if True:
     import re
     msg = re.sub(r'[\w-]{25,}', '<id>', buf.getvalue())[-600:]
     print(msg.replace('\n', ' | '), file=sys.stderr)
+print(f'fichiers vus (tous types) : {len(files)} ' + ', '.join(os.path.basename(f.path) for f in files)[:400], file=sys.stderr)
 out = [{'id': f.id, 'name': os.path.basename(f.path)} for f in files if f.path.lower().endswith(('.mp4', '.mov', '.mkv', '.webm'))]
 print(json.dumps(out, ensure_ascii=False))
