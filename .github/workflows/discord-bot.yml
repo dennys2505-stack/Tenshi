@@ -24,11 +24,12 @@ jobs:
       - name: Installer ffmpeg (images tirées des vidéos)
         run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg tesseract-ocr fonts-dejavu-core
       - name: Installer yt-dlp (téléchargement de vidéos)
-        run: pip install -q -U yt-dlp numpy scipy pillow
+        run: pip install -q -U yt-dlp numpy scipy pillow gdown
       - name: Exécuter la tâche (discord/job.json)
         env:
           DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          DRIVE_FOLDER: ${{ secrets.DRIVE_FOLDER }}
         run: node discord/main.mjs
       - name: Enregistrer les line ups créées sur le site (branche main)
         if: success()

@@ -5,7 +5,7 @@ import fs from 'fs';
 const job = JSON.parse(fs.readFileSync(new URL('./job.json', import.meta.url), 'utf8'));
 fs.mkdirSync('out', { recursive: true });
 
-const secrets = [process.env.DISCORD_TOKEN, process.env.GEMINI_API_KEY].filter((s) => s && s.length > 8);
+const secrets = [process.env.DISCORD_TOKEN, process.env.GEMINI_API_KEY, process.env.DRIVE_FOLDER, (process.env.DRIVE_FOLDER || '').match(/[\w-]{25,}/)?.[0]].filter((s) => s && s.length > 8);
 const scrub = (s) => secrets.reduce((acc, sec) => acc.split(sec).join('***'), String(s));
 const lines = [], report = [];
 const log = (...a) => { const s = scrub(a.join(' ')); console.log(s); lines.push(s); };

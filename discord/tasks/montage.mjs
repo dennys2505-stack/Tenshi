@@ -50,11 +50,24 @@ export default async function montage({ log, rep, job }) {
     rep(`- Nettoyage du fil ${job.cleanup} : ${n} message(s) du bot supprimé(s), fil ${del.status < 300 ? 'supprimé' : 'gardé (' + del.status + ')'}`);
     if (!job.render && !job.at && !job.dense) return;
   }
+  // Dossier Drive (secret DRIVE_FOLDER) : liste des clips ; param « file » = nom (ou début du nom) du clip à monter.
+  let driveFiles = [];
+  if (process.env.DRIVE_FOLDER) {
+    try {
+      const ls = await run('python3', [new URL('../tools/drive_list.py', import.meta.url).pathname], { timeout: 120_000, maxBuffer: 1 << 24 });
+      driveFiles = JSON.parse(ls.stdout.trim().split('\n').pop() || '[]').sort((a, b) => a.name.localeCompare(b.name));
+      rep(`- Dossier Drive : ${driveFiles.length} vidéo(s)`);
+      for (const [i, f] of driveFiles.entries()) rep(`  ${i + 1}. ${f.name}`);
+    } catch (e) { rep(`- Dossier Drive illisible : ${String(e.stderr || e.message).split('\n').filter(Boolean).pop()}`); }
+    if (job.list) return;
+  }
   const r = await discord(`/channels/${chan.id}/messages?limit=20`);
   if (r.status !== 200) throw new Error(`lecture du salon refusée (${r.status}) : donner au bot « Voir le salon » + « Lire l’historique »`);
   const msgs = r.data.filter((m) => !m.author?.bot);
+  const driveFile = job.file ? driveFiles.find((f) => f.name === job.file) || driveFiles.find((f) => f.name.startsWith(job.file)) : null;
+  if (job.file && !driveFile) throw new Error(`clip « ${job.file} » introuvable dans le dossier Drive`);
   const pick = msgs.find((m) => (job.message ? m.id === job.message : true) &&
-    ((m.attachments || []).some((a) => /^video\//.test(a.content_type || '') || /\.(mp4|mov|webm|mkv)$/i.test(a.filename)) || DRIVE_RE.test(m.content || '')));
+    (driveFile || (m.attachments || []).some((a) => /^video\//.test(a.content_type || '') || /\.(mp4|mov|webm|mkv)$/i.test(a.filename)) || DRIVE_RE.test(m.content || '')));
   rep(`## Montage — étape 1 : récupération\n`);
   rep(`- Salon : #${chan.name} — ${msgs.length} message(s) lus`);
   if (!pick) { rep('- Aucune vidéo (fichier ou lien Drive) trouvée.'); return; }
@@ -66,6 +79,7 @@ export default async function montage({ log, rep, job }) {
   const att = (pick.attachments || []).find((a) => /^video\//.test(a.content_type || '') || /\.(mp4|mov|webm|mkv)$/i.test(a.filename));
   let how;
   if (att) { const b = await fetch(att.url); fs.writeFileSync(v, Buffer.from(await b.arrayBuffer())); how = 'fichier Discord'; }
+  else if (driveFile) { how = `dossier Drive (${driveFile.name})`; await downloadDrive(`https://drive.google.com/file/d/${driveFile.id}/view`, v, log); }
   else how = await downloadDrive((pick.content || '').match(DRIVE_RE)[0], v, log);
   const mb = (fs.statSync(v).size / 1e6).toFixed(1);
   const info = JSON.parse((await run('ffprobe', ['-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=width,height,r_frame_rate:format=duration', '-of', 'json', v])).stdout);
