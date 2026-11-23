@@ -6,9 +6,20 @@
   "side": "Défense",
   "site": "A",
   "title": "shock dart anti plant A",
-  "notes": [],
+  "notes": [
+    "Full charge 2 rebond"
+  ],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/05c1758c70e2.jpg",
+      "cap": "Repère de visée"
+    },
+    {
+      "src": "/img/lineups/7b241656e81b.jpg",
+      "cap": "Repère de visée"
+    }
+  ],
   "from": [
     0.859,
     0.262
