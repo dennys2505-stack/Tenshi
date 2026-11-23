@@ -12,25 +12,21 @@
     {
       "src": "/img/lineups/7c572a03d8ceu.jpg",
       "cap": ""
-    },
-    {
-      "src": "/img/lineups/e0dd5ae4a824u.jpg",
-      "cap": ""
-    },
-    {
-      "src": "/img/lineups/f8e1f1853773u.jpg",
-      "cap": ""
     }
   ],
-  "from": null,
+  "from": [
+    0.351,
+    0.324
+  ],
   "to": [
-    0.364,
-    0.165
+    0.577,
+    0.048
   ],
   "video": "https://www.instagram.com/reel/DV1RUSwCP_Y/?igsh=eW43aWRtejZxNHUw",
   "credit": "",
   "auto": true,
   "source": {
     "message": "1488280334406652007"
-  }
+  },
+  "checked": true
 }
