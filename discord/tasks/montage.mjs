@@ -39,6 +39,17 @@ export default async function montage({ log, rep, job }) {
     chan = ch.find((c) => norm(c.name) === CHANNEL) || chan;
   }
   if (!chan) throw new Error('salon « video-line-up-a-monter » introuvable ou invisible pour le bot (vérifier qu’il est ajouté au salon privé)');
+  // Nettoyage : supprime les messages du bot dans le fil d'un message (param « cleanup » = id du message).
+  if (job.cleanup) {
+    const me = (await discord('/users/@me')).data.id;
+    const tm = await discord(`/channels/${job.cleanup}/messages?limit=50`);
+    let n = 0;
+    for (const m of tm.status === 200 ? tm.data : []) if (m.author?.id === me) { const d = await discord(`/channels/${job.cleanup}/messages/${m.id}`, { method: 'DELETE' }); if (d.status < 300) n++; }
+    const del = await discord(`/channels/${job.cleanup}`, { method: 'DELETE' });
+    await discord(`/channels/${chan.id}/messages/${job.cleanup}/reactions/${encodeURIComponent('🎬')}/@me`, { method: 'DELETE' });
+    rep(`- Nettoyage du fil ${job.cleanup} : ${n} message(s) du bot supprimé(s), fil ${del.status < 300 ? 'supprimé' : 'gardé (' + del.status + ')'}`);
+    if (!job.render && !job.at && !job.dense) return;
+  }
   const r = await discord(`/channels/${chan.id}/messages?limit=20`);
   if (r.status !== 200) throw new Error(`lecture du salon refusée (${r.status}) : donner au bot « Voir le salon » + « Lire l’historique »`);
   const msgs = r.data.filter((m) => !m.author?.bot);
