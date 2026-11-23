@@ -1,1 +1,63 @@
-{ "task": "montage", "at": [3, 5.5, 15, 16, 16.5, 19, 20, 21, 21.3] }
+{
+ "task": "montage",
+ "render": {
+  "title": "Bind · Brimstone",
+  "subtitle": "B default molly · from B Long",
+  "segments": [
+   {
+    "type": "clip",
+    "from": 3.0,
+    "to": 8.5,
+    "label": "Result"
+   },
+   {
+    "type": "clip",
+    "from": 14.5,
+    "to": 17.0,
+    "step": 1,
+    "label": "Stand against the rock by the fountain"
+   },
+   {
+    "type": "clip",
+    "from": 17.0,
+    "to": 20.0,
+    "step": 2,
+    "label": "Aim"
+   },
+   {
+    "type": "freeze",
+    "at": 20.0,
+    "dur": 3.2,
+    "step": 2,
+    "label": "Mouse box touching the red ribbon",
+    "marks": [
+     [
+      912,
+      890,
+      60
+     ]
+    ],
+    "zoom": 2.4
+   },
+   {
+    "type": "clip",
+    "from": 20.0,
+    "to": 23.0,
+    "step": 3,
+    "label": "Throw"
+   },
+   {
+    "type": "clip",
+    "from": 26.0,
+    "to": 30.0,
+    "label": "Result"
+   }
+  ]
+ },
+ "formats": [
+  "horizontal",
+  "vertical"
+ ],
+ "post": true,
+ "postText": "🎬 Test n°3 (Bind · Brimstone · B default depuis B Long) : horizontale puis verticale. Les messages du chat sont effacés."
+}
