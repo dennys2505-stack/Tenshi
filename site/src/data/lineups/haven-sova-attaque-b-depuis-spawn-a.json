@@ -7,7 +7,7 @@
   "site": "B",
   "title": "Attaque B depuis spawn A",
   "notes": [],
-  "reveal": false,
+  "reveal": true,
   "images": [
     {
       "src": "/img/lineups/c02438a25cdc.jpg",
