@@ -152,7 +152,7 @@ def ff(*args):
 
 ENC = ['-c:v', 'libx264', '-preset', 'veryfast', '-crf', '18', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-ar', '48000', '-ac', '2']
 # Efface les messages du chat en bas à gauche (« (Broadcast) … set Ghost to On/Off », jusqu'à 3 lignes).
-CHAT = 'delogo=x=2:y=935:w=478:h=103'
+CHAT = 'delogo=x=2:y=950:w=330:h=88'
 BASE = f'scale={SW}:{SH}:force_original_aspect_ratio=decrease,pad={SW}:{SH}:(ow-iw)/2:(oh-ih)/2,{CHAT},fps={FPS}'
 
 
