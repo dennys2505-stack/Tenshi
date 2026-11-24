@@ -1,0 +1,26 @@
+{
+  "id": "summit-brimstone-b-default-depuis-main",
+  "num": 228,
+  "map": "Summit",
+  "agent": "Brimstone",
+  "side": "Attaque",
+  "site": "B",
+  "title": "B default depuis Main",
+  "notes": [],
+  "reveal": false,
+  "images": [],
+  "from": [
+    0.173,
+    0.493
+  ],
+  "to": [
+    0.155,
+    0.337
+  ],
+  "video": "https://www.instagram.com/reel/DgBKGYBtcGK/?knvt=NzdreHF4OTl6c2Rn",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1574046775751344180"
+  }
+}

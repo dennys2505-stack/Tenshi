@@ -1,0 +1,26 @@
+{
+  "id": "bind-brimstone-b-default-depuis-tp",
+  "num": 226,
+  "map": "Bind",
+  "agent": "Brimstone",
+  "side": "Attaque",
+  "site": "B",
+  "title": "B default depuis tp",
+  "notes": [],
+  "reveal": false,
+  "images": [],
+  "from": [
+    0.415,
+    0.424
+  ],
+  "to": [
+    0.27,
+    0.306
+  ],
+  "video": "https://www.instagram.com/reel/DeZ0KCxNYuF/?jplx=Zjk3aWY0ODE4eGN1",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1574211989226524783"
+  }
+}

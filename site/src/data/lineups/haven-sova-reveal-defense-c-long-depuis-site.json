@@ -1,0 +1,26 @@
+{
+  "id": "haven-sova-reveal-defense-c-long-depuis-site",
+  "num": 227,
+  "map": "Haven",
+  "agent": "Sova",
+  "side": "Défense",
+  "site": "C",
+  "title": "Reveal défense C long depuis site",
+  "notes": [],
+  "reveal": true,
+  "images": [],
+  "from": [
+    0.359,
+    0.856
+  ],
+  "to": [
+    0.751,
+    0.941
+  ],
+  "video": "https://www.instagram.com/reel/DfaOex-uFUc/?avpt=MWo2dnQ5M3FrOG1i",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1574361583709196309"
+  }
+}

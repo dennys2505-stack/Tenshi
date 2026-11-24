@@ -1,0 +1,26 @@
+{
+  "id": "corrode-brimstone-b-default-depuis-main",
+  "num": 230,
+  "map": "Corrode",
+  "agent": "Brimstone",
+  "side": "Attaque",
+  "site": "B",
+  "title": "B default depuis main",
+  "notes": [],
+  "reveal": false,
+  "images": [],
+  "from": [
+    0.604,
+    0.242
+  ],
+  "to": [
+    0.376,
+    0.231
+  ],
+  "video": "https://www.instagram.com/reel/DfBxu95IIR3/?gwpx=NnIzcWZxMmhrY2du",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1574411735677280266"
+  }
+}

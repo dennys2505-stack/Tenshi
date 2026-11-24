@@ -1,0 +1,23 @@
+{
+  "id": "corrode-fade-attaque-reveal-close-a-main",
+  "num": 231,
+  "map": "Corrode",
+  "agent": "Fade",
+  "side": "Attaque",
+  "site": "A",
+  "title": "Attaque reveal close A Main",
+  "notes": [],
+  "reveal": true,
+  "images": [],
+  "from": null,
+  "to": [
+    0.536,
+    0.798
+  ],
+  "video": "https://www.instagram.com/reel/DesK-eUNktj/?hvrq=MTlvZjIxNnZtZnE2Zg==",
+  "credit": "",
+  "auto": true,
+  "source": {
+    "message": "1574245152778879069"
+  }
+}
