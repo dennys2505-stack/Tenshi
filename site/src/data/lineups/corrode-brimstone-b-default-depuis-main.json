@@ -10,20 +10,20 @@
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/5f3fe7ed70ba.jpg",
-      "cap": ""
-    },
-    {
-      "src": "/img/lineups/3dee16ab8b17.jpg",
-      "cap": ""
-    },
-    {
       "src": "/img/lineups/a77a7a7169cb.jpg",
-      "cap": ""
+      "cap": "Position"
     },
     {
       "src": "/img/lineups/2404b1edb52e.jpg",
-      "cap": ""
+      "cap": "Repère de visée"
+    },
+    {
+      "src": "/img/lineups/5f3fe7ed70ba.jpg",
+      "cap": "Lancer"
+    },
+    {
+      "src": "/img/lineups/3dee16ab8b17.jpg",
+      "cap": "Résultat"
     }
   ],
   "from": [

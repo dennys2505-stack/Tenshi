@@ -10,20 +10,16 @@
   "reveal": true,
   "images": [
     {
-      "src": "/img/lineups/601f73b94081.jpg",
-      "cap": ""
+      "src": "/img/lineups/601f73b94081u.jpg",
+      "cap": "Position (vue du dessus)"
     },
     {
-      "src": "/img/lineups/bd7593eb77e0.jpg",
-      "cap": ""
+      "src": "/img/lineups/bd7593eb77e0u.jpg",
+      "cap": "Position"
     },
     {
-      "src": "/img/lineups/e57b67fb3edd.jpg",
-      "cap": ""
-    },
-    {
-      "src": "/img/lineups/7f16627fc344.jpg",
-      "cap": ""
+      "src": "/img/lineups/7f16627fc344u.jpg",
+      "cap": "Repère de visée"
     }
   ],
   "from": null,

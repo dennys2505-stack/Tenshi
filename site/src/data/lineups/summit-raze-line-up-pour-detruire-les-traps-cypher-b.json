@@ -3,27 +3,25 @@
   "num": 229,
   "map": "Summit",
   "agent": "Raze",
-  "side": "À classer",
+  "side": "Attaque",
   "site": "B",
   "title": "Line up pour détruire les traps cypher B",
-  "notes": [],
+  "notes": [
+    "Se fait dès la phase d'achat (round 1 en attaque), pour casser les traps Cypher de B avant d'entrer."
+  ],
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/e7baf27cfa85.jpg",
-      "cap": ""
-    },
-    {
-      "src": "/img/lineups/3992d27ab049.jpg",
-      "cap": ""
-    },
-    {
-      "src": "/img/lineups/ba9c1fcae8f6.jpg",
-      "cap": ""
+      "src": "/img/lineups/ba9c1fcae8f6u.jpg",
+      "cap": "Position"
     },
     {
       "src": "/img/lineups/dc5b04607cd0.jpg",
-      "cap": ""
+      "cap": "Repère de visée"
+    },
+    {
+      "src": "/img/lineups/e7baf27cfa85u.jpg",
+      "cap": "Résultat"
     }
   ],
   "from": null,

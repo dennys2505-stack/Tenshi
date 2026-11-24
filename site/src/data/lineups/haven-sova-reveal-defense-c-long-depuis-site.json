@@ -10,20 +10,16 @@
   "reveal": true,
   "images": [
     {
-      "src": "/img/lineups/18699d8651c2.jpg",
-      "cap": ""
+      "src": "/img/lineups/4810ce1d1496u.jpg",
+      "cap": "Position"
     },
     {
-      "src": "/img/lineups/4810ce1d1496.jpg",
-      "cap": ""
+      "src": "/img/lineups/18699d8651c2u.jpg",
+      "cap": "Repère de visée"
     },
     {
-      "src": "/img/lineups/4a89b89c5047.jpg",
-      "cap": ""
-    },
-    {
-      "src": "/img/lineups/4ee34e9b163e.jpg",
-      "cap": ""
+      "src": "/img/lineups/4a89b89c5047u.jpg",
+      "cap": "Résultat (trajet de la flèche)"
     }
   ],
   "from": [

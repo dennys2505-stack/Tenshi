@@ -10,20 +10,16 @@
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/7ff260725e4e.jpg",
-      "cap": ""
-    },
-    {
-      "src": "/img/lineups/d960af354396.jpg",
-      "cap": ""
-    },
-    {
-      "src": "/img/lineups/2a73bfdac2b6.jpg",
-      "cap": ""
+      "src": "/img/lineups/2a73bfdac2b6u.jpg",
+      "cap": "Position"
     },
     {
       "src": "/img/lineups/9b47c80ea24b.jpg",
-      "cap": ""
+      "cap": "Repère de visée"
+    },
+    {
+      "src": "/img/lineups/7ff260725e4e.jpg",
+      "cap": "Résultat"
     }
   ],
   "from": [
