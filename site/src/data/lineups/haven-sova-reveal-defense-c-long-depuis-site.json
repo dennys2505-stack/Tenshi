@@ -8,7 +8,24 @@
   "title": "Reveal défense C long depuis site",
   "notes": [],
   "reveal": true,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/18699d8651c2.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/4810ce1d1496.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/4a89b89c5047.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/4ee34e9b163e.jpg",
+      "cap": ""
+    }
+  ],
   "from": [
     0.359,
     0.856

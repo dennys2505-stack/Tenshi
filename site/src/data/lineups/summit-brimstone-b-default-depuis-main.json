@@ -8,7 +8,24 @@
   "title": "B default depuis Main",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/f93c952765d0.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/cef866ef3dcb.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/b33ada0029d9.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/0c5064a02f34.jpg",
+      "cap": ""
+    }
+  ],
   "from": [
     0.173,
     0.493

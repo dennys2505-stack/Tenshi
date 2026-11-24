@@ -8,7 +8,24 @@
   "title": "B default depuis tp",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/7ff260725e4e.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/d960af354396.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/2a73bfdac2b6.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/9b47c80ea24b.jpg",
+      "cap": ""
+    }
+  ],
   "from": [
     0.415,
     0.424

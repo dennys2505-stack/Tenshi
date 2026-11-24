@@ -8,7 +8,24 @@
   "title": "Line up pour détruire les traps cypher B",
   "notes": [],
   "reveal": false,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/e7baf27cfa85.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/3992d27ab049.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/ba9c1fcae8f6.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/dc5b04607cd0.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": [
     0.155,

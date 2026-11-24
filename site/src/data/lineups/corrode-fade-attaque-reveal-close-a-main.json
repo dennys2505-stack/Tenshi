@@ -8,7 +8,24 @@
   "title": "Attaque reveal close A Main",
   "notes": [],
   "reveal": true,
-  "images": [],
+  "images": [
+    {
+      "src": "/img/lineups/601f73b94081.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/bd7593eb77e0.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/e57b67fb3edd.jpg",
+      "cap": ""
+    },
+    {
+      "src": "/img/lineups/7f16627fc344.jpg",
+      "cap": ""
+    }
+  ],
   "from": null,
   "to": [
     0.536,
