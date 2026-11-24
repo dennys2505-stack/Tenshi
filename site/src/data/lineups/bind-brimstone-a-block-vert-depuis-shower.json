@@ -12,8 +12,16 @@
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/be0c7a343dda.jpg",
-      "cap": "Repère de visée (accroupi)"
+      "src": "/img/lineups/own-bind-brim-5-position.jpg",
+      "cap": "Position : accroupi aux barils de Bath"
+    },
+    {
+      "src": "/img/lineups/own-bind-brim-5-visee.jpg",
+      "cap": "Repère : viseur dans le trou du plafond"
+    },
+    {
+      "src": "/img/lineups/own-bind-brim-5-resultat.jpg",
+      "cap": "Résultat"
     }
   ],
   "from": [
@@ -26,5 +34,6 @@
   ],
   "video": "https://www.instagram.com/reel/DUXybBgjIKb/",
   "credit": "",
-  "checked": true
+  "checked": true,
+  "own": true
 }

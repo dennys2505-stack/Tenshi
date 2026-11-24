@@ -10,12 +10,16 @@
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/239d7d9552aa.jpg",
-      "cap": "Repère de visée"
+      "src": "/img/lineups/own-bind-brim-3-position.jpg",
+      "cap": "Position : contre le rocher près de la fontaine (B Long)"
     },
     {
-      "src": "/img/lineups/5e154e787649.jpg",
-      "cap": "Position de lancer"
+      "src": "/img/lineups/own-bind-brim-3-visee.jpg",
+      "cap": "Repère : le cadre de la souris touche le ruban rouge"
+    },
+    {
+      "src": "/img/lineups/own-bind-brim-3-resultat.jpg",
+      "cap": "Résultat"
     }
   ],
   "from": [
@@ -28,5 +32,6 @@
   ],
   "video": "https://www.instagram.com/reel/DVDvHcrDemv/",
   "credit": "",
-  "checked": true
+  "checked": true,
+  "own": true
 }

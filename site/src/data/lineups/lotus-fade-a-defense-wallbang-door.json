@@ -10,8 +10,16 @@
   "reveal": true,
   "images": [
     {
-      "src": "/img/lineups/d84f0dfb8356.jpg",
-      "cap": ""
+      "src": "/img/lineups/own-lotus-fade-152-position.jpg",
+      "cap": "Position : contre l'arbre (A Tree)"
+    },
+    {
+      "src": "/img/lineups/own-lotus-fade-152-visee.jpg",
+      "cap": "Repère : viseur au milieu des feuilles"
+    },
+    {
+      "src": "/img/lineups/own-lotus-fade-152-resultat.jpg",
+      "cap": "Résultat"
     }
   ],
   "from": [
@@ -28,5 +36,6 @@
   "source": {
     "message": "1488635232432296066"
   },
-  "checked": true
+  "checked": true,
+  "own": true
 }

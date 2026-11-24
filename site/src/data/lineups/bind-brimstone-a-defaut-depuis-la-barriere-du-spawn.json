@@ -10,8 +10,16 @@
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/d07299b1ff79.jpg",
-      "cap": "Repère de visée"
+      "src": "/img/lineups/own-bind-brim-4-position.jpg",
+      "cap": "Position : contre la caisse du spawn attaquant"
+    },
+    {
+      "src": "/img/lineups/own-bind-brim-4-visee.jpg",
+      "cap": "Repère : pointe de l'icône de la molly sur le bout de la feuille"
+    },
+    {
+      "src": "/img/lineups/own-bind-brim-4-resultat.jpg",
+      "cap": "Résultat"
     }
   ],
   "from": [
@@ -24,5 +32,6 @@
   ],
   "video": "https://www.instagram.com/reel/DTQUWXZjMoC/",
   "credit": "",
-  "checked": true
+  "checked": true,
+  "own": true
 }
