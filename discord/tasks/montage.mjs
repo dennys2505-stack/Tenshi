@@ -79,6 +79,35 @@ export default async function montage({ log, rep, job }) {
   const hasVideo = (m) => (m.attachments || []).some((a) => /^video\//.test(a.content_type || '') || /\.(mp4|mov|webm|mkv)$/i.test(a.filename)) || DRIVE_RE.test(m.content || '');
   // Sans lien ni fichier : le clip Drive le plus récent enregistré avant le message.
   const autoClip = (m) => driveFiles.map((f) => ({ ...f, t: clipTime(f.name) })).filter((f) => f.t && f.t <= new Date(new Date(m.timestamp).getTime() + 60_000)).sort((a, b) => b.t - a.t)[0];
+  // Téléchargement de la vidéo d'un message (fichier joint, lien Drive, clip du dossier Drive).
+  const getVideo = async (m, dest, file = null) => {
+    const a = (m.attachments || []).find((x) => /^video\//.test(x.content_type || '') || /\.(mp4|mov|webm|mkv)$/i.test(x.filename));
+    if (a) { const b = await fetch(a.url); fs.writeFileSync(dest, Buffer.from(await b.arrayBuffer())); return 'fichier Discord'; }
+    if (file) { await downloadDrive(`https://drive.google.com/file/d/${file.id}/view`, dest, log); return `dossier Drive (${file.name})`; }
+    if (DRIVE_RE.test(m.content || '')) return downloadDrive((m.content || '').match(DRIVE_RE)[0], dest, log);
+    const f = autoClip(m);
+    if (f) { await downloadDrive(`https://drive.google.com/file/d/${f.id}/view`, dest, log); return `dossier Drive, clip le plus proche (${f.name})`; }
+    throw new Error(`pas de vidéo pour le message ${m.id}`);
+  };
+  // Images fixes pour le site (param « stills » : [{ message | match, shots: [{ t, name, marks }] }]).
+  if (job.stills) {
+    rep('## Images pour le site\n');
+    fs.mkdirSync('out/stills', { recursive: true });
+    for (const it of job.stills) {
+      const m = msgs.find((x) => (it.message ? x.id === it.message : (x.content || '').toLowerCase().includes(String(it.match).toLowerCase())));
+      if (!m) { rep(`- ❌ message introuvable (${it.message || it.match})`); continue; }
+      const tmpS = fs.mkdtempSync('/tmp/st-'), src = path.join(tmpS, 'source.mp4');
+      try {
+        const how = await getVideo(m, src, it.file ? driveFiles.find((f) => f.name.startsWith(it.file)) : null);
+        for (const sh of it.shots) {
+          const res = await run('python3', [new URL('../tools/still.py', import.meta.url).pathname, src, String(sh.t), `out/stills/${sh.name}`, JSON.stringify(sh.marks || [])]);
+          rep(`- ${sh.name} (${m.id}, ${sh.t} s, ${how}) : ${res.stdout.trim().split(' ').pop()} octets`);
+        }
+      } catch (e) { rep(`- ❌ ${m.id} : ${String(e.stderr || e.message).split('\n').filter(Boolean).pop()}`); }
+      fs.rmSync(tmpS, { recursive: true, force: true });
+    }
+    return;
+  }
   const pick = msgs.find((m) => (job.message ? m.id === job.message : true) &&
     (driveFile || (!hasVideo(m) && autoClip(m)) || (m.attachments || []).some((a) => /^video\//.test(a.content_type || '') || /\.(mp4|mov|webm|mkv)$/i.test(a.filename)) || DRIVE_RE.test(m.content || '')));
   rep(`## Montage — étape 1 : récupération\n`);

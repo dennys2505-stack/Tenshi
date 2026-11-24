@@ -1,1 +1,101 @@
-{ "task": "import", "limit": 0, "dry": true }
+{
+ "task": "montage",
+ "stills": [
+  {
+   "message": "1574489831495573554",
+   "shots": [
+    {
+     "t": 15.0,
+     "name": "own-bind-brim-4-position.jpg"
+    },
+    {
+     "t": 18.5,
+     "name": "own-bind-brim-4-visee.jpg",
+     "marks": [
+      [
+       900,
+       985,
+       50
+      ]
+     ]
+    },
+    {
+     "t": 26.8,
+     "name": "own-bind-brim-4-resultat.jpg"
+    }
+   ]
+  },
+  {
+   "message": "1574491281529245708",
+   "shots": [
+    {
+     "t": 14.0,
+     "name": "own-bind-brim-5-position.jpg"
+    },
+    {
+     "t": 17.4,
+     "name": "own-bind-brim-5-visee.jpg",
+     "marks": [
+      [
+       960,
+       540,
+       60
+      ]
+     ]
+    },
+    {
+     "t": 23.8,
+     "name": "own-bind-brim-5-resultat.jpg"
+    }
+   ]
+  },
+  {
+   "match": "B long",
+   "shots": [
+    {
+     "t": 16.0,
+     "name": "own-bind-brim-3-position.jpg"
+    },
+    {
+     "t": 20.0,
+     "name": "own-bind-brim-3-visee.jpg",
+     "marks": [
+      [
+       912,
+       890,
+       60
+      ]
+     ]
+    },
+    {
+     "t": 6.5,
+     "name": "own-bind-brim-3-resultat.jpg"
+    }
+   ]
+  },
+  {
+   "message": "1574521439619387432",
+   "shots": [
+    {
+     "t": 5.5,
+     "name": "own-lotus-fade-152-position.jpg"
+    },
+    {
+     "t": 10.0,
+     "name": "own-lotus-fade-152-visee.jpg",
+     "marks": [
+      [
+       960,
+       540,
+       60
+      ]
+     ]
+    },
+    {
+     "t": 13.5,
+     "name": "own-lotus-fade-152-resultat.jpg"
+    }
+   ]
+  }
+ ]
+}
