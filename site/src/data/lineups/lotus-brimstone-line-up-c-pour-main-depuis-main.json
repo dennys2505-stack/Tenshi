@@ -10,8 +10,16 @@
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/7d117c6a5964.jpg",
-      "cap": ""
+      "src": "/img/lineups/own-lotus-brim-92-position.jpg",
+      "cap": "Position : dans le coin près de la caisse (C Mound)"
+    },
+    {
+      "src": "/img/lineups/own-lotus-brim-92-visee.jpg",
+      "cap": "Repère : le cadre au-dessus de l'icône de la molly sur le coin de la fenêtre"
+    },
+    {
+      "src": "/img/lineups/own-lotus-brim-92-resultat.jpg",
+      "cap": "Résultat"
     }
   ],
   "from": [
@@ -28,5 +36,7 @@
   "source": {
     "message": "1491506047360303114"
   },
-  "checked": true
+  "checked": true,
+  "own": true,
+  "impact": 6.3
 }

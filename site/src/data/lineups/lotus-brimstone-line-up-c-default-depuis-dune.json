@@ -10,8 +10,16 @@
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/de6417405c83c.jpg",
-      "cap": ""
+      "src": "/img/lineups/own-lotus-brim-64-position.jpg",
+      "cap": "Position : dans le coin près de la caisse (C Mound)"
+    },
+    {
+      "src": "/img/lineups/own-lotus-brim-64-visee.jpg",
+      "cap": "Repère : pointe de la flamme sur le bout de la plante de droite"
+    },
+    {
+      "src": "/img/lineups/own-lotus-brim-64-resultat.jpg",
+      "cap": "Résultat"
     }
   ],
   "from": [
@@ -28,5 +36,7 @@
   "source": {
     "message": "1484289956037001387"
   },
-  "checked": true
+  "checked": true,
+  "own": true,
+  "impact": 5.7
 }

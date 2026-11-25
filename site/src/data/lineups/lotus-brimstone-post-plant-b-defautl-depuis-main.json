@@ -10,8 +10,16 @@
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/bd80c45c45e8.jpg",
-      "cap": ""
+      "src": "/img/lineups/own-lotus-brim-90-position.jpg",
+      "cap": "Position : près de la statue (B Pillars)"
+    },
+    {
+      "src": "/img/lineups/own-lotus-brim-90-visee.jpg",
+      "cap": "Repère : viseur"
+    },
+    {
+      "src": "/img/lineups/own-lotus-brim-90-resultat.jpg",
+      "cap": "Résultat"
     }
   ],
   "from": [
@@ -28,5 +36,6 @@
   "checked": true,
   "source": {
     "message": "1486687417569251348"
-  }
+  },
+  "own": true
 }
