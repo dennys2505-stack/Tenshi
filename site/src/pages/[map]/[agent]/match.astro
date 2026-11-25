@@ -27,7 +27,7 @@ const data = sorted.map((l, i) => {
   const notes = (l.notes ?? []).join(' · ');
   return {
     n: i + 1, id: l.id, side: l.side, site: l.site ?? '', title: l.title,
-    rep: cap1([notes, rep].filter(Boolean).join(' · ') || 'Voir la fiche'),
+    rep: cap1([notes, rep].filter(Boolean).join(' · ')),
     aim: aim?.src ?? '', pos: pos?.src ?? '', impact: l.impact ?? null,
     from: l.from ?? null, to: l.to ?? null,
   };
@@ -58,7 +58,10 @@ html,body{margin:0;height:100%;background:#0b131b;color:#ece8e1;font-family:"Bar
 .ctl button{width:44px;height:40px;border:1.5px solid #3fe0c5;background:transparent;color:#3fe0c5;font:700 22px/1 inherit;cursor:pointer}
 .ctl select{height:40px;max-width:260px;background:#1b2633;color:#ece8e1;border:1.5px solid #3fe0c5;font:600 18px inherit;padding:0 8px;cursor:pointer}
 .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
-.full{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.full{position:absolute;inset:52px 0 0;width:100%;height:calc(100% - 52px);}
+.has-foot .full{top:98px;height:calc(100% - 98px)}
+.full{object-fit:contain;display:block}
+.blur{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(18px) brightness(.45);transform:scale(1.1)}
 .noimg{position:absolute;inset:52px 0 0;display:flex;align-items:center;justify-content:center;text-align:center;color:#a3acb8;font-size:24px;letter-spacing:1px;padding:20px}
 .pos{position:absolute;left:14px;bottom:14px;margin:0;width:24%;min-width:180px;background:rgba(15,25,35,.88);border:1px solid rgba(63,224,197,.5)}
 .pos img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
@@ -73,17 +76,21 @@ html,body{margin:0;height:100%;background:#0b131b;color:#ece8e1;font-family:"Bar
 .lst li{display:flex;align-items:center;gap:10px;font-size:20px;font-weight:600;line-height:1.1}
 .lst .badge{width:30px;height:30px;font-size:16px}
 .lst small{display:block;color:#a3acb8;font-size:15px;letter-spacing:1px;text-transform:uppercase}
-.back{position:fixed;right:8px;bottom:8px;z-index:5;font-size:14px;color:#a3acb8;background:rgba(15,25,35,.8);padding:4px 10px;text-decoration:none;opacity:.5}
-.back:hover{opacity:1;color:#3fe0c5}
+.back{position:fixed;right:8px;bottom:8px;z-index:5;font-size:15px;color:#a3acb8;background:rgba(15,25,35,.85);padding:6px 10px;opacity:.55;display:flex;gap:8px;align-items:center}
+.back:hover,.back:focus-within{opacity:1}
+.back a{color:#3fe0c5;text-decoration:none}
+.back label{display:flex;gap:6px;align-items:center;cursor:pointer}
 </style>
 </head>
 <body>
 <main class="grid" id="grid" aria-label={`Mode match ${agentName} sur ${mapName}`}></main>
-<a class="back" href={back}>Quitter le mode match</a>
+<div class="back"><label><input type="checkbox" id="remember"> Retenir mes cases sur cet appareil</label> · <a href={back}>Quitter le mode match</a></div>
 <script is:inline define:vars={{ data, mapName, agentName, minimap: map?.minimap ?? '', W, H, key }}>
 const values = ['map', ...data.map((l) => String(l.n))];
-let picks;
-try { picks = JSON.parse(localStorage.getItem(key)); } catch (e) {}
+// Choix des cases : gardés pour la session (onglet) ; sur l'appareil seulement si la case « Retenir » est cochée.
+let remember = false, picks;
+try { remember = localStorage.getItem('match:remember') === '1'; } catch (e) {}
+try { picks = JSON.parse((remember ? localStorage : sessionStorage).getItem(key)); } catch (e) {}
 if (!Array.isArray(picks) || picks.length !== 4) picks = [0, 1, 2, 3].map((i) => values[i] ?? 'map');
 picks = picks.map((p) => (values.includes(p) ? p : 'map'));
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -107,15 +114,15 @@ function quad(i) {
   if (!l) {
     return bar + `<div class="mapq">${minimap ? `<div class="mm"><img src="${minimap}" alt="Mini map ${esc(mapName)}">${mapSvg()}</div>` : ''}<ul class="lst">${data.map((x) => `<li><span class="badge">${x.n}</span><span>${esc(x.title)}<small>${esc(tag(x))}</small></span></li>`).join('')}</ul></div>`;
   }
-  const img = l.aim ? `<img class="full" src="${l.aim}" alt="Repère de visée : ${esc(l.title)}">` : `<div class="noimg">Pas encore d'image pour cette line up</div>`;
+  const img = l.aim ? `<img class="blur" src="${l.aim}" alt=""><img class="full" src="${l.aim}" alt="Repère de visée : ${esc(l.title)}">` : `<div class="noimg">Pas encore d'image pour cette line up</div>`;
   const pos = l.pos ? `<figure class="pos"><img src="${l.pos}" alt="Position"><figcaption>POSITION</figcaption></figure>` : '';
   const chrono = l.impact ? `<span class="chrono">⏱ ${String(l.impact).replace('.', ',')} s</span>` : '';
-  return img + bar + pos + `<div class="foot"><span>${esc(l.rep)}</span>${chrono}</div>`;
+  return img + bar + pos + (l.rep || chrono ? `<div class="foot"><span>${esc(l.rep)}</span>${chrono}</div>` : '');
 }
 const grid = document.getElementById('grid');
 function render() {
-  grid.innerHTML = picks.map((_, i) => `<section class="q" aria-label="Case ${i + 1}">${quad(i)}</section>`).join('');
-  try { localStorage.setItem(key, JSON.stringify(picks)); } catch (e) {}
+  grid.innerHTML = picks.map((v, i) => `<section class="q${byN[v] && (byN[v].rep || byN[v].impact) ? ' has-foot' : ''}" aria-label="Case ${i + 1}">${quad(i)}</section>`).join('');
+  try { (remember ? localStorage : sessionStorage).setItem(key, JSON.stringify(picks)); } catch (e) {}
 }
 grid.addEventListener('click', (e) => {
   const b = e.target.closest('button[data-d]');
@@ -128,6 +135,16 @@ grid.addEventListener('change', (e) => {
   const s = e.target.closest('select[data-i]');
   if (!s) return;
   picks[+s.dataset.i] = s.value;
+  render();
+});
+const rem = document.getElementById('remember');
+rem.checked = remember;
+rem.addEventListener('change', () => {
+  remember = rem.checked;
+  try {
+    if (remember) localStorage.setItem('match:remember', '1');
+    else { localStorage.removeItem('match:remember'); Object.keys(localStorage).filter((k) => k.startsWith('match:')).forEach((k) => localStorage.removeItem(k)); }
+  } catch (e) {}
   render();
 });
 render();
