@@ -1,1 +1,58 @@
-{"task":"montage","sheets":["1574958206684373135","1575278035274567853","1575279395571237005","1575280324865294457"],"dense":[0,40,2]}
+{
+ "task": "montage",
+ "message": "1574958206684373135",
+ "render": {
+  "title": "Lotus · Fade",
+  "subtitle": "C Main reveal · from B Site (defense)",
+  "segments": [
+   {
+    "type": "clip",
+    "from": 13.0,
+    "to": 15.5,
+    "label": "Result"
+   },
+   {
+    "type": "clip",
+    "from": 18.5,
+    "to": 21.5,
+    "step": 1,
+    "label": "Stand by the stairs in B Site"
+   },
+   {
+    "type": "clip",
+    "from": 21.5,
+    "to": 23.9,
+    "step": 2,
+    "label": "Aim"
+   },
+   {
+    "type": "freeze",
+    "at": 23.9,
+    "dur": 2.6,
+    "step": 2,
+    "label": "Crosshair",
+    "marks": [
+     [
+      960,
+      540,
+      60
+     ]
+    ],
+    "zoom": 2.2
+   },
+   {
+    "type": "clip",
+    "from": 23.9,
+    "to": 28.5,
+    "step": 3,
+    "label": "Throw"
+   }
+  ]
+ },
+ "formats": [
+  "horizontal",
+  "vertical"
+ ],
+ "post": true,
+ "postText": "🎬 Lotus · Fade · C Main reveal · from B Site (defense)"
+}
