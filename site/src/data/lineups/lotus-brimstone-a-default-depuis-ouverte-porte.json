@@ -10,12 +10,16 @@
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/356c153448f1.jpg",
-      "cap": ""
+      "src": "/img/lineups/own-lotus-brim-65-position.jpg",
+      "cap": "Position : près de la porte (A Door)"
     },
     {
-      "src": "/img/lineups/1f0eb9feded4.jpg",
-      "cap": ""
+      "src": "/img/lineups/own-lotus-brim-65-visee.jpg",
+      "cap": "Repère : petite boule sous l'icône de la molly sur le recoin au-dessus de la porte"
+    },
+    {
+      "src": "/img/lineups/own-lotus-brim-65-resultat.jpg",
+      "cap": "Résultat"
     }
   ],
   "from": [
@@ -32,5 +36,7 @@
   "source": {
     "message": "1506994572260282578"
   },
-  "checked": true
+  "checked": true,
+  "own": true,
+  "impact": 6.0
 }

@@ -10,12 +10,16 @@
   "reveal": true,
   "images": [
     {
-      "src": "/img/lineups/99cd7c2034ceu.jpg",
-      "cap": ""
+      "src": "/img/lineups/own-lotus-fade-157-position.jpg",
+      "cap": "Position : contre le mur dans A Main"
     },
     {
-      "src": "/img/lineups/6158a84caa62.jpg",
-      "cap": "Repère de visée"
+      "src": "/img/lineups/own-lotus-fade-157-visee.jpg",
+      "cap": "Repère : viseur, juste à côté de la plante"
+    },
+    {
+      "src": "/img/lineups/own-lotus-fade-157-resultat.jpg",
+      "cap": "Résultat"
     }
   ],
   "from": [
@@ -32,5 +36,6 @@
   "source": {
     "message": "1506036463790198815"
   },
-  "checked": true
+  "checked": true,
+  "own": true
 }

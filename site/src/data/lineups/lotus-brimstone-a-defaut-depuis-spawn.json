@@ -10,8 +10,16 @@
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/e8a8ac3fd371.jpg",
-      "cap": ""
+      "src": "/img/lineups/own-lotus-brim-91-position.jpg",
+      "cap": "Position : contre le mur dans A Root"
+    },
+    {
+      "src": "/img/lineups/own-lotus-brim-91-visee.jpg",
+      "cap": "Repère : bout de l'icône de la molly sur le bout des plantes"
+    },
+    {
+      "src": "/img/lineups/own-lotus-brim-91-resultat.jpg",
+      "cap": "Résultat"
     }
   ],
   "from": [
@@ -28,5 +36,7 @@
   "checked": true,
   "source": {
     "message": "1490747783458717726"
-  }
+  },
+  "own": true,
+  "impact": 7.0
 }

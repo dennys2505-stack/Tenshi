@@ -10,8 +10,16 @@
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/993d4756d01dc.jpg",
-      "cap": ""
+      "src": "/img/lineups/own-lotus-brim-63-position.jpg",
+      "cap": "Position : près de la porte cassable (A Link)"
+    },
+    {
+      "src": "/img/lineups/own-lotus-brim-63-visee.jpg",
+      "cap": "Repère : viseur"
+    },
+    {
+      "src": "/img/lineups/own-lotus-brim-63-resultat.jpg",
+      "cap": "Résultat"
     }
   ],
   "from": [
@@ -28,5 +36,7 @@
   "source": {
     "message": "1484263733827211274"
   },
-  "checked": true
+  "checked": true,
+  "own": true,
+  "impact": 2.0
 }

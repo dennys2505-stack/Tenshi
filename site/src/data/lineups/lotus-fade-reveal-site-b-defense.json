@@ -10,8 +10,16 @@
   "reveal": true,
   "images": [
     {
-      "src": "/img/lineups/d0b0b0a14318u.jpg",
-      "cap": ""
+      "src": "/img/lineups/own-lotus-fade-156-position.jpg",
+      "cap": "Position : près de la fenêtre dans A Link"
+    },
+    {
+      "src": "/img/lineups/own-lotus-fade-156-visee.jpg",
+      "cap": "Repère : viseur"
+    },
+    {
+      "src": "/img/lineups/own-lotus-fade-156-resultat.jpg",
+      "cap": "Résultat"
     }
   ],
   "from": [
@@ -28,5 +36,6 @@
   "source": {
     "message": "1493692630347939850"
   },
-  "checked": true
+  "checked": true,
+  "own": true
 }
