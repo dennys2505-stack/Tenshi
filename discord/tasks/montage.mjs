@@ -73,7 +73,7 @@ export default async function montage({ log, rep, job }) {
     }
     return;
   }
-  const r = await discord(`/channels/${chan.id}/messages?limit=20`);
+  const r = await discord(`/channels/${chan.id}/messages?limit=100`);
   if (r.status !== 200) throw new Error(`lecture du salon refusée (${r.status}) : donner au bot « Voir le salon » + « Lire l’historique »`);
   const msgs = r.data.filter((m) => !m.author?.bot);
   // Heure d'un clip Medal (nom « MedalTVValorantAAAAMMJJhhmmss… », heure de Bruxelles) → Date.
