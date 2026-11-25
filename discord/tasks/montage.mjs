@@ -95,7 +95,7 @@ export default async function montage({ log, rep, job }) {
     for (const m of [...msgs].reverse()) {
       const done = (m.reactions || []).some((r) => r.emoji?.name === '🎬');
       const c = hasVideo(m) ? 'lien/fichier' : (autoClip(m)?.name ?? '—');
-      rep(`- ${m.id} · ${m.timestamp.slice(0, 16)} ${done ? '🎬' : ''} · ${(m.content || '').replace(DRIVE_RE, '[lien]').replace(/\n/g, ' ').slice(0, 160)} → ${c}`);
+      rep(`- ${m.id} · ${m.timestamp.slice(0, 16)} ${done ? '🎬' : ''} · ${(m.content || '').replace(DRIVE_RE, '[lien]').replace(/\n/g, ' ').slice(0, job.full ? 600 : 160)} → ${c}`);
     }
     return;
   }

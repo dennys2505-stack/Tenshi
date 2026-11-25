@@ -1,1 +1,1 @@
-{"task": "montage", "stills": [{"message": "1574943002470649899", "shots": [{"t": 9.0, "name": "a92.jpg"}]}, {"message": "1574944729882435606", "shots": [{"t": 20.5, "name": "a64.jpg"}]}, {"message": "1574945326408802356", "shots": [{"t": 20.5, "name": "a90.jpg"}]}]}
+{ "task": "montage", "messages": true, "full": true }
