@@ -9,6 +9,7 @@ const agents = agentsForMap(map.name);
 const total = lineupsFor(map.name).length;
 ---
 <Base
+  backdrop={map.bg}
   title={`Line ups ${map.name}`}
   description={total ? `${count(total)} sur ${map.name} (Valorant), classées par agent.` : `Les line ups ${map.name} arrivent bientôt.`}
   image={map.bg}

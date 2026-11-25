@@ -22,6 +22,7 @@ const map = mapByName(mapName);
 const agent = agentInfo(agentName);
 ---
 <Base
+  backdrop={map?.bg}
   title={`${agentName} sur ${mapName} – line ups`}
   description={`${count(list.length)} pour ${agentName} sur ${mapName} (Valorant) : position de départ, visée et arrivée.`}
   image={agent.bg ?? map?.bg}

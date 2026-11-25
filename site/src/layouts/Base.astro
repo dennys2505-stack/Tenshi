@@ -1,7 +1,9 @@
 ---
 import '../styles/global.css';
 import { SITE_NAME, SITE_TAGLINE } from '../lib/data.js';
-const { title, description = SITE_TAGLINE, image, crumbs = [] } = Astro.props;
+const { title, description = SITE_TAGLINE, image, crumbs = [], backdrop } = Astro.props;
+// Fond sur PC : image de la map de la page, sinon le montage de maps (accueil, etc.).
+const bd = backdrop ?? '/img/fonds/montage.webp';
 const fullTitle = title ? `${title} | ${SITE_NAME}` : `${SITE_NAME} – ${SITE_TAGLINE}`;
 const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : undefined;
 const ogImage = image && Astro.site ? new URL(image, Astro.site).href : image;
@@ -32,7 +34,7 @@ const ogImage = image && Astro.site ? new URL(image, Astro.site).href : image;
       } catch (e) {}
     </script>
   </head>
-  <body>
+  <body class={backdrop ? 'bd-map' : 'bd-menu'} style={`--backdrop:url('${bd}')`}>
     <header class="site-head">
       <a class="brand" href="/">{SITE_NAME}</a>
     </header>

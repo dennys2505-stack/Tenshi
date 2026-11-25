@@ -115,3 +115,13 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 h2.autres{margin-top:32px}
 .tile.horspool{filter:grayscale(.6) brightness(.85)}
 .tile.horspool:hover{filter:none}
+
+/* PC : image en fond (le téléphone garde le simple dégradé).
+   Accueil = montage de maps ; page d'une map / d'un agent / d'une line up = image de la map, nette et assombrie. */
+@media (min-width:1024px){
+  body.bd-menu::before{background:linear-gradient(rgba(15,25,35,.15),rgba(15,25,35,.35)),var(--backdrop) center/cover no-repeat}
+  body.bd-map::before{background:linear-gradient(rgba(15,25,35,.72),rgba(15,25,35,.88)),var(--backdrop) center/cover no-repeat}
+}
+@media (min-width:1024px) and (prefers-color-scheme:light){
+  body.bd-menu::before,body.bd-map::before{background:linear-gradient(rgba(255,255,255,.80),rgba(255,255,255,.92)),var(--backdrop) center/cover no-repeat}
+}
