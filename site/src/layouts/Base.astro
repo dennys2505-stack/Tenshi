@@ -89,6 +89,12 @@ const ogImage = image && Astro.site ? new URL(image, Astro.site).href : image;
     });
   </script>
   <script is:inline>
+    // Line ups en photos verticales (images de vidéo) : classe « portrait » pour agrandir la mini map sur PC.
+    document.querySelectorAll('.shots').forEach(function (box) {
+      var k = box.querySelector('figure.key img'); if (!k) return;
+      function check() { if (k.naturalHeight > k.naturalWidth * 1.2) box.classList.add('portrait'); }
+      if (k.complete) check(); else k.addEventListener('load', check);
+    });
     // Clic sur une photo (ou la mini map) d'une line up : l'agrandit en plein écran, flèches pour passer à la suivante.
     (function () {
       var lb, c, t, list = [], cur = 0, x0 = null;

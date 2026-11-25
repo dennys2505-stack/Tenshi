@@ -157,3 +157,12 @@ h2.autres{margin-top:32px}
   .shots .mmfig .mm{background:transparent}
   .shots .mmfig .mm img{mix-blend-mode:screen}
 }
+
+/* Point de départ sur la mini map : sur PC, gros point couleur de la map + flèche (téléphone inchangé) */
+.mm .from-pc{display:none}
+@media (min-width:1024px){
+  .mm .from-pc{display:inline}
+  .mm .from{display:none}
+  /* Line ups en photos verticales : mini map carrée, plus grande, pour remplir la case à côté des photos hautes */
+  .shots.portrait .mmfig .mm{aspect-ratio:1}
+}

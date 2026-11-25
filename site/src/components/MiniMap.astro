@@ -16,6 +16,11 @@ const hasTo = withOverlay && Boolean(l.to);
 const X = hasTo ? l.to[0] * W : 0;
 const Y = hasTo ? l.to[1] * H : 0;
 const r = W * 0.011, s = W * 0.004, t = W * 0.02;
+// Sur PC : point de départ plus visible (couleur de la map) + flèche qui pointe dessus, placée à l'opposé de l'arrivée.
+let fdx = 0, fdy = 1;
+if (hasFrom && hasTo) { const L = Math.hypot(x - X, y - Y) || 1; fdx = (x - X) / L; fdy = (y - Y) / L; }
+const fang = Math.atan2(-fdy, -fdx) * 180 / Math.PI;
+const fr = W * 0.019, fax = x + fdx * W * 0.028, fay = y + fdy * W * 0.028;
 // Utilitaires posés sur la carte (sentinelles) : icônes et noms dans data/abilities.json.
 const ABIL = (abilities[l.agent] ?? []);
 const ICON = Object.fromEntries(ABIL.map((a) => [a.key, a.icon]));
@@ -50,7 +55,15 @@ const caption = marks.length
             <circle cx={X} cy={Y} r={s * 0.9} fill="#fff" stroke="#111" stroke-width={s * 0.5} />
           </>
         )}
-        {hasFrom && <circle cx={x} cy={y} r={r} fill="#fff" stroke="#111" stroke-width={s} />}
+        {hasFrom && <circle class="from" cx={x} cy={y} r={r} fill="#fff" stroke="#111" stroke-width={s} />}
+        {hasFrom && (
+          <g class="from-pc">
+            <g transform={`translate(${fax} ${fay}) rotate(${fang})`}>
+              <path d={`M0 0 l${-W * 0.053} ${-W * 0.025} v${W * 0.05} z`} fill="#fff" stroke="#111" stroke-width={s * 0.95} />
+            </g>
+            <circle cx={x} cy={y} r={fr} fill="var(--ac)" stroke="#fff" stroke-width={W * 0.0062} />
+          </g>
+        )}
         {marks.map((k) => ICON[k.t] && (
           <>
             <circle cx={k.p[0] * W} cy={k.p[1] * H} r={t * 1.15} fill="#111" fill-opacity="0.85" stroke="#fff" stroke-width={s * 0.6} />
