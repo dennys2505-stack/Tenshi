@@ -10,12 +10,12 @@
   "reveal": true,
   "images": [
     {
-      "src": "/img/lineups/own-lotus-fade-152-position.jpg",
-      "cap": "Position : contre l'arbre (A Tree)"
-    },
-    {
       "src": "/img/lineups/own-lotus-fade-152-visee.jpg",
       "cap": "Repère : viseur au milieu des feuilles"
+    },
+    {
+      "src": "/img/lineups/own-lotus-fade-152-position.jpg",
+      "cap": "Position : contre l'arbre (A Tree)"
     },
     {
       "src": "/img/lineups/own-lotus-fade-152-resultat.jpg",
