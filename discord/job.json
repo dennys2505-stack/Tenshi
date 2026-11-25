@@ -1,36 +1,36 @@
 {
  "task": "montage",
- "message": "1575278035274567853",
+ "message": "1575279395571237005",
  "render": {
   "title": "Haven · Sova",
-  "subtitle": "C back site reveal · from C Long (attack)",
+  "subtitle": "Fast A Main reveal · from A Site (defense)",
   "segments": [
    {
     "type": "clip",
-    "from": 8.0,
-    "to": 11.0,
+    "from": 7.8,
+    "to": 9.6,
     "label": "Result"
    },
    {
     "type": "clip",
-    "from": 14.0,
-    "to": 18.5,
+    "from": 17.5,
+    "to": 19.5,
     "step": 1,
-    "label": "Stand in the corner of C Long"
+    "label": "Stand against the wall in A Site"
    },
    {
     "type": "clip",
-    "from": 18.5,
-    "to": 21.0,
+    "from": 19.5,
+    "to": 23.5,
     "step": 2,
     "label": "Aim"
    },
    {
     "type": "freeze",
-    "at": 21.0,
+    "at": 23.5,
     "dur": 2.6,
     "step": 2,
-    "label": "Crosshair · full charge, 1 bounce",
+    "label": "Crosshair · full charge, 2 bounces",
     "marks": [
      [
       960,
@@ -42,7 +42,7 @@
    },
    {
     "type": "clip",
-    "from": 21.0,
+    "from": 23.5,
     "to": 29.5,
     "step": 3,
     "label": "Throw"
@@ -54,5 +54,5 @@
   "vertical"
  ],
  "post": true,
- "postText": "🎬 Haven · Sova · C back site reveal · from C Long (attack)"
+ "postText": "🎬 Haven · Sova · Fast A Main reveal · from A Site (defense)"
 }
