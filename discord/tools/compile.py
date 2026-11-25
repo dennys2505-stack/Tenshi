@@ -105,7 +105,7 @@ def frame(spec, current=None, intro=False, prog=1.0, pulse=0.0):
     return im.convert('RGB')
 
 
-def anim_clip(spec, i, result_img, out, tmp):
+def anim_clip(spec, i, result_img, out, tmp, mode='grow'):
     """Transition animée : le point de départ s'allume, la flèche avance jusqu'à l'arrivée,
     puis zoom sur l'arrivée qui se fond dans l'image du résultat."""
     import math
@@ -125,7 +125,20 @@ def anim_clip(spec, i, result_img, out, tmp):
         if t < T2 or full is None:
             full = frame(spec, current=i, prog=prog, pulse=pulse)
         img = full
-        if t >= T2:
+        if t >= T2 and mode == 'grow' and res is not None:
+            # La photo du résultat naît au point d'arrivée et s'agrandit jusqu'à remplir l'écran.
+            g = ease((t - T2) / (T4 - 0.15 - T2))
+            w0 = 90
+            w = int(w0 + (W - w0) * g); h = int(w * H / W)
+            cx = bx + (W / 2 - bx) * g; cy = by + (H / 2 - by) * g
+            base = Image.blend(full, Image.new('RGB', (W, H), BG), 0.5 * g)
+            ph = res.resize((max(w, 2), max(h, 2)), Image.BICUBIC)
+            base.paste(ph, (int(cx - w / 2), int(cy - h / 2)))
+            if g < 0.97:
+                dd = ImageDraw.Draw(base)
+                dd.rectangle([int(cx - w / 2) - 3, int(cy - h / 2) - 3, int(cx + w / 2) + 3, int(cy + h / 2) + 3], outline=(255, 70, 85), width=5)
+            img = base
+        elif t >= T2:
             z = 1 + 5 * ease((t - T2) / (T3 - T2))
             cw, ch = W / z, H / z
             x0 = min(max(bx - cw / 2, 0), W - cw); y0 = min(max(by - ch / 2, 0), H - ch)
