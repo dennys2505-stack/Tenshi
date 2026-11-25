@@ -16,24 +16,26 @@
     {
       "src": "/img/lineups/18699d8651c2u.jpg",
       "cap": "Repère de visée"
-    },
-    {
-      "src": "/img/lineups/4a89b89c5047u.jpg",
-      "cap": "Résultat (trajet de la flèche)"
     }
   ],
   "from": [
-    0.359,
-    0.856
-  ],
-  "to": [
-    0.751,
-    0.941
+    0.372,
+    0.78
   ],
   "video": "https://www.instagram.com/reel/DfaOex-uFUc/?avpt=MWo2dnQ5M3FrOG1i",
   "credit": "",
   "auto": true,
   "source": {
     "message": "1574361583709196309"
-  }
+  },
+  "marks": [
+    {
+      "t": "reveal",
+      "p": [
+        0.738,
+        0.819
+      ]
+    }
+  ],
+  "checked": true
 }
