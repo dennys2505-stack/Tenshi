@@ -1,36 +1,36 @@
 {
  "task": "montage",
- "message": "1574958206684373135",
+ "message": "1575278035274567853",
  "render": {
-  "title": "Lotus · Fade",
-  "subtitle": "C Main reveal · from B Site (defense)",
+  "title": "Haven · Sova",
+  "subtitle": "C back site reveal · from C Long (attack)",
   "segments": [
    {
     "type": "clip",
-    "from": 13.0,
-    "to": 15.5,
+    "from": 8.0,
+    "to": 11.0,
     "label": "Result"
    },
    {
     "type": "clip",
-    "from": 18.5,
-    "to": 21.5,
+    "from": 14.0,
+    "to": 18.5,
     "step": 1,
-    "label": "Stand by the stairs in B Site"
+    "label": "Stand in the corner of C Long"
    },
    {
     "type": "clip",
-    "from": 21.5,
-    "to": 23.9,
+    "from": 18.5,
+    "to": 21.0,
     "step": 2,
     "label": "Aim"
    },
    {
     "type": "freeze",
-    "at": 23.9,
+    "at": 21.0,
     "dur": 2.6,
     "step": 2,
-    "label": "Crosshair",
+    "label": "Crosshair · full charge, 1 bounce",
     "marks": [
      [
       960,
@@ -42,8 +42,8 @@
    },
    {
     "type": "clip",
-    "from": 23.9,
-    "to": 28.5,
+    "from": 21.0,
+    "to": 29.5,
     "step": 3,
     "label": "Throw"
    }
@@ -54,5 +54,5 @@
   "vertical"
  ],
  "post": true,
- "postText": "🎬 Lotus · Fade · C Main reveal · from B Site (defense)"
+ "postText": "🎬 Haven · Sova · C back site reveal · from C Long (attack)"
 }
