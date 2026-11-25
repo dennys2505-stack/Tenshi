@@ -30,7 +30,7 @@ const caption = marks.length
   : 'Mini map : point = départ, cible = arrivée';
 ---
 {withOverlay && (
-  <figure>
+  <figure class="mmfig">
     <div class="mm">
       <img src={m.minimap} alt={`Mini map ${l.map}`} loading="lazy" />
       <svg viewBox={`0 0 ${W} ${H}`} aria-hidden="true">
@@ -63,7 +63,7 @@ const caption = marks.length
   </figure>
 )}
 {!withOverlay && l.minimap && (
-  <figure>
+  <figure class="mmfig">
     <img src={l.minimap} alt="Mini map" loading="lazy" />
     <figcaption>{caption}</figcaption>
   </figure>

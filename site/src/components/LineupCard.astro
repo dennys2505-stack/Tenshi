@@ -5,6 +5,11 @@ const { lineup: l, detail = false, agent } = Astro.props;
 const abs = abilitiesOf(l, agent ?? l.agent).join(' ');
 const m = mapByName(l.map);
 const Heading = detail ? 'h1' : 'h2';
+// La photo de visée (« Repère… » ou fichier « visee ») passe en premier, en grand ; sinon la 1re photo.
+const imgs = l.images ?? [];
+let k = imgs.findIndex((i) => /^rep[eè]re/i.test(i.cap ?? '') || /visee/i.test(i.src ?? ''));
+if (k < 0) k = 0;
+const ordered = imgs.length ? [imgs[k], ...imgs.filter((_, j) => j !== k)] : [];
 ---
 <article class="card" id={l.id} data-side={l.side} data-site={l.site} data-ab={abs}>
   {l.num && <a class="num" href={`/admin/?edit=${l.id}`} title="Modifier (admin)">#{l.num} {l.checked ? '✔' : '✎'}</a>}
@@ -15,8 +20,8 @@ const Heading = detail ? 'h1' : 'h2';
     <div class="ind">{l.notes.map((n) => <p>{n}</p>)}</div>
   )}
   <div class="shots">
-    {(l.images ?? []).map((i) => (
-      <figure>
+    {ordered.map((i, j) => (
+      <figure class={j === 0 ? 'key' : undefined}>
         <img class="p" src={i.src} alt={`${l.agent} sur ${l.map} – ${i.cap}`} loading="lazy" />
         {i.cap && <figcaption>{i.cap}</figcaption>}
       </figure>

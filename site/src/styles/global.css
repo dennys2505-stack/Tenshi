@@ -33,7 +33,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 .card{background:var(--card);border:1px solid var(--card-ln);border-radius:10px;padding:16px;margin-bottom:16px}
 .card h2 a{text-decoration:none}
 .card p{margin:4px 0 12px;color:var(--mu)}
-.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.shots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
 figure{margin:0}figcaption{font-size:.95rem;font-weight:500;color:var(--tx);margin-top:6px}
 img{width:100%;height:auto;border-radius:6px;display:block;background:#000}
 .shots img.p{max-height:70vh;object-fit:contain}
@@ -86,8 +86,30 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 .actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
 .btn.ghost{background:transparent;border:1px solid var(--tx);color:var(--tx);cursor:pointer}
 
-/* Photo en paysage : prend toute la largeur pour rester lisible à côté des photos en portrait */
-.shots figure.wide{grid-column:1/-1}
+/* Photos d'une line up : visée en grand, les autres en petit dessous (2 par ligne sur téléphone, 3 sur PC),
+   mini map en pleine largeur sur téléphone, en petit à côté des photos sur PC. Clic = agrandir. */
+.shots figure.key{grid-column:1/-1}
+.shots figure:not(.key) figcaption{font-size:.85rem;line-height:1.3}
+.shots figure.mmfig{grid-column:1/-1}
+.shots .mmfig .mm,.shots .mmfig>img{aspect-ratio:16/10;background:#000;border-radius:6px;overflow:hidden}
+.shots .mmfig .mm img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;border-radius:0}
+.shots .mmfig>img{object-fit:contain}
+@media (min-width:700px){
+  .shots{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .shots figure.mmfig{grid-column:auto}
+  .shots .mmfig .mm,.shots .mmfig>img{aspect-ratio:16/9}
+}
+.shots img.p,.shots .mm,.shots .mmfig>img{cursor:zoom-in}
+
+/* Image agrandie */
+.lb{position:fixed;inset:0;z-index:50;background:rgba(5,8,12,.94);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:12px}
+.lb[hidden]{display:none}
+.lb-c img{max-width:94vw;max-height:82vh;width:auto;height:auto;border-radius:6px;background:#000}
+.lb-c .mm{width:min(94vw,82vh);aspect-ratio:1;background:#000;border-radius:6px;overflow:hidden}
+.lb-c .mm img{position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:contain;border-radius:0}
+.lb-t{color:#fff;margin:0;text-align:center;max-width:94vw;font-weight:500}
+.lb button{position:absolute;background:rgba(0,0,0,.4);border:0;color:#fff;font:700 2rem/1 system-ui;width:52px;height:52px;border-radius:26px;cursor:pointer}
+.lb-x{top:12px;right:12px}.lb-p{left:10px;top:50%;transform:translateY(-50%)}.lb-n{right:10px;top:50%;transform:translateY(-50%)}
 
 .lead.small{font-size:.9rem;margin:4px 0 0;opacity:.8}
 h2.autres{margin-top:32px}

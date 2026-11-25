@@ -66,9 +66,40 @@ const ogImage = image && Astro.site ? new URL(image, Astro.site).href : image;
     });
   </script>
   <script is:inline>
+    // Clic sur une photo (ou la mini map) d'une line up : l'agrandit en plein écran, flèches pour passer à la suivante.
     (function () {
-      function mark(img) { if (img.naturalWidth > img.naturalHeight * 1.2) { var f = img.closest('figure'); if (f && f.parentElement && f.parentElement.classList.contains('shots')) f.classList.add('wide'); } }
-      document.querySelectorAll('.shots img').forEach(function (img) { if (img.complete) mark(img); else img.addEventListener('load', function () { mark(img); }); });
+      var lb, c, t, list = [], cur = 0, x0 = null;
+      function build() {
+        lb = document.createElement('div'); lb.className = 'lb'; lb.hidden = true;
+        lb.innerHTML = '<button type="button" class="lb-x" aria-label="Fermer">✕</button><button type="button" class="lb-p" aria-label="Précédente">‹</button><div class="lb-c"></div><p class="lb-t"></p><button type="button" class="lb-n" aria-label="Suivante">›</button>';
+        document.body.appendChild(lb); c = lb.querySelector('.lb-c'); t = lb.querySelector('.lb-t');
+        lb.addEventListener('click', function (e) {
+          if (e.target.closest('.lb-p')) return show(cur - 1);
+          if (e.target.closest('.lb-n')) return show(cur + 1);
+          if (e.target === lb || e.target.closest('.lb-x')) close();
+        });
+        lb.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+        lb.addEventListener('touchend', function (e) { if (x0 === null) return; var d = e.changedTouches[0].clientX - x0; x0 = null; if (Math.abs(d) > 50) show(cur + (d < 0 ? 1 : -1)); });
+      }
+      function show(i) {
+        cur = (i + list.length) % list.length; var f = list[cur];
+        var media = f.querySelector('.mm') || f.querySelector('img');
+        c.innerHTML = ''; c.appendChild(media.cloneNode(true));
+        var cap = f.querySelector('figcaption'); t.textContent = cap ? cap.textContent : '';
+        var many = list.length > 1; lb.querySelector('.lb-p').hidden = !many; lb.querySelector('.lb-n').hidden = !many;
+      }
+      function close() { lb.hidden = true; document.documentElement.style.overflow = ''; }
+      document.addEventListener('click', function (e) {
+        var m = e.target.closest && e.target.closest('.shots img, .shots .mm'); if (!m) return;
+        var f = m.closest('figure'), box = m.closest('.shots'); if (!f || !box) return;
+        if (!lb) build();
+        list = Array.prototype.slice.call(box.querySelectorAll(':scope > figure'));
+        lb.hidden = false; document.documentElement.style.overflow = 'hidden'; show(list.indexOf(f));
+      });
+      document.addEventListener('keydown', function (e) {
+        if (!lb || lb.hidden) return;
+        if (e.key === 'Escape') close(); else if (e.key === 'ArrowLeft') show(cur - 1); else if (e.key === 'ArrowRight') show(cur + 1);
+      });
     })();
   </script>
 </body>
