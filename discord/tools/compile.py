@@ -23,7 +23,7 @@ def arrow(d, a, b, col, w):
     d.polygon([b, p1, p2], fill=col)
 
 
-def frame(spec, current=None, intro=False):
+def frame(spec, current=None, intro=False, prog=1.0, pulse=0.0):
     im = Image.new('RGB', (W, H), BG)
     glow = Image.new('RGB', (W, H), BG)
     gd = ImageDraw.Draw(glow)
@@ -46,9 +46,17 @@ def frame(spec, current=None, intro=False):
         col = TEAL if on else GREY
         a = (mx + it['from'][0] * S, my + it['from'][1] * S)
         b = (mx + it['to'][0] * S, my + it['to'][1] * S)
-        arrow(d, a, b, col + (255,), 7 if on else 4)
-        r = 22 if on else 16
-        d.ellipse([b[0] - r, b[1] - r, b[0] + r, b[1] + r], outline=(255, 70, 85, 255 if on else 120), width=5)
+        cur = (i == current and not intro)
+        p = prog if cur else 1.0
+        if p > 0.02:
+            bb = (a[0] + (b[0] - a[0]) * p, a[1] + (b[1] - a[1]) * p)
+            arrow(d, a, bb, col + (255,), 7 if on else 4)
+        if p >= 0.98:
+            r = 22 if on else 16
+            d.ellipse([b[0] - r, b[1] - r, b[0] + r, b[1] + r], outline=(255, 70, 85, 255 if on else 120), width=5)
+        if cur and pulse > 0:
+            rr = 30 + 40 * pulse
+            d.ellipse([a[0] - rr, a[1] - rr, a[0] + rr, a[1] + rr], outline=TEAL + (int(255 * (1 - pulse)),), width=6)
         r = 30 if on else 22
         d.ellipse([a[0] - r, a[1] - r, a[0] + r, a[1] + r], fill=col + (255,))
         f = M.font(M.F_NUM, 44 if on else 32)
@@ -97,6 +105,42 @@ def frame(spec, current=None, intro=False):
     return im.convert('RGB')
 
 
+def anim_clip(spec, i, result_img, out, tmp):
+    """Transition animée : le point de départ s'allume, la flèche avance jusqu'à l'arrivée,
+    puis zoom sur l'arrivée qui se fond dans l'image du résultat."""
+    import math
+    S, mx, my = 860, 110, (H - 860) // 2
+    it = spec['items'][i]
+    bx, by = mx + it['to'][0] * S, my + it['to'][1] * S
+    res = Image.open(result_img).convert('RGB').resize((W, H), Image.LANCZOS) if result_img and os.path.exists(result_img) else None
+    ease = lambda t: 0.5 - 0.5 * math.cos(math.pi * max(0, min(1, t)))
+    T1, T2, T3, T4 = 0.6, 1.5, 2.6, 3.0   # pulsation, flèche, zoom, fondu
+    n = int(T4 * FPS)
+    fdir = os.path.join(tmp, f'anim{i}'); os.makedirs(fdir, exist_ok=True)
+    full = None
+    for k in range(n):
+        t = k / FPS
+        pulse = (t / T1 * 2) % 1 if t < T1 else 0
+        prog = ease((t - T1) / (T2 - T1)) if t >= T1 else 0
+        if t < T2 or full is None:
+            full = frame(spec, current=i, prog=prog, pulse=pulse)
+        img = full
+        if t >= T2:
+            z = 1 + 5 * ease((t - T2) / (T3 - T2))
+            cw, ch = W / z, H / z
+            x0 = min(max(bx - cw / 2, 0), W - cw); y0 = min(max(by - ch / 2, 0), H - ch)
+            img = full.crop((int(x0), int(y0), int(x0 + cw), int(y0 + ch))).resize((W, H), Image.BICUBIC)
+            if res is not None:
+                a = ease((t - (T2 + 0.5)) / (T4 - T2 - 0.5))
+                if a > 0:
+                    rz = 1.25 - 0.25 * a
+                    rc = res.crop((int(W * (1 - 1 / rz) / 2), int(H * (1 - 1 / rz) / 2), int(W - W * (1 - 1 / rz) / 2), int(H - H * (1 - 1 / rz) / 2))).resize((W, H))
+                    img = Image.blend(img, rc, a)
+        img.save(os.path.join(fdir, f'{k:04d}.png'))
+    M.ff('-framerate', str(FPS), '-i', os.path.join(fdir, '%04d.png'), '-f', 'lavfi', '-t', str(T4), '-i', 'anullsrc=r=48000:cl=stereo',
+         '-vf', 'fade=t=in:st=0:d=0.2,format=yuv420p', '-map', '0:v', '-map', '1:a', '-t', str(T4), *M.ENC, out)
+
+
 def still_clip(img, dur, out, tmp):
     p = os.path.join(tmp, os.path.basename(out) + '.png')
     img.save(p)
@@ -110,7 +154,10 @@ def main(spec_path, out):
     parts = []
     p = os.path.join(tmp, 'intro.mp4'); still_clip(frame(spec, intro=True), 4.0, p, tmp); parts.append(p)
     for i, it in enumerate(spec['items']):
-        p = os.path.join(tmp, f't{i}.mp4'); still_clip(frame(spec, current=i), 2.2, p, tmp); parts.append(p)
+        p = os.path.join(tmp, f't{i}.mp4')
+        if spec.get('animate'): anim_clip(spec, i, it.get('result_img'), p, tmp)
+        else: still_clip(frame(spec, current=i), 2.2, p, tmp)
+        parts.append(p)
         parts.append(it['mp4'])
     inputs, fc = [], ''
     for k, p in enumerate(parts):
