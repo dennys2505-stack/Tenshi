@@ -1,36 +1,36 @@
 {
  "task": "montage",
- "message": "1574948565787217971",
+ "message": "1574951365350916108",
  "render": {
-  "title": "Lotus · Brimstone",
-  "subtitle": "A default fast post-plant · from the breakable door",
+  "title": "Lotus · Fade",
+  "subtitle": "Fast A Main reveal · defense",
   "segments": [
    {
     "type": "clip",
-    "from": 24.0,
-    "to": 27.0,
+    "from": 25.0,
+    "to": 27.5,
     "label": "Result"
    },
    {
     "type": "clip",
-    "from": 15.5,
-    "to": 17.5,
+    "from": 19.5,
+    "to": 21.5,
     "step": 1,
-    "label": "Stand by the breakable door in A Link"
+    "label": "Stand against the wall in A Main"
    },
    {
     "type": "clip",
-    "from": 18.0,
-    "to": 19.9,
+    "from": 21.5,
+    "to": 23.9,
     "step": 2,
     "label": "Aim"
    },
    {
     "type": "freeze",
-    "at": 20.0,
+    "at": 24.0,
     "dur": 2.6,
     "step": 2,
-    "label": "Crosshair",
+    "label": "Crosshair just beside the plant",
     "marks": [
      [
       960,
@@ -38,28 +38,14 @@
       60
      ]
     ],
-    "zoom": 2.3
+    "zoom": 2.2
    },
    {
     "type": "clip",
-    "from": 20.0,
-    "to": 21.5,
+    "from": 24.0,
+    "to": 28.0,
     "step": 3,
-    "label": "Throw",
-    "chrono": {
-     "start": 0.5,
-     "stop": 2.0
-    }
-   },
-   {
-    "type": "clip",
-    "from": 21.5,
-    "to": 25.0,
-    "label": "Time to impact",
-    "chrono": {
-     "start": -1.0,
-     "stop": 2.0
-    }
+    "label": "Throw"
    }
   ]
  },
@@ -68,5 +54,5 @@
   "vertical"
  ],
  "post": true,
- "postText": "🎬 Lotus · Brimstone · A default fast post-plant · from the breakable door"
+ "postText": "🎬 Lotus · Fade · Fast A Main reveal · defense"
 }
