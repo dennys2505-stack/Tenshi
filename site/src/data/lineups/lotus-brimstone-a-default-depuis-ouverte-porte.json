@@ -5,7 +5,7 @@
   "agent": "Brimstone",
   "side": "Attaque",
   "site": "A",
-  "title": "A (défault) depuis ouverte porte",
+  "title": "Post plant A (default) depuis A Door",
   "notes": [],
   "reveal": false,
   "images": [
@@ -15,7 +15,7 @@
     },
     {
       "src": "/img/lineups/own-lotus-brim-65-visee.jpg",
-      "cap": "Repère : petite boule sous l'icône de la molly sur le recoin au-dessus de la porte"
+      "cap": "Repère : point du bas de l'icône de la smoke sur le recoin au-dessus de la porte"
     },
     {
       "src": "/img/lineups/own-lotus-brim-65-resultat.jpg",
