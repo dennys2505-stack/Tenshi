@@ -213,7 +213,7 @@ def clip(src, s, ov, part, tmp):
        '-t', str(dur / sp), *ENC, part)
 
 
-def main(src, plan_path, out, fmt='horizontal'):
+def main(src, plan_path, out, fmt='horizontal', quality='discord'):
     global W, H, VERT
     plan = json.load(open(plan_path))
     if fmt == 'vertical':
@@ -230,6 +230,11 @@ def main(src, plan_path, out, fmt='horizontal'):
     open(lst, 'w').write(''.join(f"file '{p}'\n" for p in parts))
     full = os.path.join(tmp, 'full.mp4')
     ff('-f', 'concat', '-safe', '0', '-i', lst, '-c', 'copy', full)
+    if quality == 'hq':  # pleine qualité (compilation YouTube)
+        import shutil
+        shutil.copy(full, out)
+        print(f'{os.path.getsize(out) / 1e6:.1f} Mo (hq)')
+        return
     # Version finale sous ~18 Mo (limite Discord 20 Mo) : débit calculé sur la durée.
     dur = float(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', full], capture_output=True, text=True).stdout)
     kbps = int(18 * 8 * 1000 / dur) - 128
@@ -239,4 +244,4 @@ def main(src, plan_path, out, fmt='horizontal'):
 
 
 if __name__ == '__main__':
-    main(*sys.argv[1:5])
+    main(*sys.argv[1:6])

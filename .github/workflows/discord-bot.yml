@@ -41,6 +41,13 @@ jobs:
           git commit -q -m "Bot : line ups importées depuis Discord"
           git pull -q --rebase origin main
           git push origin HEAD:main
+      - name: Vidéo YouTube (artefact privé de 3 jours, pas dans bot-logs)
+        if: always() && hashFiles('youtube/*.mp4') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: youtube
+          path: youtube/
+          retention-days: 3
       - name: Publier le compte-rendu (branche bot-logs, sans secret)
         if: always()
         run: |

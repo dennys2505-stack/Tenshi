@@ -137,6 +137,29 @@ export default async function montage({ log, rep, job }) {
     }
     return;
   }
+  // Compilation YouTube (param « compile » : {title, subtitle, minimap, items: [{message, plan, label, tag, from, to, impact}]}).
+  // Sortie dans youtube/ (artefact GitHub de 3 jours), jamais dans bot-logs.
+  if (job.compile) {
+    rep('## Compilation YouTube\n');
+    fs.mkdirSync('youtube', { recursive: true });
+    const tmpC = fs.mkdtempSync('/tmp/cp-');
+    const items = [];
+    for (const [i, it] of job.compile.items.entries()) {
+      const m = msgs.find((x) => x.id === it.message);
+      if (!m) throw new Error(`consigne ${it.message} introuvable`);
+      const src = path.join(tmpC, `src${i}.mp4`), pl = path.join(tmpC, `plan${i}.json`), out = path.join(tmpC, `m${i}.mp4`);
+      const how = await getVideo(m, src);
+      fs.writeFileSync(pl, JSON.stringify(it.plan));
+      const r1 = await run('python3', [new URL('../tools/montage.py', import.meta.url).pathname, src, pl, out, 'horizontal', 'hq'], { timeout: 900_000 });
+      rep(`- ${i + 1}. ${it.label} (${how}) : ${r1.stdout.trim()}`);
+      items.push({ ...it, plan: undefined, mp4: out });
+    }
+    const spec = path.join(tmpC, 'spec.json');
+    fs.writeFileSync(spec, JSON.stringify({ ...job.compile, minimap: path.resolve('site/public' + job.compile.minimap), items }));
+    const r2 = await run('python3', [new URL('../tools/compile.py', import.meta.url).pathname, spec, `youtube/${job.compile.file || 'compilation'}.mp4`], { timeout: 1_800_000 });
+    rep(`- Compilation : ${r2.stdout.trim()}`);
+    return;
+  }
   // Images fixes pour le site (param « stills » : [{ message | match, shots: [{ t, name, marks }] }]).
   if (job.stills) {
     rep('## Images pour le site\n');
