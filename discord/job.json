@@ -1,1 +1,72 @@
-{"task": "montage", "stills": [{"message": "1574947003060846613", "shots": [{"t": 19.0, "name": "x91a.jpg"}, {"t": 14.0, "name": "x91p.jpg"}]}, {"message": "1574947631715582114", "shots": [{"t": 20.5, "name": "x65a.jpg"}, {"t": 14.5, "name": "x65p.jpg"}]}, {"message": "1574948565787217971", "shots": [{"t": 20.0, "name": "x63a.jpg"}, {"t": 16.5, "name": "x63p.jpg"}]}, {"message": "1574951365350916108", "shots": [{"t": 24.0, "name": "x157a.jpg"}, {"t": 20.5, "name": "x157p.jpg"}]}, {"message": "1574953062458589358", "shots": [{"t": 24.5, "name": "x156a.jpg"}, {"t": 21.0, "name": "x156p.jpg"}]}, {"message": "1574954120178176081", "shots": [{"t": 1.5, "name": "x92a.jpg"}, {"t": 14.5, "name": "x92p.jpg"}]}]}
+{
+ "task": "montage",
+ "message": "1574954120178176081",
+ "render": {
+  "title": "Lotus · Brimstone",
+  "subtitle": "C molly (for dune) · from C Main",
+  "segments": [
+   {
+    "type": "clip",
+    "from": 9.5,
+    "to": 12.5,
+    "label": "Result"
+   },
+   {
+    "type": "clip",
+    "from": 13.0,
+    "to": 15.5,
+    "step": 1,
+    "label": "Stand in the corner by the box"
+   },
+   {
+    "type": "clip",
+    "from": 0.0,
+    "to": 1.4,
+    "step": 2,
+    "label": "Aim"
+   },
+   {
+    "type": "freeze",
+    "at": 1.5,
+    "dur": 2.6,
+    "step": 2,
+    "label": "Box above the molly icon on the window corner",
+    "marks": [
+     [
+      900,
+      880,
+      62
+     ]
+    ],
+    "zoom": 2.3
+   },
+   {
+    "type": "clip",
+    "from": 1.5,
+    "to": 3.0,
+    "step": 3,
+    "label": "Throw",
+    "chrono": {
+     "start": 0.5,
+     "stop": 6.5
+    }
+   },
+   {
+    "type": "clip",
+    "from": 3.0,
+    "to": 9.5,
+    "label": "Time to impact",
+    "chrono": {
+     "start": -1.0,
+     "stop": 6.5
+    }
+   }
+  ]
+ },
+ "formats": [
+  "horizontal",
+  "vertical"
+ ],
+ "post": true,
+ "postText": "🎬 Lotus · Brimstone · C molly (for dune) · from C Main"
+}
