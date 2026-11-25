@@ -1,65 +1,57 @@
 {
  "task": "montage",
- "message": "1574944729882435606",
+ "message": "1574945326408802356",
  "render": {
   "title": "Lotus · Brimstone",
-  "subtitle": "C default post-plant · from C Main",
+  "subtitle": "B under post-plant · from B Main",
   "segments": [
    {
     "type": "clip",
-    "from": 7.8,
-    "to": 10.8,
+    "from": 1.5,
+    "to": 5.0,
     "label": "Result"
    },
    {
     "type": "clip",
-    "from": 14.5,
-    "to": 17.0,
+    "from": 12.0,
+    "to": 14.5,
     "step": 1,
-    "label": "Stand in the corner by the box"
+    "label": "Stand by the statue in B Pillars"
    },
    {
     "type": "clip",
-    "from": 18.5,
-    "to": 20.4,
+    "from": 17.5,
+    "to": 19.4,
     "step": 2,
     "label": "Aim"
    },
    {
     "type": "freeze",
-    "at": 20.5,
+    "at": 19.5,
     "dur": 2.6,
     "step": 2,
-    "label": "Molly flame tip on the right plant tip",
+    "label": "Crosshair",
     "marks": [
      [
-      900,
-      975,
-      55
+      960,
+      540,
+      60
      ]
     ],
-    "zoom": 2.4
+    "zoom": 2.2
    },
    {
     "type": "clip",
-    "from": 20.5,
+    "from": 19.5,
     "to": 22.0,
     "step": 3,
-    "label": "Throw",
-    "chrono": {
-     "start": 0.8,
-     "stop": 5.7
-    }
+    "label": "Throw"
    },
    {
     "type": "clip",
-    "from": 24.5,
-    "to": 28.5,
-    "label": "Time to impact",
-    "chrono": {
-     "start": -3.2,
-     "stop": 5.7
-    }
+    "from": 2.0,
+    "to": 5.5,
+    "label": "Result"
    }
   ]
  },
@@ -68,5 +60,5 @@
   "vertical"
  ],
  "post": true,
- "postText": "🎬 Lotus · Brimstone · C default post-plant · from C Main"
+ "postText": "🎬 Lotus · Brimstone · B under post-plant · from B Main"
 }
