@@ -67,6 +67,10 @@ export default async function montage({ log, rep, job }) {
     const t = await discord(`/channels/${job.thread}/messages?limit=50`);
     rep(`## Fil ${job.thread} (${t.status})\n`);
     for (const m of (t.status === 200 ? t.data : []).reverse()) rep(`- ${m.timestamp.slice(0, 16)} ${m.author?.bot ? '[bot]' : '[toi]'} ${(m.content || '').replace(/\n/g, ' ')}${(m.attachments || []).map((a) => ' [pièce jointe ' + a.filename + ']').join('')}`);
+    fs.mkdirSync('out/thread', { recursive: true });
+    for (const m of (t.status === 200 ? t.data : [])) for (const a of (m.author?.bot ? [] : m.attachments || [])) {
+      if (/^image\//.test(a.content_type || '')) { const b = await fetch(a.url); fs.writeFileSync(`out/thread/${a.filename}`, Buffer.from(await b.arrayBuffer())); }
+    }
     return;
   }
   const r = await discord(`/channels/${chan.id}/messages?limit=20`);
