@@ -1,1 +1,72 @@
-{ "task": "montage", "thread": "1574947631715582114" }
+{
+ "task": "montage",
+ "message": "1574947631715582114",
+ "render": {
+  "title": "Lotus · Brimstone",
+  "subtitle": "A default post-plant · from A Door",
+  "segments": [
+   {
+    "type": "clip",
+    "from": 4.0,
+    "to": 7.0,
+    "label": "Result"
+   },
+   {
+    "type": "clip",
+    "from": 13.0,
+    "to": 15.5,
+    "step": 1,
+    "label": "Stand by the door in A Door"
+   },
+   {
+    "type": "clip",
+    "from": 18.0,
+    "to": 20.4,
+    "step": 2,
+    "label": "Aim"
+   },
+   {
+    "type": "freeze",
+    "at": 20.5,
+    "dur": 2.6,
+    "step": 2,
+    "label": "Bottom dot of the smoke icon on the corner above the door",
+    "marks": [
+     [
+      1020,
+      1025,
+      42
+     ]
+    ],
+    "zoom": 2.3
+   },
+   {
+    "type": "clip",
+    "from": 20.5,
+    "to": 22.0,
+    "step": 3,
+    "label": "Throw",
+    "chrono": {
+     "start": 0.5,
+     "stop": 6.0
+    }
+   },
+   {
+    "type": "clip",
+    "from": 22.0,
+    "to": 28.0,
+    "label": "Time to impact",
+    "chrono": {
+     "start": -1.0,
+     "stop": 6.0
+    }
+   }
+  ]
+ },
+ "formats": [
+  "horizontal",
+  "vertical"
+ ],
+ "post": true,
+ "postText": "🎬 v2 (repère corrigé) · Lotus · Brimstone · A default post-plant · from A Door"
+}
