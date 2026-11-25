@@ -9,6 +9,8 @@ const { title, description = SITE_TAGLINE, image, crumbs = [], backdrop } = Astr
 const fixe = backdrop ?? site.fondAccueil ?? null;
 const pool = fixe ? [] : maps.filter((m) => m.pool);
 const N = pool.length;
+// Couleur d'accent propre à la map de la page (maps.json → accent : [thème sombre, thème clair]) ; sinon turquoise.
+const acc = backdrop ? maps.find((m) => m.bg === backdrop)?.accent : undefined;
 const bande = (i) => {
   const a = (i / N) * 100, b = ((i + 1) / N) * 100, d = 7; // d = inclinaison des bandes (en % de la largeur)
   return `polygon(${a + d - 2}% 0, ${b + d + 2}% 0, ${b + 2}% 100%, ${a - 2}% 100%)`;
@@ -43,7 +45,7 @@ const ogImage = image && Astro.site ? new URL(image, Astro.site).href : image;
       } catch (e) {}
     </script>
   </head>
-  <body class={backdrop ? 'bd-map' : fixe ? 'bd-photo' : 'bd-menu'} style={fixe ? `--backdrop:url('${fixe}')` : undefined}>
+  <body class={backdrop ? 'bd-map' : fixe ? 'bd-photo' : 'bd-menu'} style={[fixe ? `--backdrop:url('${fixe}')` : '', acc ? `--acd:${acc[0]};--acl:${acc[1]}${acc[2] ? `;--tint:${acc[2]}` : ''}` : ''].join(';') || undefined}>
     {N > 0 && (
       <div class="montage" aria-hidden="true">
         {pool.map((m, i) => (

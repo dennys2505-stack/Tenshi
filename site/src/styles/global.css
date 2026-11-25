@@ -4,6 +4,11 @@
 @media (prefers-color-scheme:dark){:root{--bg:#0f1923;--pn:#1b2633;--tx:#ece8e1;--mu:#a3acb8;--ac:#3fe0c5;--ln:#2b3644;--brand:#fff;--glow:rgba(63,224,197,.20);--glow2:rgba(63,224,197,.10);--card:linear-gradient(135deg,rgba(63,224,197,.16) 0%,rgba(63,224,197,.04) 45%,rgba(27,38,51,.95) 100%),#1b2633;--card-ln:rgba(63,224,197,.35);--ind:rgba(0,0,0,.22);--on-ac:#0f1923}}
 *{box-sizing:inherit}html,body{margin:0}
 html{background:var(--bg)}
+/* Couleur d'accent : turquoise par défaut ; sur PC seulement, couleur propre à certaines maps (maps.json → accent, variables --acd / --acl posées sur <body>) */
+body{--ac:#0e9f8a;--brand:var(--ac);--glow:color-mix(in srgb,var(--ac) 20%,transparent);--glow2:color-mix(in srgb,var(--ac) 10%,transparent);--card-ln:color-mix(in srgb,var(--ac) calc(var(--tint,16%) * 2.2),transparent);--card:linear-gradient(135deg,color-mix(in srgb,var(--ac) var(--tint,16%),transparent) 0%,color-mix(in srgb,var(--ac) 4%,transparent) 45%,rgba(244,246,247,0) 100%),#f4f6f7}
+@media (prefers-color-scheme:dark){body{--ac:#3fe0c5;--brand:#fff;--card:linear-gradient(135deg,color-mix(in srgb,var(--ac) var(--tint,16%),transparent) 0%,color-mix(in srgb,var(--ac) 4%,transparent) 45%,rgba(27,38,51,.95) 100%),#1b2633}}
+@media (min-width:1024px){body{--ac:var(--acl,#0e9f8a)}}
+@media (min-width:1024px) and (prefers-color-scheme:dark){body{--ac:var(--acd,#3fe0c5)}}
 body{position:relative;background:transparent;color:var(--tx);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 main{max-width:980px;margin:0 auto;padding:16px}
 a{color:inherit}
@@ -38,11 +43,11 @@ figure{margin:0}figcaption{font-size:.95rem;font-weight:500;color:var(--tx);marg
 img{width:100%;height:auto;border-radius:6px;display:block;background:#000}
 .shots img.p{max-height:70vh;object-fit:contain}
 .btn{display:inline-flex;align-items:center;margin-top:14px;padding:0 18px;min-height:44px;border:0;border-radius:0;background:var(--ac);color:var(--on-ac);font:700 1.1rem/1 "Barlow Condensed","Arial Narrow",sans-serif;text-transform:uppercase;letter-spacing:.05em;text-decoration:none;clip-path:polygon(0 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%)}
-.btn.vid{background:linear-gradient(110deg,#17c3a6,#0e9f8a 55%,#08705f);color:#fff}
-@media (prefers-color-scheme:dark){.btn.vid{background:#fff}.btn.vid span{background:linear-gradient(110deg,#3fe0c5,#0e9f8a 55%,#08705f);-webkit-background-clip:text;background-clip:text;color:transparent}}
+.btn.vid{background:linear-gradient(110deg,color-mix(in srgb,var(--ac) 80%,#fff),var(--ac) 55%,color-mix(in srgb,var(--ac) 70%,#000));color:#fff}
+@media (prefers-color-scheme:dark){.btn.vid{background:#fff}.btn.vid span{background:linear-gradient(110deg,var(--ac),color-mix(in srgb,var(--ac) 75%,#000) 55%,color-mix(in srgb,var(--ac) 50%,#000));-webkit-background-clip:text;background-clip:text;color:transparent}}
 /* Nom de la map en dégradé turquoise (titre de la page d'une map) */
-.grad{background:linear-gradient(110deg,#17c3a6,#0e9f8a 55%,#08705f);-webkit-background-clip:text;background-clip:text;color:transparent}
-@media (prefers-color-scheme:dark){.grad{background-image:linear-gradient(110deg,#7ff0dc,#3fe0c5 40%,#0e9f8a)}}
+.grad{background:linear-gradient(110deg,color-mix(in srgb,var(--ac) 80%,#fff),var(--ac) 55%,color-mix(in srgb,var(--ac) 70%,#000));-webkit-background-clip:text;background-clip:text;color:transparent}
+@media (prefers-color-scheme:dark){.grad{background-image:linear-gradient(110deg,color-mix(in srgb,var(--ac) 55%,#fff),var(--ac) 40%,color-mix(in srgb,var(--ac) 75%,#000))}}
 .back{display:inline-flex;align-items:center;background:none;border:1px solid var(--ln);border-radius:8px;padding:8px 14px;min-height:44px;text-decoration:none}
 .mm{position:relative}.mm svg{position:absolute;inset:0;width:100%;height:100%}
 .empty{color:var(--mu)}
@@ -137,4 +142,12 @@ h2.autres{margin-top:32px}
   .montage::before{content:"";position:absolute;inset:0;z-index:1;background:rgb(15,25,35);mix-blend-mode:screen}
   .montage svg{position:absolute;inset:0;width:100%;height:100%;z-index:2}
   .montage line{stroke:rgba(63,224,197,.35);stroke-width:2;vector-effect:non-scaling-stroke}
+}
+
+/* PC, pages d'une map : cadre des line ups un peu transparent pour laisser deviner la map en fond (téléphone inchangé) */
+@media (min-width:1024px) and (prefers-color-scheme:dark){
+  body.bd-map .card{background:linear-gradient(135deg,color-mix(in srgb,var(--ac) calc(var(--tint,16%) + 2%),transparent),rgba(15,25,35,.55) 45%,rgba(15,25,35,.62))}
+}
+@media (min-width:1024px) and (prefers-color-scheme:light){
+  body.bd-map .card{background:linear-gradient(135deg,color-mix(in srgb,var(--ac) calc(var(--tint,16%) + 2%),transparent),rgba(255,255,255,.62) 45%,rgba(255,255,255,.70))}
 }
