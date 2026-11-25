@@ -62,6 +62,13 @@ export default async function montage({ log, rep, job }) {
     } catch (e) { rep(`- Dossier Drive illisible : ${String(e.stderr || e.message).split('\n').filter(Boolean).pop()}`); }
     if (job.list) return;
   }
+  // Lire les messages d'un fil (param « thread » = id du message de départ).
+  if (job.thread) {
+    const t = await discord(`/channels/${job.thread}/messages?limit=50`);
+    rep(`## Fil ${job.thread} (${t.status})\n`);
+    for (const m of (t.status === 200 ? t.data : []).reverse()) rep(`- ${m.timestamp.slice(0, 16)} ${m.author?.bot ? '[bot]' : '[toi]'} ${(m.content || '').replace(/\n/g, ' ')}${(m.attachments || []).map((a) => ' [pièce jointe ' + a.filename + ']').join('')}`);
+    return;
+  }
   const r = await discord(`/channels/${chan.id}/messages?limit=20`);
   if (r.status !== 200) throw new Error(`lecture du salon refusée (${r.status}) : donner au bot « Voir le salon » + « Lire l’historique »`);
   const msgs = r.data.filter((m) => !m.author?.bot);
