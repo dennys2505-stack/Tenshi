@@ -5,7 +5,7 @@
   "agent": "Brimstone",
   "side": "Attaque",
   "site": "A",
-  "title": "A default depuis main",
+  "title": "A default(un peu sur la gauche ) depuis main",
   "notes": [],
   "reveal": false,
   "images": [
@@ -15,12 +15,12 @@
     }
   ],
   "from": [
-    0.588,
-    0.051
+    0.589,
+    0.047
   ],
   "to": [
-    0.411,
-    0.13
+    0.413,
+    0.15
   ],
   "video": "https://www.instagram.com/reel/Df9iDDmh5MV/?cnvx=Nmg0bHJld2MwazRh",
   "credit": "",
