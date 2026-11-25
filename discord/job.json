@@ -1,14 +1,14 @@
 {
  "task": "montage",
- "message": "1574947003060846613",
+ "message": "1574947631715582114",
  "render": {
   "title": "Lotus · Brimstone",
-  "subtitle": "A default post-plant · from A Main",
+  "subtitle": "A default post-plant · from A Door",
   "segments": [
    {
     "type": "clip",
-    "from": 7.0,
-    "to": 10.0,
+    "from": 4.0,
+    "to": 7.0,
     "label": "Result"
    },
    {
@@ -16,49 +16,49 @@
     "from": 13.0,
     "to": 15.5,
     "step": 1,
-    "label": "Stand against the wall in A Root"
+    "label": "Stand by the door in A Door"
    },
    {
     "type": "clip",
-    "from": 16.5,
-    "to": 18.9,
+    "from": 18.0,
+    "to": 20.4,
     "step": 2,
     "label": "Aim"
    },
    {
     "type": "freeze",
-    "at": 19.0,
+    "at": 20.5,
     "dur": 2.6,
     "step": 2,
-    "label": "Molly icon tip on the plant tips",
+    "label": "Small ball under the molly icon on the corner above the door",
     "marks": [
      [
       900,
-      978,
-      55
+      890,
+      60
      ]
     ],
     "zoom": 2.3
    },
    {
     "type": "clip",
-    "from": 19.0,
-    "to": 20.5,
+    "from": 20.5,
+    "to": 22.0,
     "step": 3,
     "label": "Throw",
     "chrono": {
      "start": 0.5,
-     "stop": 7.0
+     "stop": 6.0
     }
    },
    {
     "type": "clip",
-    "from": 20.5,
-    "to": 27.5,
+    "from": 22.0,
+    "to": 28.0,
     "label": "Time to impact",
     "chrono": {
      "start": -1.0,
-     "stop": 7.0
+     "stop": 6.0
     }
    }
   ]
@@ -68,5 +68,5 @@
   "vertical"
  ],
  "post": true,
- "postText": "🎬 Lotus · Brimstone · A default post-plant · from A Main"
+ "postText": "🎬 Lotus · Brimstone · A default post-plant · from A Door"
 }
