@@ -89,6 +89,16 @@ export default async function montage({ log, rep, job }) {
     if (f) { await downloadDrive(`https://drive.google.com/file/d/${f.id}/view`, dest, log); return `dossier Drive, clip le plus proche (${f.name})`; }
     throw new Error(`pas de vidéo pour le message ${m.id}`);
   };
+  // Liste des consignes récentes et du clip associé (param « messages »).
+  if (job.messages) {
+    rep('## Consignes\n');
+    for (const m of [...msgs].reverse()) {
+      const done = (m.reactions || []).some((r) => r.emoji?.name === '🎬');
+      const c = hasVideo(m) ? 'lien/fichier' : (autoClip(m)?.name ?? '—');
+      rep(`- ${m.id} · ${m.timestamp.slice(0, 16)} ${done ? '🎬' : ''} · ${(m.content || '').replace(DRIVE_RE, '[lien]').replace(/\n/g, ' ').slice(0, 160)} → ${c}`);
+    }
+    return;
+  }
   // Images fixes pour le site (param « stills » : [{ message | match, shots: [{ t, name, marks }] }]).
   if (job.stills) {
     rep('## Images pour le site\n');
