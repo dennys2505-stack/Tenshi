@@ -27,7 +27,7 @@ const agent = agentInfo(agentName);
   image={agent.bg ?? map?.bg}
   crumbs={[{ label: mapName, href: mapUrl(mapName) }, { label: agentName }]}
 >
-  <div class="top"><h1>{agentName} · {mapName}</h1></div>
+  <div class="top"><h1>{agentName} · {mapName}</h1><a class="btn ghost match-btn" href="match/" title="Écran coupé en 4 cases, pour un 2e écran">Mode match</a></div>
   {sides.length > 1 && (
     <div class="chips" role="group" aria-label="Côté" data-filter="side">
       <button class="chip" data-v="Tous" aria-pressed="true">Tous</button>
@@ -76,5 +76,6 @@ const agent = agentInfo(agentName);
   });
 </script>
 <style>
+  .match-btn{margin:0 0 0 auto}
   .chip-ic{width:18px;height:18px;object-fit:contain;vertical-align:-4px;margin-right:6px}
 </style>
