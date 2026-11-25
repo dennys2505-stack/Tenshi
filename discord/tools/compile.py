@@ -105,7 +105,7 @@ def frame(spec, current=None, intro=False, prog=1.0, pulse=0.0):
     return im.convert('RGB')
 
 
-def anim_clip(spec, i, result_img, out, tmp, mode='grow'):
+def anim_clip(spec, i, result_img, out, tmp, mode='grow', video=None):
     """Transition animée : le point de départ s'allume, la flèche avance jusqu'à l'arrivée,
     puis zoom sur l'arrivée qui se fond dans l'image du résultat."""
     import math
@@ -115,6 +115,13 @@ def anim_clip(spec, i, result_img, out, tmp, mode='grow'):
     res = Image.open(result_img).convert('RGB').resize((W, H), Image.LANCZOS) if result_img and os.path.exists(result_img) else None
     ease = lambda t: 0.5 - 0.5 * math.cos(math.pi * max(0, min(1, t)))
     T1, T2, T3, T4 = 0.6, 1.5, 2.6, 3.0   # pulsation, flèche, zoom, fondu
+    vframes = []
+    if video:
+        T4 = T2 + 1.2   # la vidéo démarre dès l'arrivée et grandit pendant 1,2 s
+        vdir = os.path.join(tmp, f'v{i}'); os.makedirs(vdir, exist_ok=True)
+        M.ff('-i', video, '-t', str(T4 - T2), '-vf', f'fps={FPS},scale={W}:{H}', os.path.join(vdir, '%04d.png'))
+        vframes = sorted(os.listdir(vdir))
+        vframes = [os.path.join(vdir, f) for f in vframes]
     n = int(T4 * FPS)
     fdir = os.path.join(tmp, f'anim{i}'); os.makedirs(fdir, exist_ok=True)
     full = None
@@ -125,9 +132,11 @@ def anim_clip(spec, i, result_img, out, tmp, mode='grow'):
         if t < T2 or full is None:
             full = frame(spec, current=i, prog=prog, pulse=pulse)
         img = full
+        if t >= T2 and mode == 'grow' and vframes:
+            res = Image.open(vframes[min(int((t - T2) * FPS), len(vframes) - 1)]).convert('RGB')
         if t >= T2 and mode == 'grow' and res is not None:
             # La photo du résultat naît au point d'arrivée et s'agrandit jusqu'à remplir l'écran.
-            g = ease((t - T2) / (T4 - 0.15 - T2))
+            g = ease((t - T2) / (T4 - (0 if vframes else 0.15) - T2))
             w0 = 90
             w = int(w0 + (W - w0) * g); h = int(w * H / W)
             cx = bx + (W / 2 - bx) * g; cy = by + (H / 2 - by) * g
@@ -150,8 +159,14 @@ def anim_clip(spec, i, result_img, out, tmp, mode='grow'):
                     rc = res.crop((int(W * (1 - 1 / rz) / 2), int(H * (1 - 1 / rz) / 2), int(W - W * (1 - 1 / rz) / 2), int(H - H * (1 - 1 / rz) / 2))).resize((W, H))
                     img = Image.blend(img, rc, a)
         img.save(os.path.join(fdir, f'{k:04d}.png'))
+    if video:  # son : silence, puis le son de la vidéo dès qu'elle démarre
+        M.ff('-framerate', str(FPS), '-i', os.path.join(fdir, '%04d.png'), '-i', video,
+             '-filter_complex', f'[0:v]fade=t=in:st=0:d=0.2,format=yuv420p[v];[1:a]atrim=0:{T4 - T2},adelay={int(T2 * 1000)}:all=1,apad,atrim=0:{T4}[a]',
+             '-map', '[v]', '-map', '[a]', '-t', str(T4), *M.ENC, out)
+        return T4 - T2
     M.ff('-framerate', str(FPS), '-i', os.path.join(fdir, '%04d.png'), '-f', 'lavfi', '-t', str(T4), '-i', 'anullsrc=r=48000:cl=stereo',
          '-vf', 'fade=t=in:st=0:d=0.2,format=yuv420p', '-map', '0:v', '-map', '1:a', '-t', str(T4), *M.ENC, out)
+    return 0
 
 
 def still_clip(img, dur, out, tmp):
@@ -168,10 +183,16 @@ def main(spec_path, out):
     p = os.path.join(tmp, 'intro.mp4'); still_clip(frame(spec, intro=True), 4.0, p, tmp); parts.append(p)
     for i, it in enumerate(spec['items']):
         p = os.path.join(tmp, f't{i}.mp4')
-        if spec.get('animate'): anim_clip(spec, i, it.get('result_img'), p, tmp)
+        skip = 0
+        if spec.get('animate'): skip = anim_clip(spec, i, it.get('result_img'), p, tmp, video=it['mp4'])
         else: still_clip(frame(spec, current=i), 2.2, p, tmp)
         parts.append(p)
-        parts.append(it['mp4'])
+        if skip:  # la suite du montage, sans les secondes déjà jouées dans la transition
+            q = os.path.join(tmp, f'm{i}-rest.mp4')
+            M.ff('-ss', str(skip), '-i', it['mp4'], *M.ENC, q)
+            parts.append(q)
+        else:
+            parts.append(it['mp4'])
     inputs, fc = [], ''
     for k, p in enumerate(parts):
         inputs += ['-i', p]
