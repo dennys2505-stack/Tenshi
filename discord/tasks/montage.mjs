@@ -76,9 +76,18 @@ export default async function montage({ log, rep, job }) {
   };
   const driveFile = job.file ? driveFiles.find((f) => f.name === job.file) || driveFiles.find((f) => f.name.startsWith(job.file)) : null;
   if (job.file && !driveFile) throw new Error(`clip « ${job.file} » introuvable dans le dossier Drive`);
+  const hasVideoRaw = (m) => (m.attachments || []).some((a) => /^video\//.test(a.content_type || '') || /\.(mp4|mov|webm|mkv)$/i.test(a.filename)) || DRIVE_RE.test(m.content || '');
   const hasVideo = (m) => (m.attachments || []).some((a) => /^video\//.test(a.content_type || '') || /\.(mp4|mov|webm|mkv)$/i.test(a.filename)) || DRIVE_RE.test(m.content || '');
   // Sans lien ni fichier : le clip Drive le plus récent enregistré avant le message.
-  const autoClip = (m) => driveFiles.map((f) => ({ ...f, t: clipTime(f.name) })).filter((f) => f.t && f.t <= new Date(new Date(m.timestamp).getTime() + 60_000)).sort((a, b) => b.t - a.t)[0];
+  // Chaque consigne prend le clip le plus récent enregistré AVANT elle, qui n'a pas déjà été pris par une consigne plus ancienne.
+  const clipsT = driveFiles.map((f) => ({ ...f, t: clipTime(f.name) })).filter((f) => f.t).sort((a, b) => a.t - b.t);
+  const assigned = new Map();
+  for (const m of [...msgs].filter((x) => !hasVideoRaw(x)).sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp))) {
+    const used = new Set(assigned.values());
+    const c = clipsT.filter((f) => f.t <= new Date(m.timestamp) && !used.has(f.id)).pop();
+    if (c) assigned.set(m.id, c.id);
+  }
+  const autoClip = (m) => clipsT.find((f) => f.id === assigned.get(m.id));
   // Téléchargement de la vidéo d'un message (fichier joint, lien Drive, clip du dossier Drive).
   const getVideo = async (m, dest, file = null) => {
     const a = (m.attachments || []).find((x) => /^video\//.test(x.content_type || '') || /\.(mp4|mov|webm|mkv)$/i.test(x.filename));
@@ -96,6 +105,24 @@ export default async function montage({ log, rep, job }) {
       const done = (m.reactions || []).some((r) => r.emoji?.name === '🎬');
       const c = hasVideo(m) ? 'lien/fichier' : (autoClip(m)?.name ?? '—');
       rep(`- ${m.id} · ${m.timestamp.slice(0, 16)} ${done ? '🎬' : ''} · ${(m.content || '').replace(DRIVE_RE, '[lien]').replace(/\n/g, ' ').slice(0, job.full ? 600 : 160)} → ${c}`);
+    }
+    return;
+  }
+  // Planches détaillées de plusieurs consignes d'un coup (param « sheets » : [ids], « dense » [début, fin, ips]).
+  if (job.sheets) {
+    rep('## Planches\n');
+    fs.mkdirSync('out/sheets', { recursive: true });
+    const [a0, b0, f0] = job.dense || [0, 64, 2];
+    for (const id of job.sheets) {
+      const m = msgs.find((x) => x.id === id);
+      if (!m) { rep(`- ❌ ${id} introuvable`); continue; }
+      const tmpS = fs.mkdtempSync('/tmp/sh-'), src = path.join(tmpS, 'source.mp4');
+      try {
+        const how = await getVideo(m, src);
+        await run('ffmpeg', ['-y', '-v', 'error', '-ss', String(a0), '-to', String(b0), '-i', src, '-vf', `fps=${f0},scale=480:-2,tile=4x4:padding=4:color=white`, `out/sheets/${id}-%02d.jpg`], { timeout: 300_000 });
+        rep(`- ${id} : ${how}`);
+      } catch (e) { rep(`- ❌ ${id} : ${String(e.stderr || e.message).split('\n').filter(Boolean).pop()}`); }
+      fs.rmSync(tmpS, { recursive: true, force: true });
     }
     return;
   }
