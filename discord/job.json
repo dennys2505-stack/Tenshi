@@ -1,14 +1,14 @@
 {
  "task": "montage",
- "message": "1574951365350916108",
+ "message": "1574953062458589358",
  "render": {
   "title": "Lotus · Fade",
-  "subtitle": "Fast A Main reveal · defense",
+  "subtitle": "Fast B reveal · from A Link",
   "segments": [
    {
     "type": "clip",
-    "from": 25.0,
-    "to": 27.5,
+    "from": 26.0,
+    "to": 28.5,
     "label": "Result"
    },
    {
@@ -16,21 +16,21 @@
     "from": 19.5,
     "to": 21.5,
     "step": 1,
-    "label": "Stand against the wall in A Main"
+    "label": "Stand by the window in A Link"
    },
    {
     "type": "clip",
-    "from": 21.5,
-    "to": 23.9,
+    "from": 22.5,
+    "to": 24.4,
     "step": 2,
     "label": "Aim"
    },
    {
     "type": "freeze",
-    "at": 24.0,
+    "at": 24.5,
     "dur": 2.6,
     "step": 2,
-    "label": "Crosshair just beside the plant",
+    "label": "Crosshair",
     "marks": [
      [
       960,
@@ -42,8 +42,8 @@
    },
    {
     "type": "clip",
-    "from": 24.0,
-    "to": 28.0,
+    "from": 24.5,
+    "to": 28.5,
     "step": 3,
     "label": "Throw"
    }
@@ -54,5 +54,5 @@
   "vertical"
  ],
  "post": true,
- "postText": "🎬 Lotus · Fade · Fast A Main reveal · defense"
+ "postText": "🎬 Lotus · Fade · Fast B reveal · from A Link"
 }
