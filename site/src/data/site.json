@@ -1,0 +1,4 @@
+{
+  "fondAccueil": null,
+  "_aide": "fondAccueil : null = montage automatique des maps du map pool (pool: true dans maps.json). Mettre un chemin d'image (ex. /img/fonds/ma-photo.webp) pour garder une photo fixe sur l'accueil, même quand le map pool change."
+}

@@ -1,9 +1,18 @@
 ---
 import '../styles/global.css';
 import { SITE_NAME, SITE_TAGLINE } from '../lib/data.js';
+import maps from '../data/maps.json';
+import site from '../data/site.json';
 const { title, description = SITE_TAGLINE, image, crumbs = [], backdrop } = Astro.props;
-// Fond sur PC : image de la map de la page, sinon le montage de maps (accueil, etc.).
-const bd = backdrop ?? '/img/fonds/montage.webp';
+// Fond sur PC : image de la map de la page ; sinon la photo d'accueil choisie (site.json → fondAccueil) ;
+// sinon un montage automatique des maps du map pool (pool: true dans maps.json), qui suit les rotations.
+const fixe = backdrop ?? site.fondAccueil ?? null;
+const pool = fixe ? [] : maps.filter((m) => m.pool);
+const N = pool.length;
+const bande = (i) => {
+  const a = (i / N) * 100, b = ((i + 1) / N) * 100, d = 7; // d = inclinaison des bandes (en % de la largeur)
+  return `polygon(${a + d - 2}% 0, ${b + d + 2}% 0, ${b + 2}% 100%, ${a - 2}% 100%)`;
+};
 const fullTitle = title ? `${title} | ${SITE_NAME}` : `${SITE_NAME} – ${SITE_TAGLINE}`;
 const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : undefined;
 const ogImage = image && Astro.site ? new URL(image, Astro.site).href : image;
@@ -34,7 +43,17 @@ const ogImage = image && Astro.site ? new URL(image, Astro.site).href : image;
       } catch (e) {}
     </script>
   </head>
-  <body class={backdrop ? 'bd-map' : 'bd-menu'} style={`--backdrop:url('${bd}')`}>
+  <body class={backdrop ? 'bd-map' : fixe ? 'bd-photo' : 'bd-menu'} style={fixe ? `--backdrop:url('${fixe}')` : undefined}>
+    {N > 0 && (
+      <div class="montage" aria-hidden="true">
+        {pool.map((m, i) => (
+          <div style={`background-image:url('${m.bg}');clip-path:${bande(i)};--lum:${m.fondLum ?? 1}`}></div>
+        ))}
+        <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+          {pool.slice(1).map((_, j) => { const x = ((j + 1) / N) * 100; return <line x1={x + 7} y1="0" x2={x} y2="100" />; })}
+        </svg>
+      </div>
+    )}
     <header class="site-head">
       <a class="brand" href="/">{SITE_NAME}</a>
     </header>
