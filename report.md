@@ -1,6 +1,6 @@
-# Tâche « montage » — 2026-11-26T19:39:12.451Z
+# Tâche « montage » — 2026-11-26T19:42:20.471Z
 
-- Dossier Drive : 29 vidéo(s)
+- Dossier Drive : 30 vidéo(s)
   1. MedalTVValorant20261123212447605.mp4
   2. MedalTVValorant20261125011750379.mp4
   3. MedalTVValorant20261125011756202.mp4
@@ -30,14 +30,15 @@
   27. MedalTVValorant20261126202354194.mp4
   28. MedalTVValorant20261126202746941.mp4
   29. MedalTVValorant20261126203242509.mp4
+  30. MedalTVValorant20261126203755259.mp4
 ## Montage — étape 1 : récupération
 
-- Salon : #video-line-up-a-monter — 33 message(s) lus
-- Message 1575591468020793486 du 2026-11-26T19:17:59.050000+00:00
-- Consigne : equivalent de la #57 , tu peux regarder les points de reperer de la photo mise sur le site ? parce qu il y en a 2 . molly vers cubby depuis c site defense
-- Téléchargé via dossier Drive, clip le plus proche (MedalTVValorant20261126201653638.mp4) : 40.0 Mo, 1920×1080, 5000000/83333 ips, 30.2 s
-- Montage horizontal : 17.0 s, 17.7 Mo → out/montage/montage-horizontal.mp4
-- Montage vertical : 17.0 s, 17.4 Mo → out/montage/montage-vertical.mp4
+- Salon : #video-line-up-a-monter — 34 message(s) lus
+- Message 1575592368915349638 du 2026-11-26T19:21:33.840000+00:00
+- Consigne : equivalent de la #55 point de repere la le point au desssus de la souris de droite au dessus de la molly , pheonix haven molly sur log depuis mid
+- Téléchargé via dossier Drive, clip le plus proche (MedalTVValorant20261126202004163.mp4) : 40.3 Mo, 1920×1080, 5000000/83333 ips, 30.3 s
+- Montage horizontal : 16.5 s, 17.9 Mo → out/montage/montage-horizontal.mp4
+- Montage vertical : 16.5 s, 17.2 Mo → out/montage/montage-vertical.mp4
 - Envoi montage-horizontal.mp4 dans le fil : 200 ✅
 - Envoi montage-vertical.mp4 dans le fil : 200 ✅
 - 2 planche(s) d'images (1 image/s) dans bot-logs (montage/) ; apercu.mp4 et montages mp4 en artefact privé « videos-bot » (3 jours)
