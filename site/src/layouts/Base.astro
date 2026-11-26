@@ -107,6 +107,16 @@ const ogImage = image && Astro.site ? new URL(image, Astro.site).href : image;
     });
   </script>
   <script is:inline>
+    // Petites vidéos en boucle des line ups : chargées et lancées seulement quand elles sont à l'écran (économise les données).
+    (function () {
+      var vs = document.querySelectorAll('.shots video[data-src]'); if (!vs.length) return;
+      function on(v) { if (!v.src) v.src = v.dataset.src; var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+      if (!('IntersectionObserver' in window)) { vs.forEach(on); return; }
+      var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) on(e.target); else e.target.pause(); }); }, { rootMargin: '200px' });
+      vs.forEach(function (v) { io.observe(v); });
+    })();
+  </script>
+  <script is:inline>
     // Line ups en photos verticales (images de vidéo) : classe « portrait » pour agrandir la mini map sur PC.
     document.querySelectorAll('.shots').forEach(function (box) {
       var k = box.querySelector('figure.key img'); if (!k) return;

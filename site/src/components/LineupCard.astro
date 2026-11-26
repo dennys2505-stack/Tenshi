@@ -13,7 +13,13 @@ const title = tx(lang, 'titles', l.title);
 const imgs = shownImages(l);
 let k = imgs.findIndex((i) => /^rep[eè]re/i.test(i.cap ?? '') || /visee/i.test(i.src ?? ''));
 if (k < 0) k = 0;
-const ordered = imgs.length ? [imgs[k], ...imgs.filter((_, j) => j !== k)] : [];
+let ordered = imgs.length ? [imgs[k], ...imgs.filter((_, j) => j !== k)] : [];
+// Petite vidéo en boucle (champ loop) : prend la place de la photo « Résultat » (on y voit le lancer jusqu'à l'impact).
+if (l.loop) {
+  const r = ordered.findIndex((i, j) => j > 0 && (/^r[ée]sultat/i.test(i.cap ?? '') || /resultat/i.test(i.src ?? '')));
+  const v = { loop: l.loop, poster: r >= 0 ? ordered[r].src : (ordered[0]?.src ?? '') };
+  if (r >= 0) ordered[r] = v; else ordered = [...ordered, v];
+}
 const sansPhotos = PUBLIC && !imagesOk(l) && (l.images ?? []).length > 0;
 const credit = creditOf(l, lang);
 ---
@@ -27,10 +33,17 @@ const credit = creditOf(l, lang);
   )}
   <div class="shots">
     {ordered.map((i, j) => (
+      i.loop ? (
+      <figure class="vloop">
+        <video class="p" data-src={i.loop} poster={i.poster} muted loop playsinline preload="none" aria-label={u.loopCap}></video>
+        <figcaption>{u.loopCap}</figcaption>
+      </figure>
+      ) : (
       <figure class={j === 0 ? 'key' : undefined}>
         <img class="p" src={i.src} alt={`${l.agent} ${u.on} ${l.map} – ${tx(lang, 'caps', i.cap)}`} loading="lazy" />
         {i.cap && <figcaption>{tx(lang, 'caps', i.cap)}</figcaption>}
       </figure>
+      )
     ))}
     <MiniMap lineup={l} map={m} lang={lang} />
   </div>
@@ -38,7 +51,8 @@ const credit = creditOf(l, lang);
     <p class="credit">{u.noImg}</p>
   )}
   <div class="actions">
-    {l.video && <a class="btn vid" href={l.video} target="_blank" rel="noopener noreferrer"><span>{PUBLIC ? u.videoOn(videoHost(l.video)) : u.video}</span></a>}
+    {l.yt && <a class="btn vid" href={l.yt} target="_blank" rel="noopener noreferrer"><span>▶ {u.fullVideo}</span></a>}
+    {l.video && !l.yt && <a class="btn vid" href={l.video} target="_blank" rel="noopener noreferrer"><span>{PUBLIC ? u.videoOn(videoHost(l.video)) : u.video}</span></a>}
     {!l.hidden && <button type="button" class="btn ghost share" data-url={lineupUrl(l, lang)} data-title={`${title} (${l.agent} · ${l.map})`} data-done={u.copied}>{u.share}</button>}
   </div>
   {credit && <p class="credit">{credit}</p>}
