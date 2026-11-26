@@ -1,6 +1,6 @@
-# Tâche « montage » — 2026-11-26T19:45:34.154Z
+# Tâche « montage » — 2026-11-26T19:54:27.189Z
 
-- Dossier Drive : 32 vidéo(s)
+- Dossier Drive : 33 vidéo(s)
   1. MedalTVValorant20261123212447605.mp4
   2. MedalTVValorant20261125011750379.mp4
   3. MedalTVValorant20261125011756202.mp4
@@ -33,14 +33,18 @@
   30. MedalTVValorant20261126203755259.mp4
   31. MedalTVValorant20261126204125522.mp4
   32. MedalTVValorant20261126204302768.mp4
-## Montage — étape 1 : récupération
+  33. MedalTVValorant20261126204725310.mp4
+## Images pour le site
 
-- Salon : #video-line-up-a-monter — 35 message(s) lus
-- Message 1575593277032366174 du 2026-11-26T19:25:10.352000+00:00
-- Consigne : equivalent de la #54 feu invisible haven depuis site , attaque , point de repere viseur (a ne pas mettre dans les compilations )
-- Téléchargé via dossier Drive, clip le plus proche (MedalTVValorant20261126202354194.mp4) : 39.4 Mo, 1920×1080, 5000000/83333 ips, 30.0 s
-- Montage horizontal : 12.6 s, 18.1 Mo → out/montage/montage-horizontal.mp4
-- Montage vertical : 12.6 s, 17.4 Mo → out/montage/montage-vertical.mp4
-- Envoi montage-horizontal.mp4 dans le fil : 200 ✅
-- Envoi montage-vertical.mp4 dans le fil : 200 ✅
-- 2 planche(s) d'images (1 image/s) dans bot-logs (montage/) ; apercu.mp4 et montages mp4 en artefact privé « videos-bot » (3 jours)
+- own-haven-phoenix-56-position.jpg (1575590731652014171, 21 s, dossier Drive, clip le plus proche (MedalTVValorant20261126201407577.mp4)) : 164670 octets
+- own-haven-phoenix-56-visee.jpg (1575590731652014171, 23.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261126201407577.mp4)) : 180750 octets
+- own-haven-phoenix-56-resultat.jpg (1575590731652014171, 16 s, dossier Drive, clip le plus proche (MedalTVValorant20261126201407577.mp4)) : 154770 octets
+- own-haven-phoenix-57-position.jpg (1575591468020793486, 19.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261126201653638.mp4)) : 145621 octets
+- own-haven-phoenix-57-visee.jpg (1575591468020793486, 22.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261126201653638.mp4)) : 147906 octets
+- own-haven-phoenix-57-resultat.jpg (1575591468020793486, 13 s, dossier Drive, clip le plus proche (MedalTVValorant20261126201653638.mp4)) : 160681 octets
+- own-haven-phoenix-55-position.jpg (1575592368915349638, 20 s, dossier Drive, clip le plus proche (MedalTVValorant20261126202004163.mp4)) : 123990 octets
+- own-haven-phoenix-55-visee.jpg (1575592368915349638, 24 s, dossier Drive, clip le plus proche (MedalTVValorant20261126202004163.mp4)) : 133366 octets
+- own-haven-phoenix-55-resultat.jpg (1575592368915349638, 15.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261126202004163.mp4)) : 154206 octets
+- own-haven-phoenix-54-position.jpg (1575593277032366174, 20 s, dossier Drive, clip le plus proche (MedalTVValorant20261126202354194.mp4)) : 65739 octets
+- own-haven-phoenix-54-visee.jpg (1575593277032366174, 21.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261126202354194.mp4)) : 143040 octets
+- own-haven-phoenix-54-resultat.jpg (1575593277032366174, 13.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261126202354194.mp4)) : 158781 octets
