@@ -1,6 +1,6 @@
-# Tâche « montage » — 2026-11-26T19:42:20.471Z
+# Tâche « montage » — 2026-11-26T19:45:34.154Z
 
-- Dossier Drive : 30 vidéo(s)
+- Dossier Drive : 32 vidéo(s)
   1. MedalTVValorant20261123212447605.mp4
   2. MedalTVValorant20261125011750379.mp4
   3. MedalTVValorant20261125011756202.mp4
@@ -31,14 +31,16 @@
   28. MedalTVValorant20261126202746941.mp4
   29. MedalTVValorant20261126203242509.mp4
   30. MedalTVValorant20261126203755259.mp4
+  31. MedalTVValorant20261126204125522.mp4
+  32. MedalTVValorant20261126204302768.mp4
 ## Montage — étape 1 : récupération
 
-- Salon : #video-line-up-a-monter — 34 message(s) lus
-- Message 1575592368915349638 du 2026-11-26T19:21:33.840000+00:00
-- Consigne : equivalent de la #55 point de repere la le point au desssus de la souris de droite au dessus de la molly , pheonix haven molly sur log depuis mid
-- Téléchargé via dossier Drive, clip le plus proche (MedalTVValorant20261126202004163.mp4) : 40.3 Mo, 1920×1080, 5000000/83333 ips, 30.3 s
-- Montage horizontal : 16.5 s, 17.9 Mo → out/montage/montage-horizontal.mp4
-- Montage vertical : 16.5 s, 17.2 Mo → out/montage/montage-vertical.mp4
+- Salon : #video-line-up-a-monter — 35 message(s) lus
+- Message 1575593277032366174 du 2026-11-26T19:25:10.352000+00:00
+- Consigne : equivalent de la #54 feu invisible haven depuis site , attaque , point de repere viseur (a ne pas mettre dans les compilations )
+- Téléchargé via dossier Drive, clip le plus proche (MedalTVValorant20261126202354194.mp4) : 39.4 Mo, 1920×1080, 5000000/83333 ips, 30.0 s
+- Montage horizontal : 12.6 s, 18.1 Mo → out/montage/montage-horizontal.mp4
+- Montage vertical : 12.6 s, 17.4 Mo → out/montage/montage-vertical.mp4
 - Envoi montage-horizontal.mp4 dans le fil : 200 ✅
 - Envoi montage-vertical.mp4 dans le fil : 200 ✅
 - 2 planche(s) d'images (1 image/s) dans bot-logs (montage/) ; apercu.mp4 et montages mp4 en artefact privé « videos-bot » (3 jours)
