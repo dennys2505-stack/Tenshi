@@ -2,7 +2,7 @@
 // Ne fait rien sur le site des amis : il faut PUBLIC_SITE=1 (variable du 2e projet Vercel)
 // ET être sur Vercel ou GitHub Actions (jamais sur un ordinateur par erreur, sauf PUBLIC_PREP_FORCE=1 pour tester).
 // Sur la copie de travail de Vercel uniquement, retire du site public :
-//  - les pages réservées (admin, coulisses, test du clip) et la fonction /api (écriture sur GitHub) ;
+//  - les pages réservées (admin, coulisses, test du clip) ;
 //  - le dossier clips (extraits de vidéos d'autres créateurs) ;
 //  - les photos de line ups non autorisées en public (ni « own », ni « imgOk ») et les line ups cachées
 //    → le site public est plus léger (moins de stockage Vercel) et ne publie que ce qui est permis.
@@ -18,7 +18,8 @@ if (!process.env.VERCEL && !process.env.CI && process.env.PUBLIC_PREP_FORCE !== 
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
 const rm = (p) => { const f = path.join(root, p); if (fs.existsSync(f)) { fs.rmSync(f, { recursive: true, force: true }); console.log('public-prep : retiré', p); } };
 
-for (const p of ['src/pages/admin', 'src/pages/coulisses', 'src/pages/test-clip', 'api', 'public/clips']) rm(p);
+// (Le dossier api/ reste : Vercel le repère avant la construction. La fonction gh.js refuse tout quand PUBLIC_SITE=1.)
+for (const p of ['src/pages/admin', 'src/pages/coulisses', 'src/pages/test-clip', 'public/clips']) rm(p);
 
 // Line ups : les cachées sont retirées ; photos gardées seulement si autorisées.
 const dir = path.join(root, 'src/data/lineups');
