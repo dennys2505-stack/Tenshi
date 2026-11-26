@@ -168,3 +168,7 @@ h2.autres{margin-top:32px}
   /* Line ups en photos verticales : mini map carrée, plus grande, pour remplir la case à côté des photos hautes */
   .shots.portrait .mmfig .mm{aspect-ratio:1}
 }
+
+/* Site public : tuiles d'agents « public » (fond crème + gros numéro rouge en bas à droite) → nombre de line ups en bas à gauche */
+.agbg.public{outline:1px solid #d5d0c7;outline-offset:-1px}
+.agbg.public span{left:14px;right:auto;color:#0f1923;text-shadow:none}

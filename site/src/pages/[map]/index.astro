@@ -8,8 +8,8 @@ const { map } = Astro.props;
 const agents = agentsForMap(map.name);
 const total = lineupsFor(map.name).length;
 // Tuiles d'agents : version claire (grand V rouge = forme du logo VALORANT) seulement sur le site des amis.
-// Site public : tuiles sombres (bande rouge, sans logo) en attendant les nouvelles tuiles de Tenshi.
-const tuile = !PUBLIC && map.style === 'clair' ? 'clair' : 'sombre';
+// Site public : tuiles « public » de Tenshi (fond crème, gros numéro rouge de l'agent, sans V) ; nombre de line ups en bas à gauche.
+const tuile = PUBLIC ? 'public' : map.style === 'clair' ? 'clair' : 'sombre';
 ---
 <Base
   backdrop={map.bg}
