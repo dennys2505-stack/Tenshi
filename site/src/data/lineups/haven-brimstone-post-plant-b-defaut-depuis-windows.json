@@ -6,7 +6,9 @@
   "side": "Attaque",
   "site": "B",
   "title": "Post-plant B (défaut) depuis Windows",
-  "notes": [],
+  "notes": [
+    "accroupi"
+  ],
   "reveal": false,
   "images": [
     {
