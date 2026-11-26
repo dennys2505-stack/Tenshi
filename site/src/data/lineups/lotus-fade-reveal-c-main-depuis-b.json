@@ -10,20 +10,16 @@
   "reveal": true,
   "images": [
     {
-      "src": "/img/lineups/6de892091c95u.jpg",
-      "cap": ""
+      "src": "/img/lineups/own-lotus-fade-158-position.jpg",
+      "cap": "Position : près des marches du site B"
     },
     {
-      "src": "/img/lineups/0af90a3edafau.jpg",
-      "cap": ""
+      "src": "/img/lineups/own-lotus-fade-158-visee.jpg",
+      "cap": "Repère : viseur"
     },
     {
-      "src": "/img/lineups/3f79bab58c51u.jpg",
-      "cap": ""
-    },
-    {
-      "src": "/img/lineups/9524191c1810u.jpg",
-      "cap": ""
+      "src": "/img/lineups/own-lotus-fade-158-resultat.jpg",
+      "cap": "Résultat"
     }
   ],
   "from": [
@@ -39,5 +35,7 @@
   "auto": true,
   "source": {
     "message": "1506893970356178994"
-  }
+  },
+  "own": true,
+  "checked": true
 }

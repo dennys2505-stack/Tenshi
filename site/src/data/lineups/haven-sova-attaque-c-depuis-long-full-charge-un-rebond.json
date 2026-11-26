@@ -13,12 +13,16 @@
   "reveal": true,
   "images": [
     {
-      "src": "/img/lineups/bea8453467c8.jpg",
-      "cap": ""
+      "src": "/img/lineups/own-haven-sova-143-position.jpg",
+      "cap": "Position : dans le coin de C Long"
     },
     {
-      "src": "/img/lineups/d954ea45f560.jpg",
-      "cap": ""
+      "src": "/img/lineups/own-haven-sova-143-visee.jpg",
+      "cap": "Repère : viseur (charge pleine, 1 rebond)"
+    },
+    {
+      "src": "/img/lineups/own-haven-sova-143-resultat.jpg",
+      "cap": "Résultat"
     }
   ],
   "from": [
@@ -35,5 +39,6 @@
   "source": {
     "message": "1498316022363455549"
   },
-  "checked": true
+  "checked": true,
+  "own": true
 }

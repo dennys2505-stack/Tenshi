@@ -10,12 +10,16 @@
   "reveal": true,
   "images": [
     {
-      "src": "/img/lineups/4810ce1d1496u.jpg",
-      "cap": "Position"
+      "src": "/img/lineups/own-haven-sova-227-position.jpg",
+      "cap": "Position : derrière les caisses du site C"
     },
     {
-      "src": "/img/lineups/18699d8651c2u.jpg",
-      "cap": "Repère de visée"
+      "src": "/img/lineups/own-haven-sova-227-visee.jpg",
+      "cap": "Repère : viseur"
+    },
+    {
+      "src": "/img/lineups/own-haven-sova-227-resultat.jpg",
+      "cap": "Résultat"
     }
   ],
   "from": [
@@ -37,5 +41,6 @@
       ]
     }
   ],
-  "checked": true
+  "checked": true,
+  "own": true
 }
