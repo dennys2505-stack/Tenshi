@@ -1,12 +1,15 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { maps, agentsForMap, lineupsFor, count, agentUrl } from '../../lib/data.js';
+import { maps, agentsForMap, lineupsFor, count, agentUrl, PUBLIC } from '../../lib/data.js';
 export function getStaticPaths() {
   return maps.map((m) => ({ params: { map: m.slug }, props: { map: m } }));
 }
 const { map } = Astro.props;
 const agents = agentsForMap(map.name);
 const total = lineupsFor(map.name).length;
+// Tuiles d'agents : version claire (grand V rouge = forme du logo VALORANT) seulement sur le site des amis.
+// Site public : tuiles sombres (bande rouge, sans logo) en attendant les nouvelles tuiles de Tenshi.
+const tuile = !PUBLIC && map.style === 'clair' ? 'clair' : 'sombre';
 ---
 <Base
   backdrop={map.bg}
@@ -21,7 +24,7 @@ const total = lineupsFor(map.name).length;
     {agents.map((a) => {
       const n = lineupsFor(map.name, a.name).length;
       return a.bg ? (
-        <a class={`tile mapbg agbg ${map.style === 'clair' ? 'clair' : 'sombre'}`} href={agentUrl(map.name, a.name)} aria-label={`${a.name}, ${count(n)}`} style={`background-image:url('/img/agents/${a.slug}-${map.style === 'clair' ? 'clair' : 'sombre'}.webp')`}>
+        <a class={`tile mapbg agbg ${tuile}`} href={agentUrl(map.name, a.name)} aria-label={`${a.name}, ${count(n)}`} style={`background-image:url('/img/agents/${a.slug}-${tuile}.webp')`}>
           <span>{count(n)}</span>
         </a>
       ) : (

@@ -13,6 +13,7 @@ const same = (a, b) => {
 
 export default async function handler(req, res) {
   res.setHeader('Cache-Control', 'no-store');
+  if (process.env.PUBLIC_SITE === '1') return res.status(404).json({ message: 'introuvable' }); // jamais d'écriture depuis le site public
   if (req.method !== 'POST') return res.status(405).json({ message: 'POST uniquement' });
   if (!process.env.ADMIN_PASSWORD || !process.env.GH_TOKEN) return res.status(501).json({ message: 'non configuré' });
   const { password, method = 'GET', path = '', body } = typeof req.body === 'string' ? JSON.parse(req.body || '{}') : req.body || {};

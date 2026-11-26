@@ -7,6 +7,11 @@ import agentsData from '../data/agents.json';
 import abilitiesData from '../data/abilities.json';
 
 export const SITE_NAME = 'Les astuces de Tenshi';
+
+// Version publique du site (2e projet Vercel, branche « public ») : variable PUBLIC_SITE=1 dans Vercel.
+// Le site des amis (projet actuel) n'a pas cette variable et ne change pas.
+export const PUBLIC = import.meta.env.PUBLIC_SITE === '1';
+export const CONTACT_EMAIL = 'Tenshinigo@gmail.com';
 export const SITE_TAGLINE = 'Line ups Valorant par map et par agent';
 
 export const slug = (s) =>
@@ -24,6 +29,26 @@ export const allLineups = Object.values(files)
   .sort((a, b) => a.id.localeCompare(b.id));
 export const lineups = allLineups.filter((l) => !l.hidden);
 export const hiddenLineups = allLineups.filter((l) => l.hidden);
+
+// Photos affichées. Site des amis : toutes. Site public : seulement les photos qui sont à Tenshi
+// (« own »: true) ou dont l'auteur a donné son accord (« imgOk »: true). Sinon, le public voit
+// la mini map, les indications et le lien vers la vidéo d'origine (crédit).
+export const imagesOk = (l) => !PUBLIC || l.own === true || l.imgOk === true;
+export const shownImages = (l) => (imagesOk(l) ? l.images ?? [] : []);
+
+// Nom du site d'une vidéo d'origine (pour « Vidéo d'origine sur Instagram » quand le crédit manque).
+export const videoHost = (url) => {
+  try {
+    const h = new URL(url).hostname.replace(/^www\.|^m\./, '');
+    return { 'instagram.com': 'Instagram', 'youtube.com': 'YouTube', 'youtu.be': 'YouTube', 'tiktok.com': 'TikTok', 'x.com': 'X', 'twitter.com': 'X', 'medal.tv': 'Medal' }[h] ?? h;
+  } catch { return ''; }
+};
+// Crédit affiché : champ « credit » ; sinon, sur le site public, « Vidéo d'origine (Instagram) ».
+export const creditOf = (l) => {
+  if (l.credit) return l.credit;
+  if (PUBLIC && l.video) return `Vidéo d’origine (${videoHost(l.video)})`;
+  return '';
+};
 
 const uniq = (a) => [...new Set(a)];
 

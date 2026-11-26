@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import { SITE_NAME, SITE_TAGLINE } from '../lib/data.js';
+import { SITE_NAME, SITE_TAGLINE, PUBLIC } from '../lib/data.js';
 import maps from '../data/maps.json';
 import site from '../data/site.json';
 const { title, description = SITE_TAGLINE, image, crumbs = [], backdrop } = Astro.props;
@@ -34,8 +34,9 @@ const ogImage = image && Astro.site ? new URL(image, Astro.site).href : image;
     {ogImage && <meta property="og:image" content={ogImage} />}
     <meta name="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
     <link rel="preload" href="/fonts/barlow-condensed-700.woff2" as="font" type="font/woff2" crossorigin />
+    {!PUBLIC && <meta name="robots" content="noindex" />}
     <slot name="head" />
-    <script is:inline>
+    {!PUBLIC && <script is:inline>
       // Numéros de line ups visibles seulement pour nous : ouvrir une page avec ?num=1 (désactiver avec ?num=0).
       try {
         var q = new URLSearchParams(location.search).get('num');
@@ -43,7 +44,7 @@ const ogImage = image && Astro.site ? new URL(image, Astro.site).href : image;
         if (q === '0') localStorage.removeItem('tenshi_num');
         if (localStorage.getItem('tenshi_num') === '1' || localStorage.getItem('tenshi_gh') || localStorage.getItem('tenshi_pw')) document.documentElement.classList.add('show-num');
       } catch (e) {}
-    </script>
+    </script>}
   </head>
   <body class={backdrop ? 'bd-map' : fixe ? 'bd-photo' : 'bd-menu'} style={[fixe ? `--backdrop:url('${fixe}')` : '', acc ? `--acd:${acc[0]};--acl:${acc[1]}${acc[2] ? `;--tint:${acc[2]}` : ''}` : ''].join(';') || undefined}>
     {N > 0 && (
@@ -73,10 +74,18 @@ const ogImage = image && Astro.site ? new URL(image, Astro.site).href : image;
       )}
       <slot />
     </main>
-    <footer class="site-foot">
-      {SITE_NAME} est un projet de fans. Il n'est pas affilié à Riot Games et ne reflète ni leurs avis ni ceux de personnes
-      travaillant pour Riot Games. VALORANT et Riot Games sont des marques de Riot Games, Inc.
-    </footer>
+    {PUBLIC ? (
+      <footer class="site-foot">
+        <p lang="en">{SITE_NAME} was created under Riot Games' "Legal Jibber Jabber" policy using assets owned by Riot Games. Riot Games does not endorse or sponsor this project.</p>
+        <p>Site de fan gratuit et non officiel, créé selon la politique « Legal Jibber Jabber » de Riot Games avec des éléments appartenant à Riot Games. Riot Games ne soutient ni ne sponsorise ce projet.</p>
+        <p><a href="/a-propos/">À propos, crédits et vie privée</a> · Pas de cookies, pas de pub, pas de statistiques.</p>
+      </footer>
+    ) : (
+      <footer class="site-foot">
+        {SITE_NAME} est un projet de fans. Il n'est pas affilié à Riot Games et ne reflète ni leurs avis ni ceux de personnes
+        travaillant pour Riot Games. VALORANT et Riot Games sont des marques de Riot Games, Inc.
+      </footer>
+    )}
     <script is:inline>
     // Bouton « Partager » : partage natif du téléphone, sinon copie du lien.
     document.addEventListener('click', function (e) {

@@ -1,0 +1,36 @@
+name: Mettre à jour le site public
+# Copie la branche main vers la branche « public » → le 2e projet Vercel (site public) se reconstruit.
+# Le site des amis (main) n'est pas concerné : il se met à jour à chaque modification, comme avant.
+#
+# Lancer à la main : GitHub → onglet Actions → « Mettre à jour le site public » → Run workflow.
+# Plus tard, pour une mise à jour automatique chaque semaine : enlever les # devant les 2 lignes « schedule ».
+on:
+  workflow_dispatch:
+  # schedule:
+  #   - cron: '23 3 * * 1'   # chaque lundi vers 4 h 23 (heure belge en hiver)
+permissions:
+  contents: write
+concurrency:
+  group: site-public
+  cancel-in-progress: false
+jobs:
+  publier:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Vérifier que le site public se construit
+        working-directory: site
+        env:
+          PUBLIC_SITE: '1'
+        run: |
+          npm ci --no-audit --no-fund --loglevel=error || npm install --no-audit --no-fund --loglevel=error
+          npm run build
+      - name: Copier main → public
+        run: |
+          git reset -q --hard origin/main
+          git push origin HEAD:refs/heads/public --force
+          echo "Site public mis à jour avec main ($(git rev-parse --short HEAD))."

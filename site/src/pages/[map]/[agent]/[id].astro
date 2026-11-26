@@ -1,7 +1,7 @@
 ---
 import Base from '../../../layouts/Base.astro';
 import LineupCard from '../../../components/LineupCard.astro';
-import { lineups, slug, mapUrl, agentUrl, mapByName } from '../../../lib/data.js';
+import { lineups, slug, mapUrl, agentUrl, mapByName, shownImages } from '../../../lib/data.js';
 export function getStaticPaths() {
   return lineups.map((l) => ({
     params: { map: slug(l.map), agent: slug(l.agent), id: l.id },
@@ -14,7 +14,7 @@ const { lineup: l } = Astro.props;
   backdrop={mapByName(l.map)?.bg}
   title={`${l.title} – ${l.agent} sur ${l.map}`}
   description={`Line up ${l.agent} sur ${l.map} (${l.side}${l.site ? `, site ${l.site}` : ''}) : ${l.title}.`}
-  image={l.images?.[0]?.src}
+  image={shownImages(l)[0]?.src}
   crumbs={[
     { label: l.map, href: mapUrl(l.map) },
     { label: l.agent, href: agentUrl(l.map, l.agent) },

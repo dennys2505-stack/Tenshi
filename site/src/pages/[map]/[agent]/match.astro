@@ -2,7 +2,7 @@
 // Le repère écrit est en haut : le bas de l'image (HUD, icônes) sert souvent de repère et ne doit pas être caché.
 // Mode match (2e écran) : l'écran coupé en 4 cases, chacune affiche la mini map ou une line up,
 // au choix et indépendamment (‹ › ou menu). Choix gardés dans le navigateur (localStorage).
-import { lineups, mapByName, lineupsFor, slug, agentsOf, mapUrl } from '../../../lib/data.js';
+import { lineups, mapByName, lineupsFor, slug, agentsOf, mapUrl, shownImages } from '../../../lib/data.js';
 export function getStaticPaths() {
   const pairs = new Map();
   for (const l of lineups) for (const a of agentsOf(l)) pairs.set(`${l.map}|${a}`, [l.map, a]);
@@ -20,7 +20,7 @@ const ORD = { Attaque: 0, 'Attaque et défense': 1, 'Défense': 2 };
 const sorted = [...list].sort((a, b) => (ORD[a.side] ?? 3) - (ORD[b.side] ?? 3) || String(a.site ?? '').localeCompare(String(b.site ?? '')) || (a.num ?? 0) - (b.num ?? 0));
 const cap1 = (s) => s.charAt(0).toUpperCase() + s.slice(1);
 const data = sorted.map((l, i) => {
-  const imgs = l.images ?? [];
+  const imgs = shownImages(l);
   const aim = imgs.find((x) => AIM.test(x.cap ?? '')) ?? imgs[0];
   const pos = imgs.find((x) => x !== aim && POS.test(x.cap ?? '')) ?? null;
   const rep = (aim?.cap ?? '').replace(/^\s*(rep[eè]re( de vis[eé]e)?|vis[eé]e)\s*:?\s*/i, '');

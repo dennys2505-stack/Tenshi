@@ -1,18 +1,21 @@
 ---
 import MiniMap from './MiniMap.astro';
-import { lineupUrl, mapByName, abilitiesOf } from '../lib/data.js';
+import { lineupUrl, mapByName, abilitiesOf, shownImages, imagesOk, creditOf, videoHost, PUBLIC } from '../lib/data.js';
 const { lineup: l, detail = false, agent } = Astro.props;
 const abs = abilitiesOf(l, agent ?? l.agent).join(' ');
 const m = mapByName(l.map);
 const Heading = detail ? 'h1' : 'h2';
 // La photo de visée (« Repère… » ou fichier « visee ») passe en premier, en grand ; sinon la 1re photo.
-const imgs = l.images ?? [];
+// Site public : seulement les photos autorisées (voir shownImages dans lib/data.js).
+const imgs = shownImages(l);
 let k = imgs.findIndex((i) => /^rep[eè]re/i.test(i.cap ?? '') || /visee/i.test(i.src ?? ''));
 if (k < 0) k = 0;
 const ordered = imgs.length ? [imgs[k], ...imgs.filter((_, j) => j !== k)] : [];
+const sansPhotos = PUBLIC && !imagesOk(l) && (l.images ?? []).length > 0;
+const credit = creditOf(l);
 ---
 <article class="card" id={l.id} data-side={l.side} data-site={l.site} data-ab={abs}>
-  {l.num && <a class="num" href={`/admin/?edit=${l.id}`} title="Modifier (admin)">#{l.num} {l.checked ? '✔' : '✎'}</a>}
+  {!PUBLIC && l.num && <a class="num" href={`/admin/?edit=${l.id}`} title="Modifier (admin)">#{l.num} {l.checked ? '✔' : '✎'}</a>}
   <p class="side-tag">{l.side}{l.site ? ` · ${l.site}` : ''}</p>
   <Heading>{detail ? l.title : <a href={lineupUrl(l)}>{l.title}</a>}</Heading>
   {(l.also ?? []).length > 0 && <p class="meta-line">Marche aussi pour {[l.agent, ...l.also].join(', ')}</p>}
@@ -28,9 +31,12 @@ const ordered = imgs.length ? [imgs[k], ...imgs.filter((_, j) => j !== k)] : [];
     ))}
     <MiniMap lineup={l} map={m} />
   </div>
+  {sansPhotos && l.video && (
+    <p class="credit">Les images de visée sont dans la vidéo de l’auteur : ouvre « Voir la vidéo ».</p>
+  )}
   <div class="actions">
-    {l.video && <a class="btn vid" href={l.video} target="_blank" rel="noopener noreferrer"><span>Voir la vidéo</span></a>}
+    {l.video && <a class="btn vid" href={l.video} target="_blank" rel="noopener noreferrer"><span>{PUBLIC ? `Voir la vidéo (${videoHost(l.video)})` : 'Voir la vidéo'}</span></a>}
     {!l.hidden && <button type="button" class="btn ghost share" data-url={lineupUrl(l)} data-title={`${l.title} (${l.agent} · ${l.map})`}>Partager</button>}
   </div>
-  {l.credit && <p class="credit">{l.credit}</p>}
+  {credit && <p class="credit">{credit}</p>}
 </article>

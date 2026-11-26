@@ -55,6 +55,8 @@ img{width:100%;height:auto;border-radius:6px;display:block;background:#000}
 .meta-line{color:var(--mu)}
 .credit{margin-top:12px}
 .site-foot{max-width:980px;margin:24px auto 0;padding:16px;color:var(--mu);font-size:.8rem;border-top:1px solid var(--ln)}
+.site-foot p{margin:0 0 6px}.site-foot a{color:inherit;text-decoration:underline}
+.legal{max-width:760px;line-height:1.55}.legal h2{margin-top:28px}.legal li{margin:4px 0}.legal a{color:var(--ac)}
 :focus-visible{outline:3px solid var(--ac);outline-offset:2px}
 [hidden]{display:none!important}
 

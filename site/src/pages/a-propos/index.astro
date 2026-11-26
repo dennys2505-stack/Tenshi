@@ -1,0 +1,38 @@
+---
+// Page « À propos, crédits et vie privée » (liée depuis le pied de page du site public).
+// À relire si le site change : pub, statistiques, vidéos intégrées, formulaire… (voir claude/mise-en-public.md).
+import Base from '../../layouts/Base.astro';
+import { SITE_NAME, CONTACT_EMAIL } from '../../lib/data.js';
+const MAJ = '26 novembre 2026';
+---
+<Base title="À propos, crédits et vie privée" description={`Qui fait ${SITE_NAME}, crédits des créateurs, contact et vie privée.`} crumbs={[{ label: 'À propos' }]}>
+  <div class="legal">
+    <h1>À propos, crédits et vie privée</h1>
+    <p class="lead small">Dernière mise à jour : {MAJ}</p>
+
+    <h2>Qui fait ce site</h2>
+    <p>{SITE_NAME} est un site de fan <b>gratuit et non officiel</b>, tenu par Tenshi, un joueur (particulier, en Belgique), pour retrouver facilement des line ups par map et par agent.</p>
+    <p>Contact : <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></p>
+
+    <h2>Riot Games</h2>
+    <p lang="en">{SITE_NAME} was created under Riot Games' "Legal Jibber Jabber" policy using assets owned by Riot Games. Riot Games does not endorse or sponsor this project.</p>
+    <p>Ce site a été créé selon la politique « Legal Jibber Jabber » de Riot Games, avec des éléments appartenant à Riot Games (images des agents, des maps et des compétences). Riot Games ne soutient ni ne sponsorise ce projet. Le site n'a aucun lien avec Riot Games.</p>
+
+    <h2>Crédits des créateurs</h2>
+    <ul>
+      <li>Beaucoup de line ups ont été découvertes grâce à d'autres créateurs. Chaque line up concernée indique le <b>nom du créateur</b> quand il est connu et un <b>lien vers sa vidéo d'origine</b> (bouton « Voir la vidéo »).</li>
+      <li>Les vidéos des autres créateurs ne sont <b>jamais copiées</b> sur ce site : le lien ouvre la vidéo chez son auteur.</li>
+      <li>Les photos de visée affichées sont celles de Tenshi, ou celles d'un créateur qui a donné son accord. Pour les autres line ups, le site montre seulement la mini map, les indications écrites et le lien vers la vidéo d'origine.</li>
+      <li><b>Tu es l'auteur d'une line up ou d'une image</b> et tu veux un crédit différent, l'ajout de tes images ou le retrait de ton contenu ? Écris à <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> : la demande est traitée au plus vite.</li>
+    </ul>
+
+    <h2>Vie privée</h2>
+    <ul>
+      <li><b>Pas de compte, pas de cookies, pas de publicité, pas de statistiques de visite, pas de traceurs.</b> Les polices et les images sont servies par le site lui-même ; aucune vidéo n'est intégrée dans les pages.</li>
+      <li><b>Hébergement : Vercel Inc.</b> (États-Unis, <a href="https://vercel.com" rel="noopener noreferrer">vercel.com</a>). Comme tout hébergeur, Vercel enregistre des journaux techniques (adresse IP, navigateur, page demandée, date) pour faire fonctionner le site et le protéger contre les abus. Ces journaux peuvent être traités hors de l'Union européenne. Voir la <a href="https://vercel.com/legal/privacy-policy" rel="noopener noreferrer">politique de confidentialité de Vercel</a>.</li>
+      <li>Le site lui-même ne collecte aucune donnée sur les visiteurs. Si tu écris par e-mail, ton message sert uniquement à te répondre et n'est ni vendu ni partagé.</li>
+      <li><b>Liens externes :</b> le bouton « Voir la vidéo » ouvre Instagram, YouTube, TikTok ou X. Ces sites appliquent leurs propres règles de vie privée et de cookies.</li>
+      <li><b>Tes droits (RGPD) :</b> pour toute question sur tes données (accès, effacement, opposition…), écris à <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. Tu peux aussi introduire une plainte auprès de l'<a href="https://www.autoriteprotectiondonnees.be" rel="noopener noreferrer">Autorité de protection des données</a> (Belgique).</li>
+    </ul>
+  </div>
+</Base>
