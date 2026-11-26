@@ -1,1 +1,58 @@
-{"task":"montage","sheets":["1575590731652014171","1575591468020793486","1575592368915349638","1575593277032366174"],"dense":[0,40,2]}
+{
+ "task": "montage",
+ "message": "1575590731652014171",
+ "render": {
+  "title": "Haven · Phoenix",
+  "subtitle": "Cubby molly · from C Long (attack)",
+  "segments": [
+   {
+    "type": "clip",
+    "from": 15.0,
+    "to": 17.5,
+    "label": "Result"
+   },
+   {
+    "type": "clip",
+    "from": 19.5,
+    "to": 22.0,
+    "step": 1,
+    "label": "Back against the crates in C Long"
+   },
+   {
+    "type": "clip",
+    "from": 22.0,
+    "to": 24.2,
+    "step": 2,
+    "label": "Aim"
+   },
+   {
+    "type": "freeze",
+    "at": 24.2,
+    "dur": 2.6,
+    "step": 2,
+    "label": "Crosshair",
+    "marks": [
+     [
+      960,
+      540,
+      60
+     ]
+    ],
+    "zoom": 2.2
+   },
+   {
+    "type": "clip",
+    "from": 24.2,
+    "to": 29.5,
+    "step": 3,
+    "label": "Throw"
+   }
+  ]
+ },
+ "formats": [
+  "horizontal",
+  "vertical"
+ ],
+ "post": true,
+ "postText": "🎬 Haven · Phoenix · Cubby molly · from C Long (attack)"
+}
