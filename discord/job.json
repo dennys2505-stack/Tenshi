@@ -1,1 +1,1 @@
-{ "task": "credits" }
+{ "task": "import", "limit": 0, "dry": true }
