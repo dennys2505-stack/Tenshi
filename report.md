@@ -1,4 +1,4 @@
-# Tâche « montage » — 2026-11-26T19:36:30.965Z
+# Tâche « montage » — 2026-11-26T19:39:12.451Z
 
 - Dossier Drive : 29 vidéo(s)
   1. MedalTVValorant20261123212447605.mp4
@@ -33,11 +33,11 @@
 ## Montage — étape 1 : récupération
 
 - Salon : #video-line-up-a-monter — 33 message(s) lus
-- Message 1575590731652014171 du 2026-11-26T19:15:03.486000+00:00
-- Consigne : equivalent de la #56 pheonix haven , point de repere viseur , molly vers cubby attaque
-- Téléchargé via dossier Drive, clip le plus proche (MedalTVValorant20261126201407577.mp4) : 40.1 Mo, 1920×1080, 5000000/83333 ips, 30.3 s
-- Montage horizontal : 15.1 s, 18.4 Mo → out/montage/montage-horizontal.mp4
-- Montage vertical : 15.1 s, 18.0 Mo → out/montage/montage-vertical.mp4
+- Message 1575591468020793486 du 2026-11-26T19:17:59.050000+00:00
+- Consigne : equivalent de la #57 , tu peux regarder les points de reperer de la photo mise sur le site ? parce qu il y en a 2 . molly vers cubby depuis c site defense
+- Téléchargé via dossier Drive, clip le plus proche (MedalTVValorant20261126201653638.mp4) : 40.0 Mo, 1920×1080, 5000000/83333 ips, 30.2 s
+- Montage horizontal : 17.0 s, 17.7 Mo → out/montage/montage-horizontal.mp4
+- Montage vertical : 17.0 s, 17.4 Mo → out/montage/montage-vertical.mp4
 - Envoi montage-horizontal.mp4 dans le fil : 200 ✅
 - Envoi montage-vertical.mp4 dans le fil : 200 ✅
 - 2 planche(s) d'images (1 image/s) dans bot-logs (montage/) ; apercu.mp4 et montages mp4 en artefact privé « videos-bot » (3 jours)
