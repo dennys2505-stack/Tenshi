@@ -10,12 +10,16 @@
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/6e0a9d5f1d05c.jpg",
-      "cap": ""
+      "src": "/img/lineups/own-haven-phoenix-56-position.jpg",
+      "cap": "Position : dos contre les caisses de C Long"
     },
     {
-      "src": "/img/lineups/0b5fe0c9c726.jpg",
-      "cap": "Repère de visée"
+      "src": "/img/lineups/own-haven-phoenix-56-visee.jpg",
+      "cap": "Repère : viseur"
+    },
+    {
+      "src": "/img/lineups/own-haven-phoenix-56-resultat.jpg",
+      "cap": "Résultat"
     }
   ],
   "from": [
@@ -32,5 +36,6 @@
   "source": {
     "message": "1493397708914823229"
   },
-  "checked": true
+  "checked": true,
+  "own": true
 }

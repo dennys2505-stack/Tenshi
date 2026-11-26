@@ -10,12 +10,16 @@
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/c8ccf93278f7.jpg",
-      "cap": ""
+      "src": "/img/lineups/own-haven-phoenix-54-position.jpg",
+      "cap": "Position : face au mur du site A"
     },
     {
-      "src": "/img/lineups/64e423655fa4.jpg",
-      "cap": ""
+      "src": "/img/lineups/own-haven-phoenix-54-visee.jpg",
+      "cap": "Repère : viseur"
+    },
+    {
+      "src": "/img/lineups/own-haven-phoenix-54-resultat.jpg",
+      "cap": "Résultat"
     }
   ],
   "from": [
@@ -32,5 +36,6 @@
   "source": {
     "message": "1484124581835968562"
   },
-  "checked": true
+  "checked": true,
+  "own": true
 }

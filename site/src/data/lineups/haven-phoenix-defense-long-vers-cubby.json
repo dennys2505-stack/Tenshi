@@ -12,8 +12,16 @@
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/a0810e2681ebc.jpg",
-      "cap": ""
+      "src": "/img/lineups/own-haven-phoenix-57-position.jpg",
+      "cap": "Position : contre la barrière du site C"
+    },
+    {
+      "src": "/img/lineups/own-haven-phoenix-57-visee.jpg",
+      "cap": "Repère : viseur sur le câble"
+    },
+    {
+      "src": "/img/lineups/own-haven-phoenix-57-resultat.jpg",
+      "cap": "Résultat"
     }
   ],
   "from": [
@@ -30,5 +38,6 @@
   "source": {
     "message": "1535657140331487282"
   },
-  "checked": true
+  "checked": true,
+  "own": true
 }

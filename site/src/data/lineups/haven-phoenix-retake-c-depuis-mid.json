@@ -12,16 +12,16 @@
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/ebd992e88c5f.jpg",
-      "cap": ""
+      "src": "/img/lineups/own-haven-phoenix-55-position.jpg",
+      "cap": "Position : au bord de la planche en bois de Mid"
     },
     {
-      "src": "/img/lineups/91bdf8f068ba.jpg",
-      "cap": ""
+      "src": "/img/lineups/own-haven-phoenix-55-visee.jpg",
+      "cap": "Repère : le point au-dessus de la souris de droite (au-dessus de la molly)"
     },
     {
-      "src": "/img/lineups/087d47f2ef64.jpg",
-      "cap": "Repère de visée"
+      "src": "/img/lineups/own-haven-phoenix-55-resultat.jpg",
+      "cap": "Résultat"
     }
   ],
   "from": [
@@ -38,5 +38,6 @@
   "source": {
     "message": "1487414533898113075"
   },
-  "checked": true
+  "checked": true,
+  "own": true
 }
