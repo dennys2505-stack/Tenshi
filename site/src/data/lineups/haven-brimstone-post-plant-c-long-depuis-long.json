@@ -10,12 +10,16 @@
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/5e0c8d4df657.jpg",
-      "cap": "Repère de visée"
+      "src": "/img/lineups/own-haven-brim-2-position.jpg",
+      "cap": "Position : dans le coin de C Long"
     },
     {
-      "src": "/img/lineups/069c76ec98a2.jpg",
-      "cap": "Résultat : atterrissage sur le site C"
+      "src": "/img/lineups/own-haven-brim-2-visee.jpg",
+      "cap": "Repère : icône de la molly juste sous le sommet du piquet"
+    },
+    {
+      "src": "/img/lineups/own-haven-brim-2-resultat.jpg",
+      "cap": "Résultat"
     }
   ],
   "from": [
@@ -31,5 +35,7 @@
   "checked": true,
   "source": {
     "message": "1486440601577853180"
-  }
+  },
+  "own": true,
+  "impact": 8.0
 }

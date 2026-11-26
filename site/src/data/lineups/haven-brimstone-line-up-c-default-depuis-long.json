@@ -10,12 +10,16 @@
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/d127b1be3733.jpg",
-      "cap": ""
+      "src": "/img/lineups/own-haven-brim-88-position.jpg",
+      "cap": "Position : contre le mur de C Long"
     },
     {
-      "src": "/img/lineups/b5ed1fef044f.jpg",
-      "cap": ""
+      "src": "/img/lineups/own-haven-brim-88-visee.jpg",
+      "cap": "Repère : viseur"
+    },
+    {
+      "src": "/img/lineups/own-haven-brim-88-resultat.jpg",
+      "cap": "Résultat"
     }
   ],
   "from": [
@@ -32,5 +36,7 @@
   "source": {
     "message": "1486439280459911491"
   },
-  "checked": true
+  "checked": true,
+  "own": true,
+  "impact": 4.6
 }

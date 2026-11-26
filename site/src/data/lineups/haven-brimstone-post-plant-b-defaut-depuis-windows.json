@@ -12,12 +12,16 @@
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/653b6a303289.jpg",
-      "cap": "Repère de visée 1"
+      "src": "/img/lineups/own-haven-brim-1-position.jpg",
+      "cap": "Position : accroupi à côté de la caisse dans Windows"
     },
     {
-      "src": "/img/lineups/2b8178b79fc4.jpg",
-      "cap": "Repère de visée 2"
+      "src": "/img/lineups/own-haven-brim-1-visee.jpg",
+      "cap": "Repère : viseur (accroupi)"
+    },
+    {
+      "src": "/img/lineups/own-haven-brim-1-resultat.jpg",
+      "cap": "Résultat"
     }
   ],
   "from": [
@@ -30,5 +34,7 @@
   ],
   "video": "https://www.instagram.com/reel/DWtuFE7iVD3/",
   "credit": "Vidéo d’origine : KOLIxEDITS",
-  "checked": true
+  "checked": true,
+  "own": true,
+  "impact": 3.5
 }

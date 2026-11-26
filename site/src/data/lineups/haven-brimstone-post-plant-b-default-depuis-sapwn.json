@@ -10,12 +10,16 @@
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/3de86f3e8007.jpg",
-      "cap": ""
+      "src": "/img/lineups/own-haven-brim-89-position.jpg",
+      "cap": "Position : dans le spawn attaquant"
     },
     {
-      "src": "/img/lineups/9939873f4abe.jpg",
-      "cap": ""
+      "src": "/img/lineups/own-haven-brim-89-visee.jpg",
+      "cap": "Repère : viseur"
+    },
+    {
+      "src": "/img/lineups/own-haven-brim-89-resultat.jpg",
+      "cap": "Résultat"
     }
   ],
   "from": [
@@ -32,5 +36,12 @@
   "checked": true,
   "source": {
     "message": "1489945410595323986"
-  }
+  },
+  "own": true,
+  "impact": 3.5,
+  "also": [
+    "Miks",
+    "Viper",
+    "Vyse"
+  ]
 }

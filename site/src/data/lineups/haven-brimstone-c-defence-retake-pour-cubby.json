@@ -10,8 +10,16 @@
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/2e0cf52e6d2ac.jpg",
-      "cap": ""
+      "src": "/img/lineups/own-haven-brim-87-position.jpg",
+      "cap": "Position : derrière les caisses du site C"
+    },
+    {
+      "src": "/img/lineups/own-haven-brim-87-visee.jpg",
+      "cap": "Repère : viseur"
+    },
+    {
+      "src": "/img/lineups/own-haven-brim-87-resultat.jpg",
+      "cap": "Résultat"
     }
   ],
   "from": [
@@ -28,5 +36,7 @@
   "source": {
     "message": "1484147513320804433"
   },
-  "checked": true
+  "checked": true,
+  "own": true,
+  "impact": 5.2
 }

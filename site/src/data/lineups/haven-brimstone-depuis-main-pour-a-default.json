@@ -10,8 +10,16 @@
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/1f1c93965c6c.jpg",
-      "cap": ""
+      "src": "/img/lineups/own-haven-brim-86-position.jpg",
+      "cap": "Position : contre la caisse de A Main"
+    },
+    {
+      "src": "/img/lineups/own-haven-brim-86-visee.jpg",
+      "cap": "Repère : viseur"
+    },
+    {
+      "src": "/img/lineups/own-haven-brim-86-resultat.jpg",
+      "cap": "Résultat"
     }
   ],
   "from": [
@@ -28,5 +36,7 @@
   "source": {
     "message": "1484146940689125406"
   },
-  "checked": true
+  "checked": true,
+  "own": true,
+  "impact": 6.6
 }

@@ -10,8 +10,16 @@
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/1f9e217980eb.jpg",
-      "cap": ""
+      "src": "/img/lineups/own-haven-brim-219-position.jpg",
+      "cap": "Position : près de la porte de A Main"
+    },
+    {
+      "src": "/img/lineups/own-haven-brim-219-visee.jpg",
+      "cap": "Repère : viseur"
+    },
+    {
+      "src": "/img/lineups/own-haven-brim-219-resultat.jpg",
+      "cap": "Résultat"
     }
   ],
   "from": [
@@ -28,5 +36,7 @@
   "source": {
     "message": "1573351274848723046"
   },
-  "checked": true
+  "checked": true,
+  "own": true,
+  "impact": 7.5
 }

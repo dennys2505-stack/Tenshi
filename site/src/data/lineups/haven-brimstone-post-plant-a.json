@@ -10,8 +10,16 @@
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/2e720f3c58bb.jpg",
-      "cap": ""
+      "src": "/img/lineups/own-haven-brim-62-position.jpg",
+      "cap": "Position : près des sacs de sable de A Long"
+    },
+    {
+      "src": "/img/lineups/own-haven-brim-62-visee.jpg",
+      "cap": "Repère : viseur"
+    },
+    {
+      "src": "/img/lineups/own-haven-brim-62-resultat.jpg",
+      "cap": "Résultat"
     }
   ],
   "to": [
@@ -28,5 +36,7 @@
     0.662,
     0.278
   ],
-  "checked": true
+  "checked": true,
+  "own": true,
+  "impact": 5.1
 }
