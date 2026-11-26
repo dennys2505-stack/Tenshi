@@ -1,14 +1,14 @@
 {
  "task": "montage",
- "message": "1575592368915349638",
+ "message": "1575593277032366174",
  "render": {
   "title": "Haven · Phoenix",
-  "subtitle": "Molly on the logs · from Mid (C retake)",
+  "subtitle": "Invisible Blaze for Heaven · from A Site (attack)",
   "segments": [
    {
     "type": "clip",
-    "from": 14.5,
-    "to": 17.5,
+    "from": 12.5,
+    "to": 14.5,
     "label": "Result"
    },
    {
@@ -16,36 +16,36 @@
     "from": 19.0,
     "to": 21.0,
     "step": 1,
-    "label": "Stand at the edge of the wooden plank in Mid"
+    "label": "Face the wall on A Site"
    },
    {
     "type": "clip",
     "from": 21.0,
-    "to": 24.4,
+    "to": 21.6,
     "step": 2,
     "label": "Aim"
    },
    {
     "type": "freeze",
-    "at": 24.4,
+    "at": 21.6,
     "dur": 2.6,
     "step": 2,
-    "label": "Dot above the right mouse icon",
+    "label": "Crosshair",
     "marks": [
      [
-      920,
-      864,
-      45
+      960,
+      540,
+      60
      ]
     ],
     "zoom": 2.2
    },
    {
     "type": "clip",
-    "from": 24.4,
-    "to": 29.9,
+    "from": 21.6,
+    "to": 27.0,
     "step": 3,
-    "label": "Throw"
+    "label": "Blaze"
    }
   ]
  },
@@ -54,5 +54,5 @@
   "vertical"
  ],
  "post": true,
- "postText": "🎬 Haven · Phoenix · Molly on the logs · from Mid (C retake)"
+ "postText": "🎬 Haven · Phoenix · Invisible Blaze for Heaven · from A Site (attack)"
 }
