@@ -1,36 +1,36 @@
 {
  "task": "montage",
- "message": "1575590731652014171",
+ "message": "1575591468020793486",
  "render": {
   "title": "Haven · Phoenix",
-  "subtitle": "Cubby molly · from C Long (attack)",
+  "subtitle": "Cubby molly · from C Site (defense)",
   "segments": [
    {
     "type": "clip",
-    "from": 15.0,
-    "to": 17.5,
+    "from": 12.0,
+    "to": 15.0,
     "label": "Result"
    },
    {
     "type": "clip",
-    "from": 19.5,
-    "to": 22.0,
+    "from": 18.5,
+    "to": 20.5,
     "step": 1,
-    "label": "Back against the crates in C Long"
+    "label": "Stand against the barrier on C Site"
    },
    {
     "type": "clip",
-    "from": 22.0,
-    "to": 24.2,
+    "from": 20.5,
+    "to": 23.0,
     "step": 2,
     "label": "Aim"
    },
    {
     "type": "freeze",
-    "at": 24.2,
+    "at": 23.0,
     "dur": 2.6,
     "step": 2,
-    "label": "Crosshair",
+    "label": "Crosshair on the wire",
     "marks": [
      [
       960,
@@ -42,8 +42,8 @@
    },
    {
     "type": "clip",
-    "from": 24.2,
-    "to": 29.5,
+    "from": 23.0,
+    "to": 29.9,
     "step": 3,
     "label": "Throw"
    }
@@ -54,5 +54,5 @@
   "vertical"
  ],
  "post": true,
- "postText": "🎬 Haven · Phoenix · Cubby molly · from C Long (attack)"
+ "postText": "🎬 Haven · Phoenix · Cubby molly · from C Site (defense)"
 }
