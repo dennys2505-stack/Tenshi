@@ -1,48 +1,48 @@
 {
  "task": "montage",
- "message": "1575591468020793486",
+ "message": "1575592368915349638",
  "render": {
   "title": "Haven · Phoenix",
-  "subtitle": "Cubby molly · from C Site (defense)",
+  "subtitle": "Molly on the logs · from Mid (C retake)",
   "segments": [
    {
     "type": "clip",
-    "from": 12.0,
-    "to": 15.0,
+    "from": 14.5,
+    "to": 17.5,
     "label": "Result"
    },
    {
     "type": "clip",
-    "from": 18.5,
-    "to": 20.5,
+    "from": 19.0,
+    "to": 21.0,
     "step": 1,
-    "label": "Stand against the barrier on C Site"
+    "label": "Stand at the edge of the wooden plank in Mid"
    },
    {
     "type": "clip",
-    "from": 20.5,
-    "to": 23.0,
+    "from": 21.0,
+    "to": 24.4,
     "step": 2,
     "label": "Aim"
    },
    {
     "type": "freeze",
-    "at": 23.0,
+    "at": 24.4,
     "dur": 2.6,
     "step": 2,
-    "label": "Crosshair on the wire",
+    "label": "Dot above the right mouse icon",
     "marks": [
      [
-      960,
-      540,
-      60
+      920,
+      864,
+      45
      ]
     ],
     "zoom": 2.2
    },
    {
     "type": "clip",
-    "from": 23.0,
+    "from": 24.4,
     "to": 29.9,
     "step": 3,
     "label": "Throw"
@@ -54,5 +54,5 @@
   "vertical"
  ],
  "post": true,
- "postText": "🎬 Haven · Phoenix · Cubby molly · from C Site (defense)"
+ "postText": "🎬 Haven · Phoenix · Molly on the logs · from Mid (C retake)"
 }
