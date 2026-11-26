@@ -160,6 +160,25 @@ export default async function montage({ log, rep, job }) {
     rep(`- Compilation : ${r2.stdout.trim()}`);
     return;
   }
+  // Petites vidéos en boucle pour le site (param « loops » : [{ message, from, to, name }]) → site/public/vid/<name>.mp4 (sans son, 960 px).
+  if (job.loops) {
+    rep('## Vidéos en boucle pour le site\n');
+    fs.mkdirSync('site/public/vid', { recursive: true });
+    for (const it of job.loops) {
+      const m = msgs.find((x) => x.id === it.message);
+      if (!m) { rep(`- ❌ message introuvable (${it.message})`); continue; }
+      const tmpL = fs.mkdtempSync('/tmp/lp-'), src = path.join(tmpL, 'source.mp4'), out = `site/public/vid/${it.name}.mp4`;
+      try {
+        const how = await getVideo(m, src, it.file ? driveFiles.find((f) => f.name.startsWith(it.file)) : null);
+        await run('ffmpeg', ['-y', '-loglevel', 'error', '-ss', String(it.from), '-to', String(it.to), '-i', src, '-an',
+          '-vf', 'delogo=x=2:y=950:w=330:h=88,scale=960:-2,fps=30', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', String(it.crf || 30),
+          '-pix_fmt', 'yuv420p', '-movflags', '+faststart', out]);
+        rep(`- ${it.name}.mp4 (${m.id}, ${it.from}→${it.to} s, ${how}) : ${Math.round(fs.statSync(out).size / 1024)} Ko`);
+      } catch (e) { rep(`- ❌ ${m.id} : ${String(e.stderr || e.message).split('\n').filter(Boolean).pop()}`); }
+      fs.rmSync(tmpL, { recursive: true, force: true });
+    }
+    return;
+  }
   // Images fixes pour le site (param « stills » : [{ message | match, shots: [{ t, name, marks }] }]).
   if (job.stills) {
     rep('## Images pour le site\n');
