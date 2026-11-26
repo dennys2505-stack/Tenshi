@@ -38,7 +38,8 @@ export default async function credits({ log, rep, job }) {
         const { stdout } = await run('yt-dlp', ['--skip-download', '--no-playlist', '--no-warnings', '-J', l.video], { timeout: 60_000, maxBuffer: 50 * 1024 * 1024 });
         const d = JSON.parse(stdout);
         const handle = d.channel || d.uploader_id || '';
-        const display = d.uploader || d.channel || d.creator || '';
+        // Nom affiché sans le slogan (« Affinity | UK Based Content Creator » → « Affinity »).
+        const display = String(d.uploader || d.channel || d.creator || '').split(/\s+[|•·]\s+/)[0].trim();
         name = handle && display && handle !== display && !/^\d+$/.test(handle) ? `${display} (@${String(handle).replace(/^@/, '')})` : (display || handle);
       } catch (e) {
         log(`#${l.num} : yt-dlp n'a pas pu lire ${l.video} (${String(e.message).split('\n').pop().slice(0, 160)})`);
