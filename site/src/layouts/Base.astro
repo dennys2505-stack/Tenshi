@@ -1,9 +1,14 @@
 ---
 import '../styles/global.css';
-import { SITE_NAME, SITE_TAGLINE, PUBLIC } from '../lib/data.js';
+import { SITE_NAME, PUBLIC } from '../lib/data.js';
+import { ui, pre } from '../lib/i18n.js';
 import maps from '../data/maps.json';
 import site from '../data/site.json';
-const { title, description = SITE_TAGLINE, image, crumbs = [], backdrop } = Astro.props;
+// lang : 'fr' (défaut) ou 'en' ; alt : adresse de la même page dans l'autre langue (bouton FR/EN, site public seulement).
+const { title, description: desc, image, crumbs = [], backdrop, lang = 'fr', alt } = Astro.props;
+const u = ui(lang);
+const description = desc ?? u.tagline;
+const SITE_TAGLINE = u.tagline;
 // Fond sur PC : image de la map de la page ; sinon la photo d'accueil choisie (site.json → fondAccueil) ;
 // sinon un montage automatique des maps du map pool (pool: true dans maps.json), qui suit les rotations.
 const fixe = backdrop ?? site.fondAccueil ?? null;
@@ -20,7 +25,7 @@ const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : un
 const ogImage = image && Astro.site ? new URL(image, Astro.site).href : image;
 ---
 <!doctype html>
-<html lang="fr">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
@@ -35,6 +40,9 @@ const ogImage = image && Astro.site ? new URL(image, Astro.site).href : image;
     <meta name="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
     <link rel="preload" href="/fonts/barlow-condensed-700.woff2" as="font" type="font/woff2" crossorigin />
     {!PUBLIC && <meta name="robots" content="noindex" />}
+    {PUBLIC && alt && Astro.site && <link rel="alternate" hreflang={lang} href={new URL(Astro.url.pathname, Astro.site).href} />}
+    {PUBLIC && alt && Astro.site && <link rel="alternate" hreflang={lang === 'en' ? 'fr' : 'en'} href={new URL(alt, Astro.site).href} />}
+    {PUBLIC && <script defer src="/_vercel/insights/script.js"></script>}
     <slot name="head" />
     {!PUBLIC && <script is:inline>
       // Numéros de line ups visibles seulement pour nous : ouvrir une page avec ?num=1 (désactiver avec ?num=0).
@@ -58,12 +66,13 @@ const ogImage = image && Astro.site ? new URL(image, Astro.site).href : image;
       </div>
     )}
     <header class="site-head">
-      <a class="brand" href="/">{SITE_NAME}</a>
+      <a class="brand" href={`${pre(lang)}/`}>{SITE_NAME}</a>
+      {PUBLIC && alt && <a class="lang-switch" href={alt} hreflang={lang === 'en' ? 'fr' : 'en'} lang={lang === 'en' ? 'fr' : 'en'} title={u.switchLabel}>{u.switchTo}</a>}
     </header>
     <main>
       {crumbs.length > 0 && (
         <nav class="crumbs" aria-label="Fil d'Ariane">
-          <a href="/">Accueil</a>
+          <a href={`${pre(lang)}/`}>{u.home}</a>
           {crumbs.map((c) => (
             <>
               <span aria-hidden="true">›</span>
@@ -77,8 +86,8 @@ const ogImage = image && Astro.site ? new URL(image, Astro.site).href : image;
     {PUBLIC ? (
       <footer class="site-foot">
         <p lang="en">{SITE_NAME} was created under Riot Games' "Legal Jibber Jabber" policy using assets owned by Riot Games. Riot Games does not endorse or sponsor this project.</p>
-        <p>Site de fan gratuit et non officiel, créé selon la politique « Legal Jibber Jabber » de Riot Games avec des éléments appartenant à Riot Games. Riot Games ne soutient ni ne sponsorise ce projet.</p>
-        <p><a href="/a-propos/">À propos, crédits et vie privée</a> · Pas de cookies, pas de pub, pas de statistiques.</p>
+        {u.footFr && <p>{u.footFr}</p>}
+        <p><a href={lang === 'en' ? '/en/about/' : '/a-propos/'}>{u.about}</a> · {u.footFree}</p>
       </footer>
     ) : (
       <footer class="site-foot">
@@ -91,7 +100,7 @@ const ogImage = image && Astro.site ? new URL(image, Astro.site).href : image;
     document.addEventListener('click', function (e) {
       var b = e.target.closest && e.target.closest('.share'); if (!b) return;
       var url = location.origin + b.dataset.url, t = b.dataset.title;
-      var done = function () { var o = b.textContent; b.textContent = 'Lien copié ✔'; setTimeout(function () { b.textContent = o; }, 1800); };
+      var done = function () { var o = b.textContent; b.textContent = b.dataset.done || 'Lien copié ✔'; setTimeout(function () { b.textContent = o; }, 1800); };
       if (navigator.share) navigator.share({ title: t, url: url }).catch(function () {});
       else if (navigator.clipboard) navigator.clipboard.writeText(url).then(done, function () { prompt('Lien :', url); });
       else prompt('Lien :', url);

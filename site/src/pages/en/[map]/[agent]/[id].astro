@@ -1,0 +1,6 @@
+---
+import LineupView from '../../../../views/LineupView.astro';
+import { lineupPaths } from '../../../../lib/data.js';
+export const getStaticPaths = lineupPaths;
+---
+<LineupView lineup={Astro.props.lineup} lang="en" />

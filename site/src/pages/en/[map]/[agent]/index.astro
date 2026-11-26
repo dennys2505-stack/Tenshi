@@ -1,0 +1,6 @@
+---
+import AgentView from '../../../../views/AgentView.astro';
+import { agentPaths } from '../../../../lib/data.js';
+export const getStaticPaths = agentPaths;
+---
+<AgentView mapName={Astro.props.mapName} agentName={Astro.props.agentName} lang="en" />

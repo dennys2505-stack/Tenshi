@@ -1,7 +1,9 @@
 ---
 // Mini map avec le point de départ (point blanc) et l'arrivée (cible, ou icône de reveal pour Fade et Sova).
 import abilities from '../data/abilities.json';
-const { lineup: l, map: m } = Astro.props;
+import { ui, abilityL } from '../lib/i18n.js';
+const { lineup: l, map: m, lang = 'fr' } = Astro.props;
+const u = ui(lang);
 const isRev = l.reveal && (l.agent === 'Fade' || l.agent === 'Sova');
 const revIcon = l.agent === 'Sova' ? '/img/icons/sova-reveal.png' : '/img/icons/reveal.png';
 // Brimstone : l'arrivée est dessinée comme une molly en feu.
@@ -24,15 +26,15 @@ const fr = W * 0.019, fax = x + fdx * W * 0.028, fay = y + fdy * W * 0.028;
 // Utilitaires posés sur la carte (sentinelles) : icônes et noms dans data/abilities.json.
 const ABIL = (abilities[l.agent] ?? []);
 const ICON = Object.fromEntries(ABIL.map((a) => [a.key, a.icon]));
-const NOM = Object.fromEntries(ABIL.map((a) => [a.key, a.label.toLowerCase()]));
+const NOM = Object.fromEntries(ABIL.map((a) => [a.key, abilityL(lang, a).toLowerCase()]));
 const used = [...new Set(marks.map((k) => k.t))].filter((k) => NOM[k]);
 const caption = marks.length
-  ? `Mini map : ${used.map((k) => NOM[k]).join(', ')}${l.from ? ` · point = position de ${l.agent}` : ''}`
+  ? u.mmMarks(used.map((k) => NOM[k]).join(', '), l.agent, Boolean(l.from))
   : isRev
-  ? 'Mini map : point = départ, icône = zone de retombée de la reveal'
+  ? u.mmRev
   : isMolly
-  ? 'Mini map : point = départ, feu = arrivée de la molly'
-  : 'Mini map : point = départ, cible = arrivée';
+  ? u.mmMolly
+  : u.mmFrom;
 ---
 {withOverlay && (
   <figure class="mmfig">

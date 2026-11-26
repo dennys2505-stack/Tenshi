@@ -1,0 +1,39 @@
+---
+// "About, credits and privacy" (English version of /a-propos/ — keep both pages in sync).
+import Base from '../../../layouts/Base.astro';
+import { SITE_NAME, CONTACT_EMAIL } from '../../../lib/data.js';
+const UPDATED = 'November 26, 2026';
+---
+<Base title="About, credits and privacy" description={`Who runs ${SITE_NAME}, creator credits, contact and privacy.`} crumbs={[{ label: 'About' }]} lang="en" alt="/a-propos/">
+  <div class="legal">
+    <h1>About, credits and privacy</h1>
+    <p class="lead small">Last updated: {UPDATED}</p>
+
+    <h2>Who runs this site</h2>
+    <p>{SITE_NAME} is a <b>free, unofficial fan site</b> run by Tenshi, a player (private individual, based in Belgium), to find line ups quickly by map and agent.</p>
+    <p>Contact: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></p>
+
+    <h2>Riot Games</h2>
+    <p>{SITE_NAME} was created under Riot Games' "Legal Jibber Jabber" policy using assets owned by Riot Games. Riot Games does not endorse or sponsor this project.</p>
+    <p>The agent, map and ability images belong to Riot Games. This site has no connection with Riot Games.</p>
+
+    <h2>Creator credits</h2>
+    <ul>
+      <li>Many line ups were discovered thanks to other creators. Each of those line ups shows the <b>creator's name</b> when it is known and a <b>link to their original video</b> (“Watch the video” button).</li>
+      <li>Other creators' videos are <b>never copied</b> to this site: the link opens the video on the author's own page.</li>
+      <li>The aiming pictures shown are Tenshi's own, or a creator's pictures used with their permission. For the other line ups, the site only shows the minimap, the written tips and the link to the original video.</li>
+      <li><b>Are you the author of a line up or a picture</b> and would like a different credit, your pictures added, or your content removed? Email <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>: requests are handled as quickly as possible.</li>
+    </ul>
+
+    <h2>Privacy</h2>
+    <ul>
+      <li><b>No account, no cookies, no advertising, no ad trackers.</b> Fonts and pictures are served by the site itself; no video is embedded in the pages.</li>
+      <li><b>Cookie-free audience measurement:</b> the site uses Vercel Web Analytics to count visits (page views, most viewed pages, referring site, country, device type). This tool sets no cookies and only keeps anonymized data: a visitor is only recognized by a hash computed from the request, which does not reveal who they are. The figures are only visible to Tenshi.</li>
+      <li><b>Match mode:</b> if you tick “Remember my panels on this device”, your panel choices are kept in your browser (local storage), only on your device. Untick the box to erase them.</li>
+      <li><b>Hosting: Vercel Inc.</b> (United States, <a href="https://vercel.com" rel="noopener noreferrer">vercel.com</a>). Like any host, Vercel keeps technical logs (IP address, browser, requested page, date) to run the site and protect it against abuse. These logs may be processed outside the European Union. See <a href="https://vercel.com/legal/privacy-policy" rel="noopener noreferrer">Vercel's privacy policy</a>.</li>
+      <li>The site itself does not collect any data about visitors. If you send an email, your message is only used to reply to you and is never sold or shared.</li>
+      <li><b>External links:</b> the “Watch the video” button opens Instagram, YouTube, TikTok or X. Those sites apply their own privacy and cookie rules.</li>
+      <li><b>Your rights (GDPR):</b> for any question about your data (access, deletion, objection…), email <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. You can also lodge a complaint with the Belgian <a href="https://www.dataprotectionauthority.be" rel="noopener noreferrer">Data Protection Authority</a>.</li>
+    </ul>
+  </div>
+</Base>

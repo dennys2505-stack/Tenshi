@@ -1,0 +1,6 @@
+---
+import MapView from '../../../views/MapView.astro';
+import { mapPaths } from '../../../lib/data.js';
+export const getStaticPaths = mapPaths;
+---
+<MapView map={Astro.props.map} lang="en" />

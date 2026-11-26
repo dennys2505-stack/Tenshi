@@ -5,7 +5,7 @@ import Base from '../../layouts/Base.astro';
 import { SITE_NAME, CONTACT_EMAIL } from '../../lib/data.js';
 const MAJ = '26 novembre 2026';
 ---
-<Base title="À propos, crédits et vie privée" description={`Qui fait ${SITE_NAME}, crédits des créateurs, contact et vie privée.`} crumbs={[{ label: 'À propos' }]}>
+<Base title="À propos, crédits et vie privée" description={`Qui fait ${SITE_NAME}, crédits des créateurs, contact et vie privée.`} crumbs={[{ label: 'À propos' }]} alt="/en/about/">
   <div class="legal">
     <h1>À propos, crédits et vie privée</h1>
     <p class="lead small">Dernière mise à jour : {MAJ}</p>
@@ -28,7 +28,9 @@ const MAJ = '26 novembre 2026';
 
     <h2>Vie privée</h2>
     <ul>
-      <li><b>Pas de compte, pas de cookies, pas de publicité, pas de statistiques de visite, pas de traceurs.</b> Les polices et les images sont servies par le site lui-même ; aucune vidéo n'est intégrée dans les pages.</li>
+      <li><b>Pas de compte, pas de cookies, pas de publicité, pas de traceurs publicitaires.</b> Les polices et les images sont servies par le site lui-même ; aucune vidéo n'est intégrée dans les pages.</li>
+      <li><b>Mesure d'audience sans cookies :</b> le site utilise Vercel Web Analytics pour compter les visites (pages vues, pages les plus consultées, site d'où vient le visiteur, pays, type d'appareil). Cet outil ne dépose aucun cookie et ne garde que des données anonymisées : un visiteur est reconnu seulement par une empreinte calculée à partir de la requête, qui ne permet pas de savoir qui il est. Les chiffres sont visibles uniquement par Tenshi.</li>
+      <li><b>Mode match :</b> si tu coches « Retenir mes cases sur cet appareil », tes choix de cases sont gardés dans ton navigateur (stockage local), seulement sur ton appareil. Décoche la case pour les effacer.</li>
       <li><b>Hébergement : Vercel Inc.</b> (États-Unis, <a href="https://vercel.com" rel="noopener noreferrer">vercel.com</a>). Comme tout hébergeur, Vercel enregistre des journaux techniques (adresse IP, navigateur, page demandée, date) pour faire fonctionner le site et le protéger contre les abus. Ces journaux peuvent être traités hors de l'Union européenne. Voir la <a href="https://vercel.com/legal/privacy-policy" rel="noopener noreferrer">politique de confidentialité de Vercel</a>.</li>
       <li>Le site lui-même ne collecte aucune donnée sur les visiteurs. Si tu écris par e-mail, ton message sert uniquement à te répondre et n'est ni vendu ni partagé.</li>
       <li><b>Liens externes :</b> le bouton « Voir la vidéo » ouvre Instagram, YouTube, TikTok ou X. Ces sites appliquent leurs propres règles de vie privée et de cookies.</li>

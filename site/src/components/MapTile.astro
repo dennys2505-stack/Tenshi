@@ -1,16 +1,18 @@
 ---
-import { lineupsFor, count, mapUrl } from '../lib/data.js';
-const { m } = Astro.props;
+import { lineupsFor, mapUrl } from '../lib/data.js';
+import { countL } from '../lib/i18n.js';
+const { m, lang = 'fr' } = Astro.props;
+const count = (n) => countL(lang, n);
 const n = lineupsFor(m.name).length;
 ---
 {m.bg ? (
-  <a class={`tile mapbg${m.pool ? '' : ' horspool'}`} href={mapUrl(m.name)} aria-label={`${m.name}, ${count(n)}`} style={`background-image:url('${m.bg}')`}>
+  <a class={`tile mapbg${m.pool ? '' : ' horspool'}`} href={mapUrl(m.name, lang)} aria-label={`${m.name}, ${count(n)}`} style={`background-image:url('${m.bg}')`}>
     {!m.named && <b class="nm">{m.name}</b>}
     {!m.named && m.coords && <i class="coords">{m.coords}</i>}
     <span>{count(n)}</span>
   </a>
 ) : (
-  <a class={`tile${m.pool ? '' : ' horspool'}`} href={mapUrl(m.name)}>
+  <a class={`tile${m.pool ? '' : ' horspool'}`} href={mapUrl(m.name, lang)}>
     <b>{m.name}</b>
     <span>{count(n)}</span>
   </a>

@@ -1,0 +1,80 @@
+---
+// Page d'un agent sur une map : filtres + toutes ses line ups.
+import Base from '../layouts/Base.astro';
+import LineupCard from '../components/LineupCard.astro';
+import { mapByName, agentInfo, lineupsFor, mapUrl, agentUrl, abilitiesOf } from '../lib/data.js';
+import { ui, countL, sideL, siteL, abilityL } from '../lib/i18n.js';
+import abilitiesData from '../data/abilities.json';
+const { mapName, agentName, lang = 'fr' } = Astro.props;
+const u = ui(lang);
+const list = lineupsFor(mapName, agentName);
+const uniq = (a) => [...new Set(a)];
+const sides = uniq(list.flatMap((l) => l.side === 'Attaque et défense' ? ['Attaque', 'Défense'] : [l.side]));
+const sites = uniq(list.map((l) => l.site).filter(Boolean));
+const abKeys = uniq(list.flatMap((l) => abilitiesOf(l, agentName)));
+const abs = (abilitiesData[agentName] ?? []).filter((a) => abKeys.includes(a.key));
+const map = mapByName(mapName);
+const agent = agentInfo(agentName);
+---
+<Base
+  backdrop={map?.bg}
+  title={u.agentTitle(agentName, mapName)}
+  description={u.agentDesc(countL(lang, list.length), agentName, mapName)}
+  image={agent.bg ?? map?.bg}
+  crumbs={[{ label: mapName, href: mapUrl(mapName, lang) }, { label: agentName }]}
+  lang={lang}
+  alt={agentUrl(mapName, agentName, lang === 'en' ? 'fr' : 'en')}
+>
+  <div class="top"><h1>{agentName} · {mapName}</h1><a class="btn ghost match-btn" href="match/" title={u.matchHint}>{u.matchBtn}</a></div>
+  {sides.length > 1 && (
+    <div class="chips" role="group" aria-label={u.side} data-filter="side">
+      <button class="chip" data-v="Tous" aria-pressed="true">{u.all}</button>
+      {sides.map((s) => <button class="chip" data-v={s} aria-pressed="false">{sideL(lang, s)}</button>)}
+    </div>
+  )}
+  {sites.length > 1 && (
+    <div class="chips" role="group" aria-label={u.site} data-filter="site">
+      <button class="chip" data-v="Tous" aria-pressed="true">{u.all}</button>
+      {sites.map((s) => <button class="chip" data-v={s} aria-pressed="false">{siteL(lang, s)}</button>)}
+    </div>
+  )}
+  {abs.length > 1 && (
+    <div class="chips" role="group" aria-label={u.ability} data-filter="ab">
+      <button class="chip" data-v="Tous" aria-pressed="true">{u.all}</button>
+      {abs.map((a) => <button class="chip" data-v={a.key} aria-pressed="false"><img class="chip-ic" src={a.icon} alt="" />{abilityL(lang, a)}</button>)}
+    </div>
+  )}
+  <div id="list">
+    {list.map((l) => <LineupCard lineup={l} agent={agentName} lang={lang} />)}
+  </div>
+  <p class="empty" id="none" hidden>{u.noFilter}</p>
+</Base>
+<script>
+  // Filtres côté / site / compétence (le contenu reste lisible sans JavaScript).
+  // Les valeurs (data-v, data-side…) restent en français dans les deux langues ; seuls les libellés sont traduits.
+  const state = { side: 'Tous', site: 'Tous', ab: 'Tous' };
+  const cards = [...document.querySelectorAll('#list article')];
+  const none = document.getElementById('none');
+  function apply() {
+    let shown = 0;
+    for (const c of cards) {
+      const ok = (state.side === 'Tous' || c.dataset.side === state.side || (c.dataset.side === 'Attaque et défense' && (state.side === 'Attaque' || state.side === 'Défense'))) && (state.site === 'Tous' || c.dataset.site === state.site) && (state.ab === 'Tous' || (c.dataset.ab || '').split(' ').includes(state.ab));
+      c.hidden = !ok;
+      if (ok) shown++;
+    }
+    if (none) none.hidden = shown > 0;
+  }
+  document.querySelectorAll('[data-filter]').forEach((group) => {
+    group.addEventListener('click', (e) => {
+      const b = e.target.closest('button');
+      if (!b) return;
+      state[group.dataset.filter] = b.dataset.v;
+      group.querySelectorAll('button').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+      apply();
+    });
+  });
+</script>
+<style>
+  .match-btn{margin:0 0 0 auto}
+  .chip-ic{width:18px;height:18px;object-fit:contain;vertical-align:-4px;margin-right:6px}
+</style>

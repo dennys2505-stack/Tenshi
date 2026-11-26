@@ -1,0 +1,42 @@
+---
+// Page d'une map : choix de l'agent.
+import Base from '../layouts/Base.astro';
+import { agentsForMap, lineupsFor, agentUrl, mapUrl, PUBLIC } from '../lib/data.js';
+import { ui, countL } from '../lib/i18n.js';
+const { map, lang = 'fr' } = Astro.props;
+const u = ui(lang);
+const count = (n) => countL(lang, n);
+const agents = agentsForMap(map.name);
+const total = lineupsFor(map.name).length;
+// Tuiles d'agents : version claire (grand V rouge = forme du logo VALORANT) seulement sur le site des amis.
+// Site public : tuiles « public » de Tenshi (fond crème, gros numéro rouge de l'agent, sans V) ; nombre de line ups en bas à gauche.
+const tuile = PUBLIC ? 'public' : map.style === 'clair' ? 'clair' : 'sombre';
+---
+<Base
+  backdrop={map.bg}
+  title={u.mapTitle(map.name)}
+  description={total ? u.mapDesc(count(total), map.name) : u.mapSoon(map.name)}
+  image={map.bg}
+  crumbs={[{ label: map.name }]}
+  lang={lang}
+  alt={mapUrl(map.name, lang === 'en' ? 'fr' : 'en')}
+>
+  <div class="top"><h1 class="grad">{map.name}</h1></div>
+  <h2>{u.chooseAgent}</h2>
+  <div class="grid maps" style="margin-top:12px">
+    {agents.map((a) => {
+      const n = lineupsFor(map.name, a.name).length;
+      return a.bg ? (
+        <a class={`tile mapbg agbg ${tuile}`} href={agentUrl(map.name, a.name, lang)} aria-label={`${a.name}, ${count(n)}`} style={`background-image:url('/img/agents/${a.slug}-${tuile}.webp')`}>
+          <span>{count(n)}</span>
+        </a>
+      ) : (
+        <a class="tile" href={agentUrl(map.name, a.name, lang)}>
+          <b>{a.name}</b>
+          <span>{count(n)}</span>
+        </a>
+      );
+    })}
+  </div>
+  {agents.length === 0 && <p class="empty">{u.noMapLineup}</p>}
+</Base>

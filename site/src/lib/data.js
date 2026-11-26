@@ -44,9 +44,10 @@ export const videoHost = (url) => {
   } catch { return ''; }
 };
 // Crédit affiché : champ « credit » ; sinon, sur le site public, « Vidéo d'origine (Instagram) ».
-export const creditOf = (l) => {
-  if (l.credit) return l.credit;
-  if (PUBLIC && l.video) return `Vidéo d’origine (${videoHost(l.video)})`;
+export const creditOf = (l, lang) => {
+  const origin = lang === 'en' ? 'Original video' : 'Vidéo d’origine';
+  if (l.credit) return lang === 'en' ? l.credit.replace(/^Vidéo d[’']origine\s*:/, `${origin}:`).replace(/^By /, 'By ') : l.credit;
+  if (PUBLIC && l.video) return `${origin} (${videoHost(l.video)})`;
   return '';
 };
 
@@ -85,9 +86,12 @@ export const agentsForMap = (mapName) =>
 
 export const count = (n) => (n === 0 ? 'Bientôt' : n === 1 ? '1 line up' : `${n} line ups`);
 
-export const lineupUrl = (l) => `/${slug(l.map)}/${slug(l.agent)}/${l.id}/`;
-export const agentUrl = (mapName, agentName) => `/${slug(mapName)}/${slug(agentName)}/`;
-export const mapUrl = (mapName) => `/${slug(mapName)}/`;
+// Adresses ; lang = 'en' → même page en anglais, préfixée par /en.
+const pfx = (lang) => (lang === 'en' ? '/en' : '');
+export const lineupUrl = (l, lang) => `${pfx(lang)}/${slug(l.map)}/${slug(l.agent)}/${l.id}/`;
+export const agentUrl = (mapName, agentName, lang) => `${pfx(lang)}/${slug(mapName)}/${slug(agentName)}/`;
+export const mapUrl = (mapName, lang) => `${pfx(lang)}/${slug(mapName)}/`;
+export const homeUrl = (lang) => `${pfx(lang)}/`;
 
 // Compétences d'une line up pour un agent (filtre « Compétence » de la page agent) :
 // champ « ability » s'il existe, sinon icônes posées sur la mini map, case Reveal, mots du titre.
@@ -107,3 +111,15 @@ export const abilitiesOf = (l, agentName) => {
   return [...out];
 };
 export const abilityInfo = (agentName, key) => (abilitiesData[agentName] ?? []).find((a) => a.key === key);
+
+// Chemins des pages générées (partagés par les pages FR et EN).
+export const mapPaths = () => maps.map((m) => ({ params: { map: m.slug }, props: { map: m } }));
+export const agentPaths = () => {
+  const pairs = new Map();
+  for (const l of lineups) for (const a of agentsOf(l)) pairs.set(`${l.map}|${a}`, [l.map, a]);
+  return [...pairs.values()].map(([map, agent]) => ({
+    params: { map: slug(map), agent: slug(agent) },
+    props: { mapName: map, agentName: agent },
+  }));
+};
+export const lineupPaths = () => lineups.map((l) => ({ params: { map: slug(l.map), agent: slug(l.agent), id: l.id }, props: { lineup: l } }));

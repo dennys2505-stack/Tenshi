@@ -1,0 +1,26 @@
+---
+// Fiche d'une line up.
+import Base from '../layouts/Base.astro';
+import LineupCard from '../components/LineupCard.astro';
+import { mapUrl, agentUrl, lineupUrl, mapByName, shownImages } from '../lib/data.js';
+import { ui, tx, sideL, siteL } from '../lib/i18n.js';
+const { lineup: l, lang = 'fr' } = Astro.props;
+const u = ui(lang);
+const title = tx(lang, 'titles', l.title);
+---
+<Base
+  backdrop={mapByName(l.map)?.bg}
+  title={u.lineupTitle(title, l.agent, l.map)}
+  description={u.lineupDesc(l.agent, l.map, sideL(lang, l.side), siteL(lang, l.site), title)}
+  image={shownImages(l)[0]?.src}
+  crumbs={[
+    { label: l.map, href: mapUrl(l.map, lang) },
+    { label: l.agent, href: agentUrl(l.map, l.agent, lang) },
+    { label: title },
+  ]}
+  lang={lang}
+  alt={lineupUrl(l, lang === 'en' ? 'fr' : 'en')}
+>
+  <LineupCard lineup={l} detail lang={lang} />
+  <a class="back" href={agentUrl(l.map, l.agent, lang)}>{u.backAll(l.agent, l.map)}</a>
+</Base>

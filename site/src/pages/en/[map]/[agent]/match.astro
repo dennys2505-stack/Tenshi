@@ -1,0 +1,6 @@
+---
+import MatchView from '../../../../views/MatchView.astro';
+import { agentPaths } from '../../../../lib/data.js';
+export const getStaticPaths = agentPaths;
+---
+<MatchView mapName={Astro.props.mapName} agentName={Astro.props.agentName} lang="en" />
