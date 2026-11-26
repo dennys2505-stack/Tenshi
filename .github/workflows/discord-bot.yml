@@ -48,13 +48,29 @@ jobs:
           name: youtube
           path: youtube/
           retention-days: 3
-      - name: Publier le compte-rendu (branche bot-logs, sans secret)
+      - name: Mettre les vidéos de côté (jamais publiques dans bot-logs)
+        if: always()
+        run: |
+          mkdir -p videos-bot
+          if [ -d out ]; then
+            find out -type f \( -iname '*.mp4' -o -iname '*.webm' -o -iname '*.mov' -o -iname '*.mkv' -o -iname '*.gif' \) -print0 |
+              while IFS= read -r -d '' f; do d="videos-bot/${f#out/}"; mkdir -p "$(dirname "$d")"; mv "$f" "$d"; done
+          fi
+          ls -R videos-bot | head -50
+      - name: Vidéos du bot (artefact privé de 3 jours, pas dans bot-logs)
+        if: always() && hashFiles('videos-bot/**') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: videos-bot
+          path: videos-bot/
+          retention-days: 3
+      - name: Publier le compte-rendu (branche bot-logs, sans secret ni vidéo)
         if: always()
         run: |
           set -e
           mkdir -p /tmp/pub
           if [ -d out ]; then cp -r out/. /tmp/pub/; else echo "aucune sortie" > /tmp/pub/run.log; fi
-          rm -rf out
+          rm -rf out videos-bot
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git clean -fdxq

@@ -1,6 +1,6 @@
 // Tâche « montage » (étape 1 : récupération) : lit le salon privé « video-line-up-a-monter »,
 // prend la vidéo la plus récente (fichier joint ou lien Google Drive), la télécharge et publie dans le
-// compte-rendu (branche bot-logs) : infos, planches d'images (1 image / seconde) et une copie légère.
+// compte-rendu (branche bot-logs) : infos, planches d'images (1 image / seconde) ; les vidéos (copie légère, montages) vont dans l'artefact privé « videos-bot ».
 // Rien n'est publié sur le site ni sur Discord à cette étape.
 import fs from 'fs';
 import path from 'path';
@@ -240,6 +240,6 @@ export default async function montage({ log, rep, job }) {
     }
   }
   const sheets = fs.readdirSync('out/montage').filter((f) => f.startsWith('planche')).length;
-  rep(`- ${sheets} planche(s) d'images (1 image/s) + apercu.mp4 dans out/montage/`);
+  rep(`- ${sheets} planche(s) d'images (1 image/s) dans bot-logs (montage/) ; apercu.mp4 et montages mp4 en artefact privé « videos-bot » (3 jours)`);
   fs.rmSync(tmp, { recursive: true, force: true });
 }
