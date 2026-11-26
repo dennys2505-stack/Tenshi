@@ -1,33 +1,33 @@
 {
  "task": "montage",
- "message": "1575297204296351809",
+ "message": "1575299618067972138",
  "render": {
   "title": "Haven · Brimstone",
-  "subtitle": "A default post-plant · from A Main (box)",
+  "subtitle": "A default (left side) post-plant · from A Main",
   "segments": [
    {
     "type": "clip",
-    "from": 10.5,
-    "to": 13.5,
+    "from": 4.0,
+    "to": 7.0,
     "label": "Result"
    },
    {
     "type": "clip",
-    "from": 17.5,
-    "to": 19.5,
+    "from": 12.0,
+    "to": 15.0,
     "step": 1,
-    "label": "Stand against the box in A Main"
+    "label": "Stand by the door in A Main"
    },
    {
     "type": "clip",
-    "from": 19.5,
-    "to": 20.7,
+    "from": 15.0,
+    "to": 17.0,
     "step": 2,
     "label": "Aim"
    },
    {
     "type": "freeze",
-    "at": 20.7,
+    "at": 17.0,
     "dur": 2.6,
     "step": 2,
     "label": "Crosshair",
@@ -42,23 +42,23 @@
    },
    {
     "type": "clip",
-    "from": 20.7,
-    "to": 22.2,
+    "from": 17.0,
+    "to": 18.5,
     "step": 3,
     "label": "Throw",
     "chrono": {
      "start": 0.2,
-     "stop": 6.6
+     "stop": 7.6
     }
    },
    {
     "type": "clip",
-    "from": 22.2,
-    "to": 29.5,
+    "from": 18.5,
+    "to": 27.0,
     "label": "Time to impact",
     "chrono": {
      "start": -1.3,
-     "stop": 6.6
+     "stop": 7.6
     }
    }
   ]
@@ -68,5 +68,5 @@
   "vertical"
  ],
  "post": true,
- "postText": "🎬 Haven · Brimstone · A default post-plant · from A Main (box)"
+ "postText": "🎬 Haven · Brimstone · A default (left side) post-plant · from A Main"
 }
