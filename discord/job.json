@@ -1,1 +1,72 @@
-{"task":"montage","sheets":["1575295160974311467","1575299618067972138","1575306050649718898","1575308112615706695"],"dense":[17,29,4]}
+{
+ "task": "montage",
+ "message": "1575294686132834387",
+ "render": {
+  "title": "Haven · Brimstone",
+  "subtitle": "C default post-plant · from C Long",
+  "segments": [
+   {
+    "type": "clip",
+    "from": 10.0,
+    "to": 13.0,
+    "label": "Result"
+   },
+   {
+    "type": "clip",
+    "from": 17.5,
+    "to": 20.0,
+    "step": 1,
+    "label": "Stand against the wall in C Long"
+   },
+   {
+    "type": "clip",
+    "from": 20.0,
+    "to": 21.5,
+    "step": 2,
+    "label": "Aim"
+   },
+   {
+    "type": "freeze",
+    "at": 21.5,
+    "dur": 2.6,
+    "step": 2,
+    "label": "Crosshair",
+    "marks": [
+     [
+      960,
+      540,
+      60
+     ]
+    ],
+    "zoom": 2.2
+   },
+   {
+    "type": "clip",
+    "from": 21.5,
+    "to": 23.0,
+    "step": 3,
+    "label": "Throw",
+    "chrono": {
+     "start": 0.4,
+     "stop": 4.6
+    }
+   },
+   {
+    "type": "clip",
+    "from": 23.0,
+    "to": 28.5,
+    "label": "Time to impact",
+    "chrono": {
+     "start": -1.1,
+     "stop": 4.6
+    }
+   }
+  ]
+ },
+ "formats": [
+  "horizontal",
+  "vertical"
+ ],
+ "post": true,
+ "postText": "🎬 Haven · Brimstone · C default post-plant · from C Long"
+}
