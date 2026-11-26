@@ -1,33 +1,33 @@
 {
  "task": "montage",
- "message": "1575301011738857503",
+ "message": "1575303752343097365",
  "render": {
   "title": "Haven · Brimstone",
-  "subtitle": "C retake molly for Cubby · from C Site (defense)",
+  "subtitle": "A Short post-plant · from A Long",
   "segments": [
    {
     "type": "clip",
-    "from": 9.5,
-    "to": 12.5,
+    "from": 12.5,
+    "to": 15.0,
     "label": "Result"
    },
    {
     "type": "clip",
-    "from": 16.0,
+    "from": 17.5,
     "to": 19.5,
     "step": 1,
-    "label": "Stand behind the boxes on C Site"
+    "label": "Stand by the sandbags in A Long"
    },
    {
     "type": "clip",
     "from": 19.5,
-    "to": 21.5,
+    "to": 22.5,
     "step": 2,
     "label": "Aim"
    },
    {
     "type": "freeze",
-    "at": 21.5,
+    "at": 22.5,
     "dur": 2.6,
     "step": 2,
     "label": "Crosshair",
@@ -42,23 +42,23 @@
    },
    {
     "type": "clip",
-    "from": 21.5,
-    "to": 23.0,
+    "from": 22.5,
+    "to": 24.0,
     "step": 3,
     "label": "Throw",
     "chrono": {
-     "start": 0.3,
-     "stop": 5.2
+     "start": 0.4,
+     "stop": 5.1
     }
    },
    {
     "type": "clip",
-    "from": 23.0,
-    "to": 29.5,
+    "from": 24.0,
+    "to": 29.9,
     "label": "Time to impact",
     "chrono": {
-     "start": -1.2,
-     "stop": 5.2
+     "start": -1.1,
+     "stop": 5.1
     }
    }
   ]
@@ -68,5 +68,5 @@
   "vertical"
  ],
  "post": true,
- "postText": "🎬 Haven · Brimstone · C retake molly for Cubby · from C Site (defense)"
+ "postText": "🎬 Haven · Brimstone · A Short post-plant · from A Long"
 }
