@@ -1,10 +1,12 @@
-# Tâche « montage » — 2026-11-27T21:42:19.067Z
+# Tâche « import » — 2026-11-27T21:53:23.560Z
 
-## Line ups validées (✅)
+## Import (simulation) — cartes : toutes, limite : 0
 
-- validé : #31 · Sunset · Brimstone · B default post-plant · from Mid (déjà dans la release)
-- validé : #29 · Sunset · Brimstone · B default post-plant · from Spawn (déjà dans la release)
-- validé : #30 · Sunset · Brimstone · A default post-plant · from Elbow (déjà dans la release)
-- validé : #69 · Sunset · Brimstone · A open post-plant · from CT (déjà dans la release)
+### 0 line ups simulées
 
-4 line up(s) validée(s) sur 34 fil(s).
+| n° | map | agent | côté | site | titre | points | photos | vidéo |
+|---|---|---|---|---|---|---|---|---|
+
+Ignorés : 0 déjà présents (même message, même lien ou même image), 0 messages sans lien ni image.
+
+Salons spéciaux laissés de côté pour l'instant : Salons textuels/site-line-up, Salons textuels/video-line-up-a-monter.
