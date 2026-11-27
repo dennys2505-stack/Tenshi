@@ -1,4 +1,4 @@
-# Tâche « montage » — 2026-11-27T07:15:21.354Z
+# Tâche « montage » — 2026-11-27T07:17:12.959Z
 
 - Dossier Drive : 33 vidéo(s)
   1. MedalTVValorant20261123212447605.mp4
@@ -34,6 +34,9 @@
   31. MedalTVValorant20261126204125522.mp4
   32. MedalTVValorant20261126204302768.mp4
   33. MedalTVValorant20261126204725310.mp4
-## Vidéos en boucle pour le site
+## Planches
 
-- lotus-brim-90.mp4 (1574945326408802356, 19→22 + 2→5.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261125012907206.mp4)) : 321 Ko
+- 1574202453287641088 : yt-dlp
+- 1574489831495573554 : yt-dlp
+- 1574491281529245708 : yt-dlp
+- 1574521439619387432 : dossier Drive, clip le plus proche (MedalTVValorant20261123212447605.mp4)
