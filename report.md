@@ -1,4 +1,4 @@
-# Tâche « montage » — 2026-11-27T07:49:46.544Z
+# Tâche « montage » — 2026-11-27T07:53:20.533Z
 
 - Dossier Drive : 33 vidéo(s)
   1. MedalTVValorant20261123212447605.mp4
@@ -37,11 +37,11 @@
 ## Montage — étape 1 : récupération
 
 - Salon : #video-line-up-a-monter — 37 message(s) lus
-- Message 1575598088553369742 du 2026-11-26T19:44:17.508000+00:00
-- Consigne : post plant B default depuis spawn , pont de repere le coin du carrer avec le coin du batiment , equivalent de la #29 , si point de repere pas sur regarder la #29
-- Téléchargé via dossier Drive, clip le plus proche (MedalTVValorant20261126204302768.mp4) : 40.0 Mo, 1920×1080, 5000000/83333 ips, 30.3 s
-- Montage horizontal : 20.0 s, 17.9 Mo → out/montage/montage-horizontal.mp4
-- Montage vertical : 20.0 s, 17.4 Mo → out/montage/montage-vertical.mp4
+- Message 1575599100856901765 du 2026-11-26T19:48:18.860000+00:00
+- Consigne : equivalent de la #31 , point de repere la le bout de la flamme avec le coin de la boite , post plant B default sunset depuis mid
+- Téléchargé via dossier Drive, clip le plus proche (MedalTVValorant20261126204725310.mp4) : 39.9 Mo, 1920×1080, 5000000/83333 ips, 30.2 s
+- Montage horizontal : 23.0 s, 17.6 Mo → out/montage/montage-horizontal.mp4
+- Montage vertical : 23.0 s, 17.1 Mo → out/montage/montage-vertical.mp4
 - Envoi montage-horizontal.mp4 dans le fil : 200 ✅
 - Envoi montage-vertical.mp4 dans le fil : 200 ✅
 - 2 planche(s) d'images (1 image/s) dans bot-logs (montage/) ; apercu.mp4 et montages mp4 en artefact privé « videos-bot » (3 jours)
