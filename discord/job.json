@@ -1,33 +1,33 @@
 {
  "task": "montage",
- "message": "1575596754894594259",
+ "message": "1575597519423934668",
  "render": {
   "title": "Sunset · Brimstone",
-  "subtitle": "A open post-plant · from CT",
+  "subtitle": "A default post-plant · from Elbow",
   "segments": [
    {
     "type": "clip",
-    "from": 8.5,
-    "to": 11.5,
+    "from": 8.0,
+    "to": 11.0,
     "label": "Result"
    },
    {
     "type": "clip",
-    "from": 15.0,
-    "to": 19.5,
+    "from": 14.5,
+    "to": 18.0,
     "step": 1,
-    "label": "Stand by the crates in CT"
+    "label": "Stand in Elbow"
    },
    {
     "type": "clip",
-    "from": 19.5,
-    "to": 21.2,
+    "from": 18.0,
+    "to": 18.8,
     "step": 2,
     "label": "Aim"
    },
    {
     "type": "freeze",
-    "at": 21.2,
+    "at": 18.8,
     "dur": 2.6,
     "step": 2,
     "label": "Crosshair",
@@ -42,23 +42,23 @@
    },
    {
     "type": "clip",
-    "from": 21.2,
-    "to": 22.7,
+    "from": 18.8,
+    "to": 20.3,
     "step": 3,
     "label": "Throw",
     "chrono": {
      "start": 0.2,
-     "stop": 3.0
+     "stop": 5.2
     }
    },
    {
     "type": "clip",
-    "from": 22.7,
-    "to": 27.0,
+    "from": 20.3,
+    "to": 27.5,
     "label": "Time to impact",
     "chrono": {
      "start": -1.3,
-     "stop": 3.0
+     "stop": 5.2
     }
    }
   ]
@@ -68,5 +68,5 @@
   "vertical"
  ],
  "post": true,
- "postText": "🎬 Sunset · Brimstone · A open post-plant · from CT"
+ "postText": "🎬 Sunset · Brimstone · A default post-plant · from Elbow"
 }
