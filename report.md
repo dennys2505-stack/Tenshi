@@ -1,4 +1,4 @@
-# Tâche « montage » — 2026-11-27T07:32:40.431Z
+# Tâche « montage » — 2026-11-27T07:34:27.318Z
 
 - Dossier Drive : 33 vidéo(s)
   1. MedalTVValorant20261123212447605.mp4
@@ -36,9 +36,5 @@
   33. MedalTVValorant20261126204725310.mp4
 ## Planches
 
-- 1575594911200182273 : dossier Drive, clip le plus proche (MedalTVValorant20261126202746941.mp4)
-- 1575595452500545720 : dossier Drive, clip le plus proche (MedalTVValorant20261126203242509.mp4)
-- 1575596754894594259 : dossier Drive, clip le plus proche (MedalTVValorant20261126203755259.mp4)
-- 1575597519423934668 : dossier Drive, clip le plus proche (MedalTVValorant20261126204125522.mp4)
 - 1575598088553369742 : dossier Drive, clip le plus proche (MedalTVValorant20261126204302768.mp4)
 - 1575599100856901765 : dossier Drive, clip le plus proche (MedalTVValorant20261126204725310.mp4)
