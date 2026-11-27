@@ -1,4 +1,4 @@
-# Tâche « montage » — 2026-11-27T23:10:03.938Z
+# Tâche « montage » — 2026-11-27T23:23:08.396Z
 
 - Dossier Drive : 33 vidéo(s)
   1. MedalTVValorant20261123212447605.mp4
@@ -34,5 +34,14 @@
   31. MedalTVValorant20261126204125522.mp4
   32. MedalTVValorant20261126204302768.mp4
   33. MedalTVValorant20261126204725310.mp4
-- Son coupé (10.88→11.2 s) → https://github.com/dennys2505-stack/Tenshi/releases/download/verticaux/lotus-brimstone-92-vertical.mp4
-- Envoi dans le fil : 200
+## Compilation YouTube
+
+- 1. A default post-plant from A Main (box) (dossier Drive, clip le plus proche (MedalTVValorant20261126004718935.mp4)) : 15.1 Mo (hq)
+- 2. A default (left side) from A Main (dossier Drive, clip le plus proche (MedalTVValorant20261126005438771.mp4)) : 20.5 Mo (hq)
+- 3. A Short post-plant from A Long (dossier Drive, clip le plus proche (MedalTVValorant20261126011319011.mp4)) : 21.4 Mo (hq)
+- 4. B default post-plant from Attacker Spawn (dossier Drive, clip le plus proche (MedalTVValorant20261126012119962.mp4)) : 23.7 Mo (hq)
+- 5. B default post-plant from Windows (dossier Drive, clip le plus proche (MedalTVValorant20261126013048625.mp4)) : 17.6 Mo (hq)
+- 6. C default post-plant from C Long (dossier Drive, clip le plus proche (MedalTVValorant20261126003744243.mp4)) : 24.4 Mo (hq)
+- 7. C Long post-plant from C Long (dossier Drive, clip le plus proche (MedalTVValorant20261126003930489.mp4)) : 21.8 Mo (hq)
+- 8. C retake molly for Cubby from C Site (dossier Drive, clip le plus proche (MedalTVValorant20261126010252806.mp4)) : 24.4 Mo (hq)
+- Compilation : youtube/haven-brimstone-8-lineups.mp4 157.3 Mo
