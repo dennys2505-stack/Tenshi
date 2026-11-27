@@ -1,4 +1,4 @@
-# Tâche « montage » — 2026-11-27T07:18:57.271Z
+# Tâche « montage » — 2026-11-27T07:20:28.000Z
 
 - Dossier Drive : 33 vidéo(s)
   1. MedalTVValorant20261123212447605.mp4
@@ -36,7 +36,6 @@
   33. MedalTVValorant20261126204725310.mp4
 ## Vidéos en boucle pour le site
 
-- ❌ 1574202453287641088 : [out#0/mp4 @ 0x63287906b480] Nothing was written into output file, because at least one of its streams received no packets.
-- bind-brim-4.mp4 (1574489831495573554, 18→28 s, yt-dlp) : 812 Ko
-- ❌ 1574491281529245708 : [out#0/mp4 @ 0x5f088568a480] Nothing was written into output file, because at least one of its streams received no packets.
-- ❌ 1574521439619387432 : [out#0/mp4 @ 0x5b4a7d721480] Nothing was written into output file, because at least one of its streams received no packets.
+- ❌ 1574202453287641088 : [out#0/mp4 @ 0x56004a47e5c0] Nothing was written into output file, because at least one of its streams received no packets.
+- ❌ 1574491281529245708 : [out#0/mp4 @ 0x5887a7bc65c0] Nothing was written into output file, because at least one of its streams received no packets.
+- ❌ 1574521439619387432 : [out#0/mp4 @ 0x562b6471c5c0] Nothing was written into output file, because at least one of its streams received no packets.
