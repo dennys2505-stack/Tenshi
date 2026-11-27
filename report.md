@@ -1,4 +1,4 @@
-# Tâche « montage » — 2026-11-27T21:59:56.275Z
+# Tâche « montage » — 2026-11-27T23:10:03.938Z
 
 - Dossier Drive : 33 vidéo(s)
   1. MedalTVValorant20261123212447605.mp4
@@ -34,5 +34,5 @@
   31. MedalTVValorant20261126204125522.mp4
   32. MedalTVValorant20261126204302768.mp4
   33. MedalTVValorant20261126204725310.mp4
-- Son coupé (3→3.5 s) → https://github.com/dennys2505-stack/Tenshi/releases/download/verticaux/haven-brimstone-87-vertical.mp4
+- Son coupé (10.88→11.2 s) → https://github.com/dennys2505-stack/Tenshi/releases/download/verticaux/lotus-brimstone-92-vertical.mp4
 - Envoi dans le fil : 200
