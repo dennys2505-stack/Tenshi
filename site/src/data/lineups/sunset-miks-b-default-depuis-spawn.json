@@ -10,12 +10,16 @@
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/2a890a71b42b.jpg",
-      "cap": "Repère de visée"
+      "src": "/img/lineups/own-sunset-brim-29-position.jpg",
+      "cap": "Position : à côté de la benne du spawn attaquant"
     },
     {
-      "src": "/img/lineups/61bc4c5f2b31.jpg",
-      "cap": "Repère de visée"
+      "src": "/img/lineups/own-sunset-brim-29-visee.jpg",
+      "cap": "Repère : coin du carré sur le coin du bâtiment"
+    },
+    {
+      "src": "/img/lineups/own-sunset-brim-29-resultat.jpg",
+      "cap": "Résultat"
     }
   ],
   "from": [
@@ -36,5 +40,8 @@
     "Brimstone",
     "Viper"
   ],
-  "checked": true
+  "checked": true,
+  "own": true,
+  "loop": "/vid/sunset-brim-29.mp4",
+  "impact": 6.9
 }

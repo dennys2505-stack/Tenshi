@@ -10,8 +10,16 @@
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/e7125e492bf7.jpg",
-      "cap": "Repère de visée"
+      "src": "/img/lineups/own-sunset-brim-31-position.jpg",
+      "cap": "Position : contre la caisse de Mid"
+    },
+    {
+      "src": "/img/lineups/own-sunset-brim-31-visee.jpg",
+      "cap": "Repère : bout de la flamme sur le coin de la boîte"
+    },
+    {
+      "src": "/img/lineups/own-sunset-brim-31-resultat.jpg",
+      "cap": "Résultat"
     }
   ],
   "from": [
@@ -28,5 +36,8 @@
   "source": {
     "message": "1547907837567696968"
   },
-  "checked": true
+  "checked": true,
+  "own": true,
+  "loop": "/vid/sunset-brim-31.mp4",
+  "impact": 8.6
 }

@@ -10,12 +10,16 @@
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/20936c0804ec.jpg",
-      "cap": ""
+      "src": "/img/lineups/own-sunset-brim-69-position.jpg",
+      "cap": "Position : près des caisses en CT"
     },
     {
-      "src": "/img/lineups/c4b8736de15f.jpg",
-      "cap": ""
+      "src": "/img/lineups/own-sunset-brim-69-visee.jpg",
+      "cap": "Repère : viseur"
+    },
+    {
+      "src": "/img/lineups/own-sunset-brim-69-resultat.jpg",
+      "cap": "Résultat"
     }
   ],
   "from": [
@@ -32,5 +36,8 @@
   "source": {
     "message": "1550602048028942336"
   },
-  "checked": true
+  "checked": true,
+  "own": true,
+  "loop": "/vid/sunset-brim-69.mp4",
+  "impact": 3.0
 }

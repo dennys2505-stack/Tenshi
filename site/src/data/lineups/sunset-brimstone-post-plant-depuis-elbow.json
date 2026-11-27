@@ -10,12 +10,16 @@
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/bd398101a625.jpg",
-      "cap": "Repère de visée"
+      "src": "/img/lineups/own-sunset-brim-30-position.jpg",
+      "cap": "Position : dans Elbow"
     },
     {
-      "src": "/img/lineups/2b018196210e.jpg",
-      "cap": "Repère de visée"
+      "src": "/img/lineups/own-sunset-brim-30-visee.jpg",
+      "cap": "Repère : viseur"
+    },
+    {
+      "src": "/img/lineups/own-sunset-brim-30-resultat.jpg",
+      "cap": "Résultat"
     }
   ],
   "from": [
@@ -32,5 +36,8 @@
   "source": {
     "message": "1530953494863810664"
   },
-  "checked": true
+  "checked": true,
+  "own": true,
+  "loop": "/vid/sunset-brim-30.mp4",
+  "impact": 5.3
 }

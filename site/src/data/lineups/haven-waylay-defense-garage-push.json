@@ -10,8 +10,16 @@
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/1ec43a9238fc.jpg",
-      "cap": ""
+      "src": "/img/lineups/own-haven-waylay-203-position.jpg",
+      "cap": "Position : contre le mur, en début de round"
+    },
+    {
+      "src": "/img/lineups/own-haven-waylay-203-visee.jpg",
+      "cap": "Repère : viseur"
+    },
+    {
+      "src": "/img/lineups/own-haven-waylay-203-resultat.jpg",
+      "cap": "Résultat"
     }
   ],
   "from": null,
@@ -24,5 +32,8 @@
   "auto": true,
   "source": {
     "message": "1483178898979291206"
-  }
+  },
+  "own": true,
+  "checked": true,
+  "loop": "/vid/haven-waylay-203.mp4"
 }

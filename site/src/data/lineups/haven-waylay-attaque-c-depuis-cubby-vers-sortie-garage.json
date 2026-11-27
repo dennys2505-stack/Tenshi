@@ -10,8 +10,16 @@
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/21b939371d67.jpg",
-      "cap": ""
+      "src": "/img/lineups/own-haven-waylay-202-position.jpg",
+      "cap": "Position : dans Cubby"
+    },
+    {
+      "src": "/img/lineups/own-haven-waylay-202-visee.jpg",
+      "cap": "Repère : viseur"
+    },
+    {
+      "src": "/img/lineups/own-haven-waylay-202-resultat.jpg",
+      "cap": "Résultat"
     }
   ],
   "from": [
@@ -28,5 +36,7 @@
   "source": {
     "message": "1483178094130102495"
   },
-  "checked": true
+  "checked": true,
+  "own": true,
+  "loop": "/vid/haven-waylay-202.mp4"
 }
