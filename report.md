@@ -1,4 +1,4 @@
-# Tâche « montage » — 2026-11-27T07:34:27.318Z
+# Tâche « montage » — 2026-11-27T07:38:15.284Z
 
 - Dossier Drive : 33 vidéo(s)
   1. MedalTVValorant20261123212447605.mp4
@@ -34,7 +34,14 @@
   31. MedalTVValorant20261126204125522.mp4
   32. MedalTVValorant20261126204302768.mp4
   33. MedalTVValorant20261126204725310.mp4
-## Planches
+## Montage — étape 1 : récupération
 
-- 1575598088553369742 : dossier Drive, clip le plus proche (MedalTVValorant20261126204302768.mp4)
-- 1575599100856901765 : dossier Drive, clip le plus proche (MedalTVValorant20261126204725310.mp4)
+- Salon : #video-line-up-a-monter — 37 message(s) lus
+- Message 1575594911200182273 du 2026-11-26T19:31:39.968000+00:00
+- Consigne : equivalent de la #202 point de repere viseur , nade de weyley depuis cubby vers C boite vers attaque
+- Téléchargé via dossier Drive, clip le plus proche (MedalTVValorant20261126202746941.mp4) : 39.3 Mo, 1920×1080, 5000000/83333 ips, 30.0 s
+- Montage horizontal : 14.0 s, 18.1 Mo → out/montage/montage-horizontal.mp4
+- Montage vertical : 14.0 s, 17.5 Mo → out/montage/montage-vertical.mp4
+- Envoi montage-horizontal.mp4 dans le fil : 200 ✅
+- Envoi montage-vertical.mp4 dans le fil : 200 ✅
+- 2 planche(s) d'images (1 image/s) dans bot-logs (montage/) ; apercu.mp4 et montages mp4 en artefact privé « videos-bot » (3 jours)
