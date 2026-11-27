@@ -34,5 +34,6 @@
   "credit": "Vidéo d’origine : ProLineups (@prolineups)",
   "checked": true,
   "own": true,
-  "impact": 6.8
+  "impact": 6.8,
+  "loop": "/vid/bind-brim-4.mp4"
 }

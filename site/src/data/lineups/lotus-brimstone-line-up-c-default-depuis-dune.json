@@ -38,5 +38,6 @@
   },
   "checked": true,
   "own": true,
-  "impact": 5.7
+  "impact": 5.7,
+  "loop": "/vid/lotus-brim-64.mp4"
 }

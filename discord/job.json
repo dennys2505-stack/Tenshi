@@ -1,1 +1,1 @@
-{"task": "montage", "loops": [{"message": "1574202453287641088", "from": 19.5, "to": 28.0, "name": "bind-brim-3"}, {"message": "1574491281529245708", "from": 18.0, "to": 25.5, "name": "bind-brim-5"}, {"message": "1574521439619387432", "from": 9.0, "to": 15.5, "name": "lotus-fade-152"}]}
+{ "task": "import", "limit": 0, "dry": true }
