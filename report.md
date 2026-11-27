@@ -1,4 +1,4 @@
-# Tâche « montage » — 2026-11-27T07:20:28.000Z
+# Tâche « montage » — 2026-11-27T07:22:05.783Z
 
 - Dossier Drive : 33 vidéo(s)
   1. MedalTVValorant20261123212447605.mp4
@@ -36,6 +36,6 @@
   33. MedalTVValorant20261126204725310.mp4
 ## Vidéos en boucle pour le site
 
-- ❌ 1574202453287641088 : [out#0/mp4 @ 0x56004a47e5c0] Nothing was written into output file, because at least one of its streams received no packets.
-- ❌ 1574491281529245708 : [out#0/mp4 @ 0x5887a7bc65c0] Nothing was written into output file, because at least one of its streams received no packets.
-- ❌ 1574521439619387432 : [out#0/mp4 @ 0x562b6471c5c0] Nothing was written into output file, because at least one of its streams received no packets.
+- bind-brim-3.mp4 (1574202453287641088, 19.5→28 s, yt-dlp) : 726 Ko
+- bind-brim-5.mp4 (1574491281529245708, 18→25.5 s, yt-dlp) : 471 Ko
+- lotus-fade-152.mp4 (1574521439619387432, 9→15.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261123212447605.mp4)) : 586 Ko
