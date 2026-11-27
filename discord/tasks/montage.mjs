@@ -2,6 +2,7 @@
 // prend la vidéo la plus récente (fichier joint ou lien Google Drive), la télécharge et publie dans le
 // compte-rendu (branche bot-logs) : infos, planches d'images (1 image / seconde) ; les vidéos (copie légère, montages) vont dans l'artefact privé « videos-bot ».
 // Rien n'est publié sur le site ni sur Discord à cette étape.
+import { uploadVertical } from '../lib/release.mjs';
 import fs from 'fs';
 import path from 'path';
 import { execFile } from 'child_process';
@@ -160,6 +161,27 @@ export default async function montage({ log, rep, job }) {
     rep(`- Compilation : ${r2.stdout.trim()}`);
     return;
   }
+  // Release « verticaux » : rattrapage depuis les fils (param « verticaux » : [{ message, name }]),
+  // suppression après publication (« verticauxDelete » : [noms]) et liste (« verticauxList »: true).
+  if (job.verticaux || job.verticauxDelete || job.verticauxList) {
+    const { uploadVertical: up, deleteVertical, listVerticals } = await import('../lib/release.mjs');
+    rep('## Release « verticaux »\n');
+    for (const it of job.verticaux || []) {
+      try {
+        const t = await discord(`/channels/${it.message}/messages?limit=50`);
+        const att = (t.status === 200 ? t.data : []).filter((m) => m.author?.bot).flatMap((m) => m.attachments || []).find((a) => /vertical.*\.mp4$/i.test(a.filename));
+        if (!att) { rep(`- ❌ ${it.name} : pas de vertical dans le fil ${it.message}`); continue; }
+        const f = path.join(fs.mkdtempSync('/tmp/vr-'), 'v.mp4');
+        fs.writeFileSync(f, Buffer.from(await (await fetch(att.url)).arrayBuffer()));
+        const url = await up(f, it.name);
+        rep(`- ${url}`);
+        if (it.say !== false) await discord(`/channels/${it.message}/messages`, { method: 'POST', body: { content: `📥 Vertical à publier : ${url}` } });
+      } catch (e) { rep(`- ❌ ${it.name} : ${e.message}`); }
+    }
+    for (const n of job.verticauxDelete || []) rep(`- ${n} : ${await deleteVertical(n)}`);
+    if (job.verticauxList) for (const a of await listVerticals()) rep(`- ${a.url} (${Math.round(a.size / 1e6)} Mo)`);
+    return;
+  }
   // Renommer des fils existants (param « rename » : [{ message, name }] ; id du fil = id du message).
   if (job.rename) {
     rep('## Fils renommés\n');
@@ -268,6 +290,16 @@ export default async function montage({ log, rep, job }) {
         rep(`- Envoi ${path.basename(f)} dans le fil : ${pr.status}${pr.ok ? ' ✅' : ' ❌ ' + (await pr.text()).slice(0, 200)}`);
       }
       await discord(`/channels/${chan.id}/messages/${pick.id}/reactions/${encodeURIComponent('🎬')}/@me`, { method: 'PUT' });
+      // Vertical → release GitHub « verticaux » (MES montages uniquement ; nom <map>-<agent>-<num>-vertical.mp4).
+      const vf = files.find((f) => /vertical/.test(f));
+      if (vf && job.num) {
+        const [mp, ag] = job.render.title.split('·').map((x) => x.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-'));
+        try {
+          const url = await uploadVertical(vf, `${mp}-${ag}-${job.num}-vertical.mp4`);
+          rep(`- Vertical déposé : ${url}`);
+          await discord(`/channels/${threadId}/messages`, { method: 'POST', body: { content: `📥 Vertical à publier : ${url}` } });
+        } catch (e) { rep(`- ❌ Dépôt du vertical : ${e.message}`); }
+      }
     }
   }
   const sheets = fs.readdirSync('out/montage').filter((f) => f.startsWith('planche')).length;

@@ -36,6 +36,7 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           DRIVE_FOLDER: ${{ secrets.DRIVE_FOLDER }}
           JOB_INPUT: ${{ inputs.job }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           # Tâche lancée à la main (gh workflow run … -f job='{…}') : aucun commit sur main → aucun déploiement Vercel inutile.
           if [ -n "$JOB_INPUT" ]; then printf '%s' "$JOB_INPUT" > discord/job.json; fi
