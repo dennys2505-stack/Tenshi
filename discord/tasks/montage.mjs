@@ -205,7 +205,14 @@ export default async function montage({ log, rep, job }) {
       fs.writeFileSync(pl, JSON.stringify(it.plan));
       const r1 = await run('python3', [new URL('../tools/montage.py', import.meta.url).pathname, src, pl, out, 'horizontal', 'hq'], { timeout: 900_000 });
       rep(`- ${i + 1}. ${it.label} (${how}) : ${r1.stdout.trim()}`);
-      items.push({ ...it, plan: undefined, mp4: out });
+      // « mute » : [[début, fin], …] en secondes du montage → son coupé à ces endroits (ex. bruit de micro).
+      if (it.mute?.length) {
+        const tmpM = out.replace(/\.mp4$/, '-m.mp4');
+        await run('ffmpeg', ['-y', '-v', 'error', '-i', out, '-c:v', 'copy', '-af', it.mute.map(([a, b]) => `volume=enable='between(t,${a},${b})':volume=0`).join(','), '-c:a', 'aac', '-b:a', '192k', tmpM]);
+        fs.renameSync(tmpM, out);
+        rep(`  - son coupé : ${it.mute.map((m) => m.join('→')).join(', ')} s`);
+      }
+      items.push({ ...it, plan: undefined, mute: undefined, mp4: out });
     }
     const spec = path.join(tmpC, 'spec.json');
     fs.writeFileSync(spec, JSON.stringify({ ...job.compile, minimap: path.resolve('site/public' + job.compile.minimap), items }));
