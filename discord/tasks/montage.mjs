@@ -234,6 +234,28 @@ export default async function montage({ log, rep, job }) {
     if (job.verticauxList) for (const a of await listVerticals()) rep(`- ${a.url} (${Math.round(a.size / 1e6)} Mo)`);
     return;
   }
+  // Couper le son par endroits dans le vertical d'un fil (param « mute » : { message, name, cuts: [[début, fin], …] })
+  // → remplace le fichier dans la release « verticaux » et poste la nouvelle version dans le fil.
+  if (job.mute) {
+    const { uploadVertical } = await import('../lib/release.mjs');
+    const it = job.mute;
+    const t = await discord(`/channels/${it.message}/messages?limit=100`);
+    const att = (t.status === 200 ? t.data : []).filter((m) => m.author?.bot).flatMap((m) => m.attachments || []).find((a) => /vertical.*\.mp4$/i.test(a.filename));
+    if (!att) { rep(`- ❌ pas de vertical dans le fil ${it.message}`); return; }
+    const d = fs.mkdtempSync('/tmp/mu-'), src = path.join(d, 'src.mp4'), out = path.join(d, 'montage-vertical.mp4');
+    fs.writeFileSync(src, Buffer.from(await (await fetch(att.url)).arrayBuffer()));
+    const af = it.cuts.map(([a, b]) => `volume=enable='between(t,${a},${b})':volume=0`).join(',');
+    await run('ffmpeg', ['-y', '-v', 'error', '-i', src, '-c:v', 'copy', '-af', af, '-c:a', 'aac', '-b:a', '160k', '-movflags', '+faststart', out]);
+    const url = await uploadVertical(out, it.name);
+    rep(`- Son coupé (${it.cuts.map((c) => c.join('→')).join(', ')} s) → ${url}`);
+    const { cleanToken } = await import('../lib/discord.mjs');
+    const fd = new FormData();
+    fd.append('payload_json', JSON.stringify({ content: `🔇 Nouvelle version (son coupé ${it.cuts.map((c) => c.join('–')).join(', ')} s) — release mise à jour : ${url}` }));
+    fd.append('files[0]', new Blob([fs.readFileSync(out)], { type: 'video/mp4' }), 'montage-vertical.mp4');
+    const pr = await fetch(`https://discord.com/api/v10/channels/${it.message}/messages`, { method: 'POST', headers: { Authorization: `Bot ${cleanToken()}` }, body: fd });
+    rep(`- Envoi dans le fil : ${pr.status}`);
+    return;
+  }
   // Renommer des fils existants (param « rename » : [{ message, name }] ; id du fil = id du message).
   if (job.rename) {
     rep('## Fils renommés\n');
