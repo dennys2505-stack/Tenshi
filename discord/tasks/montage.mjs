@@ -160,6 +160,15 @@ export default async function montage({ log, rep, job }) {
     rep(`- Compilation : ${r2.stdout.trim()}`);
     return;
   }
+  // Renommer des fils existants (param « rename » : [{ message, name }] ; id du fil = id du message).
+  if (job.rename) {
+    rep('## Fils renommés\n');
+    for (const it of job.rename) {
+      try { const r = await discord(`/channels/${it.message}`, { method: 'PATCH', body: { name: it.name.slice(0, 100) } }); rep(`- ${it.message} → ${it.name} (${r.status})`); }
+      catch (e) { rep(`- ❌ ${it.message} : ${String(e.message).slice(0, 150)}`); }
+    }
+    return;
+  }
   // Petites vidéos en boucle pour le site (param « loops » : [{ message, from, to, name }]) → site/public/vid/<name>.mp4 (sans son, 960 px).
   if (job.loops) {
     rep('## Vidéos en boucle pour le site\n');
@@ -248,7 +257,7 @@ export default async function montage({ log, rep, job }) {
       files.push(outFile);
     }
     if (job.post) {
-      const th = await discord(`/channels/${chan.id}/messages/${pick.id}/threads`, { method: 'POST', body: { name: job.render.title.slice(0, 90), auto_archive_duration: 10080 } });
+      const th = await discord(`/channels/${chan.id}/messages/${pick.id}/threads`, { method: 'POST', body: { name: (job.num ? `#${job.num} · ` : '') + `${job.render.title} · ${job.render.subtitle || ''}`.slice(0, 90), auto_archive_duration: 10080 } });
       const threadId = th.status < 300 ? th.data.id : pick.id; // fil déjà créé → id du fil = id du message
       const { cleanToken } = await import('../lib/discord.mjs');
       for (const [i, f] of files.entries()) {

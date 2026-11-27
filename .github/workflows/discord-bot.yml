@@ -1,6 +1,11 @@
 name: Bot Discord
 on:
   workflow_dispatch:
+    inputs:
+      job:
+        description: 'Tâche du bot (JSON). Vide = discord/job.json'
+        required: false
+        default: ''
   push:
     paths:
       - 'discord/**'
@@ -30,7 +35,12 @@ jobs:
           DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           DRIVE_FOLDER: ${{ secrets.DRIVE_FOLDER }}
-        run: node discord/main.mjs
+          JOB_INPUT: ${{ inputs.job }}
+        run: |
+          # Tâche lancée à la main (gh workflow run … -f job='{…}') : aucun commit sur main → aucun déploiement Vercel inutile.
+          if [ -n "$JOB_INPUT" ]; then printf '%s' "$JOB_INPUT" > discord/job.json; fi
+          node discord/main.mjs
+          git checkout -- discord/job.json 2>/dev/null || true
       - name: Enregistrer les line ups créées sur le site (branche main)
         if: success()
         run: |
@@ -83,6 +93,8 @@ jobs:
           fi
           find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
           cp -r /tmp/pub/. .
+          # Empêche Vercel de créer un déploiement pour cette branche (limite de 100 déploiements par jour).
+          mkdir -p site && echo '{"git":{"deploymentEnabled":false}}' > site/vercel.json && cp site/vercel.json vercel.json
           git add -A
           git commit -q -m "Compte-rendu du bot (run ${GITHUB_RUN_ID}) [skip ci]" || echo "rien à publier"
           git push origin HEAD:bot-logs
