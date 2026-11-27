@@ -2,7 +2,6 @@
 // prend la vidéo la plus récente (fichier joint ou lien Google Drive), la télécharge et publie dans le
 // compte-rendu (branche bot-logs) : infos, planches d'images (1 image / seconde) ; les vidéos (copie légère, montages) vont dans l'artefact privé « videos-bot ».
 // Rien n'est publié sur le site ni sur Discord à cette étape.
-import { uploadVertical } from '../lib/release.mjs';
 import fs from 'fs';
 import path from 'path';
 import { execFile } from 'child_process';
@@ -32,6 +31,58 @@ async function downloadDrive(url, out, log) {
   return 'téléchargement direct';
 }
 
+
+// Tâche « valides » : un ✅ posé par l'utilisateur (pas le bot) sur un message d'un fil de montage (ou sur la consigne)
+// = line up validée → son vertical va dans la release « verticaux » (s'il n'y est pas déjà).
+async function valides(chan, rep) {
+  const { uploadVertical, listVerticals } = await import('../lib/release.mjs');
+  rep('## Line ups validées (✅)\n');
+  const have = new Set((await listVerticals()).map((a) => a.name));
+  const act = await discord(`/guilds/${chan.guild_id}/threads/active`);
+  let threads = (act.status === 200 ? act.data.threads : []).filter((t) => t.parent_id === chan.id);
+  let before = '';
+  for (let k = 0; k < 10; k++) {
+    const ar = await discord(`/channels/${chan.id}/threads/archived/public?limit=100${before ? '&before=' + before : ''}`);
+    if (ar.status !== 200) break;
+    threads = threads.concat(ar.data.threads);
+    if (!ar.data.has_more || !ar.data.threads.length) break;
+    before = ar.data.threads[ar.data.threads.length - 1].thread_metadata.archive_timestamp;
+  }
+  const seen = new Set();
+  let nv = 0;
+  for (const t of threads) {
+    if (seen.has(t.id)) continue; seen.add(t.id);
+    const m = /^#(\d+)\s*·\s*([^·]+?)\s*·\s*([^·]+?)(\s*·|$)/.exec(t.name || '');
+    if (!m) continue;
+    const slug = (x) => x.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-');
+    const name = `${slug(m[2])}-${slug(m[3])}-${m[1]}-vertical.mp4`;
+    const tm = await discord(`/channels/${t.id}/messages?limit=100`);
+    const msgs = tm.status === 200 ? tm.data : [];
+    const starter = await discord(`/channels/${chan.id}/messages/${t.id}`);
+    const cands = [...msgs.map((x) => [t.id, x]), ...(starter.status === 200 ? [[chan.id, starter.data]] : [])]
+      .filter(([, x]) => (x.reactions || []).some((r) => r.emoji?.name === '✅'));
+    let ok = false;
+    for (const [cid, x] of cands) {
+      const u = await discord(`/channels/${cid}/messages/${x.id}/reactions/${encodeURIComponent('✅')}`);
+      if (u.status === 200 && u.data.some((p) => !p.bot)) { ok = true; break; }
+    }
+    if (!ok) continue;
+    nv++;
+    if (have.has(name)) { rep(`- validé : ${t.name} (déjà dans la release)`); continue; }
+    const att = msgs.filter((x) => x.author?.bot).flatMap((x) => x.attachments || []).find((a) => /vertical.*\.mp4$/i.test(a.filename));
+    if (!att) { rep(`- validé : ${t.name} — ❌ pas de vertical dans le fil`); continue; }
+    try {
+      const f = path.join(fs.mkdtempSync('/tmp/vv-'), 'v.mp4');
+      fs.writeFileSync(f, Buffer.from(await (await fetch(att.url)).arrayBuffer()));
+      const url = await uploadVertical(f, name);
+      have.add(name);
+      rep(`- validé : ${t.name} → déposé ${url}`);
+      await discord(`/channels/${t.id}/messages`, { method: 'POST', body: { content: `✅ Validé — vertical à publier : ${url}` } });
+    } catch (e) { rep(`- validé : ${t.name} — ❌ ${e.message}`); }
+  }
+  rep(`\n${nv} line up(s) validée(s) sur ${seen.size} fil(s).`);
+}
+
 export default async function montage({ log, rep, job }) {
   const guilds = (await discord('/users/@me/guilds')).data;
   let chan = null;
@@ -40,6 +91,7 @@ export default async function montage({ log, rep, job }) {
     chan = ch.find((c) => norm(c.name) === CHANNEL) || chan;
   }
   if (!chan) throw new Error('salon « video-line-up-a-monter » introuvable ou invisible pour le bot (vérifier qu’il est ajouté au salon privé)');
+  if (job.valides && !job.render) { await valides(chan, rep); return; }
   // Nettoyage : supprime les messages du bot dans le fil d'un message (param « cleanup » = id du message).
   if (job.cleanup) {
     const me = (await discord('/users/@me')).data.id;
@@ -290,19 +342,10 @@ export default async function montage({ log, rep, job }) {
         rep(`- Envoi ${path.basename(f)} dans le fil : ${pr.status}${pr.ok ? ' ✅' : ' ❌ ' + (await pr.text()).slice(0, 200)}`);
       }
       await discord(`/channels/${chan.id}/messages/${pick.id}/reactions/${encodeURIComponent('🎬')}/@me`, { method: 'PUT' });
-      // Vertical → release GitHub « verticaux » (MES montages uniquement ; nom <map>-<agent>-<num>-vertical.mp4).
-      const vf = files.find((f) => /vertical/.test(f));
-      if (vf && job.num) {
-        const [mp, ag] = job.render.title.split('·').map((x) => x.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-'));
-        try {
-          const url = await uploadVertical(vf, `${mp}-${ag}-${job.num}-vertical.mp4`);
-          rep(`- Vertical déposé : ${url}`);
-          await discord(`/channels/${threadId}/messages`, { method: 'POST', body: { content: `📥 Vertical à publier : ${url}` } });
-        } catch (e) { rep(`- ❌ Dépôt du vertical : ${e.message}`); }
-      }
     }
   }
   const sheets = fs.readdirSync('out/montage').filter((f) => f.startsWith('planche')).length;
   rep(`- ${sheets} planche(s) d'images (1 image/s) dans bot-logs (montage/) ; apercu.mp4 et montages mp4 en artefact privé « videos-bot » (3 jours)`);
   fs.rmSync(tmp, { recursive: true, force: true });
+  if (job.render) { try { await valides(chan, rep); } catch (e) { rep(`- ❌ valides : ${e.message}`); } }
 }
