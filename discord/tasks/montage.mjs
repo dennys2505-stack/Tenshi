@@ -240,7 +240,8 @@ export default async function montage({ log, rep, job }) {
     const { uploadVertical } = await import('../lib/release.mjs');
     const it = job.mute;
     const t = await discord(`/channels/${it.message}/messages?limit=100`);
-    const att = (t.status === 200 ? t.data : []).filter((m) => m.author?.bot).flatMap((m) => m.attachments || []).find((a) => /vertical.*\.mp4$/i.test(a.filename));
+    // Toujours repartir du vertical d'origine (le plus ancien du fil), pas d'une version déjà retouchée.
+    const att = (t.status === 200 ? t.data : []).filter((m) => m.author?.bot).flatMap((m) => m.attachments || []).filter((a) => /vertical.*\.mp4$/i.test(a.filename)).pop();
     if (!att) { rep(`- ❌ pas de vertical dans le fil ${it.message}`); return; }
     const d = fs.mkdtempSync('/tmp/mu-'), src = path.join(d, 'src.mp4'), out = path.join(d, 'montage-vertical.mp4');
     fs.writeFileSync(src, Buffer.from(await (await fetch(att.url)).arrayBuffer()));
