@@ -173,7 +173,7 @@ export default async function montage({ log, rep, job }) {
         // « parts » : [[début, fin], …] mis bout à bout (ex. lancer puis résultat filmé ailleurs dans le clip).
         const parts = it.parts || [[it.from, it.to]];
         const fc = parts.map(([a, b], i) => `[0:v]setpts=PTS-STARTPTS,trim=${a}:${b},setpts=PTS-STARTPTS[p${i}]`).join(';') +
-          `;${parts.map((_, i) => `[p${i}]`).join('')}concat=n=${parts.length}:v=1:a=0,delogo=x=2:y=950:w=330:h=88,scale=960:-2,fps=30[v]`;
+          `;${parts.map((_, i) => `[p${i}]`).join('')}concat=n=${parts.length}:v=1:a=0,scale=1920:1080,delogo=x=2:y=950:w=330:h=88,scale=960:-2,fps=30[v]`;
         await run('ffmpeg', ['-y', '-loglevel', 'error', '-i', src, '-an', '-filter_complex', fc, '-map', '[v]', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', String(it.crf || 30),
           '-pix_fmt', 'yuv420p', '-movflags', '+faststart', out]);
         rep(`- ${it.name}.mp4 (${m.id}, ${parts.map((p) => p.join('→')).join(' + ')} s, ${how}) : ${Math.round(fs.statSync(out).size / 1024)} Ko`);
