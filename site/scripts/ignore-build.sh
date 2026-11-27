@@ -1,5 +1,6 @@
 #!/bin/bash
 # « Ignored Build Step » de Vercel (vercel.json → ignoreCommand), commun aux 2 projets.
+# (Note 27 nov. : le site public lit maintenant /vercel.json à la racine ; ce script ne sert plus qu’au site des amis.)
 # Code de sortie : 0 = ne pas construire, 1 = construire.
 B="$VERCEL_GIT_COMMIT_REF"
 # Quel projet ? Le site des amis a l'adresse astuces-de-tenshi.vercel.app ; tout autre projet = site public.
