@@ -170,10 +170,13 @@ export default async function montage({ log, rep, job }) {
       const tmpL = fs.mkdtempSync('/tmp/lp-'), src = path.join(tmpL, 'source.mp4'), out = `site/public/vid/${it.name}.mp4`;
       try {
         const how = await getVideo(m, src, it.file ? driveFiles.find((f) => f.name.startsWith(it.file)) : null);
-        await run('ffmpeg', ['-y', '-loglevel', 'error', '-ss', String(it.from), '-to', String(it.to), '-i', src, '-an',
-          '-vf', 'delogo=x=2:y=950:w=330:h=88,scale=960:-2,fps=30', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', String(it.crf || 30),
+        // « parts » : [[début, fin], …] mis bout à bout (ex. lancer puis résultat filmé ailleurs dans le clip).
+        const parts = it.parts || [[it.from, it.to]];
+        const fc = parts.map(([a, b], i) => `[0:v]trim=${a}:${b},setpts=PTS-STARTPTS[p${i}]`).join(';') +
+          `;${parts.map((_, i) => `[p${i}]`).join('')}concat=n=${parts.length}:v=1:a=0,delogo=x=2:y=950:w=330:h=88,scale=960:-2,fps=30[v]`;
+        await run('ffmpeg', ['-y', '-loglevel', 'error', '-i', src, '-an', '-filter_complex', fc, '-map', '[v]', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', String(it.crf || 30),
           '-pix_fmt', 'yuv420p', '-movflags', '+faststart', out]);
-        rep(`- ${it.name}.mp4 (${m.id}, ${it.from}→${it.to} s, ${how}) : ${Math.round(fs.statSync(out).size / 1024)} Ko`);
+        rep(`- ${it.name}.mp4 (${m.id}, ${parts.map((p) => p.join('→')).join(' + ')} s, ${how}) : ${Math.round(fs.statSync(out).size / 1024)} Ko`);
       } catch (e) { rep(`- ❌ ${m.id} : ${String(e.stderr || e.message).split('\n').filter(Boolean).pop()}`); }
       fs.rmSync(tmpL, { recursive: true, force: true });
     }
