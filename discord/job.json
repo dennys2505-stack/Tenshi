@@ -1,33 +1,33 @@
 {
  "task": "montage",
- "message": "1575594911200182273",
+ "message": "1575595452500545720",
  "render": {
   "title": "Haven · Waylay",
-  "subtitle": "C box nade · from Cubby (attack)",
+  "subtitle": "Garage push nade to Mid Door · from the wall (defense)",
   "segments": [
    {
     "type": "clip",
-    "from": 16.5,
-    "to": 19.0,
+    "from": 18.0,
+    "to": 20.0,
     "label": "Result"
    },
    {
     "type": "clip",
-    "from": 21.0,
-    "to": 23.5,
+    "from": 8.0,
+    "to": 10.0,
     "step": 1,
-    "label": "Stand in Cubby"
+    "label": "Stand against the wall at round start"
    },
    {
     "type": "clip",
-    "from": 23.5,
-    "to": 25.2,
+    "from": 25.0,
+    "to": 26.6,
     "step": 2,
     "label": "Aim"
    },
    {
     "type": "freeze",
-    "at": 25.2,
+    "at": 26.6,
     "dur": 2.6,
     "step": 2,
     "label": "Crosshair",
@@ -42,7 +42,7 @@
    },
    {
     "type": "clip",
-    "from": 25.2,
+    "from": 26.6,
     "to": 29.9,
     "step": 3,
     "label": "Throw"
@@ -54,5 +54,5 @@
   "vertical"
  ],
  "post": true,
- "postText": "🎬 Haven · Waylay · C box nade · from Cubby (attack)"
+ "postText": "🎬 Haven · Waylay · Garage push nade to Mid Door · from the wall (defense)"
 }
