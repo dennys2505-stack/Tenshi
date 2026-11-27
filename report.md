@@ -1,4 +1,4 @@
-# Tâche « montage » — 2026-11-27T07:53:20.533Z
+# Tâche « montage » — 2026-11-27T07:55:05.598Z
 
 - Dossier Drive : 33 vidéo(s)
   1. MedalTVValorant20261123212447605.mp4
@@ -34,14 +34,23 @@
   31. MedalTVValorant20261126204125522.mp4
   32. MedalTVValorant20261126204302768.mp4
   33. MedalTVValorant20261126204725310.mp4
-## Montage — étape 1 : récupération
+## Images pour le site
 
-- Salon : #video-line-up-a-monter — 37 message(s) lus
-- Message 1575599100856901765 du 2026-11-26T19:48:18.860000+00:00
-- Consigne : equivalent de la #31 , point de repere la le bout de la flamme avec le coin de la boite , post plant B default sunset depuis mid
-- Téléchargé via dossier Drive, clip le plus proche (MedalTVValorant20261126204725310.mp4) : 39.9 Mo, 1920×1080, 5000000/83333 ips, 30.2 s
-- Montage horizontal : 23.0 s, 17.6 Mo → out/montage/montage-horizontal.mp4
-- Montage vertical : 23.0 s, 17.1 Mo → out/montage/montage-vertical.mp4
-- Envoi montage-horizontal.mp4 dans le fil : 200 ✅
-- Envoi montage-vertical.mp4 dans le fil : 200 ✅
-- 2 planche(s) d'images (1 image/s) dans bot-logs (montage/) ; apercu.mp4 et montages mp4 en artefact privé « videos-bot » (3 jours)
+- own-haven-waylay-202-position.jpg (1575594911200182273, 22.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261126202746941.mp4)) : 69073 octets
+- own-haven-waylay-202-visee.jpg (1575594911200182273, 24.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261126202746941.mp4)) : 160585 octets
+- own-haven-waylay-202-resultat.jpg (1575594911200182273, 17.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261126202746941.mp4)) : 149947 octets
+- own-haven-waylay-203-position.jpg (1575595452500545720, 9.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261126203242509.mp4)) : 104770 octets
+- own-haven-waylay-203-visee.jpg (1575595452500545720, 26 s, dossier Drive, clip le plus proche (MedalTVValorant20261126203242509.mp4)) : 136243 octets
+- own-haven-waylay-203-resultat.jpg (1575595452500545720, 18.75 s, dossier Drive, clip le plus proche (MedalTVValorant20261126203242509.mp4)) : 130124 octets
+- own-sunset-brim-69-position.jpg (1575596754894594259, 16.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261126203755259.mp4)) : 122238 octets
+- own-sunset-brim-69-visee.jpg (1575596754894594259, 20.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261126203755259.mp4)) : 145498 octets
+- own-sunset-brim-69-resultat.jpg (1575596754894594259, 9 s, dossier Drive, clip le plus proche (MedalTVValorant20261126203755259.mp4)) : 160273 octets
+- own-sunset-brim-30-position.jpg (1575597519423934668, 16 s, dossier Drive, clip le plus proche (MedalTVValorant20261126204125522.mp4)) : 141925 octets
+- own-sunset-brim-30-visee.jpg (1575597519423934668, 18.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261126204125522.mp4)) : 96137 octets
+- own-sunset-brim-30-resultat.jpg (1575597519423934668, 8.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261126204125522.mp4)) : 176204 octets
+- own-sunset-brim-29-position.jpg (1575598088553369742, 16.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261126204302768.mp4)) : 145810 octets
+- own-sunset-brim-29-visee.jpg (1575598088553369742, 20.25 s, dossier Drive, clip le plus proche (MedalTVValorant20261126204302768.mp4)) : 123459 octets
+- own-sunset-brim-29-resultat.jpg (1575598088553369742, 8.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261126204302768.mp4)) : 191530 octets
+- own-sunset-brim-31-position.jpg (1575599100856901765, 13 s, dossier Drive, clip le plus proche (MedalTVValorant20261126204725310.mp4)) : 166682 octets
+- own-sunset-brim-31-visee.jpg (1575599100856901765, 18.25 s, dossier Drive, clip le plus proche (MedalTVValorant20261126204725310.mp4)) : 121745 octets
+- own-sunset-brim-31-resultat.jpg (1575599100856901765, 5 s, dossier Drive, clip le plus proche (MedalTVValorant20261126204725310.mp4)) : 152397 octets
