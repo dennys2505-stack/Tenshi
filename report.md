@@ -1,4 +1,4 @@
-# Tâche « montage » — 2026-11-28T02:26:27.846Z
+# Tâche « montage » — 2026-11-28T02:29:02.660Z
 
 - Dossier Drive : 32 vidéo(s)
   1. MedalTVValorant20261123212447605.mp4
@@ -33,12 +33,12 @@
   30. MedalTVValorant20261128004758477.mp4
   31. MedalTVValorant20261128005205911.mp4
   32. MedalTVValorant20261128005635370.mp4
-## Planches
+## Images pour le site
 
-- 1576016655597969685 : dossier Drive, clip le plus proche (MedalTVValorant20261128002556645.mp4)
-- 1576015132730073319 : dossier Drive, clip le plus proche (MedalTVValorant20261128002012117.mp4)
-- 1576020387290947728 : dossier Drive, clip le plus proche (MedalTVValorant20261128004101405.mp4)
-- 1576021959819526155 : dossier Drive, clip le plus proche (MedalTVValorant20261128004758477.mp4)
-- 1576024445053702208 : dossier Drive, clip le plus proche (MedalTVValorant20261128005635370.mp4)
-- 1576023123000823930 : dossier Drive, clip le plus proche (MedalTVValorant20261128005205911.mp4)
-- 1576021317596086285 : dossier Drive, clip le plus proche (MedalTVValorant20261128004456450.mp4)
+- own-abyss-brim-32-position.jpg (1576016655597969685, 13.8 s, dossier Drive, clip le plus proche (MedalTVValorant20261128002556645.mp4)) : 141092 octets
+- own-abyss-brim-33-position.jpg (1576015132730073319, 11 s, dossier Drive, clip le plus proche (MedalTVValorant20261128002012117.mp4)) : 133199 octets
+- own-abyss-brim-35-position.jpg (1576020387290947728, 14 s, dossier Drive, clip le plus proche (MedalTVValorant20261128004101405.mp4)) : 116954 octets
+- own-abyss-sova-38-position.jpg (1576021959819526155, 19 s, dossier Drive, clip le plus proche (MedalTVValorant20261128004758477.mp4)) : 119550 octets
+- own-abyss-sova-39-position.jpg (1576024445053702208, 13.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261128005635370.mp4)) : 137943 octets
+- own-abyss-sova-40-position.jpg (1576023123000823930, 15 s, dossier Drive, clip le plus proche (MedalTVValorant20261128005205911.mp4)) : 141218 octets
+- own-abyss-sova-41-position.jpg (1576021317596086285, 21 s, dossier Drive, clip le plus proche (MedalTVValorant20261128004456450.mp4)) : 101463 octets
