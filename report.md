@@ -1,4 +1,4 @@
-# Tâche « montage » — 2026-11-28T01:04:37.540Z
+# Tâche « montage » — 2026-11-28T01:08:36.589Z
 
 - Dossier Drive : 32 vidéo(s)
   1. MedalTVValorant20261123212447605.mp4
@@ -36,11 +36,12 @@
 ## Montage — étape 1 : récupération
 
 - Salon : #video-line-up-a-monter — 44 message(s) lus
-- Message 1576015132730073319 du 2026-11-27T23:21:28.588000+00:00
-- Consigne : equivalent de la #33 post plant abyss A default depuis Main point de viser comme sur la photo (en haut a droite du carrer au dessus de la souris qui est au dessus de la molly )
-- Téléchargé via dossier Drive, clip le plus proche (MedalTVValorant20261128002012117.mp4) : 39.0 Mo, 1920×1080, 5000000/83333 ips, 30.0 s
-- Montage horizontal : 24.4 s, 17.6 Mo → out/montage/montage-horizontal.mp4
-- Montage vertical : 24.4 s, 17.2 Mo → out/montage/montage-vertical.mp4
+- Message 1576016655597969685 du 2026-11-27T23:27:31.668000+00:00
+- Consigne : equivalent de la #32, j ai juste ajouter le viseur , c est la barre qui est en dessous de la souris et au dessus de la molly a droite avec le bout de la feuille qui manque 
+post plant B default depuis main caisse
+- Téléchargé via dossier Drive, clip le plus proche (MedalTVValorant20261128002556645.mp4) : 39.1 Mo, 1920×1080, 5000000/83333 ips, 30.2 s
+- Montage horizontal : 22.9 s, 17.7 Mo → out/montage/montage-horizontal.mp4
+- Montage vertical : 22.9 s, 17.3 Mo → out/montage/montage-vertical.mp4
 - Envoi montage-horizontal.mp4 dans le fil : 200 ✅
 - Envoi montage-vertical.mp4 dans le fil : 200 ✅
 - 2 planche(s) d'images (1 image/s) dans bot-logs (montage/) ; apercu.mp4 et montages mp4 en artefact privé « videos-bot » (3 jours)
@@ -75,4 +76,4 @@
 - validé : #55 · Haven · Phoenix · Molly on the logs · from Mid (C retake) (déjà dans la release)
 - validé : #57 · Haven · Phoenix · Cubby molly · from C Site (defense) (déjà dans la release)
 
-28 line up(s) validée(s) sur 35 fil(s).
+28 line up(s) validée(s) sur 36 fil(s).
