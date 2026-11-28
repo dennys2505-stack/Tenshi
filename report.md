@@ -1,4 +1,4 @@
-# Tâche « montage » — 2026-11-28T01:20:50.043Z
+# Tâche « montage » — 2026-11-28T01:24:50.548Z
 
 - Dossier Drive : 32 vidéo(s)
   1. MedalTVValorant20261123212447605.mp4
@@ -36,11 +36,11 @@
 ## Montage — étape 1 : récupération
 
 - Salon : #video-line-up-a-monter — 44 message(s) lus
-- Message 1576021317596086285 du 2026-11-27T23:46:03.175000+00:00
-- Consigne : equivalent de la #41 post plant avec shock dart B (plant pour long) depuis under nest point de repere viseur ( si tu sais mettre le timer c est un +)
-- Téléchargé via dossier Drive, clip le plus proche (MedalTVValorant20261128004456450.mp4) : 39.1 Mo, 1920×1080, 5000000/83333 ips, 30.2 s
-- Montage horizontal : 17.0 s, 17.9 Mo → out/montage/montage-horizontal.mp4
-- Montage vertical : 17.0 s, 17.8 Mo → out/montage/montage-vertical.mp4
+- Message 1576021959819526155 du 2026-11-27T23:48:36.293000+00:00
+- Consigne : equivalent de la #38 attaque A reveal depuis main vers site A point de repere viseur
+- Téléchargé via dossier Drive, clip le plus proche (MedalTVValorant20261128004758477.mp4) : 39.1 Mo, 1920×1080, 5000000/83333 ips, 30.0 s
+- Montage horizontal : 18.7 s, 17.9 Mo → out/montage/montage-horizontal.mp4
+- Montage vertical : 18.7 s, 17.6 Mo → out/montage/montage-vertical.mp4
 - Envoi montage-horizontal.mp4 dans le fil : 200 ✅
 - Envoi montage-vertical.mp4 dans le fil : 200 ✅
 - 2 planche(s) d'images (1 image/s) dans bot-logs (montage/) ; apercu.mp4 et montages mp4 en artefact privé « videos-bot » (3 jours)
@@ -75,4 +75,4 @@
 - validé : #55 · Haven · Phoenix · Molly on the logs · from Mid (C retake) (déjà dans la release)
 - validé : #57 · Haven · Phoenix · Cubby molly · from C Site (defense) (déjà dans la release)
 
-28 line up(s) validée(s) sur 38 fil(s).
+28 line up(s) validée(s) sur 39 fil(s).
