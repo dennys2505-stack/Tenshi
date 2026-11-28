@@ -1,4 +1,4 @@
-# Tâche « montage » — 2026-11-28T01:32:52.452Z
+# Tâche « montage » — 2026-11-28T01:34:52.481Z
 
 - Dossier Drive : 32 vidéo(s)
   1. MedalTVValorant20261123212447605.mp4
@@ -33,47 +33,27 @@
   30. MedalTVValorant20261128004758477.mp4
   31. MedalTVValorant20261128005205911.mp4
   32. MedalTVValorant20261128005635370.mp4
-## Montage — étape 1 : récupération
+## Images pour le site
 
-- Salon : #video-line-up-a-monter — 44 message(s) lus
-- Message 1576024445053702208 du 2026-11-27T23:58:28.819000+00:00
-- Consigne : equivalent de #39 , il y a 2 point de repere avec 2 infos , premier sur le rocher en haut viseur un peu plus que 2 charges, point de repere 2 viseur full charge 2 rebond sur le coin jaune 
-post plant A sur le pont depuis main
-- Téléchargé via dossier Drive, clip le plus proche (MedalTVValorant20261128005635370.mp4) : 38.8 Mo, 1920×1080, 5000000/83333 ips, 30.1 s
-- Montage horizontal : 26.1 s, 17.7 Mo → out/montage/montage-horizontal.mp4
-- Montage vertical : 26.1 s, 17.6 Mo → out/montage/montage-vertical.mp4
-- Envoi montage-horizontal.mp4 dans le fil : 200 ✅
-- Envoi montage-vertical.mp4 dans le fil : 200 ✅
-- 2 planche(s) d'images (1 image/s) dans bot-logs (montage/) ; apercu.mp4 et montages mp4 en artefact privé « videos-bot » (3 jours)
-## Line ups validées (✅)
-
-- validé : #92 · Lotus · Brimstone · C molly (for dune) · from C Main (déjà dans la release)
-- validé : #3 · Bind · Brimstone · B Long default (déjà dans la release)
-- validé : #4 · Bind · Brimstone (déjà dans la release)
-- validé : #5 · Bind · Brimstone (déjà dans la release)
-- validé : #152 · Lotus · Fade · A Door reveal · defense (déjà dans la release)
-- validé : #90 · Lotus · Brimstone · B under post-plant · from B Main (déjà dans la release)
-- validé : #64 · Lotus · Brimstone · C default post-plant · from C Main (déjà dans la release)
-- validé : #65 · Lotus · Brimstone · A default post-plant · from A Door (déjà dans la release)
-- validé : #63 · Lotus · Brimstone · A default fast post-plant · from the breakable door (déjà dans la release)
-- validé : #158 · Lotus · Fade · C Main reveal · from B Site (defense) (déjà dans la release)
-- validé : #227 · Haven · Sova · C Long reveal · from C Site (defense) (déjà dans la release)
-- validé : #144 · Haven · Sova · Fast A Main reveal · from A Site (defense) (déjà dans la release)
-- validé : #88 · Haven · Brimstone · C default post-plant · from C Long (déjà dans la release)
-- validé : #2 · Haven · Brimstone · C Long post-plant · from C Long (déjà dans la release)
-- validé : #86 · Haven · Brimstone · A default post-plant · from A Main (box) (déjà dans la release)
-- validé : #87 · Haven · Brimstone · C retake molly for Cubby · from C Site (defense) (déjà dans la release)
-- validé : #56 · Haven · Phoenix · Cubby molly · from C Long (attack) (déjà dans la release)
-- validé : #89 · Haven · Brimstone · B default post-plant · from Attacker Spawn (déjà dans la release)
-- validé : #62 · Haven · Brimstone · A Short post-plant · from A Long (déjà dans la release)
-- validé : #30 · Sunset · Brimstone · A default post-plant · from Elbow (déjà dans la release)
-- validé : #69 · Sunset · Brimstone · A open post-plant · from CT (déjà dans la release)
-- validé : #29 · Sunset · Brimstone · B default post-plant · from Spawn (déjà dans la release)
-- validé : #31 · Sunset · Brimstone · B default post-plant · from Mid (déjà dans la release)
-- validé : #203 · Haven · Waylay · Garage push nade · defense (déjà dans la release)
-- validé : #202 · Haven · Waylay · C box nade · from Cubby (déjà dans la release)
-- validé : #54 · Haven · Phoenix · Invisible Blaze for Heaven · from A Site (attack) (déjà dans la release)
-- validé : #55 · Haven · Phoenix · Molly on the logs · from Mid (C retake) (déjà dans la release)
-- validé : #57 · Haven · Phoenix · Cubby molly · from C Site (defense) (déjà dans la release)
-
-28 line up(s) validée(s) sur 41 fil(s).
+- own-abyss-brim-33-position.jpg (1576015132730073319, 14.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261128002012117.mp4)) : 126309 octets
+- own-abyss-brim-33-visee.jpg (1576015132730073319, 17.75 s, dossier Drive, clip le plus proche (MedalTVValorant20261128002012117.mp4)) : 123249 octets
+- own-abyss-brim-33-resultat.jpg (1576015132730073319, 3 s, dossier Drive, clip le plus proche (MedalTVValorant20261128002012117.mp4)) : 156787 octets
+- own-abyss-brim-32-position.jpg (1576016655597969685, 14 s, dossier Drive, clip le plus proche (MedalTVValorant20261128002556645.mp4)) : 136680 octets
+- own-abyss-brim-32-visee.jpg (1576016655597969685, 20.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261128002556645.mp4)) : 145962 octets
+- own-abyss-brim-32-resultat.jpg (1576016655597969685, 8 s, dossier Drive, clip le plus proche (MedalTVValorant20261128002556645.mp4)) : 165966 octets
+- own-abyss-brim-35-position.jpg (1576020387290947728, 12.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261128004101405.mp4)) : 114584 octets
+- own-abyss-brim-35-visee.jpg (1576020387290947728, 20.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261128004101405.mp4)) : 143442 octets
+- own-abyss-brim-35-resultat.jpg (1576020387290947728, 8.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261128004101405.mp4)) : 152931 octets
+- own-abyss-sova-41-position.jpg (1576021317596086285, 18.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261128004456450.mp4)) : 94833 octets
+- own-abyss-sova-41-visee.jpg (1576021317596086285, 26 s, dossier Drive, clip le plus proche (MedalTVValorant20261128004456450.mp4)) : 139849 octets
+- own-abyss-sova-41-resultat.jpg (1576021317596086285, 28.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261128004456450.mp4)) : 130547 octets
+- own-abyss-sova-38-position.jpg (1576021959819526155, 16 s, dossier Drive, clip le plus proche (MedalTVValorant20261128004758477.mp4)) : 106819 octets
+- own-abyss-sova-38-visee.jpg (1576021959819526155, 23.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261128004758477.mp4)) : 133293 octets
+- own-abyss-sova-38-resultat.jpg (1576021959819526155, 12.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261128004758477.mp4)) : 149698 octets
+- own-abyss-sova-40-position.jpg (1576023123000823930, 18.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261128005205911.mp4)) : 104885 octets
+- own-abyss-sova-40-visee.jpg (1576023123000823930, 23.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261128005205911.mp4)) : 174775 octets
+- own-abyss-sova-40-resultat.jpg (1576023123000823930, 10.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261128005205911.mp4)) : 182799 octets
+- own-abyss-sova-39-position.jpg (1576024445053702208, 13 s, dossier Drive, clip le plus proche (MedalTVValorant20261128005635370.mp4)) : 145202 octets
+- own-abyss-sova-39-visee.jpg (1576024445053702208, 21 s, dossier Drive, clip le plus proche (MedalTVValorant20261128005635370.mp4)) : 138657 octets
+- own-abyss-sova-39-visee-2.jpg (1576024445053702208, 24 s, dossier Drive, clip le plus proche (MedalTVValorant20261128005635370.mp4)) : 156070 octets
+- own-abyss-sova-39-resultat.jpg (1576024445053702208, 6 s, dossier Drive, clip le plus proche (MedalTVValorant20261128005635370.mp4)) : 141331 octets
