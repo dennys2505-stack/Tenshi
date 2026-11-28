@@ -1,4 +1,4 @@
-# Tâche « montage » — 2026-11-28T01:37:21.157Z
+# Tâche « montage » — 2026-11-28T01:39:05.297Z
 
 - Dossier Drive : 32 vidéo(s)
   1. MedalTVValorant20261123212447605.mp4
@@ -33,12 +33,7 @@
   30. MedalTVValorant20261128004758477.mp4
   31. MedalTVValorant20261128005205911.mp4
   32. MedalTVValorant20261128005635370.mp4
-## Vidéos en boucle pour le site
+## Images pour le site
 
-- abyss-brim-33.mp4 (1576015132730073319, 17→19 + 24.5→28.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261128002012117.mp4)) : 245 Ko
-- abyss-brim-32.mp4 (1576016655597969685, 20→22 + 25.75→29.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261128002556645.mp4)) : 321 Ko
-- abyss-brim-35.mp4 (1576020387290947728, 20→22 + 27.5→29.8 s, dossier Drive, clip le plus proche (MedalTVValorant20261128004101405.mp4)) : 247 Ko
-- abyss-sova-41.mp4 (1576021317596086285, 25.5→29.8 s, dossier Drive, clip le plus proche (MedalTVValorant20261128004456450.mp4)) : 332 Ko
-- abyss-sova-38.mp4 (1576021959819526155, 23→29 s, dossier Drive, clip le plus proche (MedalTVValorant20261128004758477.mp4)) : 568 Ko
-- abyss-sova-40.mp4 (1576023123000823930, 23→29.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261128005205911.mp4)) : 470 Ko
-- abyss-sova-39.mp4 (1576024445053702208, 20.5→29 s, dossier Drive, clip le plus proche (MedalTVValorant20261128005635370.mp4)) : 990 Ko
+- own-abyss-sova-38-resultat.jpg (1576021959819526155, 28 s, dossier Drive, clip le plus proche (MedalTVValorant20261128004758477.mp4)) : 155653 octets
+- own-abyss-sova-39-resultat.jpg (1576024445053702208, 28 s, dossier Drive, clip le plus proche (MedalTVValorant20261128005635370.mp4)) : 135414 octets
