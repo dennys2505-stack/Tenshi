@@ -1,4 +1,4 @@
-# Tâche « montage » — 2026-11-28T00:58:20.200Z
+# Tâche « montage » — 2026-11-28T01:04:37.540Z
 
 - Dossier Drive : 32 vidéo(s)
   1. MedalTVValorant20261123212447605.mp4
@@ -33,101 +33,46 @@
   30. MedalTVValorant20261128004758477.mp4
   31. MedalTVValorant20261128005205911.mp4
   32. MedalTVValorant20261128005635370.mp4
-## Images pour le site
+## Montage — étape 1 : récupération
 
-- x-3319-14.50.jpg (1576015132730073319, 14.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261128002012117.mp4)) : 126309 octets
-- x-3319-16.50.jpg (1576015132730073319, 16.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261128002012117.mp4)) : 123835 octets
-- x-3319-17.00.jpg (1576015132730073319, 17 s, dossier Drive, clip le plus proche (MedalTVValorant20261128002012117.mp4)) : 123964 octets
-- x-3319-17.25.jpg (1576015132730073319, 17.25 s, dossier Drive, clip le plus proche (MedalTVValorant20261128002012117.mp4)) : 124012 octets
-- x-3319-17.50.jpg (1576015132730073319, 17.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261128002012117.mp4)) : 123570 octets
-- x-3319-17.75.jpg (1576015132730073319, 17.75 s, dossier Drive, clip le plus proche (MedalTVValorant20261128002012117.mp4)) : 121970 octets
-- x-3319-18.00.jpg (1576015132730073319, 18 s, dossier Drive, clip le plus proche (MedalTVValorant20261128002012117.mp4)) : 123472 octets
-- x-3319-18.25.jpg (1576015132730073319, 18.25 s, dossier Drive, clip le plus proche (MedalTVValorant20261128002012117.mp4)) : 125243 octets
-- x-3319-18.50.jpg (1576015132730073319, 18.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261128002012117.mp4)) : 109645 octets
-- x-3319-24.75.jpg (1576015132730073319, 24.75 s, dossier Drive, clip le plus proche (MedalTVValorant20261128002012117.mp4)) : 156767 octets
-- x-3319-25.00.jpg (1576015132730073319, 25 s, dossier Drive, clip le plus proche (MedalTVValorant20261128002012117.mp4)) : 158941 octets
-- x-3319-25.25.jpg (1576015132730073319, 25.25 s, dossier Drive, clip le plus proche (MedalTVValorant20261128002012117.mp4)) : 158392 octets
-- x-3319-25.50.jpg (1576015132730073319, 25.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261128002012117.mp4)) : 162824 octets
-- x-3319-25.75.jpg (1576015132730073319, 25.75 s, dossier Drive, clip le plus proche (MedalTVValorant20261128002012117.mp4)) : 163321 octets
-- x-3319-26.00.jpg (1576015132730073319, 26 s, dossier Drive, clip le plus proche (MedalTVValorant20261128002012117.mp4)) : 162515 octets
-- x-9685-15.00.jpg (1576016655597969685, 15 s, dossier Drive, clip le plus proche (MedalTVValorant20261128002556645.mp4)) : 102734 octets
-- x-9685-19.50.jpg (1576016655597969685, 19.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261128002556645.mp4)) : 145285 octets
-- x-9685-20.00.jpg (1576016655597969685, 20 s, dossier Drive, clip le plus proche (MedalTVValorant20261128002556645.mp4)) : 144890 octets
-- x-9685-20.25.jpg (1576016655597969685, 20.25 s, dossier Drive, clip le plus proche (MedalTVValorant20261128002556645.mp4)) : 144627 octets
-- x-9685-20.50.jpg (1576016655597969685, 20.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261128002556645.mp4)) : 145068 octets
-- x-9685-20.75.jpg (1576016655597969685, 20.75 s, dossier Drive, clip le plus proche (MedalTVValorant20261128002556645.mp4)) : 144731 octets
-- x-9685-21.00.jpg (1576016655597969685, 21 s, dossier Drive, clip le plus proche (MedalTVValorant20261128002556645.mp4)) : 142005 octets
-- x-9685-21.25.jpg (1576016655597969685, 21.25 s, dossier Drive, clip le plus proche (MedalTVValorant20261128002556645.mp4)) : 143534 octets
-- x-9685-26.25.jpg (1576016655597969685, 26.25 s, dossier Drive, clip le plus proche (MedalTVValorant20261128002556645.mp4)) : 159432 octets
-- x-9685-26.50.jpg (1576016655597969685, 26.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261128002556645.mp4)) : 161578 octets
-- x-9685-26.75.jpg (1576016655597969685, 26.75 s, dossier Drive, clip le plus proche (MedalTVValorant20261128002556645.mp4)) : 164920 octets
-- x-9685-27.00.jpg (1576016655597969685, 27 s, dossier Drive, clip le plus proche (MedalTVValorant20261128002556645.mp4)) : 165856 octets
-- x-9685-27.25.jpg (1576016655597969685, 27.25 s, dossier Drive, clip le plus proche (MedalTVValorant20261128002556645.mp4)) : 163031 octets
-- x-9685-27.50.jpg (1576016655597969685, 27.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261128002556645.mp4)) : 163259 octets
-- x-7728-14.50.jpg (1576020387290947728, 14.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261128004101405.mp4)) : 106460 octets
-- x-7728-19.50.jpg (1576020387290947728, 19.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261128004101405.mp4)) : 138000 octets
-- x-7728-20.00.jpg (1576020387290947728, 20 s, dossier Drive, clip le plus proche (MedalTVValorant20261128004101405.mp4)) : 139527 octets
-- x-7728-20.25.jpg (1576020387290947728, 20.25 s, dossier Drive, clip le plus proche (MedalTVValorant20261128004101405.mp4)) : 139295 octets
-- x-7728-20.50.jpg (1576020387290947728, 20.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261128004101405.mp4)) : 139992 octets
-- x-7728-20.75.jpg (1576020387290947728, 20.75 s, dossier Drive, clip le plus proche (MedalTVValorant20261128004101405.mp4)) : 139578 octets
-- x-7728-21.00.jpg (1576020387290947728, 21 s, dossier Drive, clip le plus proche (MedalTVValorant20261128004101405.mp4)) : 137048 octets
-- x-7728-21.25.jpg (1576020387290947728, 21.25 s, dossier Drive, clip le plus proche (MedalTVValorant20261128004101405.mp4)) : 137279 octets
-- x-7728-27.75.jpg (1576020387290947728, 27.75 s, dossier Drive, clip le plus proche (MedalTVValorant20261128004101405.mp4)) : 152954 octets
-- x-7728-28.00.jpg (1576020387290947728, 28 s, dossier Drive, clip le plus proche (MedalTVValorant20261128004101405.mp4)) : 156063 octets
-- x-7728-28.25.jpg (1576020387290947728, 28.25 s, dossier Drive, clip le plus proche (MedalTVValorant20261128004101405.mp4)) : 157792 octets
-- x-7728-28.50.jpg (1576020387290947728, 28.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261128004101405.mp4)) : 158873 octets
-- x-7728-28.75.jpg (1576020387290947728, 28.75 s, dossier Drive, clip le plus proche (MedalTVValorant20261128004101405.mp4)) : 163023 octets
-- x-7728-29.00.jpg (1576020387290947728, 29 s, dossier Drive, clip le plus proche (MedalTVValorant20261128004101405.mp4)) : 163386 octets
-- x-6285-19.00.jpg (1576021317596086285, 19 s, dossier Drive, clip le plus proche (MedalTVValorant20261128004456450.mp4)) : 88163 octets
-- x-6285-25.50.jpg (1576021317596086285, 25.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261128004456450.mp4)) : 137524 octets
-- x-6285-25.75.jpg (1576021317596086285, 25.75 s, dossier Drive, clip le plus proche (MedalTVValorant20261128004456450.mp4)) : 138531 octets
-- x-6285-26.00.jpg (1576021317596086285, 26 s, dossier Drive, clip le plus proche (MedalTVValorant20261128004456450.mp4)) : 138426 octets
-- x-6285-26.25.jpg (1576021317596086285, 26.25 s, dossier Drive, clip le plus proche (MedalTVValorant20261128004456450.mp4)) : 137565 octets
-- x-6285-26.50.jpg (1576021317596086285, 26.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261128004456450.mp4)) : 125940 octets
-- x-6285-26.75.jpg (1576021317596086285, 26.75 s, dossier Drive, clip le plus proche (MedalTVValorant20261128004456450.mp4)) : 135789 octets
-- x-6285-27.25.jpg (1576021317596086285, 27.25 s, dossier Drive, clip le plus proche (MedalTVValorant20261128004456450.mp4)) : 99646 octets
-- x-6285-27.50.jpg (1576021317596086285, 27.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261128004456450.mp4)) : 96911 octets
-- x-6285-27.75.jpg (1576021317596086285, 27.75 s, dossier Drive, clip le plus proche (MedalTVValorant20261128004456450.mp4)) : 106476 octets
-- x-6285-28.00.jpg (1576021317596086285, 28 s, dossier Drive, clip le plus proche (MedalTVValorant20261128004456450.mp4)) : 110591 octets
-- x-6285-28.25.jpg (1576021317596086285, 28.25 s, dossier Drive, clip le plus proche (MedalTVValorant20261128004456450.mp4)) : 124166 octets
-- x-6285-28.50.jpg (1576021317596086285, 28.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261128004456450.mp4)) : 130547 octets
-- x-6155-16.00.jpg (1576021959819526155, 16 s, dossier Drive, clip le plus proche (MedalTVValorant20261128004758477.mp4)) : 106819 octets
-- x-6155-23.00.jpg (1576021959819526155, 23 s, dossier Drive, clip le plus proche (MedalTVValorant20261128004758477.mp4)) : 130845 octets
-- x-6155-23.25.jpg (1576021959819526155, 23.25 s, dossier Drive, clip le plus proche (MedalTVValorant20261128004758477.mp4)) : 131786 octets
-- x-6155-23.50.jpg (1576021959819526155, 23.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261128004758477.mp4)) : 131090 octets
-- x-6155-23.75.jpg (1576021959819526155, 23.75 s, dossier Drive, clip le plus proche (MedalTVValorant20261128004758477.mp4)) : 131415 octets
-- x-6155-24.00.jpg (1576021959819526155, 24 s, dossier Drive, clip le plus proche (MedalTVValorant20261128004758477.mp4)) : 122926 octets
-- x-6155-24.25.jpg (1576021959819526155, 24.25 s, dossier Drive, clip le plus proche (MedalTVValorant20261128004758477.mp4)) : 115244 octets
-- x-6155-27.00.jpg (1576021959819526155, 27 s, dossier Drive, clip le plus proche (MedalTVValorant20261128004758477.mp4)) : 150168 octets
-- x-6155-27.50.jpg (1576021959819526155, 27.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261128004758477.mp4)) : 150831 octets
-- x-6155-28.00.jpg (1576021959819526155, 28 s, dossier Drive, clip le plus proche (MedalTVValorant20261128004758477.mp4)) : 155653 octets
-- x-6155-28.50.jpg (1576021959819526155, 28.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261128004758477.mp4)) : 153762 octets
-- x-3930-18.50.jpg (1576023123000823930, 18.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261128005205911.mp4)) : 104885 octets
-- x-3930-19.50.jpg (1576023123000823930, 19.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261128005205911.mp4)) : 157350 octets
-- x-3930-23.00.jpg (1576023123000823930, 23 s, dossier Drive, clip le plus proche (MedalTVValorant20261128005205911.mp4)) : 173378 octets
-- x-3930-23.25.jpg (1576023123000823930, 23.25 s, dossier Drive, clip le plus proche (MedalTVValorant20261128005205911.mp4)) : 174819 octets
-- x-3930-23.50.jpg (1576023123000823930, 23.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261128005205911.mp4)) : 173520 octets
-- x-3930-23.75.jpg (1576023123000823930, 23.75 s, dossier Drive, clip le plus proche (MedalTVValorant20261128005205911.mp4)) : 174763 octets
-- x-3930-24.00.jpg (1576023123000823930, 24 s, dossier Drive, clip le plus proche (MedalTVValorant20261128005205911.mp4)) : 161400 octets
-- x-3930-24.25.jpg (1576023123000823930, 24.25 s, dossier Drive, clip le plus proche (MedalTVValorant20261128005205911.mp4)) : 157450 octets
-- x-3930-25.50.jpg (1576023123000823930, 25.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261128005205911.mp4)) : 137630 octets
-- x-3930-26.00.jpg (1576023123000823930, 26 s, dossier Drive, clip le plus proche (MedalTVValorant20261128005205911.mp4)) : 139151 octets
-- x-3930-26.50.jpg (1576023123000823930, 26.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261128005205911.mp4)) : 135931 octets
-- x-3930-27.00.jpg (1576023123000823930, 27 s, dossier Drive, clip le plus proche (MedalTVValorant20261128005205911.mp4)) : 132847 octets
-- x-2208-13.00.jpg (1576024445053702208, 13 s, dossier Drive, clip le plus proche (MedalTVValorant20261128005635370.mp4)) : 145202 octets
-- x-2208-14.00.jpg (1576024445053702208, 14 s, dossier Drive, clip le plus proche (MedalTVValorant20261128005635370.mp4)) : 141347 octets
-- x-2208-20.50.jpg (1576024445053702208, 20.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261128005635370.mp4)) : 139605 octets
-- x-2208-20.75.jpg (1576024445053702208, 20.75 s, dossier Drive, clip le plus proche (MedalTVValorant20261128005635370.mp4)) : 134077 octets
-- x-2208-21.00.jpg (1576024445053702208, 21 s, dossier Drive, clip le plus proche (MedalTVValorant20261128005635370.mp4)) : 136163 octets
-- x-2208-21.25.jpg (1576024445053702208, 21.25 s, dossier Drive, clip le plus proche (MedalTVValorant20261128005635370.mp4)) : 134392 octets
-- x-2208-21.50.jpg (1576024445053702208, 21.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261128005635370.mp4)) : 132221 octets
-- x-2208-21.75.jpg (1576024445053702208, 21.75 s, dossier Drive, clip le plus proche (MedalTVValorant20261128005635370.mp4)) : 127398 octets
-- x-2208-24.00.jpg (1576024445053702208, 24 s, dossier Drive, clip le plus proche (MedalTVValorant20261128005635370.mp4)) : 154245 octets
-- x-2208-24.25.jpg (1576024445053702208, 24.25 s, dossier Drive, clip le plus proche (MedalTVValorant20261128005635370.mp4)) : 156676 octets
-- x-2208-24.50.jpg (1576024445053702208, 24.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261128005635370.mp4)) : 148352 octets
-- x-2208-24.75.jpg (1576024445053702208, 24.75 s, dossier Drive, clip le plus proche (MedalTVValorant20261128005635370.mp4)) : 144895 octets
-- x-2208-25.00.jpg (1576024445053702208, 25 s, dossier Drive, clip le plus proche (MedalTVValorant20261128005635370.mp4)) : 154245 octets
-- x-2208-26.50.jpg (1576024445053702208, 26.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261128005635370.mp4)) : 129147 octets
-- x-2208-27.00.jpg (1576024445053702208, 27 s, dossier Drive, clip le plus proche (MedalTVValorant20261128005635370.mp4)) : 135225 octets
-- x-2208-27.50.jpg (1576024445053702208, 27.5 s, dossier Drive, clip le plus proche (MedalTVValorant20261128005635370.mp4)) : 136797 octets
-- x-2208-28.00.jpg (1576024445053702208, 28 s, dossier Drive, clip le plus proche (MedalTVValorant20261128005635370.mp4)) : 135414 octets
+- Salon : #video-line-up-a-monter — 44 message(s) lus
+- Message 1576015132730073319 du 2026-11-27T23:21:28.588000+00:00
+- Consigne : equivalent de la #33 post plant abyss A default depuis Main point de viser comme sur la photo (en haut a droite du carrer au dessus de la souris qui est au dessus de la molly )
+- Téléchargé via dossier Drive, clip le plus proche (MedalTVValorant20261128002012117.mp4) : 39.0 Mo, 1920×1080, 5000000/83333 ips, 30.0 s
+- Montage horizontal : 24.4 s, 17.6 Mo → out/montage/montage-horizontal.mp4
+- Montage vertical : 24.4 s, 17.2 Mo → out/montage/montage-vertical.mp4
+- Envoi montage-horizontal.mp4 dans le fil : 200 ✅
+- Envoi montage-vertical.mp4 dans le fil : 200 ✅
+- 2 planche(s) d'images (1 image/s) dans bot-logs (montage/) ; apercu.mp4 et montages mp4 en artefact privé « videos-bot » (3 jours)
+## Line ups validées (✅)
+
+- validé : #92 · Lotus · Brimstone · C molly (for dune) · from C Main (déjà dans la release)
+- validé : #3 · Bind · Brimstone · B Long default (déjà dans la release)
+- validé : #4 · Bind · Brimstone (déjà dans la release)
+- validé : #5 · Bind · Brimstone (déjà dans la release)
+- validé : #152 · Lotus · Fade · A Door reveal · defense (déjà dans la release)
+- validé : #90 · Lotus · Brimstone · B under post-plant · from B Main (déjà dans la release)
+- validé : #64 · Lotus · Brimstone · C default post-plant · from C Main (déjà dans la release)
+- validé : #65 · Lotus · Brimstone · A default post-plant · from A Door (déjà dans la release)
+- validé : #63 · Lotus · Brimstone · A default fast post-plant · from the breakable door (déjà dans la release)
+- validé : #158 · Lotus · Fade · C Main reveal · from B Site (defense) (déjà dans la release)
+- validé : #227 · Haven · Sova · C Long reveal · from C Site (defense) (déjà dans la release)
+- validé : #144 · Haven · Sova · Fast A Main reveal · from A Site (defense) (déjà dans la release)
+- validé : #88 · Haven · Brimstone · C default post-plant · from C Long (déjà dans la release)
+- validé : #2 · Haven · Brimstone · C Long post-plant · from C Long (déjà dans la release)
+- validé : #86 · Haven · Brimstone · A default post-plant · from A Main (box) (déjà dans la release)
+- validé : #87 · Haven · Brimstone · C retake molly for Cubby · from C Site (defense) (déjà dans la release)
+- validé : #56 · Haven · Phoenix · Cubby molly · from C Long (attack) (déjà dans la release)
+- validé : #89 · Haven · Brimstone · B default post-plant · from Attacker Spawn (déjà dans la release)
+- validé : #62 · Haven · Brimstone · A Short post-plant · from A Long (déjà dans la release)
+- validé : #30 · Sunset · Brimstone · A default post-plant · from Elbow (déjà dans la release)
+- validé : #69 · Sunset · Brimstone · A open post-plant · from CT (déjà dans la release)
+- validé : #29 · Sunset · Brimstone · B default post-plant · from Spawn (déjà dans la release)
+- validé : #31 · Sunset · Brimstone · B default post-plant · from Mid (déjà dans la release)
+- validé : #203 · Haven · Waylay · Garage push nade · defense (déjà dans la release)
+- validé : #202 · Haven · Waylay · C box nade · from Cubby (déjà dans la release)
+- validé : #54 · Haven · Phoenix · Invisible Blaze for Heaven · from A Site (attack) (déjà dans la release)
+- validé : #55 · Haven · Phoenix · Molly on the logs · from Mid (C retake) (déjà dans la release)
+- validé : #57 · Haven · Phoenix · Cubby molly · from C Site (defense) (déjà dans la release)
+
+28 line up(s) validée(s) sur 35 fil(s).
