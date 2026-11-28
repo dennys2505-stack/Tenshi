@@ -14,16 +14,20 @@
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/b06055131ffc.jpg",
-      "cap": ""
+      "src": "/img/lineups/own-abyss-sova-39-position.jpg",
+      "cap": "Position : contre le mur dans A Lobby"
     },
     {
-      "src": "/img/lineups/f26a11a60912.jpg",
-      "cap": ""
+      "src": "/img/lineups/own-abyss-sova-39-visee.jpg",
+      "cap": "Repère 1 : viseur sur le rocher (un peu plus de 2 charges)"
     },
     {
-      "src": "/img/lineups/6ffe2a87ec82.jpg",
-      "cap": ""
+      "src": "/img/lineups/own-abyss-sova-39-visee-2.jpg",
+      "cap": "Repère 2 : viseur (charge pleine, 2 rebonds)"
+    },
+    {
+      "src": "/img/lineups/own-abyss-sova-39-resultat.jpg",
+      "cap": "Résultat"
     }
   ],
   "from": [
@@ -40,5 +44,7 @@
   "source": {
     "message": "1482509436445523979"
   },
-  "checked": true
+  "checked": true,
+  "own": true,
+  "loop": "/vid/abyss-sova-39.mp4"
 }

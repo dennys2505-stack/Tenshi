@@ -13,12 +13,16 @@
   "reveal": true,
   "images": [
     {
-      "src": "/img/lineups/7201dcac1493.jpg",
-      "cap": "Image de la vidéo"
+      "src": "/img/lineups/own-abyss-sova-38-position.jpg",
+      "cap": "Position : dans le coin de A Main"
     },
     {
-      "src": "/img/lineups/2daa63eaf240.jpg",
-      "cap": "Image de la vidéo"
+      "src": "/img/lineups/own-abyss-sova-38-visee.jpg",
+      "cap": "Repère : viseur (charge pleine, 1 rebond)"
+    },
+    {
+      "src": "/img/lineups/own-abyss-sova-38-resultat.jpg",
+      "cap": "Résultat"
     }
   ],
   "from": [
@@ -35,5 +39,7 @@
   "source": {
     "message": "1482457551177257163"
   },
-  "checked": true
+  "checked": true,
+  "own": true,
+  "loop": "/vid/abyss-sova-38.mp4"
 }

@@ -10,12 +10,16 @@
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/f7d051309a8f.jpg",
-      "cap": "Repère de visée"
+      "src": "/img/lineups/own-abyss-brim-35-position.jpg",
+      "cap": "Position : contre le mur sous B Nest"
     },
     {
-      "src": "/img/lineups/566ad292b6c5.jpg",
-      "cap": "Repère de visée"
+      "src": "/img/lineups/own-abyss-brim-35-visee.jpg",
+      "cap": "Repère : carré sur le rebord pour se placer, puis viseur sur le rocher"
+    },
+    {
+      "src": "/img/lineups/own-abyss-brim-35-resultat.jpg",
+      "cap": "Résultat"
     }
   ],
   "from": [
@@ -32,5 +36,8 @@
   "source": {
     "message": "1568186233396658298"
   },
-  "checked": true
+  "checked": true,
+  "own": true,
+  "loop": "/vid/abyss-brim-35.mp4",
+  "impact": 7.5
 }

@@ -10,12 +10,16 @@
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/afc190aaa19b.jpg",
-      "cap": "Image de la vidéo"
+      "src": "/img/lineups/own-abyss-sova-41-position.jpg",
+      "cap": "Position : dans le coin de B Main"
     },
     {
-      "src": "/img/lineups/c3f0f5cb223d.jpg",
-      "cap": "Image de la vidéo"
+      "src": "/img/lineups/own-abyss-sova-41-visee.jpg",
+      "cap": "Repère : viseur (charge pleine)"
+    },
+    {
+      "src": "/img/lineups/own-abyss-sova-41-resultat.jpg",
+      "cap": "Résultat"
     }
   ],
   "from": [
@@ -33,5 +37,8 @@
     "message": "1483898863872905347"
   },
   "checked": true,
-  "ability": "shock"
+  "ability": "shock",
+  "own": true,
+  "loop": "/vid/abyss-sova-41.mp4",
+  "impact": 2.0
 }

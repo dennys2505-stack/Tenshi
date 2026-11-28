@@ -284,6 +284,19 @@
     "Position : dans Elbow": "Position: in Elbow",
     "Position : près des caisses en CT": "Position: by the crates in CT",
     "Position : à côté de la benne du spawn attaquant": "Position: next to the dumpster in Attacker Spawn",
-    "Repère : coin du carré sur le coin du bâtiment": "Aim point: square corner on the building corner"
+    "Repère : coin du carré sur le coin du bâtiment": "Aim point: square corner on the building corner",
+    "Position : contre le mur au bout de A Main": "Position: against the wall at the end of A Main",
+    "Repère : coin en haut à droite du carré sur le bord du mur": "Aim: top-right corner of the square on the wall edge",
+    "Position : à côté de la caisse de B Main": "Position: next to the box in B Main",
+    "Repère : barre sous la souris sur le bout de la feuille": "Aim: bar under the mouse icon on the leaf tip",
+    "Position : contre le mur sous B Nest": "Position: against the wall under B Nest",
+    "Repère : carré sur le rebord pour se placer, puis viseur sur le rocher": "Aim: square on the ledge to find your spot, then crosshair on the rock",
+    "Position : contre le mur dans A Lobby": "Position: against the wall in A Lobby",
+    "Repère 1 : viseur sur le rocher (un peu plus de 2 charges)": "Aim 1: crosshair on the rock (just over 2 charges)",
+    "Repère 2 : viseur (charge pleine, 2 rebonds)": "Aim 2: crosshair (full charge, 2 bounces)",
+    "Position : dans le coin de B Main": "Position: in the corner of B Main",
+    "Repère : viseur (charge pleine)": "Aim: crosshair (full charge)",
+    "Position : dans le coin de A Main": "Position: in the corner of A Main",
+    "Position : dans le coin à côté de la caisse de B Main": "Position: in the corner next to the box in B Main"
   }
 }

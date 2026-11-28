@@ -10,12 +10,16 @@
   "reveal": false,
   "images": [
     {
-      "src": "/img/lineups/4b3db245662c.jpg",
-      "cap": "Repère de visée"
+      "src": "/img/lineups/own-abyss-brim-33-position.jpg",
+      "cap": "Position : contre le mur au bout de A Main"
     },
     {
-      "src": "/img/lineups/1f3b0947e72a.jpg",
-      "cap": "Image de la vidéo"
+      "src": "/img/lineups/own-abyss-brim-33-visee.jpg",
+      "cap": "Repère : coin en haut à droite du carré sur le bord du mur"
+    },
+    {
+      "src": "/img/lineups/own-abyss-brim-33-resultat.jpg",
+      "cap": "Résultat"
     }
   ],
   "from": [
@@ -32,5 +36,8 @@
   "source": {
     "message": "1553724790341111921"
   },
-  "checked": true
+  "checked": true,
+  "own": true,
+  "loop": "/vid/abyss-brim-33.mp4",
+  "impact": 8.2
 }

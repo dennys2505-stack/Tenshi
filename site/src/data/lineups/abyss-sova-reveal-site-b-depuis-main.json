@@ -13,12 +13,16 @@
   "reveal": true,
   "images": [
     {
-      "src": "/img/lineups/1b309f75efa5.jpg",
-      "cap": ""
+      "src": "/img/lineups/own-abyss-sova-40-position.jpg",
+      "cap": "Position : dans le coin à côté de la caisse de B Main"
     },
     {
-      "src": "/img/lineups/abyss-40-coin.jpg",
-      "cap": "Bien se coller dans le coin"
+      "src": "/img/lineups/own-abyss-sova-40-visee.jpg",
+      "cap": "Repère : viseur (charge pleine, 2 rebonds)"
+    },
+    {
+      "src": "/img/lineups/own-abyss-sova-40-resultat.jpg",
+      "cap": "Résultat"
     }
   ],
   "from": [
@@ -35,5 +39,7 @@
   "source": {
     "message": "1482513071581692088"
   },
-  "checked": true
+  "checked": true,
+  "own": true,
+  "loop": "/vid/abyss-sova-40.mp4"
 }
